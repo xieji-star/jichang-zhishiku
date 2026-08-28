@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "skill_name": "LLM知识库",
+    "skill_path": "F:/积昌的知识库 - 副本/.claude/skills/LLM知识库",
+    "executor_model": "claude-sonnet-4-20250514",
+    "timestamp": "2026-07-14T00:00:00Z",
+    "evals_run": [0, 1, 2],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "eval_name": "ingest",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 79.5,
+        "tokens": 25813,
+        "tool_calls": 31,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "ingest",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 62.8,
+        "tokens": 25918,
+        "tool_calls": 37,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "query",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 29.7,
+        "tokens": 15195,
+        "tool_calls": 5,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "query",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 23.4,
+        "tokens": 16113,
+        "tool_calls": 6,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "lint",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 40.5,
+        "tokens": 19381,
+        "tool_calls": 13,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "lint",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 35.4,
+        "tokens": 18176,
+        "tool_calls": 11,
+        "errors": 0
+      }
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 49.9, "stddev": 25.7, "min": 29.7, "max": 79.5},
+      "tokens": {"mean": 20130, "stddev": 5347, "min": 15195, "max": 25813}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 0.92, "stddev": 0.14, "min": 0.75, "max": 1.0},
+      "time_seconds": {"mean": 40.5, "stddev": 20.0, "min": 23.4, "max": 62.8},
+      "tokens": {"mean": 20069, "stddev": 5270, "min": 16113, "max": 25918}
+    },
+    "delta": {
+      "pass_rate": "+0.08",
+      "time_seconds": "+9.4",
+      "tokens": "+61"
+    }
+  },
+  "notes": [
+    "Ingest 和 Query 测试中 with-skill 和 without-skill 均取得 100% 通过率，说明这两个操作在简单场景下即使没有 skill 指导也能正确执行",
+    "Lint 测试中 with-skill (100%) 显著优于 without-skill (75%)，说明 skill 的 6 项系统性检查框架对 Lint 操作最有价值",
+    "Without-skill 的 Lint 报告缺少'检查通过率'指标，因为它没有遵循结构化的 Lint 报告模板",
+    "with-skill 在三个测试中平均耗时略长 (+9.4秒)，但提供了更结构化和一致性的输出",
+    "所有 with-skill 运行都遵循了技能中定义的流程：读取 index.md → 读取相关页面 → 结构化处理 → 保存输出"
+  ]
+}

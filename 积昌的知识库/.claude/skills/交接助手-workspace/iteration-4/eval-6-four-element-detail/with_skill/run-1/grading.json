@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "四要素①②③④都有实质内容", "passed": true, "evidence": "①第6节已完成工作（74-135行）；②第7节 A没做完的事（136-225行）；③第8节 A→B接力总览（226-244行）；④第9节下一步怎么做（245+行）——四部分均有实质内容。"},
+    {"text": "已做什么逐条含产出物与验证", "passed": true, "evidence": "第6节每条已完成项含产出物位置与验证（「已完成」出现10次，验证出现25+次）。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "第7节每项含 为什么没做完(9)/前置(12)/优先级(13)/做到什么算完成(11)/从哪开始(13)/验证。"},
+    {"text": "接力总览表（未完成↔接下来一一对应）", "passed": true, "evidence": "第8节 A→B 接力总览表（226行），把第7节未完成项与第9节任务成对呈现。"},
+    {"text": "下一步1-N步可照做有验证有求助", "passed": true, "evidence": "第9节按优先级拆成可照做步骤，含验证信号与求助点（卡住/求助/找谁出现11次）。"},
+    {"text": "无一笔带过话术", "passed": true, "evidence": "grep「一笔带过|等等|下次继续」计数为 0。"},
+    {"text": "总体详细（篇幅长非简略清单）", "passed": true, "evidence": "497 行，含给人版完整 12 节 + 文末「给 Claude Code 版」附录，远超简略清单。"}
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 184.0, "total_duration_seconds": 184.0}
+}

@@ -1,0 +1,45 @@
+{
+  "skill_name": "LLM知识库",
+  "evals": [
+    {
+      "id": 0,
+      "name": "ingest",
+      "prompt": "请处理这个新来源文件，把它整合到 Wiki 中。新来源是 sources/HTTP 403 错误详解.md，讲的是 HTTP 403 Forbidden 错误的常见原因、调试方法和修复方案。请按照 LLM Wiki 的 Ingest 流程来处理：读取来源、分析影响范围、更新或创建 Wiki 页面、更新 index.md 和 log.md。测试 Wiki 在 test-workspace 目录下。",
+      "expected_output": "Wiki 中新增或更新 HTTP 错误相关页面，index.md 和 log.md 已更新",
+      "files": ["test-workspace/sources/HTTP 403 错误详解.md"],
+      "expectations": [
+        "Wiki 页面包含了 HTTP 403 错误的核心信息",
+        "index.md 已更新（新增行或更新现有行）",
+        "log.md 已追加新条目",
+        "新页面使用了正确的 YAML frontmatter 格式",
+        "来源引用指向 sources/HTTP 403 错误详解.md"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "query",
+      "prompt": "我想了解一下面试时候怎么用 STAR+L 框架来回答问题？有没有具体的步骤和例子？请基于 test-workspace 目录下的 Wiki 来回答。",
+      "expected_output": "基于 Wiki 中面试技巧页面的内容，综合回答 STAR+L 框架的用法",
+      "files": [],
+      "expectations": [
+        "回答引用了 Wiki 页面中的 STAR+L 框架内容",
+        "回答包含了 S/T/A/R/L 五个要素的说明",
+        "回答提到了来源（链接到 wiki/面试技巧）",
+        "回答使用结构化格式（表格或列表）"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "lint",
+      "prompt": "请对 test-workspace 下的 Wiki 进行一次健康检查（Lint），检查是否存在矛盾、过时声明、孤立页面、缺失页面、交叉引用缺失等问题。完成后生成 Lint 报告。",
+      "expected_output": "生成一份 Lint 报告，列出发现的问题和修复建议",
+      "files": [],
+      "expectations": [
+        "生成了 Lint 报告",
+        "报告包含问题类型和严重程度",
+        "报告检查了至少 3 种问题类型（矛盾、过时、孤立页面等）",
+        "报告包含统计信息（页面数、检查通过率）"
+      ]
+    }
+  ]
+}

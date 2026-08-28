@@ -1,0 +1,22 @@
+[
+  {"query": "帮我处理一下这个新来源，它在总结好的大纲以及笔记/AI/Claude Code使用心得.md，帮我整合到自动维护知识库的wiki里，分类放到AI与技术工具下", "should_trigger": true},
+  {"query": "我刚写了一篇关于分布式系统的笔记，在桌面上的笔记.md，帮我整理到知识库的wiki里", "should_trigger": true},
+  {"query": "更新一下自动维护知识库里的智能Agent决策页面，我有一些新的技术细节要补充进去", "should_trigger": true},
+  {"query": "对自动维护知识库做一次健康检查吧，看看页面之间有没有矛盾的或者过时的内容", "should_trigger": true},
+  {"query": "帮我查一下自动维护知识库里关于面试技巧的内容，我想知道STAR+L框架怎么用", "should_trigger": true},
+  {"query": "lint一下这个wiki，看看有没有孤立页面或者交叉引用缺失的问题", "should_trigger": true},
+  {"query": "我下载了一篇新的水肥一体机论文PDF，帮我读到wiki里，放在智灌云联项目/论文笔记下面", "should_trigger": true},
+  {"query": "这个来源同时讲了面试和简历两个主题，帮我分别更新自动维护知识库里对应的wiki页面", "should_trigger": true},
+  {"query": "把这个新文件ingest到wiki里，在总结好的大纲以及笔记/编程/HTTP 403错误详解.md，内容是关于HTTP 403的", "should_trigger": true},
+  {"query": "整理一下自动维护知识库知识库，最近加了不少内容，帮我全部整合好，更新index和log", "should_trigger": true},
+  {"query": "帮我写一篇关于HTTP 403错误的博客文章，我要发到我的技术博客上", "should_trigger": false},
+  {"query": "帮我解释一下HTTP 403错误是什么意思，和401有什么区别", "should_trigger": false},
+  {"query": "整理一下我的桌面文件夹，太乱了，帮我按类型分分类", "should_trigger": false},
+  {"query": "这个PDF文件的内容是什么？帮我总结一下核心要点", "should_trigger": false},
+  {"query": "帮我把这个Markdown文件格式整理一下，标题层级不对，列表缩进也有问题", "should_trigger": false},
+  {"query": "帮我写一个Python脚本，批量重命名 downloads 文件夹里的所有文件", "should_trigger": false},
+  {"query": "区块链到底是什么？能给我通俗解释一下吗", "should_trigger": false},
+  {"query": "帮我优化一下这段Python代码的性能，用列表推导式替换for循环", "should_trigger": false},
+  {"query": "检查一下我电脑上的临时文件，看看有哪些可以清理删除的", "should_trigger": false},
+  {"query": "帮我写一份面试用的自我介绍，要突出项目经验和亮点", "should_trigger": false}
+]

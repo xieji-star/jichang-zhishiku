@@ -1,0 +1,27 @@
+{
+  "eval_id": "eval-2-lint",
+  "iteration": "iteration-1",
+  "variant": "with_skill",
+  "results": [
+    {
+      "expectation": "生成了 Lint 报告",
+      "result": "PASS",
+      "evidence": "输出目录中存在 lint-report.md 文件，内容为完整的 Wiki Lint 报告，包含标题、摘要、各项检查详情及统计总结。"
+    },
+    {
+      "expectation": "报告包含问题类型和严重程度",
+      "result": "PASS",
+      "evidence": "报告中每个发现问题均标注了严重程度：🔴 严重（如 1.1, 2.1, 3.1, 4.1）、🟠 中等（如 1.3, 2.2, 5.2）、🟡 轻微（如 1.2, 4.2, 5.1, 5.3, 6.2）。第 7.2 节还按严重程度进行了分级统计。"
+    },
+    {
+      "expectation": "报告检查了至少 3 种问题类型（矛盾、过时、孤立页面等）",
+      "result": "PASS",
+      "evidence": "报告共检查了 6 种问题类型：(1) 矛盾检查、(2) 过时声明检查、(3) 孤立页面检查、(4) 缺失页面检查、(5) 交叉引用缺失检查、(6) 数据缺口检查，覆盖了要求的矛盾、过时、孤立页面三种类型。"
+    },
+    {
+      "expectation": "报告包含统计信息（页面数、检查通过率）",
+      "result": "PASS",
+      "evidence": "报告 frontmatter 中包含 total_pages: 2、total_sources: 1、checks_performed: 6、overall_status: 'FAIL (5 issues found)'。第 14 行摘要表格中包含"通过率: 1/6 (16.7%)"。第 7 节包含详细的问题汇总表（7.1）和严重程度分级统计（7.2）。"
+    }
+  ]
+}

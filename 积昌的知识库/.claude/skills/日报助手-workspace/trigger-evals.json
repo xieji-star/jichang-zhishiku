@@ -1,0 +1,82 @@
+[
+  {
+    "query": "帮我写今天的日报，今天做了4条脚本、MiniMax和Heygen做了4条数字人视频、灯塔录了4条线索、回了约50次评论",
+    "should_trigger": true
+  },
+  {
+    "query": "日报助手，整理一下今天的工作，我要发给mentor",
+    "should_trigger": true
+  },
+  {
+    "query": "今天忙死了：3条脚本、2条视频、钩子文档2个、评论30多次、线索1条，帮我记录一下",
+    "should_trigger": true
+  },
+  {
+    "query": "写个工作记录，今天发了2篇长推文、优化了10个关键词、流量大概5000",
+    "should_trigger": true
+  },
+  {
+    "query": "今日复盘：今天流量1万+但线索只有2条，帮我整理成日报",
+    "should_trigger": true
+  },
+  {
+    "query": "记录今天的工作，日报写好后还要同步到飞书",
+    "should_trigger": true
+  },
+  {
+    "query": "今天干了啥：数字人视频6条（MiniMax+Heygen全链路）、长推文31条、评论20~30次、线索5条、科研脚本31个",
+    "should_trigger": true
+  },
+  {
+    "query": "昨天忘了写日报，现在补一下，数据是：脚本4条、视频4条、钩子4个、评论50次、线索4条、流量1万+",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我写日报，顺便看看今天的剪辑数和发布数，发布的有：科研华哥 案例类 播放763 点赞6，不水论文的华哥 长文 播放1200 点赞15",
+    "should_trigger": true
+  },
+  {
+    "query": "今天工作内容有点多，帮我梳理成一份正式的日报，运营的是科研华哥和不水论文的华哥",
+    "should_trigger": true
+  },
+  {
+    "query": "今天工作没什么好记的，不用写日报了",
+    "should_trigger": false
+  },
+  {
+    "query": "日报一般怎么写？格式是什么样的，我想了解一下",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我写个短视频脚本，选题是：科研小白怎么选导师",
+    "should_trigger": false
+  },
+  {
+    "query": "把这份会议记录整理成纪要，重点是结论和待办",
+    "should_trigger": false
+  },
+  {
+    "query": "今天有点累，面试表现一般，跟你聊聊",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我找一下最近几天的日报文件存在哪里了",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我写一下这周的周报，汇总本周的工作",
+    "should_trigger": false
+  },
+  {
+    "query": "整理一下飞书收集箱里的内容，按日期归档",
+    "should_trigger": false
+  },
+  {
+    "query": "最近账号流量不太行，帮我分析下数据找找原因",
+    "should_trigger": false
+  },
+  {
+    "query": "把下面这段日报内容翻译成英文：今天完成4条脚本……",
+    "should_trigger": false
+  }
+]

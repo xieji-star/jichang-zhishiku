@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "标注目标智能体 Codex", "passed": true, "evidence": "标题「给 Codex 版」+「交接对象：Codex（OpenAI 智能体，模式 B 专属定制）」。"},
+    {"text": "Windows/PowerShell风格命令", "passed": true, "evidence": "含 `run_crawl.ps1`、`Activate.ps1`、`Get-Content logs` 等 PowerShell 命令。"},
+    {"text": "从哪个函数/文件/哪一行继续", "passed": true, "evidence": "含 `_handle_slider_captcha()（#L210）`、`main.py 的 --resume 分支（#L120）` 等函数+行号定位。"},
+    {"text": "如何验证续上了", "passed": true, "evidence": "验证信号给 `Get-Content logs`、`python -c ...sqlite3...`、`pytest` 输出等。"},
+    {"text": "Codex特有元素（config.toml/会话/代理）", "passed": true, "evidence": "第12节定制内容含「先查 config.toml」「会话可迁移（拷 sessions 不拷 auth.json）」「代理注意」。"},
+    {"text": "非通用模板（明显定制）", "passed": true, "evidence": "接力表入口列统一用 PowerShell 命令+函数级定位，明显针对 Codex。"},
+    {"text": "A→B接力映射（PowerShell命令+函数级定位）", "passed": true, "evidence": "第6节接力总览表列含「从哪开始（PowerShell 命令 + 函数级定位）」与「做到什么算完成（验证信号）」。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "第5节未完成项以表格列出，列含 为什么没做完/前置/优先级/做到什么算完成/从哪开始/验证信号。"}
+  ],
+  "summary": {"passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 96.5, "total_duration_seconds": 96.5}
+}

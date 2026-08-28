@@ -1,0 +1,23 @@
+{
+  "name": "elegant-reports",
+  "version": "1.1.0",
+  "description": "Generate beautifully designed PDF reports with Nordic/Scandinavian aesthetic (净化版，纯本地渲染，零网络外发)",
+  "main": "generate.js",
+  "bin": {
+    "elegant-reports": "./generate.js"
+  },
+  "scripts": {
+    "generate": "node generate.js",
+    "smoke": "node scripts/smoke-test.js",
+    "test": "npm run smoke && node generate.js --list"
+  },
+  "keywords": [
+    "pdf",
+    "reports",
+    "nordic",
+    "design"
+  ],
+  "author": "积昌知识库（净化重写）",
+  "license": "MIT",
+  "dependencies": {}
+}

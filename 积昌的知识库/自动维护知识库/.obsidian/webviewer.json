@@ -1,0 +1,8 @@
+{
+  "openExternalURLs": true,
+  "enableAdblocking": true,
+  "homepage": "www.bing.com",
+  "markdownPath": "网页浏览·",
+  "customSearchEngine": "https://firefox.com/?q=%s",
+  "searchEngine": "duckduckgo"
+}

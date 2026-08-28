@@ -1,0 +1,15 @@
+{
+  "expectations": [
+    {"text": "给人版结构（阅读指引/背景/术语表/手把手）", "passed": true, "evidence": "含「目录」「3.背景与来龙去脉」「4.术语表」「9.下一步怎么做（手把手）」等章节。"},
+    {"text": "术语表存在", "passed": true, "evidence": "第4节术语表存在。"},
+    {"text": "手把手下一步可照做", "passed": true, "evidence": "第9节含「立即做（第一周内）」「之后做（第二周起）」等可照做步骤。"},
+    {"text": "风险与求助点存在", "passed": true, "evidence": "第11节含风险与求助点，标注 ❓。"},
+    {"text": "背景与来龙去脉叙述", "passed": true, "evidence": "第3节「背景与来龙去脉」有叙述性内容。"},
+    {"text": "已完成/未完成全量列表", "passed": true, "evidence": "第6节已完成 6 组全量；第7节未完成 5 项全量。"},
+    {"text": "A→B接力映射表（从哪开始+怎么验证）", "passed": true, "evidence": "第8节接力总览表，列含「从哪开始」与「做到什么算完成」。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "第7节每项均含：还差什么/为什么没做完/前置条件/优先级/做到什么程度算完成/涉及文件或位置/找谁怎么验证（事项1-5逐一核对齐全）。"},
+    {"text": "下一步展开1-N步有验证信号", "passed": true, "evidence": "第9节步骤每步含验证信号（全文验证出现15次）。"}
+  ],
+  "summary": {"passed": 9, "failed": 0, "total": 9, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 198.3, "total_duration_seconds": 198.3}
+}

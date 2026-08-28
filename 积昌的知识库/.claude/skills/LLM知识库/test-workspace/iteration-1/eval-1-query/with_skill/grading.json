@@ -1,0 +1,32 @@
+{
+  "eval_id": "eval-1-query",
+  "output_file": "star-l-interview-guide.md",
+  "results": [
+    {
+      "expectation_id": 1,
+      "description": "回答引用了 Wiki 页面中的 STAR+L 框架内容",
+      "result": "PASS",
+      "evidence": "输出文件的 YAML frontmatter 标注 source: \"wiki/面试技巧.md\"；正文多次明确引用 Wiki 页面内容，如第10行\"根据 Wiki《面试技巧》页面的内容\"、第22行\"来源：《面试技巧》Wiki 页面\"、第50行\"Wiki 中还提到\"、第64行\"本文基于 Wiki 页面 ... 整理生成\"。"
+    },
+    {
+      "expectation_id": 2,
+      "description": "回答包含了 S/T/A/R/L 五个要素的说明",
+      "result": "PASS",
+      "evidence": "第14-20行以表格形式列出 S（背景）、T（任务）、A（行动）、R（结果）、L（学习/收获）五个要素并分别给出含义和说明；第26-30行逐条详细解释每个要素的具体用法和示例。"
+    },
+    {
+      "expectation_id": 3,
+      "description": "回答提到了来源（链接到 wiki/面试技巧）",
+      "result": "PASS",
+      "evidence": "第3行 YAML frontmatter 标注 source 为 wiki/面试技巧.md；第22行明确标注\"来源：《面试技巧》Wiki 页面\"；第64行包含指向 ../wiki/面试技巧.md 的相对链接。"
+    },
+    {
+      "expectation_id": 4,
+      "description": "回答使用结构化格式（表格或列表）",
+      "result": "PASS",
+      "evidence": "使用了多种结构化格式：第14-20行 Markdown 表格呈现五要素；第26-30行有序列表描述具体步骤；第52-53行无序列表列出配合技巧；第57-60行有序列表列出使用要点；第38-46行引用块展示完整示例。"
+    }
+  ],
+  "overall": "ALL PASS",
+  "graded_at": "2026-07-14"
+}

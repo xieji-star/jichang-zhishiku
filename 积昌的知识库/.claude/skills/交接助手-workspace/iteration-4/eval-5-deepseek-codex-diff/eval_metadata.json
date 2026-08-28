@@ -1,0 +1,14 @@
+{
+  "eval_id": 5,
+  "eval_name": "deepseek-codex-diff",
+  "prompt": "我有一个知识库自动化整理项目，之前用 Claude Code 做了一半。现在我想同时准备两份交接文档：一份给 DeepSeek Harness（它主要靠对话记忆、可能读不到我的本地文件、上下文有限），一份给 Codex（它能读本地文件、能跑 PowerShell 命令）。同一个项目，请写出两份针对各自智能体习性/能力定制的交接文档，不要用同一份内容改个标题敷衍。",
+  "assertions": [
+    "输出两份文档并标注目标智能体",
+    "DeepSeek版自包含贴内容+人代跑验证+证据分级/核对清单",
+    "Codex版精确路径+PowerShell命令+函数级定位+config.toml提醒",
+    "两份文档非改标题关系（内容实质不同）",
+    "两份文档都有A→B接力总览",
+    "未完成项写满七要素",
+    "DeepSeek版指令粒度细于Codex版"
+  ]
+}

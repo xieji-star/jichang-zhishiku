@@ -1,0 +1,299 @@
+{
+  "main": {
+    "id": "c0ba5ccb7ecad741",
+    "type": "split",
+    "children": [
+      {
+        "id": "9ba008c854ef474a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "586c3a874f582643",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "lark-resources/群消息图片/img_5.jpg"
+              },
+              "icon": "lucide-image",
+              "title": "img_5"
+            }
+          },
+          {
+            "id": "248f6469488f25f1",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          },
+          {
+            "id": "9139caf0b628b4ac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/图灵学术——流量培训.excalidraw",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "图灵学术——流量培训"
+            }
+          },
+          {
+            "id": "a2b139116e4a541d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "0828脚本合集"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "39f9b1aeb73e868a",
+    "type": "split",
+    "children": [
+      {
+        "id": "45e59219ee18b3d6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d6d1f25dcf1b4a11",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b77dc6cf9fa45c10",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "[\"tags\"]",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "4719435c24d1d122",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 336.16668701171875
+  },
+  "right": {
+    "id": "b5d9456f2ef0ff8d",
+    "type": "split",
+    "children": [
+      {
+        "id": "40112c05d15041e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0575cc9883958615",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "积昌/Skills/excalidraw-diagram-skill/references/color-palette.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "color-palette 的反向链接列表"
+            }
+          },
+          {
+            "id": "720be0874f423ec2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "积昌/Skills/excalidraw-diagram-skill/references/color-palette.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "color-palette 的出链列表"
+            }
+          },
+          {
+            "id": "73bb808c02d5983f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "e1072e2c14efd794",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "da571eaa16c85f06",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "积昌/Skills/excalidraw-diagram-skill/references/color-palette.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "color-palette 的大纲"
+            }
+          },
+          {
+            "id": "f7e2d8a1ef4b5f62",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          },
+          {
+            "id": "2deaa3dcee976969",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {},
+              "icon": "lucide-info",
+              "title": "笔记属性"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 633.833251953125
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
+    }
+  },
+  "active": "f7e2d8a1ef4b5f62",
+  "lastOpenFiles": [
+    "总结好的大纲以及笔记/知识库FAQ/12-GitHub推送被Secret-Scanning拦截（快照含API密钥）.md.tmp.7416.6fc71271a5e3",
+    "总结好的大纲以及笔记/知识库FAQ/00-报错统计台账.md.tmp.7416.b84916d66943",
+    "总结好的大纲以及笔记/知识库FAQ/12-GitHub推送被Secret-Scanning拦截（快照含API密钥）.md.tmp.7416.e6511976e5a5",
+    "总结好的大纲以及笔记/知识库FAQ/12-GitHub推送被Secret-Scanning拦截（快照含API密钥）.md.tmp.7416.f485d116eaf6",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.41825510855d",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.564230495787",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.75488a88ebd9",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.740e84e8df93",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.5cc4df17d8fe",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md.tmp.20472.0c972ca4480e",
+    "总结好的大纲以及笔记/浪尖训练营/实习训练营/课程里面的其他东西/JD深度剖析/广西宝瑞坦制药_制药QC_深度分析报告.pdf",
+    "总结好的大纲以及笔记/浪尖训练营/实习训练营/课程里面的其他东西/JD深度剖析/广西宝瑞坦制药_制药QC_深度分析报告.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/爆款库/0828爆款3.md",
+    "总结好的大纲以及笔记/浪尖训练营/实习训练营/课程里面的其他东西/JD深度剖析/广西宝瑞坦制药_岗位深度分析报告.md",
+    "总结好的大纲以及笔记/浪尖训练营/实习训练营/课程里面的其他东西/概念/QC-质量控制.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/创作好的脚本/0828脚本/0828脚本合集.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/爆款库/0828爆款2.md",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/与曹老师见面的技巧.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/爆款库/0828爆款.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/创业黑马数智科技流量课.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/图灵学术——流量培训_render.png",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/view_check2.png",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/view_check.jpg",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/图灵学术——流量培训_view.png",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/图灵学术——流量培训_preview.png",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/工作文件/脚本&推文撰写/脚本资料库/参考的资料/新媒体陪跑/图灵学术——流量培训.md",
+    "总结好的大纲以及笔记/学校/大创与国创/创新点/智灌云联创新点V2.1优化版（农艺知识驱动）.md",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/1.png",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/5.png",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/4.png",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/3.png",
+    "总结好的大纲以及笔记/人情世故/与曹立文老师的对话/2.png",
+    "实习训练营/简历制作/简历排版问题修改课与内容修改加餐.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "总结好的大纲以及笔记/实习就业/创业黑马——数智科技部门/个人自述/mt（韩玲）工作经历自述.md",
+    "自动维护知识库/wiki/实习求职/创业黑马实习/创业黑马实习全景.md",
+    "自动维护知识库/CLAUDE.md",
+    "自动维护知识库/index.md",
+    "自动维护知识库/LLM Wiki.md",
+    "自动维护知识库/log.md",
+    "总结好的大纲以及笔记/学校/课程/大二上/理论力学/2.3约束与约束反力.md",
+    "2.3约束与约束反力.pdf.md",
+    "总结好的大纲以及笔记/学校/课程/大二上/理论力学/3.1受力分析与受力图.md",
+    "总结好的大纲以及笔记/学校/课程/大二上/理论力学/2.4工程中常见的约束.md",
+    "总结好的大纲以及笔记/知识库FAQ/00-报错统计台账.md"
+  ]
+}

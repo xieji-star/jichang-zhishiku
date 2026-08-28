@@ -1,0 +1,9 @@
+2026/08/10-16:34:48.841 ce9c Reusing MANIFEST C:\Users\asus\AppData\Roaming\Codex\web\Codex\Default\Local Storage\leveldb/MANIFEST-000001
+2026/08/10-16:34:48.842 ce9c Recovering log #765
+2026/08/10-16:34:48.847 ce9c Reusing old log C:\Users\asus\AppData\Roaming\Codex\web\Codex\Default\Local Storage\leveldb/000765.log 
+2026/08/10-16:55:19.962 ce9c Level-0 table #769: started
+2026/08/10-16:55:20.045 ce9c Level-0 table #769: 1440321 bytes OK
+2026/08/10-16:55:20.047 ce9c Delete type=0 #765
+2026/08/10-17:15:47.106 ce9c Level-0 table #771: started
+2026/08/10-17:15:47.120 ce9c Level-0 table #771: 1430071 bytes OK
+2026/08/10-17:15:47.121 ce9c Delete type=0 #768

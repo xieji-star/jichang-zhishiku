@@ -1,0 +1,22 @@
+2026/08/10-17:32:19.013 96b0 Reusing MANIFEST C:\Users\asus\AppData\Roaming\Codex\web\Codex\Default\Local Storage\leveldb/MANIFEST-000001
+2026/08/10-17:32:19.014 96b0 Recovering log #770
+2026/08/10-17:32:19.018 96b0 Level-0 table #773: started
+2026/08/10-17:32:19.033 96b0 Level-0 table #773: 1425581 bytes OK
+2026/08/10-17:32:19.040 96b0 Delete type=0 #770
+2026/08/10-17:32:19.040 b4b8 Compacting 4@0 + 2@1 files
+2026/08/10-17:32:19.085 b4b8 Generated table #775@0: 11 keys, 2865436 bytes
+2026/08/10-17:32:19.095 b4b8 Generated table #776@0: 4 keys, 385 bytes
+2026/08/10-17:32:19.095 b4b8 Compacted 4@0 + 2@1 files => 2865821 bytes
+2026/08/10-17:32:19.096 b4b8 compacted to: files[ 0 2 1 0 0 0 0 ]
+2026/08/10-17:32:19.097 b4b8 Delete type=2 #763
+2026/08/10-17:32:19.097 b4b8 Delete type=2 #764
+2026/08/10-17:32:19.097 b4b8 Delete type=2 #766
+2026/08/10-17:32:19.097 b4b8 Delete type=2 #769
+2026/08/10-17:32:19.097 b4b8 Delete type=2 #771
+2026/08/10-17:32:19.098 b4b8 Delete type=2 #773
+2026/08/10-18:14:20.793 96b0 Level-0 table #778: started
+2026/08/10-18:14:20.813 96b0 Level-0 table #778: 1426715 bytes OK
+2026/08/10-18:14:20.820 96b0 Delete type=0 #774
+2026/08/10-18:23:32.036 96b0 Level-0 table #780: started
+2026/08/10-18:23:32.057 96b0 Level-0 table #780: 1425800 bytes OK
+2026/08/10-18:23:32.063 96b0 Delete type=0 #777

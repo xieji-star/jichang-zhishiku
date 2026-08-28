@@ -1,0 +1,258 @@
+{
+  "main": {
+    "id": "3529b420ec455464",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e5f5133bf5dba95",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8cbbb26d9bef16c4",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b8ba5d71e096246d",
+    "type": "split",
+    "children": [
+      {
+        "id": "29d2b3b229d94f48",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "672a9cfed72d168a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "4462b940ce17d76d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "743b846a9670471e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0d68d7425a072ddc",
+    "type": "split",
+    "children": [
+      {
+        "id": "256bf43276edc566",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cfa063db98522209",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "智灌云联项目技术面问题/50问/50问详细回答思路.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "50问详细回答思路 的反向链接列表"
+            }
+          },
+          {
+            "id": "48b3c3988b5de641",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "实习就业/DAY2——投递.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "DAY2——投递 的出链列表"
+            }
+          },
+          {
+            "id": "dc057fc4d5d0f5c9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "e53520ce5646389b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b83182b432a10551",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "实习就业/DAY2——投递.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "DAY2——投递 的大纲"
+            }
+          },
+          {
+            "id": "1874e940e1fc4ce4",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "b6dae72499cc9205",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 479.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "random-note:开始漫游笔记": false,
+      "workspaces:管理工作区布局": false,
+      "bases:新建数据库": false,
+      "obsidian-kanban:创建新看板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-weread-plugin:同步微信读书笔记": false,
+      "infio-copilot:打开 Infio Copilot": false,
+      "realclaudian:Open Claudian": false
+    }
+  },
+  "active": "8cbbb26d9bef16c4",
+  "lastOpenFiles": [
+    "未命名.md",
+    "AI/Claude Code从0~1的入门/Claude Code 从 0 到 1 完全使用教程（Obsidian版）.md",
+    "AI/Claude Code从0~1的入门/Claude Code完全教程【视频文档】.pdf",
+    "AI/SKILL入门大全",
+    "AI/Claude Code从0~1的入门/Claude Code从0~1的入门.md",
+    "AI/Claude Code 入门与 GitHub 协作开发指南/Claude code入门与GitHub协作开发.pdf",
+    "AI/Claude Code 入门与 GitHub 协作开发指南/Claude Code 入门与 GitHub 协作开发——完整使用指南（Obsidian版）.md",
+    "AI/Claude Code从0~1的入门/Claude Code完全教程【视频文档】.pdf.wxdownload",
+    "AI/Claude Code从0~1的入门",
+    "AI/新建文件夹",
+    "AI/Claude Code 入门与 GitHub 协作开发指南/Claude Code 入门与 GitHub 协作开发指南.md",
+    "AI/未命名/Claude Code 入门与 GitHub 协作开发指南（Obsidian链接修正版）.md",
+    "AI/未命名/Claude Code 入门与 GitHub 协作开发指南（Obsidian增强版）.md",
+    "AI/Claude Code 入门与 GitHub 协作开发指南",
+    "实习训练营/DAY8实习训练营直播分享——行业深度调研与求职避坑指南/城市调研.pdf",
+    "AI",
+    "实习训练营/DAY8实习训练营直播分享——行业深度调研与求职避坑指南/调研焚决.pdf",
+    "实习训练营/DAY7业务侦探/DAY7业务侦探.md",
+    "实习训练营/实习上岸全攻略（与6月实习上岸全攻略不同）/实习上岸全攻略（与6月实习上岸全攻略不同）.md",
+    "智灌云联项目技术面问题/综合问题——技术方面/完整答案.md",
+    "智灌云联项目技术面问题/概念/答辩中涉及到的技术名词.md",
+    "智灌云联项目技术面问题/50问/50问详细回答思路.md",
+    "智灌云联项目技术面问题/综合问题——技术方面/技术问题——综合.md",
+    "智灌云联项目技术面问题/综合问题——技术方面/技术问题——综合，应答策略.md",
+    "智灌云联项目技术面问题/整机总体技术/智灌云联水肥机的总体包括.md",
+    "智灌云联项目技术面问题/50问/技术50问以及追问.md",
+    "智灌云联项目技术面问题/10问/数据来源10大问题.md",
+    "智灌云联项目技术面问题/概念/STM32搭载的处理器型号与配置.md",
+    "智灌云联项目技术面问题/10问/数据与算法答辩 10 问答案.md",
+    "智灌云联项目技术面问题/概念/Jetson Nano上搭载的GPU与CPU型号与类型.md",
+    "智灌云联项目技术面问题/概念/树莓派与Jetson Nano/树莓派  VS  Jetson Nano.md",
+    "智灌云联项目技术面问题/概念/树莓派与Jetson Nano/Jetson Nano与树莓派的概念详解.md",
+    "智灌云联项目技术面问题/概念/边际效应.md",
+    "智灌云联项目技术面问题/整机总体技术/代码类型.md",
+    "智灌云联项目技术面问题/整机总体技术/管道安装.md",
+    "实习就业/微信图片_20260210163620_562_24 1.jpg",
+    "实习就业/微信图片_20260210163619_561_24.jpg",
+    "实习就业/微信图片_20260208222027_556_24.jpg",
+    "自媒体训练营第一期/微信图片_20260308205602_705_24 1.jpg",
+    "自媒体训练营第一期/微信图片_20260308205603_706_24.jpg",
+    "自媒体训练营第一期/微信图片_20260308205602_705_24.jpg",
+    "自媒体训练营第一期/微信图片_20260308205600_704_24.jpg",
+    "自媒体训练营第一期/微信图片_20260308205604_707_24.jpg",
+    "实习就业/实习实训营1.jpg",
+    "实习就业/简历示例.jpg"
+  ]
+}

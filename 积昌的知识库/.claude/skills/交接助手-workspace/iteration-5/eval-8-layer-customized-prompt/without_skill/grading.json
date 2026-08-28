@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "输出两份提示词，分别面向 DeepSeek Harness 与 Codex", "passed": true, "evidence": "输出两个文件 prompt_deepseek.md（给 DeepSeek Harness）与 prompt_codex.md（给 Codex），各为一段完整可复制提示词，分属不同目标智能体。"},
+    {"text": "给 DeepSeek 的提示词含 L3 约束：关键内容贴进正文、验证写『请用户代跑』、证据分级（✅/🔶/❓）或用户核对清单", "passed": true, "evidence": "DeepSeek 版硬约束写明：读不到本地文件系统、跑不了本地命令→自包含，关键代码/配置/命令一律直接贴进正文；验证靠人代跑，写成『请用户运行 XX 命令，看到 YYY 输出即成功』；证据分级 ✅确定/🔶推断/❓待确认；末尾必附『给用户的核对清单』。"},
+    {"text": "给 Codex 的提示词含 L1 约束：能读文件跑命令、给精确路径+PowerShell 命令、函数级定位", "passed": true, "evidence": "Codex 版写明『你能读写本地文件系统、能跑 Windows PowerShell 命令、有本地会话记录可查』，要求精确到『文件:行号 / 函数名 / PowerShell 命令』并附命令预期输出。"},
+    {"text": "两份提示词不是简单改标题关系（验证方式、自包含要求、信息收集方式实质不同）", "passed": true, "evidence": "验证方式实质不同：DeepSeek 版靠『用户代跑+核对清单』（自认不能跑命令），Codex 版要求『先核查后动笔，用 PowerShell 到真实环境核实』（自己能跑）；信息收集不同：DeepSeek 版仅凭聊天记录，Codex 版须真实核查环境并标注『核实方式+核实结果』。"},
+    {"text": "两份提示词都是『基于聊天记录写交接文档』的可复制提示词", "passed": true, "evidence": "两份均要求基于聊天记录写交接文档（DeepSeek 版『仅凭我们这段聊天记录里你掌握的全部信息』；Codex 版『把项目状态写清楚交给一个人』），且均为可整体复制的提示词。"},
+    {"text": "两份提示词都内嵌四要素要求（①已做什么②还没做什么③接下来做什么④怎么做）", "passed": true, "evidence": "两份均含『四要素，缺一不可』：①已做什么（4字段）②还没做什么（7字段）③接下来做什么（与②一一对应）④怎么做（展开成1-N步，每步可照做、有验证信号、卡住了找谁）。"},
+    {"text": "两份提示词都要求 A→B 接力总览表", "passed": true, "evidence": "两份均要求 A→B 接力总览表：DeepSeek 版第6节、Codex 版第8节，列含『从哪开始』与『做到什么算完成（验证信号）』，并给接力开工第一步。"}
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0},
+  "user_notes_summary": {"uncertainties": [], "needs_review": [], "workarounds": []}
+}

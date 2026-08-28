@@ -1,0 +1,14 @@
+{
+  "expectations": [
+    {"text": "标注目标智能体 Codex", "passed": true, "evidence": "标题「给 Codex 版」+「目标智能体：Codex（OpenAI 智能体）｜能力层级：L1 自治型」。"},
+    {"text": "Windows/PowerShell风格命令", "passed": true, "evidence": "大量 PowerShell 命令与 .ps1（全文出现 25+ 次），如「在 PowerShell 执行」。"},
+    {"text": "从哪个函数/文件/哪一行继续", "passed": true, "evidence": "关键函数定位：`core/fetcher.py::fetch_video（第45行）`、`core/batch.py::BatchRunner.run()（第22行，空）` 等。"},
+    {"text": "如何验证续上了", "passed": true, "evidence": "第12节续作启动手册含明确验证信号（pytest 15 passed、health 返回等）。"},
+    {"text": "Codex特有元素（config.toml/会话/代理）", "passed": true, "evidence": "含「Codex 模型配置（config.toml）」「会话迁移说明（拷 sessions 不拷 auth.json）」「网络/代理注意（直连白名单）」专节。"},
+    {"text": "非通用模板（明显定制）", "passed": true, "evidence": "明确写「按 Codex 习性档案从零定制」；PowerShell+函数级定位贯穿全文，非改标题。"},
+    {"text": "A→B接力映射（PowerShell命令+函数级定位）", "passed": true, "evidence": "第6节接力总览表列头即「从哪开始（PowerShell 命令 + 函数级定位）」；验证列给可执行判定信号。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "第5节接力棒各项含为什么没做完(5)、前置(5)、优先级(7)、做到什么算完成(6)、从哪开始(6)、验证(25)。"}
+  ],
+  "summary": {"passed": 8, "failed": 0, "total": 8, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 97.9, "total_duration_seconds": 97.9}
+}

@@ -1,0 +1,31 @@
+{
+  "eval_id": "eval-1-query",
+  "variant": "without_skill",
+  "output_file": "star-l-framework-guide.md",
+  "expectations": [
+    {
+      "id": 1,
+      "description": "回答引用了 Wiki 页面中的 STAR+L 框架内容",
+      "result": "PASS",
+      "evidence": "输出文件的 YAML frontmatter 中 source 字段为 [[wiki/面试技巧.md]]，正文第一段明确写道『根据 Wiki 内容』，全文围绕 STAR+L 框架展开，与 wiki/面试技巧.md 页面内容一致。"
+    },
+    {
+      "id": 2,
+      "description": "回答包含了 S/T/A/R/L 五个要素的说明",
+      "result": "PASS",
+      "evidence": "第14-20行以表格形式列出了 S/Situation/背景、T/Task/任务、A/Action/行动、R/Result/结果、L/Learn/学习/收获 五个要素，并且第24-40行对每个要素给出了详细说明和示例。"
+    },
+    {
+      "id": 3,
+      "description": "回答提到了来源（链接到 wiki/面试技巧）",
+      "result": "PASS",
+      "evidence": "第4行 YAML frontmatter 中包含 source: \"[[wiki/面试技巧.md]]\"，即为 Obsidian wikilink 格式的来源引用；第10行正文也提到『根据 Wiki 内容』，明确标注了信息来源。"
+    },
+    {
+      "id": 4,
+      "description": "回答使用结构化格式（表格或列表）",
+      "result": "PASS",
+      "evidence": "回答大量使用结构化格式：第14-20行使用 Markdown 表格展示五个要素，第24-53行使用标题层级和编号列表逐步展开，第31-34行使用无序列表展示行动示例，第48-52行再次用列表展示完整回答示例，第73-77行使用第二个表格展示常见问题回答策略。"
+    }
+  ]
+}

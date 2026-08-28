@@ -1,0 +1,1268 @@
+mixed-port: 7897
+allow-lan: true
+bind-address: "*"
+mode: direct
+log-level: info
+external-controller: 127.0.0.1:39797
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - +.pool.ntp.org
+    - time1.cloud.tencent.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - msftconnecttest.com
+    - msftncsi.com
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - xbox.*.microsoft.com
+    - xnotify.xboxlive.com
+    - +.battlenet.com.cn
+    - +.wotgame.cn
+    - +.wggames.cn
+    - +.wowsgame.cn
+    - +.wargaming.net
+    - proxy.golang.org
+    - stun.*.*
+    - stun.*.*.*
+    - +.stun.*.*
+    - +.stun.*.*.*
+    - +.stun.*.*.*.*
+    - heartbeat.belkin.com
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.router.asus.com"
+    - mesu.apple.com
+    - swscan.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - lens.l.google.com
+    - stun.l.google.com
+    - +.nflxvideo.net
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+proxies:
+  - name: 🇭🇰|香港-中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 47247
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.hk4.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 32052
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.hk6.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 52987
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.hkj2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港家宽-中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 11820
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.hk8.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港家宽-中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 18055
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.hk9.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港家宽-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 46777
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.hkh2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-IEPL 01
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20059
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20075
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-IEPL 03
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20033
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港家宽-IEPL
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20097
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-进阶IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20074
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-进阶IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20049
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇭🇰|香港-进阶IEPL 03
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20135
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-IEPL 01
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20036
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: sg.catxstar.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20039
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: sg.catxstar.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-进阶IEPL 01
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20060
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: sg.catxstar.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-进阶IEPL 03
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20089
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: sg.catxstar.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 24543
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.sgj1.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-中转 01
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 24495
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.sg2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-中转 02
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 28853
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.sg3.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-中转 03
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 28374
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.sg5.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇸🇬|新加坡-中转 04
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 28046
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.sg6.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20115
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20116
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-IEPL 03
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20130
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-进阶IEPL 01
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20132
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-进阶IEPL 02
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20133
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾家宽-IEPL 01
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20025
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: tw.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾家宽-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20079
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: tw.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 16628
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.twj1.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 36298
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.tw2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇹🇼|台湾-中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 39081
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.tw3.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20080
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20076
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本-中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 29583
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.JP2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本-中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 39193
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.JP4.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本原生-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20111
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本原生-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20128
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本星链家宽-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20004
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本星链家宽-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20129
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本原生-中转 01
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 54599
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.jp12.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本原生-中转 02
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 18233
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.JP7.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇯🇵|日本原生-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 23776
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.jpj2.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇰🇷|韩国家宽-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20014
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇰🇷|韩国家宽-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20001
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇰🇷|韩国家宽-IEPL 03
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20137
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇰🇷|韩国家宽-IEPL 04
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20077
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇲🇴|澳门-IEPL
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20068
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇬🇧|英国-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20020
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇬🇧|英国-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20019
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇫🇷|法国-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20024
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇫🇷|法国-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20064
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇩🇪|德国-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20022
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇩🇪|德国-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20041
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: de.catxstar.com
+    skip-cert-verify: true
+  - name: 🇩🇪|德国-IEPL 03
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20003
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: de.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇹|意大利-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20065
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇹|意大利-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20117
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇳🇴|挪威-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20085
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇳🇴|挪威-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20085
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20007
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: US.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20011
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: US.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-直连
+    type: trojan
+    server: dd.ioioioioioio.com
+    port: 57373
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: d.usj1.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 22220
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.US3.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 15570
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.US4.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-家宽 01 5倍消耗
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20042
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: us.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-家宽 02 5倍消耗
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20050
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: us.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-进阶中转 01
+    type: trojan
+    server: z1.ioioioioioio.com
+    port: 18340
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.US5.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-进阶中转 02
+    type: trojan
+    server: z2.ioioioioioio.com
+    port: 22258
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: r.US6.cat.bilibili.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-进阶IEPL 01
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20043
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: US.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇸|美国-进阶IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20095
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: US.catxstar.com
+    skip-cert-verify: true
+  - name: 🇨🇦|加拿大-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20091
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: ca.catxstar.com
+    skip-cert-verify: true
+  - name: 🇨🇦|加拿大-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20078
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: ca.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇺|澳洲 IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20053
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇺|澳洲 IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20053
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇷🇺|俄罗斯-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20026
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇦|乌克兰-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20066
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇺🇦|乌克兰-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20066
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇷|土耳其-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20027
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇷|土耳其-IEPL 02
+    type: trojan
+    server: iepl003.ioioioioioio.com
+    port: 20028
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇪|阿联酋-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20086
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇪|阿联酋-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20123
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇳🇬|尼日利亚-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20051
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: ng.catxstar.com
+    skip-cert-verify: true
+  - name: 🇳🇬|尼日利亚-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20103
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: ng.catxstar.com
+    skip-cert-verify: true
+  - name: 🇵🇭|菲律宾-IEPL 01 5倍消耗
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20013
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇵🇭|菲律宾-IEPL 02 5倍消耗
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20063
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇵🇭|菲律宾-IEPL 03 5倍消耗
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20013
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇭|泰国-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20023
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇹🇭|泰国-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20006
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇻🇳|越南-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20124
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇻🇳|越南-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20125
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇻🇳|越南家宽-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20121
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇻🇳|越南家宽-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20121
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇲🇾|马来西亚-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20031
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇲🇾|马来西亚-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20047
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇲🇾|马来西亚-IEPL 03
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20048
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇳|印度-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20034
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇳|印度-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20035
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇩|印度尼西亚-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20056
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇮🇩|印度尼西亚-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20120
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇷|阿根廷-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20002
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇦🇷|阿根廷-IEPL 02
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20016
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇧🇷|巴西-IEPL 01
+    type: trojan
+    server: iepl1.ioioioioioio.com
+    port: 20032
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+  - name: 🇧🇷|巴西-IEPL 02
+    type: trojan
+    server: iepl02.ioioioioioio.com
+    port: 20114
+    password: 966e4f47-ff12-477d-8aa1-71bc5320ca53
+    udp: true
+    sni: hk.catxstar.com
+    skip-cert-verify: true
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - 自动节点
+      - 香港自动
+      - 日本自动
+      - 🇭🇰|香港-中转 01
+      - 🇭🇰|香港-中转 02
+      - 🇭🇰|香港-直连
+      - 🇭🇰|香港家宽-中转 01
+      - 🇭🇰|香港家宽-中转 02
+      - 🇭🇰|香港家宽-直连
+      - 🇭🇰|香港-IEPL 01
+      - 🇭🇰|香港-IEPL 02
+      - 🇭🇰|香港-IEPL 03
+      - 🇭🇰|香港家宽-IEPL
+      - 🇭🇰|香港-进阶IEPL 01
+      - 🇭🇰|香港-进阶IEPL 02
+      - 🇭🇰|香港-进阶IEPL 03
+      - 🇸🇬|新加坡-IEPL 01
+      - 🇸🇬|新加坡-IEPL 02
+      - 🇸🇬|新加坡-进阶IEPL 01
+      - 🇸🇬|新加坡-进阶IEPL 03
+      - 🇸🇬|新加坡-直连
+      - 🇸🇬|新加坡-中转 01
+      - 🇸🇬|新加坡-中转 02
+      - 🇸🇬|新加坡-中转 03
+      - 🇸🇬|新加坡-中转 04
+      - 🇹🇼|台湾-IEPL 01
+      - 🇹🇼|台湾-IEPL 02
+      - 🇹🇼|台湾-IEPL 03
+      - 🇹🇼|台湾-进阶IEPL 01
+      - 🇹🇼|台湾-进阶IEPL 02
+      - 🇹🇼|台湾家宽-IEPL 01
+      - 🇹🇼|台湾家宽-IEPL 02
+      - 🇹🇼|台湾-直连
+      - 🇹🇼|台湾-中转 01
+      - 🇹🇼|台湾-中转 02
+      - 🇯🇵|日本-IEPL 01
+      - 🇯🇵|日本-IEPL 02
+      - 🇯🇵|日本-中转 01
+      - 🇯🇵|日本-中转 02
+      - 🇯🇵|日本原生-IEPL 01
+      - 🇯🇵|日本原生-IEPL 02
+      - 🇯🇵|日本星链家宽-IEPL 01
+      - 🇯🇵|日本星链家宽-IEPL 02
+      - 🇯🇵|日本原生-中转 01
+      - 🇯🇵|日本原生-中转 02
+      - 🇯🇵|日本原生-直连
+      - 🇰🇷|韩国家宽-IEPL 01
+      - 🇰🇷|韩国家宽-IEPL 02
+      - 🇰🇷|韩国家宽-IEPL 03
+      - 🇰🇷|韩国家宽-IEPL 04
+      - 🇲🇴|澳门-IEPL
+      - 🇬🇧|英国-IEPL 01
+      - 🇬🇧|英国-IEPL 02
+      - 🇫🇷|法国-IEPL 01
+      - 🇫🇷|法国-IEPL 02
+      - 🇩🇪|德国-IEPL 01
+      - 🇩🇪|德国-IEPL 02
+      - 🇩🇪|德国-IEPL 03
+      - 🇮🇹|意大利-IEPL 01
+      - 🇮🇹|意大利-IEPL 02
+      - 🇳🇴|挪威-IEPL 01
+      - 🇳🇴|挪威-IEPL 02
+      - 🇺🇸|美国-IEPL 01
+      - 🇺🇸|美国-IEPL 02
+      - 🇺🇸|美国-直连
+      - 🇺🇸|美国-中转 01
+      - 🇺🇸|美国-中转 02
+      - 🇺🇸|美国-家宽 01 5倍消耗
+      - 🇺🇸|美国-家宽 02 5倍消耗
+      - 🇺🇸|美国-进阶中转 01
+      - 🇺🇸|美国-进阶中转 02
+      - 🇺🇸|美国-进阶IEPL 01
+      - 🇺🇸|美国-进阶IEPL 02
+      - 🇨🇦|加拿大-IEPL 01
+      - 🇨🇦|加拿大-IEPL 02
+      - 🇦🇺|澳洲 IEPL 01
+      - 🇦🇺|澳洲 IEPL 02
+      - 🇷🇺|俄罗斯-IEPL 01
+      - 🇺🇦|乌克兰-IEPL 01
+      - 🇺🇦|乌克兰-IEPL 02
+      - 🇹🇷|土耳其-IEPL 01
+      - 🇹🇷|土耳其-IEPL 02
+      - 🇦🇪|阿联酋-IEPL 01
+      - 🇦🇪|阿联酋-IEPL 02
+      - 🇳🇬|尼日利亚-IEPL 01
+      - 🇳🇬|尼日利亚-IEPL 02
+      - 🇵🇭|菲律宾-IEPL 01 5倍消耗
+      - 🇵🇭|菲律宾-IEPL 02 5倍消耗
+      - 🇵🇭|菲律宾-IEPL 03 5倍消耗
+      - 🇹🇭|泰国-IEPL 01
+      - 🇹🇭|泰国-IEPL 02
+      - 🇻🇳|越南-IEPL 01
+      - 🇻🇳|越南-IEPL 02
+      - 🇻🇳|越南家宽-IEPL 01
+      - 🇻🇳|越南家宽-IEPL 02
+      - 🇲🇾|马来西亚-IEPL 01
+      - 🇲🇾|马来西亚-IEPL 02
+      - 🇲🇾|马来西亚-IEPL 03
+      - 🇮🇳|印度-IEPL 01
+      - 🇮🇳|印度-IEPL 02
+      - 🇮🇩|印度尼西亚-IEPL 01
+      - 🇮🇩|印度尼西亚-IEPL 02
+      - 🇦🇷|阿根廷-IEPL 01
+      - 🇦🇷|阿根廷-IEPL 02
+      - 🇧🇷|巴西-IEPL 01
+      - 🇧🇷|巴西-IEPL 02
+  - name: 自动节点
+    type: url-test
+    proxies:
+      - 🇭🇰|香港-中转 01
+      - 🇭🇰|香港-中转 02
+      - 🇭🇰|香港-直连
+      - 🇭🇰|香港家宽-中转 01
+      - 🇭🇰|香港家宽-中转 02
+      - 🇭🇰|香港家宽-直连
+      - 🇭🇰|香港-IEPL 01
+      - 🇭🇰|香港-IEPL 02
+      - 🇭🇰|香港-IEPL 03
+      - 🇭🇰|香港家宽-IEPL
+      - 🇭🇰|香港-进阶IEPL 01
+      - 🇭🇰|香港-进阶IEPL 02
+      - 🇭🇰|香港-进阶IEPL 03
+      - 🇸🇬|新加坡-IEPL 01
+      - 🇸🇬|新加坡-IEPL 02
+      - 🇸🇬|新加坡-进阶IEPL 01
+      - 🇸🇬|新加坡-进阶IEPL 03
+      - 🇸🇬|新加坡-直连
+      - 🇸🇬|新加坡-中转 01
+      - 🇸🇬|新加坡-中转 02
+      - 🇸🇬|新加坡-中转 03
+      - 🇸🇬|新加坡-中转 04
+      - 🇹🇼|台湾-IEPL 01
+      - 🇹🇼|台湾-IEPL 02
+      - 🇹🇼|台湾-IEPL 03
+      - 🇹🇼|台湾-进阶IEPL 01
+      - 🇹🇼|台湾-进阶IEPL 02
+      - 🇹🇼|台湾家宽-IEPL 01
+      - 🇹🇼|台湾家宽-IEPL 02
+      - 🇹🇼|台湾-直连
+      - 🇹🇼|台湾-中转 01
+      - 🇹🇼|台湾-中转 02
+      - 🇯🇵|日本-IEPL 01
+      - 🇯🇵|日本-IEPL 02
+      - 🇯🇵|日本-中转 01
+      - 🇯🇵|日本-中转 02
+      - 🇯🇵|日本原生-IEPL 01
+      - 🇯🇵|日本原生-IEPL 02
+      - 🇯🇵|日本星链家宽-IEPL 01
+      - 🇯🇵|日本星链家宽-IEPL 02
+      - 🇯🇵|日本原生-中转 01
+      - 🇯🇵|日本原生-中转 02
+      - 🇯🇵|日本原生-直连
+      - 🇰🇷|韩国家宽-IEPL 01
+      - 🇰🇷|韩国家宽-IEPL 02
+      - 🇰🇷|韩国家宽-IEPL 03
+      - 🇰🇷|韩国家宽-IEPL 04
+      - 🇲🇴|澳门-IEPL
+      - 🇬🇧|英国-IEPL 01
+      - 🇬🇧|英国-IEPL 02
+      - 🇫🇷|法国-IEPL 01
+      - 🇫🇷|法国-IEPL 02
+      - 🇩🇪|德国-IEPL 01
+      - 🇩🇪|德国-IEPL 02
+      - 🇩🇪|德国-IEPL 03
+      - 🇮🇹|意大利-IEPL 01
+      - 🇮🇹|意大利-IEPL 02
+      - 🇳🇴|挪威-IEPL 01
+      - 🇳🇴|挪威-IEPL 02
+      - 🇺🇸|美国-IEPL 01
+      - 🇺🇸|美国-IEPL 02
+      - 🇺🇸|美国-直连
+      - 🇺🇸|美国-中转 01
+      - 🇺🇸|美国-中转 02
+      - 🇺🇸|美国-家宽 01 5倍消耗
+      - 🇺🇸|美国-家宽 02 5倍消耗
+      - 🇺🇸|美国-进阶中转 01
+      - 🇺🇸|美国-进阶中转 02
+      - 🇺🇸|美国-进阶IEPL 01
+      - 🇺🇸|美国-进阶IEPL 02
+      - 🇨🇦|加拿大-IEPL 01
+      - 🇨🇦|加拿大-IEPL 02
+      - 🇦🇺|澳洲 IEPL 01
+      - 🇦🇺|澳洲 IEPL 02
+      - 🇷🇺|俄罗斯-IEPL 01
+      - 🇺🇦|乌克兰-IEPL 01
+      - 🇺🇦|乌克兰-IEPL 02
+      - 🇹🇷|土耳其-IEPL 01
+      - 🇹🇷|土耳其-IEPL 02
+      - 🇦🇪|阿联酋-IEPL 01
+      - 🇦🇪|阿联酋-IEPL 02
+      - 🇳🇬|尼日利亚-IEPL 01
+      - 🇳🇬|尼日利亚-IEPL 02
+      - 🇵🇭|菲律宾-IEPL 01 5倍消耗
+      - 🇵🇭|菲律宾-IEPL 02 5倍消耗
+      - 🇵🇭|菲律宾-IEPL 03 5倍消耗
+      - 🇹🇭|泰国-IEPL 01
+      - 🇹🇭|泰国-IEPL 02
+      - 🇻🇳|越南-IEPL 01
+      - 🇻🇳|越南-IEPL 02
+      - 🇻🇳|越南家宽-IEPL 01
+      - 🇻🇳|越南家宽-IEPL 02
+      - 🇲🇾|马来西亚-IEPL 01
+      - 🇲🇾|马来西亚-IEPL 02
+      - 🇲🇾|马来西亚-IEPL 03
+      - 🇮🇳|印度-IEPL 01
+      - 🇮🇳|印度-IEPL 02
+      - 🇮🇩|印度尼西亚-IEPL 01
+      - 🇮🇩|印度尼西亚-IEPL 02
+      - 🇦🇷|阿根廷-IEPL 01
+      - 🇦🇷|阿根廷-IEPL 02
+      - 🇧🇷|巴西-IEPL 01
+      - 🇧🇷|巴西-IEPL 02
+    url: http://cp.cloudflare.com/generate_204
+    interval: 3600
+    tolerance: 50
+    lazy: true
+  - name: 香港自动
+    type: url-test
+    proxies:
+      - 🇭🇰|香港-中转 01
+      - 🇭🇰|香港-中转 02
+      - 🇭🇰|香港-直连
+      - 🇭🇰|香港家宽-中转 01
+      - 🇭🇰|香港家宽-中转 02
+      - 🇭🇰|香港家宽-直连
+      - 🇭🇰|香港-IEPL 01
+      - 🇭🇰|香港-IEPL 02
+      - 🇭🇰|香港-IEPL 03
+      - 🇭🇰|香港家宽-IEPL
+      - 🇭🇰|香港-进阶IEPL 01
+      - 🇭🇰|香港-进阶IEPL 02
+      - 🇭🇰|香港-进阶IEPL 03
+    url: http://cp.cloudflare.com/generate_204
+    interval: 3600
+    tolerance: 50
+    lazy: true
+  - name: 日本自动
+    type: url-test
+    proxies:
+      - 🇯🇵|日本-IEPL 01
+      - 🇯🇵|日本-IEPL 02
+      - 🇯🇵|日本-中转 01
+      - 🇯🇵|日本-中转 02
+      - 🇯🇵|日本原生-IEPL 01
+      - 🇯🇵|日本原生-IEPL 02
+      - 🇯🇵|日本星链家宽-IEPL 01
+      - 🇯🇵|日本星链家宽-IEPL 02
+      - 🇯🇵|日本原生-中转 01
+      - 🇯🇵|日本原生-中转 02
+      - 🇯🇵|日本原生-直连
+    url: http://cp.cloudflare.com/generate_204
+    interval: 3600
+    tolerance: 50
+    lazy: true
+rules:
+  - DOMAIN,injections.adguard.org,DIRECT
+  - DOMAIN,local.adguard.org,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - IP-CIDR,224.0.0.0/4,DIRECT
+  - IP-CIDR6,fe80::/10,DIRECT
+  - DOMAIN-KEYWORD,apple.com.akadns.net,DIRECT
+  - DOMAIN-KEYWORD,icloud.com.akadns.net,DIRECT
+  - DOMAIN-SUFFIX,aaplimg.com,DIRECT
+  - DOMAIN-SUFFIX,apple.co,DIRECT
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
+  - DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+  - DOMAIN-SUFFIX,appsto.re,DIRECT
+  - DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,icloud-content.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.com,DIRECT
+  - DOMAIN-SUFFIX,me.com,DIRECT
+  - DOMAIN-SUFFIX,mzstatic.com,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT
+  - IP-CIDR,63.92.224.0/19,DIRECT
+  - IP-CIDR,65.199.22.0/23,DIRECT
+  - IP-CIDR,139.178.128.0/18,DIRECT
+  - IP-CIDR,144.178.0.0/19,DIRECT
+  - IP-CIDR,144.178.36.0/22,DIRECT
+  - IP-CIDR,144.178.48.0/20,DIRECT
+  - IP-CIDR,192.35.50.0/24,DIRECT
+  - IP-CIDR,198.183.17.0/24,DIRECT
+  - IP-CIDR,205.180.175.0/24,DIRECT
+  - DOMAIN-SUFFIX,apple.comscoreresearch.com,DIRECT
+  - DOMAIN-SUFFIX,apple.news,DIRECT
+  - PROCESS-NAME,com.apple.geod,DIRECT
+  - DOMAIN-SUFFIX,s.team,DIRECT
+  - DOMAIN-SUFFIX,steampowered.com,DIRECT
+  - DOMAIN-SUFFIX,steamcommunity.com,DIRECT
+  - DOMAIN-SUFFIX,steamgames.com,DIRECT
+  - DOMAIN-SUFFIX,steamusercontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+  - DOMAIN,csgo.wmsj.cn,DIRECT
+  - DOMAIN,dl.steam.clngaa.com,DIRECT
+  - DOMAIN,dl.steam.ksyna.com,DIRECT
+  - DOMAIN,dota2.wmsj.cn,DIRECT
+  - DOMAIN,st.dl.bscstorage.net,DIRECT
+  - DOMAIN,st.dl.eccdnx.com,DIRECT
+  - DOMAIN,st.dl.pinyuncloud.com,DIRECT
+  - DOMAIN,steampipe.steamcontent.tnkjmec.com,DIRECT
+  - DOMAIN,steampowered.com.8686c.com,DIRECT
+  - DOMAIN,steamstatic.com.8686c.com,DIRECT
+  - DOMAIN,wmsjsteam.com,DIRECT
+  - DOMAIN,xz.pphimalayanrt.com,DIRECT
+  - DOMAIN-SUFFIX,cm.steampowered.com,DIRECT
+  - DOMAIN-SUFFIX,steamchina.com,DIRECT
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamserver.net,DIRECT
+  - DOMAIN-SUFFIX,steamusercontent.com,DIRECT
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-KEYWORD,-cn,DIRECT
+  - GEOIP, CN, DIRECT
+  - MATCH, 节点选择
+script: null
+rule-providers: null
+enable-process: true
+tun:
+  enable: false
+  stack: gvisor
+  dns-hijack:
+    - 0.0.0.0:53
+  auto-route: true
+  auto-detect-interface: true

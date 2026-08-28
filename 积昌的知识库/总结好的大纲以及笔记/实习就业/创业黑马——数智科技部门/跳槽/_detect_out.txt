@@ -1,0 +1,32 @@
+BASE PAGES: 27
+cover      '下一任对接文档' -> base idx [0]
+toc        '目 录' -> base idx [0, 1]
+foreword   '先用三句话看懂这份工作' -> base idx [0, 1]
+part1      '第一部分：先搞懂这套业务' -> base idx [1]
+part2      '第二部分：账号体系' -> base idx [1]
+part3      '第三部分：一天的工作节奏' -> base idx [1]
+part4      '第四部分：视频制作全流程' -> base idx [1]
+part5      '第五部分：图文制作全流程' -> base idx [1]
+part6      '第六部分：发布后运营' -> base idx [1]
+part7      '第七部分：线索登记' -> base idx [1]
+part8      '第八部分：脚本创作规范' -> base idx [1]
+part9      '第九部分：工具怎么用' -> base idx [1]
+part10     '第十部分：红线清单' -> base idx [1]
+part11     '第十一部分：了解即可' -> base idx [1]
+ending     '给你的最后一句话' -> base idx [1, 26]
+  page 18: nonbg_images=1
+  page 19: nonbg_images=2
+  page 20: nonbg_images=2
+  page 21: nonbg_images=2
+  page 22: nonbg_images=2
+  page 23: nonbg_images=2
+TOTAL SCREENSHOTS: 11
+  page 1: links {4: 19}
+  page 7: links {3: 1}
+  page 8: links {3: 2}
+  page 9: links {3: 1, 2: 1}
+  page 10: links {2: 1}
+  page 14: links {2: 1}
+  page 16: links {3: 4}
+  page 17: links {3: 2}
+  page 26: links {3: 3}

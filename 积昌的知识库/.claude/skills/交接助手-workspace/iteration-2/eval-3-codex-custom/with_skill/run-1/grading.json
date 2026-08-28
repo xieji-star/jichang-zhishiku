@@ -1,0 +1,98 @@
+{
+  "expectations": [
+    {
+      "text": "文档明确标注目标智能体为 Codex",
+      "passed": true,
+      "evidence": "标题与 frontmatter 均明确标注：'title: 短视频爆款采集系统 交接文档（给 Codex 版）'、'handover_to: Codex（OpenAI 命令行智能体）'；引言行 '> 目标智能体：**Codex**。本文档按 Codex 习性定制'；并有专节 '## 12. 按 Codex 定制的附加内容（本次交接专属）'与结尾 '> 给 Codex 的收尾提示'。"
+    },
+    {
+      "text": "文档包含 Windows/PowerShell 风格命令（如 .ps1/robocopy/tasklist 等）",
+      "passed": true,
+      "evidence": "第 6 节命令级步骤全部为 PS 风格：'Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue'、'tasklist | findstr /I \"python node\"'、'.\\start.ps1'、'Invoke-RestMethod http://127.0.0.1:8000/api/health'、'Get-Content ... | Where-Object { $_ -match '^[A-Z]' }'；第 3.3 节还提到 'robocopy 自动刷新'。"
+    },
+    {
+      "text": "文档包含「从哪个函数/文件/哪一行继续」的接续位置",
+      "passed": true,
+      "evidence": "第 12 节'从哪个函数续改代码'给出函数级接续点：'并发/任务流 → backend/app/services/collection.py 的 run_accounts() 与账号循环'、'新采集线路 → backend/app/providers/ 新增类实现 collect_account(account, range_key)（先读 base.py Protocol）'、'转录链路 → _asr_8765.py（GPU ASR endpoint）+ backend/app/services/transcript_router.py'；第 4 节亦给出'停下来的位置：10 轮验收测试只跑完第 1 轮…回退串行重跑 → 被用户终止'。"
+    },
+    {
+      "text": "文档包含「如何验证续上了」的具体信号",
+      "passed": true,
+      "evidence": "第 11 节'如何验证\"续上了\"（Codex 完成接续的硬信号）'列出 5 条可执行信号：'.\\start.ps1 后 Invoke-RestMethod http://127.0.0.1:8000/api/health 返回 status: ok'、'python -m pytest -q 输出 264 passed'、'真实采集一次：任务 status=completed、videos=N、accounts_succeeded=1、blocked=0'、'妙搭前端…视频列表非空'、'一次开机补采跑通…无账号被跳过'；第 6 节各 STEP 也给出'预期（成功信号）'。"
+    },
+    {
+      "text": "文档包含 Codex 特有元素（如 config.toml 提醒、会话/模型配置、代理注意）",
+      "passed": true,
+      "evidence": "第 7.1 节'Codex 本体与 config.toml（Codex 专属提醒）'：'config.toml（已实测存在）：当前 model = \"gpt-5.6-sol\"、model_provider = \"openai\"、sandbox = \"elevated\"'，并含 DeepSeek 供应商 Provider 配置提醒；网络注意：'若遇 stream disconnected / 403 Forbidden（cf-ray 带 -HKG），是节点被风控不是网坏——用 curl -x http://127.0.0.1:7897 -I https://chatgpt.com 验证'。第 7.2 节'会话迁移（Codex 专属提醒）'：'拷 sessions + session_index.jsonl + config.toml，绝不拷 auth.json'。"
+    },
+    {
+      "text": "文档非通用模板（有明显针对 Codex 的定制内容，而非仅改标题）",
+      "passed": true,
+      "evidence": "文档有专节 '## 12. 按 Codex 定制的附加内容（本次交接专属）'，开篇即声明'本文档按 Codex 习性定制：PowerShell 命令、续接位置精确到函数、含 config.toml 与会话迁移提醒、每个验证步骤给出可跑命令与成功信号'。Codex 特有内容深入文档结构而非贴标签：config.toml 模型/供应商配置、会话迁移（sessions/session_index/auth.json 禁止拷贝）、Codex 网络分流排查（403 cf-ray -HKG 节点风控、curl -x 127.0.0.1:7897 验证）均只在 Codex 环境有意义；全文命令为 PS 风格与 Codex 运行环境匹配。属真实按 Codex 习性定制，非仅改标题。"
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "output_chars": 13172,
+    "transcript_chars": 0
+  },
+  "claims": [
+    {
+      "claim": "config.toml 位于 C:\\Users\\asus\\.codex\\ 且 model=gpt-5.6-sol、model_provider=openai、sandbox=elevated",
+      "type": "factual",
+      "verified": false,
+      "evidence": "文档声称'已实测存在'，但唯一来源是本文档自身；本次评估未提供执行器 transcript 的 tool 调用记录可佐证，无法独立核实。若真实则为强 Codex 定制细节，若虚构则为幻觉风险。"
+    },
+    {
+      "claim": "Codex 会话目录 C:\\Users\\asus\\.codex\\sessions\\*.jsonl 已实测存在",
+      "type": "factual",
+      "verified": false,
+      "evidence": "同上，缺乏 transcript 证据支撑，无法从输出侧独立验证。"
+    },
+    {
+      "claim": "文档含 5 条续接验证硬信号（status=ok / 264 passed / 采集 completed / 前端非空 / 开机补采）",
+      "type": "factual",
+      "verified": true,
+      "evidence": "第 11 节逐一列出并引用原文，可核实。"
+    },
+    {
+      "claim": "全文命令为 PowerShell 风格（Get-NetTCPConnection / Invoke-RestMethod / tasklist / Get-Content）",
+      "type": "process",
+      "verified": true,
+      "evidence": "第 6 节与第 7.1 节命令均为 PS cmdlet 语法，可核实。"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "文档明确标注目标智能体为 Codex",
+        "reason": "trivially satisfied——任何文档只要在标题/收件人写'Codex'即通过，不校验内容是否真的面向 Codex。两份输出均通过，无判别力。"
+      },
+      {
+        "assertion": "文档包含 Windows/PowerShell 风格命令",
+        "reason": "近似 trivially satisfied——项目本身在 Windows 且用 start.ps1，几乎任何交接都会带 Windows 命令。建议收紧为'包含 Codex 环境专属命令或工具（如 .codex 目录操作、codex 命令本身）'以增强判别力。"
+      },
+      {
+        "assertion": "文档非通用模板（有明显针对 Codex 的定制内容，而非仅改标题）",
+        "reason": "措辞有歧义：'非通用模板'字面上看，without_skill 输出也是一份详实的项目定制文档（非填空模板），若只看'非模板'会误判为 PASS；真正区分度在'是否有仅对 Codex 有意义的操作细节（config.toml/会话迁移/Codex 网络分流）'。建议改为：'文档包含仅对 Codex 有意义的操作细节（如 config.toml 配置、Codex 会话迁移、Codex 网络分流排查），删除后文档仍完整则该断言不成立'，将'项目定制'与'Codex 定制'分开。"
+      },
+      {
+        "reason": "重要结果未被任何断言覆盖：with_skill 输出对环境事实（config.toml 内容、model 名、会话路径、端口 7897 代理）做了具体声称（'已实测存在'），若为虚构则是幻觉风险。当前无断言核查执行器是否真的读过 C:\\Users\\asus\\.codex\\config.toml 等文件——建议增加基于 transcript 的断言，如'执行器读取过 config.toml / .codex 会话目录，且文档所述模型名与实际一致'。"
+      },
+      {
+        "reason": "以 token/字数看，with_skill 输出 116,660 tokens / 13,172 chars，without_skill 87,412 tokens / 8,511 chars——skill 版本约多 50% 篇幅，增量集中在 Codex 专属章节（7.1/7.2/12）。这个'增量投向哪里'的差异正是本 eval 的判据，但没有断言直接度量 Codex 专属内容占比或与通用交接的差异。"
+      }
+    ],
+    "overall": "断言 1、2 近乎 trivially satisfied（两份输出都过），断言 3、4 虽为实质内容但两份高质量输出均通过，故真正判别性的是断言 5（config.toml/会话迁移/代理注意，具体且难伪造）与断言 6。建议把断言 6 改写得更聚焦于'仅对 Codex 有意义的细节'，并新增一条基于 transcript 的事实核查断言来防环境声称幻觉。"
+  }
+}

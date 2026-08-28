@@ -1,0 +1,520 @@
+{
+  "metadata": {
+    "skill_name": "交接助手",
+    "skill_path": ".claude/skills/交接助手",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-08-18T02:32:36Z",
+    "evals_run": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 144.9,
+        "tokens": 59588,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "给人版结构（阅读指引/背景/术语表/手把手）",
+          "passed": true,
+          "evidence": "含「1.这份文档是给谁看的」「3.背景与来去脉」「4.术语表」「9.下一步怎么做（手把手）」等章节，结构完整。"
+        },
+        {
+          "text": "术语表存在",
+          "passed": true,
+          "evidence": "第4节「术语表（看到黑话不懂，先来这查）」逐条解释术语。"
+        },
+        {
+          "text": "手把手下一步可照做",
+          "passed": true,
+          "evidence": "第9节将下一步拆成 1-N 步，每步含具体动作与验证信号。"
+        },
+        {
+          "text": "风险与求助点存在",
+          "passed": true,
+          "evidence": "第11节含风险与求助点；全文出现「求助」2 次，标注 ❓ 待确认项。"
+        },
+        {
+          "text": "背景与来龙去脉叙述",
+          "passed": true,
+          "evidence": "第3节「背景与来去脉」含 3.1 项目怎么来的、3.2 关键约束、3.3 与公司关系等叙述。"
+        },
+        {
+          "text": "已完成/未完成全量列表",
+          "passed": true,
+          "evidence": "第6节已完成工作 7 组全量逐条；第7节未完成接力棒 5 项全量逐条。"
+        },
+        {
+          "text": "A→B接力映射表（从哪开始+怎么验证）",
+          "passed": true,
+          "evidence": "第8节「A→B 接力总览」表格，列含「从哪开始」与「做到什么算完成」。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第7节每项接力棒均含：为什么没做完/前置/优先级/做到什么算完成/从哪开始/验证信号（grep 计数：为什么没做完6、前置6、优先级10、做到什么算完成7、从哪开始6）。"
+        },
+        {
+          "text": "下一步展开1-N步有验证信号",
+          "passed": true,
+          "evidence": "第9节「下一步怎么做（手把手）」按优先级拆成可照做步骤，每步含验证信号（全文验证出现17次）。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 198.3,
+        "tokens": 65908,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "给人版结构（阅读指引/背景/术语表/手把手）",
+          "passed": true,
+          "evidence": "含「目录」「3.背景与来龙去脉」「4.术语表」「9.下一步怎么做（手把手）」等章节。"
+        },
+        {
+          "text": "术语表存在",
+          "passed": true,
+          "evidence": "第4节术语表存在。"
+        },
+        {
+          "text": "手把手下一步可照做",
+          "passed": true,
+          "evidence": "第9节含「立即做（第一周内）」「之后做（第二周起）」等可照做步骤。"
+        },
+        {
+          "text": "风险与求助点存在",
+          "passed": true,
+          "evidence": "第11节含风险与求助点，标注 ❓。"
+        },
+        {
+          "text": "背景与来龙去脉叙述",
+          "passed": true,
+          "evidence": "第3节「背景与来龙去脉」有叙述性内容。"
+        },
+        {
+          "text": "已完成/未完成全量列表",
+          "passed": true,
+          "evidence": "第6节已完成 6 组全量；第7节未完成 5 项全量。"
+        },
+        {
+          "text": "A→B接力映射表（从哪开始+怎么验证）",
+          "passed": true,
+          "evidence": "第8节接力总览表，列含「从哪开始」与「做到什么算完成」。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第7节每项均含：还差什么/为什么没做完/前置条件/优先级/做到什么程度算完成/涉及文件或位置/找谁怎么验证（事项1-5逐一核对齐全）。"
+        },
+        {
+          "text": "下一步展开1-N步有验证信号",
+          "passed": true,
+          "evidence": "第9节步骤每步含验证信号（全文验证出现15次）。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 97.9,
+        "tokens": 61361,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "标注目标智能体 Codex",
+          "passed": true,
+          "evidence": "标题「给 Codex 版」+「目标智能体：Codex（OpenAI 智能体）｜能力层级：L1 自治型」。"
+        },
+        {
+          "text": "Windows/PowerShell风格命令",
+          "passed": true,
+          "evidence": "大量 PowerShell 命令与 .ps1（全文出现 25+ 次），如「在 PowerShell 执行」。"
+        },
+        {
+          "text": "从哪个函数/文件/哪一行继续",
+          "passed": true,
+          "evidence": "关键函数定位：`core/fetcher.py::fetch_video（第45行）`、`core/batch.py::BatchRunner.run()（第22行，空）` 等。"
+        },
+        {
+          "text": "如何验证续上了",
+          "passed": true,
+          "evidence": "第12节续作启动手册含明确验证信号（pytest 15 passed、health 返回等）。"
+        },
+        {
+          "text": "Codex特有元素（config.toml/会话/代理）",
+          "passed": true,
+          "evidence": "含「Codex 模型配置（config.toml）」「会话迁移说明（拷 sessions 不拷 auth.json）」「网络/代理注意（直连白名单）」专节。"
+        },
+        {
+          "text": "非通用模板（明显定制）",
+          "passed": true,
+          "evidence": "明确写「按 Codex 习性档案从零定制」；PowerShell+函数级定位贯穿全文，非改标题。"
+        },
+        {
+          "text": "A→B接力映射（PowerShell命令+函数级定位）",
+          "passed": true,
+          "evidence": "第6节接力总览表列头即「从哪开始（PowerShell 命令 + 函数级定位）」；验证列给可执行判定信号。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第5节接力棒各项含为什么没做完(5)、前置(5)、优先级(7)、做到什么算完成(6)、从哪开始(6)、验证(25)。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 96.5,
+        "tokens": 57003,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "标注目标智能体 Codex",
+          "passed": true,
+          "evidence": "标题「给 Codex 版」+「交接对象：Codex（OpenAI 智能体，模式 B 专属定制）」。"
+        },
+        {
+          "text": "Windows/PowerShell风格命令",
+          "passed": true,
+          "evidence": "含 `run_crawl.ps1`、`Activate.ps1`、`Get-Content logs` 等 PowerShell 命令。"
+        },
+        {
+          "text": "从哪个函数/文件/哪一行继续",
+          "passed": true,
+          "evidence": "含 `_handle_slider_captcha()（#L210）`、`main.py 的 --resume 分支（#L120）` 等函数+行号定位。"
+        },
+        {
+          "text": "如何验证续上了",
+          "passed": true,
+          "evidence": "验证信号给 `Get-Content logs`、`python -c ...sqlite3...`、`pytest` 输出等。"
+        },
+        {
+          "text": "Codex特有元素（config.toml/会话/代理）",
+          "passed": true,
+          "evidence": "第12节定制内容含「先查 config.toml」「会话可迁移（拷 sessions 不拷 auth.json）」「代理注意」。"
+        },
+        {
+          "text": "非通用模板（明显定制）",
+          "passed": true,
+          "evidence": "接力表入口列统一用 PowerShell 命令+函数级定位，明显针对 Codex。"
+        },
+        {
+          "text": "A→B接力映射（PowerShell命令+函数级定位）",
+          "passed": true,
+          "evidence": "第6节接力总览表列含「从哪开始（PowerShell 命令 + 函数级定位）」与「做到什么算完成（验证信号）」。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第5节未完成项以表格列出，列含 为什么没做完/前置/优先级/做到什么算完成/从哪开始/验证信号。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 134.1,
+        "tokens": 66574,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "输出两份文档并标注目标智能体",
+          "passed": true,
+          "evidence": "handover_deepseek.md「给 DeepSeek Harness 版｜DeepSeek Harness（L3 对话型）」；handover_codex.md「给 Codex 版｜Codex（L1 自治型）」。"
+        },
+        {
+          "text": "DeepSeek版自包含贴内容+人代跑验证+证据分级/核对清单",
+          "passed": true,
+          "evidence": "DeepSeek 版 313 行，自包含/代跑/分级/核对清单类标记出现 52 次；关键代码/配置贴入正文，验证写「请用户代跑+看到 YYY 输出」，含 ✅/🔶/❓ 证据分级。"
+        },
+        {
+          "text": "Codex版精确路径+PowerShell命令+函数级定位+config.toml提醒",
+          "passed": true,
+          "evidence": "Codex 版 204 行，Codex特征标记出现 26 次（PowerShell/config.toml/会话/函数级/.ps1）。"
+        },
+        {
+          "text": "两份文档非改标题关系（内容实质不同）",
+          "passed": true,
+          "evidence": "DeepSeek 版自包含贴代码、靠人代跑验证、密度更高；Codex 版给路径+命令、靠它自己读文件跑命令——内容密度、自包含程度、指令粒度实质不同，非改标题。"
+        },
+        {
+          "text": "两份文档都有A→B接力总览",
+          "passed": true,
+          "evidence": "两份文档均含「接力总览」表（各出现 2 次引用），列含「从哪开始」与「做到什么算完成」。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "两份文档未完成项均含 为什么没做完/前置/优先级/做到什么算完成/从哪开始/验证（deepseek 24 处、codex 20 处相关字段）。"
+        },
+        {
+          "text": "DeepSeek版指令粒度细于Codex版",
+          "passed": true,
+          "evidence": "同一接力棒①：DeepSeek 版贴出整段可替换代码+让用户代跑验证；Codex 版只写「改 ingest.py:120 异常分支，自己跑 run.ps1 验证」。DeepSeek 版更保姆级、更长（313 vs 204 行）。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 138.1,
+        "tokens": 64494,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "输出两份文档并标注目标智能体",
+          "passed": true,
+          "evidence": "handover_deepseek.md「给 DeepSeek Harness 版」；handover_codex.md「给 Codex 版」。"
+        },
+        {
+          "text": "DeepSeek版自包含贴内容+人代跑验证+证据分级/核对清单",
+          "passed": true,
+          "evidence": "DeepSeek 版 244 行，自包含/代跑/分级/核对清单标记出现 53 次；关键内容贴入正文，验证靠人代跑。"
+        },
+        {
+          "text": "Codex版精确路径+PowerShell命令+函数级定位+config.toml提醒",
+          "passed": true,
+          "evidence": "Codex 版含 PowerShell 命令、`main.py:12` 函数级定位、config.toml 模型配置与会话迁移提醒。"
+        },
+        {
+          "text": "两份文档非改标题关系（内容实质不同）",
+          "passed": true,
+          "evidence": "DeepSeek 版自包含靠人代跑验证；Codex 版命令级自主执行——实质差异明显。"
+        },
+        {
+          "text": "两份文档都有A→B接力总览",
+          "passed": true,
+          "evidence": "两份文档均含接力总览表。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "两份文档未完成项含 为什么没做完/前置/优先级/完成标准/从哪开始/验证信号。"
+        },
+        {
+          "text": "DeepSeek版指令粒度细于Codex版",
+          "passed": true,
+          "evidence": "DeepSeek 版贴代码+人代跑验证，粒度细于 Codex 版路径+命令风格。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 184.0,
+        "tokens": 66000,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "四要素①②③④都有实质内容",
+          "passed": true,
+          "evidence": "①第6节已完成工作（74-135行）；②第7节 A没做完的事（136-225行）；③第8节 A→B接力总览（226-244行）；④第9节下一步怎么做（245+行）——四部分均有实质内容。"
+        },
+        {
+          "text": "已做什么逐条含产出物与验证",
+          "passed": true,
+          "evidence": "第6节每条已完成项含产出物位置与验证（「已完成」出现10次，验证出现25+次）。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第7节每项含 为什么没做完(9)/前置(12)/优先级(13)/做到什么算完成(11)/从哪开始(13)/验证。"
+        },
+        {
+          "text": "接力总览表（未完成↔接下来一一对应）",
+          "passed": true,
+          "evidence": "第8节 A→B 接力总览表（226行），把第7节未完成项与第9节任务成对呈现。"
+        },
+        {
+          "text": "下一步1-N步可照做有验证有求助",
+          "passed": true,
+          "evidence": "第9节按优先级拆成可照做步骤，含验证信号与求助点（卡住/求助/找谁出现11次）。"
+        },
+        {
+          "text": "无一笔带过话术",
+          "passed": true,
+          "evidence": "grep「一笔带过|等等|下次继续」计数为 0。"
+        },
+        {
+          "text": "总体详细（篇幅长非简略清单）",
+          "passed": true,
+          "evidence": "497 行，含给人版完整 12 节 + 文末「给 Claude Code 版」附录，远超简略清单。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 178.5,
+        "tokens": 78000,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "四要素①②③④都有实质内容",
+          "passed": true,
+          "evidence": "①第6节已完成工作（86-151行）；②第7节 A没做完的事（152-267行）；③第8节 A→B接力总览（268-287行）；④第9节下一步怎么做（288+行）——四部分均有实质内容。"
+        },
+        {
+          "text": "已做什么逐条含产出物与验证",
+          "passed": true,
+          "evidence": "第6节已完成项逐条含产出物与验证。"
+        },
+        {
+          "text": "未完成项写满七要素",
+          "passed": true,
+          "evidence": "第7节每项含 为什么没做完(21)/前置(21)/优先级(24)/做到什么算完成(5)/从哪开始(15)/验证。"
+        },
+        {
+          "text": "接力总览表（未完成↔接下来一一对应）",
+          "passed": true,
+          "evidence": "第8节 A→B 接力总览表（268行），成对呈现。"
+        },
+        {
+          "text": "下一步1-N步可照做有验证有求助",
+          "passed": true,
+          "evidence": "第9节含可照做步骤与验证（求助/找谁出现13次）。"
+        },
+        {
+          "text": "无一笔带过话术",
+          "passed": true,
+          "evidence": "grep「一笔带过|等等|下次继续」计数为 0。"
+        },
+        {
+          "text": "总体详细（篇幅长非简略清单）",
+          "passed": true,
+          "evidence": "638 行，含给人版完整 12 节 + 文末「给 Claude Code 版」附录。"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 140.225,
+        "stddev": 35.4355,
+        "min": 97.9,
+        "max": 184.0
+      },
+      "tokens": {
+        "mean": 63380.75,
+        "stddev": 3441.0104,
+        "min": 59588,
+        "max": 66574
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 152.85,
+        "stddev": 45.1535,
+        "min": 96.5,
+        "max": 198.3
+      },
+      "tokens": {
+        "mean": 66351.25,
+        "stddev": 8693.465,
+        "min": 57003,
+        "max": 78000
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "-12.6",
+      "tokens": "-2970"
+    }
+  },
+  "notes": []
+}

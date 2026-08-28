@@ -1,0 +1,6 @@
+2026/08/10-16:34:48.985 5a24 Reusing MANIFEST C:\Users\asus\AppData\Roaming\Codex\web\Codex\Default\Partitions\codex-browser-app\Local Storage\leveldb/MANIFEST-000001
+2026/08/10-16:34:48.986 5a24 Recovering log #37
+2026/08/10-16:34:48.991 5a24 Reusing old log C:\Users\asus\AppData\Roaming\Codex\web\Codex\Default\Partitions\codex-browser-app\Local Storage\leveldb/000037.log 
+2026/08/10-16:40:06.479 ce9c Level-0 table #42: started
+2026/08/10-16:40:06.491 ce9c Level-0 table #42: 21442 bytes OK
+2026/08/10-16:40:06.499 ce9c Delete type=0 #37

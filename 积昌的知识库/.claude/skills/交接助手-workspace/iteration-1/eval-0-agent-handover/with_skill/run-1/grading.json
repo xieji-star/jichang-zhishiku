@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "文档采用给AI版结构（含「交接摘要」「文件地图」「续作启动手册」类章节）",
+      "passed": true,
+      "evidence": "输出含「## 0. 交接摘要（启动包）」、「## 2. 文件地图（精确路径）」、「## 11. 续作启动手册」三个明确章节，符合给AI版结构要求。"
+    },
+    {
+      "text": "文档包含精确文件路径（以真实盘符如 D:\\ 或 F:\\ 开头）",
+      "passed": true,
+      "evidence": "§2 文件地图列出真实盘符路径：`D:\\全自动爬取短视频、推文爆款程序\\start.ps1`、`D:\\全自动爬取短视频、推文爆款程序\\.env.local` 等；知识库文档部分用 `F:\\积昌的知识库 - 副本\\自动维护知识库\\wiki\\自媒体运营\\短视频爆款采集系统.md`。"
+    },
+    {
+      "text": "下一步行动计划达到命令级（含可执行命令，如 .ps1/.py/npm/pytest 等）",
+      "passed": true,
+      "evidence": "§6 下一步行动计划（命令级）含可执行命令：`cd D:\\全自动爬取短视频、推文爆款程序`、`.\\start.ps1`、`.venv\\Scripts\\python.exe -m pytest -q`、`.\\start.ps1 -Install`。"
+    },
+    {
+      "text": "文档包含「如何验证续上了」的方法（验收/验证/如何确认 等表述）",
+      "passed": true,
+      "evidence": "§6 末尾「验证\"续上了\"的现象」给出具体判定：`start.ps1` 输出 `Started: NEW frontend ...`、`/api/risk-control/health` 返回 `CIRCUIT_BREAKER=true / CURL_CFFI=true / ...`、pytest 全绿；§1 另设「验收标准」5 条。"
+    },
+    {
+      "text": "密钥/敏感信息已脱敏（无明文 token，含脱敏标记）",
+      "passed": true,
+      "evidence": "§2 文件地图标注 `.env.local`「密钥已脱敏，勿外发」；§7 明确「`SPIDERHUBS_API_KEY`/`MIAODA_API_KEY`/`SYNC_TOKEN`/`SITES_BYPASS_TOKEN`/`EVIL0CTAL_API_BASE_URL`/`NOPECHA_API_KEY` 值已脱敏，绝不外发」；§4 中 `EVIL0CTAL_API_BASE_URL` 已配（值脱敏）。全文无明文 token。"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "claims": [
+    {
+      "claim": "文档面向 AI 智能体（Claude Code），含精确盘符路径",
+      "type": "factual",
+      "verified": true,
+      "evidence": "文档头部「交接对象: AI 智能体（Claude Code）」，§2 含 D:/F: 真实路径表格。"
+    },
+    {
+      "claim": "下一步达到命令级且包含验证续上的方法",
+      "type": "quality",
+      "verified": true,
+      "evidence": "§6 含可执行命令与「验证\"续上了\"的现象」具体输出判定。"
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "文档采用给AI版结构（含「交接摘要」「文件地图」「续作启动手册」类章节）",
+        "reason": "without_skill 对照输出同样完整满足全部 5 条断言，本节（eval-0）未体现出 skill 的增量价值。建议增加对 skill 特有结构（如迁移方案模板/交接清单分级）的判别性断言，使 without_skill 难以无 skill 达标。"
+      }
+    ],
+    "overall": "断言全部通过，且文档内容详实。但本 eval 中 with_skill 与 without_skill 输出质量相当，断言区分度不足。"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "输出两份文档并标注目标智能体", "passed": true, "evidence": "handover_deepseek.md「给 DeepSeek Harness 版」；handover_codex.md「给 Codex 版」。"},
+    {"text": "DeepSeek版自包含贴内容+人代跑验证+证据分级/核对清单", "passed": true, "evidence": "DeepSeek 版 244 行，自包含/代跑/分级/核对清单标记出现 53 次；关键内容贴入正文，验证靠人代跑。"},
+    {"text": "Codex版精确路径+PowerShell命令+函数级定位+config.toml提醒", "passed": true, "evidence": "Codex 版含 PowerShell 命令、`main.py:12` 函数级定位、config.toml 模型配置与会话迁移提醒。"},
+    {"text": "两份文档非改标题关系（内容实质不同）", "passed": true, "evidence": "DeepSeek 版自包含靠人代跑验证；Codex 版命令级自主执行——实质差异明显。"},
+    {"text": "两份文档都有A→B接力总览", "passed": true, "evidence": "两份文档均含接力总览表。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "两份文档未完成项含 为什么没做完/前置/优先级/完成标准/从哪开始/验证信号。"},
+    {"text": "DeepSeek版指令粒度细于Codex版", "passed": true, "evidence": "DeepSeek 版贴代码+人代跑验证，粒度细于 Codex 版路径+命令风格。"}
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 138.1, "total_duration_seconds": 138.1}
+}

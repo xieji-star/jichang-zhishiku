@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "id": 1,
+      "description": "Wiki 页面包含了 HTTP 403 错误的核心信息",
+      "result": "PASS",
+      "evidence": "wiki/HTTP错误概述.md 第29-38行包含完整的 HTTP 403 Forbidden 章节，涵盖原因、常见场景、调试方法和修复方案。同时在 outputs/HTTP错误概述.md 中也有相同内容。wiki/HTTP403错误详解.md 独立页面提供了更详尽的 403 知识。"
+    },
+    {
+      "id": 2,
+      "description": "index.md 已更新（新增行或更新现有行）",
+      "result": "PASS",
+      "evidence": "index.md 第8行新增了 `[[wiki/HTTP403错误详解]]` 页面条目，摘要为 \"HTTP 403 Forbidden 详解：原因、调试方法与修复方案\"，来源数为 1，最后更新为 2026-07-14。页面总数从 2 更新为 3。outputs/index.md 中内容一致。"
+    },
+    {
+      "id": 3,
+      "description": "log.md 已追加新条目",
+      "result": "PASS",
+      "evidence": "log.md 第8-17行追加了新条目 `[2026-07-14] ingest | HTTP 403 错误详解`，包含操作描述、影响页面（更新 HTTP错误概述.md + 新建 HTTP403错误详解.md）及详细变更摘要。outputs/log.md 中内容一致。"
+    },
+    {
+      "id": 4,
+      "description": "新页面使用了正确的 YAML frontmatter 格式",
+      "result": "PASS",
+      "evidence": "outputs/HTTP403错误详解.md 第1-11行包含完整的 YAML frontmatter：title (HTTP 403 错误详解)、category (编程)、tags (HTTP, 错误码, 403, 权限)、source (指向 sources/HTTP 403 错误详解.md)、created 和 updated (均为 2026-07-14)。格式正确，所有必需字段齐全。"
+    },
+    {
+      "id": 5,
+      "description": "来源引用指向 sources/HTTP 403 错误详解.md",
+      "result": "PASS",
+      "evidence": "outputs/HTTP403错误详解.md 第9行 source 字段为 `\"[[sources/HTTP 403 错误详解.md]]\"`，直接指向源文件。wiki/HTTP错误概述.md 第12行 sources 列表中也包含 `\"[[sources/HTTP 403 错误详解.md]]\"`。所有来源引用均正确。"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0
+  }
+}

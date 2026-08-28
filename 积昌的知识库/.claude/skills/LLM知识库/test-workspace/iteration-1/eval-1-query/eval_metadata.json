@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "query",
+  "prompt": "我想了解一下面试时候怎么用 STAR+L 框架来回答问题？有没有具体的步骤和例子？请基于 test-workspace 目录下的 Wiki 来回答。",
+  "assertions": [
+    "回答引用了 Wiki 页面中的 STAR+L 框架内容",
+    "回答包含了 S/T/A/R/L 五个要素的说明",
+    "回答提到了来源（链接到 wiki/面试技巧）",
+    "回答使用结构化格式（表格或列表）"
+  ]
+}

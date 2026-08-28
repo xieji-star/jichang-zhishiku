@@ -1,0 +1,130 @@
+{
+  "skill_name": "知识库报错修复",
+  "summary": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0
+  },
+  "results": [
+    {
+      "query": "上传知识库到 GitHub",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "帮我写一份周报",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "帮我整理这份会议纪要",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "这份 PDF 帮我整理成笔记",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "PDF 打不开",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "PDF 读取报错 Request too large，怎么修复",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "pdftoppm failed: Command 'pdftoppm' not found，怎么解决",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "为什么 PDF 读不了，帮我处理",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "帮我修一下这个报错",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "帮我修报错",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "我读 PDF 报错了：Error: invalid_request Request too large (max 32MB)",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "把这次报错的处理过程记到报错日志里",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "报错",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "报错日志",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "知识库报错了，读 PDF 报 Request too large",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "知识库报错了：Error: [Unsupported Image]",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "读 PDF 返回 [Unsupported Document]，读不到内容",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "读不了 PDF",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "读取失败",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    },
+    {
+      "query": "这个文件读不了，帮我看看是不是报错了",
+      "should_trigger": true,
+      "triggered": true,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Wiki 页面包含了 HTTP 403 错误的核心信息",
+      "passed": true,
+      "evidence": "wiki/HTTP403错误详解.md 包含概述（403 定义及与 401 的区别）、4 个常见原因及详细说明、调试方法表格（含命令示例）、4 个修复方案，以及指向 wiki/HTTP错误概述 的关联链接。同时 wiki/HTTP错误概述.md 也扩展了 403 章节，包含原因、场景、调试方法和修复方案。"
+    },
+    {
+      "text": "index.md 已更新（新增行或更新现有行）",
+      "passed": true,
+      "evidence": "index.md 在\"编程\"分类表格中新增了 HTTP403错误详解 行（摘要、来源数=1、更新日期=2026-07-14），页面总数从 2 更新为 3。"
+    },
+    {
+      "text": "log.md 已追加新条目",
+      "passed": true,
+      "evidence": "log.md 追加了 [2026-07-14] ingest | HTTP 403 错误详解 条目，包含详细的操作描述、影响范围和变更摘要。"
+    },
+    {
+      "text": "新页面使用了正确的 YAML frontmatter 格式",
+      "passed": true,
+      "evidence": "wiki/HTTP403错误详解.md 包含完整的 YAML frontmatter：title、category（\"编程\"）、tags（列表形式，4 个标签）、source（指向来源文件）、created（2026-07-14）、updated（2026-07-14），符合页面约定。"
+    },
+    {
+      "text": "来源引用指向 sources/HTTP 403 错误详解.md",
+      "passed": true,
+      "evidence": "wiki/HTTP403错误详解.md 的 source 字段为 \"[[sources/HTTP 403 错误详解.md]]\"；wiki/HTTP错误概述.md 的 source 列表也已包含该来源引用。"
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

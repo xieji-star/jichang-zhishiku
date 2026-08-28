@@ -1,0 +1,26 @@
+{
+  "skill_name": "技能健康检查",
+  "evals": [
+    {
+      "id": 1,
+      "name": "全量检查所有skill",
+      "prompt": "帮我检查一下 .claude/skills/ 目录下的所有 skill 是否都可以正常调用，如果有问题就帮我修复。",
+      "expected_output": "生成一份完整的 Skill 健康检查报告，列出每个 skill 的状态、发现的问题和修复结果",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "修复指定问题skill",
+      "prompt": "我刚刚安装了一个新 skill 到 .claude/skills/my-new-skill/，但好像没法调用，帮我看看怎么回事。",
+      "expected_output": "检查该 skill 的 SKILL.md 是否存在、frontmatter 是否完整、是否已注册到 settings.json，并给出修复方案",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "检查特定skill的SKILL.md",
+      "prompt": "帮我看看 .claude/skills/企业微信总结/ 这个 skill 的 SKILL.md 文件格式是否正确，能不能正常调用。",
+      "expected_output": "检查该 SKILL.md 的 YAML frontmatter 完整性（name、description），报告检查结果",
+      "files": []
+    }
+  ]
+}

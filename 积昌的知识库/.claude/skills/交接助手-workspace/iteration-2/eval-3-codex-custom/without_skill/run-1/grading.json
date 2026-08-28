@@ -1,0 +1,98 @@
+{
+  "expectations": [
+    {
+      "text": "文档明确标注目标智能体为 Codex",
+      "passed": true,
+      "evidence": "标题为 '短视频爆款采集系统 → Codex 续作交接单'，frontmatter 'recipient: Codex'，引言 '> 给 Codex 的第一句话：…'，并有专节 '## G. 给你的第一条开工指令（Codex 上手动作）'。"
+    },
+    {
+      "text": "文档包含 Windows/PowerShell 风格命令（如 .ps1/robocopy/tasklist 等）",
+      "passed": true,
+      "evidence": "第 A 节自检命令为 Windows 风格：'dir \"D:\\全自动爬取短视频、推文爆款程序\"'、'curl.exe -s http://127.0.0.1:8000/api/health'、'findstr CONCURRENT \"D:\\…\\.env.local\"'；并多处引用 '.\\start.ps1'、'start.ps1' 为唯一启动入口。"
+    },
+    {
+      "text": "文档包含「从哪个函数/文件/哪一行继续」的接续位置",
+      "passed": true,
+      "evidence": "第 D 节标题即 '待办清单（接续位置，按优先级排序）'，按 P1-P5 给出接续任务；P2 含函数与行级引用：'client.search_info_by_keyword（USER 频道 aweme_user_web，field.py:28）'、'后端 call_with_policy 限速 + 三层缓存回填 accounts.json creator_url'、'参考 mediacrawler_profile_hook.py 的 runpy+monkeypatch 模式'；第 B 节文件地图给出 collection.py / providers\\mediacrawler.py / _asr_8765.py 等文件级接续点。"
+    },
+    {
+      "text": "文档包含「如何验证续上了」的具体信号",
+      "passed": true,
+      "evidence": "第 A 节'自检通过标准：① dir 能列出 backend/MediaCrawler；② /api/health 返回 200 与 status=ok；③ /api/risk-control/health 与下方「风险组件状态表」一致；④ .env.local 存在'；P1 给出'验证通过标准：10 轮全部 completed，视频成功率 100%，修正口径口播稿成功率 100%'；P2 '验证：未填 creator_url 的账号能自动补齐并成功采集'；第 B 节各服务表附健康检查命令。"
+    },
+    {
+      "text": "文档包含 Codex 特有元素（如 config.toml 提醒、会话/模型配置、代理注意）",
+      "passed": false,
+      "evidence": "全文档搜索无 config.toml、无 .codex 路径、无 Codex 会话迁移（auth.json/session_index/rollout jsonl）、无 Codex 模型/Provider 配置、无 Codex 网络分流/代理排查。唯一'代理'相关出现在项目自身风控语境：'RISK_PROXY_ENABLED | false | 代理池已停（缺 HTTPS 代理源）'、'proxy_pool HTTPS 代理源'——这是项目运行配置，不是 Codex 特有元素。文档对 Codex 的适配止于称呼与 Windows 命令。"
+    },
+    {
+      "text": "文档非通用模板（有明显针对 Codex 的定制内容，而非仅改标题）",
+      "passed": false,
+      "evidence": "文档确实是一份详实、项目级定制的交接（非填空模板），但'针对 Codex 的定制内容'停留在名称与称呼层面：标题/recipient 写 Codex、引言'给 Codex 的第一句话'、第 G 节'Codex 上手动作'。除此之外没有任何仅对 Codex 有意义的操作细节——config.toml 模型/供应商配置、Codex 会话迁移、Codex 网络分流排查均缺失；命令虽是 Windows 风格，但对任何 Windows 上的 CLI 智能体（Claude Code/DeepSeek 等）同样适用，删掉 Codex 字样后文档完全成立。属'把通用交接改称呼'而非'按 Codex 习性定制'，与 with_skill 版本形成明显反差。"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "execution_metrics": {
+    "output_chars": 8511,
+    "transcript_chars": 0
+  },
+  "claims": [
+    {
+      "claim": "P2 方案含行级引用 field.py:28",
+      "type": "factual",
+      "verified": true,
+      "evidence": "原文：'client.search_info_by_keyword（USER 频道 aweme_user_web，field.py:28）'，可核实。"
+    },
+    {
+      "claim": "文档使用 Windows 命令风格（dir / curl.exe / findstr / start.ps1）",
+      "type": "process",
+      "verified": true,
+      "evidence": "第 A 节与第 B 节命令均为 Windows/CMD 风格，可核实。"
+    },
+    {
+      "claim": "文档含 Codex 特有元素（config.toml / 会话迁移 / 模型配置 / Codex 代理）",
+      "type": "factual",
+      "verified": false,
+      "evidence": "全文档检索无 config.toml、.codex、会话迁移、模型/Provider、Codex 网络分流相关内容，仅有项目自身代理池开关，不满足断言 5 定义的 Codex 特有元素。"
+    },
+    {
+      "claim": "项目基线 264 passed 与云端部署 commit b0aff55",
+      "type": "factual",
+      "verified": false,
+      "evidence": "文档声称'全量回归 264 passed''已部署妙搭 commit b0aff55'，但无 transcript/外部证据可独立核实，属不可验证的项目状态声称。"
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "文档明确标注目标智能体为 Codex",
+        "reason": "trivially satisfied——写个'Codex'进标题/recipient 即通过，本输出仅凭称呼即 PASS，不校验是否有 Codex 实质内容。"
+      },
+      {
+        "assertion": "文档包含 Windows/PowerShell 风格命令",
+        "reason": "判别力弱：项目本身跑在 Windows 且用 start.ps1，任何交接都会带 Windows 命令，without_skill 输出即因此通过。建议改为要求 Codex 环境专属命令或 .codex 目录操作。"
+      },
+      {
+        "assertion": "文档非通用模板（有明显针对 Codex 的定制内容，而非仅改标题）",
+        "reason": "该断言是本 eval 的关键判别项，但措辞把'非通用模板'（without_skill 也满足）与'针对 Codex 的定制'（without_skill 不满足）混在一起，易造成'项目定制=Codex 定制'的误判。建议改为检验'仅对 Codex 有意义的操作细节（config.toml/会话迁移/Codex 网络分流）'是否存在。"
+      },
+      {
+        "reason": "with_skill 与 without_skill 的核心差异点（也是本 eval 应测的结果）：with_skill 版有专节 12 与 7.1/7.2（config.toml 模型/供应商、会话迁移、Codex 网络分流排查，约多 50% 篇幅：13,172 chars vs 8,511；116,660 tokens vs 87,412），而 without_skill 版仅有称呼层面的 Codex 指向。断言 5 是唯一能捕捉这一差异的具体断言，其余 5 条均不能。"
+      },
+      {
+        "reason": "with_skill 版对 C:\\Users\\asus\\.codex\\config.toml 等环境事实做了'已实测存在'的声称，若无 transcript 佐证则可能为幻觉。建议为 eval 增加基于执行器 transcript 的断言（如'执行器确实读取过 config.toml / .codex 会话目录'），以区分'真读过再写'与'编造环境细节'。"
+      }
+    ],
+    "overall": "断言 1、2 属 trivially satisfied，断言 3、4 检验实质内容但两份输出都高质量通过；真正把 with_skill（6/6）与 without_skill（4/6）区分开的是断言 5 与 6——without_skill 版在 config.toml/会话迁移/Codex 网络代理等 Codex 特有元素上完全缺失，其'Codex 定制'仅为称呼层面的改标题。建议将断言 6 重构为'仅对 Codex 有意义的细节'检验，并新增 transcript 事实核查断言以防范环境声称幻觉。"
+  }
+}

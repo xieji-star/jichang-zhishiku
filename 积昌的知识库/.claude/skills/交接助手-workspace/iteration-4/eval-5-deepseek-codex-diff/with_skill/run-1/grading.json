@@ -1,0 +1,13 @@
+{
+  "expectations": [
+    {"text": "输出两份文档并标注目标智能体", "passed": true, "evidence": "handover_deepseek.md「给 DeepSeek Harness 版｜DeepSeek Harness（L3 对话型）」；handover_codex.md「给 Codex 版｜Codex（L1 自治型）」。"},
+    {"text": "DeepSeek版自包含贴内容+人代跑验证+证据分级/核对清单", "passed": true, "evidence": "DeepSeek 版 313 行，自包含/代跑/分级/核对清单类标记出现 52 次；关键代码/配置贴入正文，验证写「请用户代跑+看到 YYY 输出」，含 ✅/🔶/❓ 证据分级。"},
+    {"text": "Codex版精确路径+PowerShell命令+函数级定位+config.toml提醒", "passed": true, "evidence": "Codex 版 204 行，Codex特征标记出现 26 次（PowerShell/config.toml/会话/函数级/.ps1）。"},
+    {"text": "两份文档非改标题关系（内容实质不同）", "passed": true, "evidence": "DeepSeek 版自包含贴代码、靠人代跑验证、密度更高；Codex 版给路径+命令、靠它自己读文件跑命令——内容密度、自包含程度、指令粒度实质不同，非改标题。"},
+    {"text": "两份文档都有A→B接力总览", "passed": true, "evidence": "两份文档均含「接力总览」表（各出现 2 次引用），列含「从哪开始」与「做到什么算完成」。"},
+    {"text": "未完成项写满七要素", "passed": true, "evidence": "两份文档未完成项均含 为什么没做完/前置/优先级/做到什么算完成/从哪开始/验证（deepseek 24 处、codex 20 处相关字段）。"},
+    {"text": "DeepSeek版指令粒度细于Codex版", "passed": true, "evidence": "同一接力棒①：DeepSeek 版贴出整段可替换代码+让用户代跑验证；Codex 版只写「改 ingest.py:120 异常分支，自己跑 run.ps1 验证」。DeepSeek 版更保姆级、更长（313 vs 204 行）。"}
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 134.1, "total_duration_seconds": 134.1}
+}

@@ -1,0 +1,141 @@
+{
+  "skill_name": "知识库报错修复",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "request-too-large",
+      "prompt": "我读 PDF 报错了：Error: invalid_request, Request too large (max 32MB)。文件是「网评版本.pdf」。请帮我修复这个报错，并把根因分析、诊断数据、修复过程、遇到的问题完整记录成一份排版精美的修复日志（要求包含：frontmatter、概要 callout、章节索引、红橙蓝三色重点标记）。",
+      "expected_output": "生成一份修复日志（命名含 0801 + 具体报错类型，如 0801请求过大），结构完整：frontmatter、概要 callout、emoji 章节索引、≥10 处红/橙/蓝三色重点标记；原 PDF 被备份；产生拆分产物且每卷渲染体积在安全线内（单卷 1x 渲染 PNG ≤ 10MB）；日志记录完整的诊断数据（文件大小、页数、渲染体积）与修复参数。",
+      "files": [
+        "evals/files/网评版本.pdf"
+      ],
+      "expectations": [
+        {
+          "text": "日志文件已生成，命名包含日期 0801 和具体报错类型（非笼统的'报错'二字）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 frontmatter（title/type/date/tags/source）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含概要 callout（> [!summary]）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 emoji 章节索引，使用 [[#章节]] wikilink 锚点格式",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 ≥10 处 <span style=\"color: 三色重点标记，红/橙/蓝三种颜色齐备",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "诊断数据完整：记录了原文件大小、页数、渲染体积（1x/2x）等关键数字",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "原 PDF 被备份（备份文件存在于 outputs 中）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "产生拆分产物（原名_第N部分.pdf），每卷 1x 渲染 PNG ≤ 10MB",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "根因判断正确：渲染体积超 32MB 请求上限（base64 开销 +33%）",
+          "passed": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "pdftoppm-missing",
+      "prompt": "我读 PDF 报错了：pdftoppm failed: Command 'pdftoppm' not found。这是什么原因？怎么解决？请帮我处理并写一份完整的修复日志（同样要求排版精美，含 frontmatter、概要 callout、章节索引、三色重点标记）。",
+      "expected_output": "生成修复日志（命名 0801 + 具体报错类型）；定位根因为环境缺 poppler/pdftoppm；给出并执行安装方案（winget 安装 oschwartz10612.Poppler 或等效方案）；日志注明当前会话 PATH 固化、需要重启会话后生效的遗留事项。",
+      "files": [],
+      "expectations": [
+        {
+          "text": "日志文件已生成，命名包含日期 0801 和具体报错类型",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "根因判断正确：机器缺少 poppler（pdftoppm 是 Read 工具 PDF 渲染依赖）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "给出并执行了安装方案（winget install oschwartz10612.Poppler 或等效）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 frontmatter 与概要 callout",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 ≥10 处三色重点标记（红/橙/蓝齐备）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志记录了遗留事项：当前会话 PATH 固化，需重启 Claude Code 后生效",
+          "passed": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "unsupported-document",
+      "prompt": "我读 PDF「路演PPT分卷1.pdf」时返回 [Unsupported Document]，读不到内容。请帮我诊断原因并修复，写一份修复日志（同样要求排版精美，含 frontmatter、概要 callout、章节索引、三色重点标记）。",
+      "expected_output": "生成修复日志（命名 0801 + 具体报错类型）；按三层诊断（文件层/环境层/会话层）逐层排查并给出结论——文件本身渲染体积在安全线内（非文件层问题），定位到环境缺 poppler 或会话图片投递受限；执行对应修复动作；如实记录未能最终验证的项。",
+      "files": [
+        "evals/files/路演PPT分卷1.pdf"
+      ],
+      "expectations": [
+        {
+          "text": "日志文件已生成，命名包含日期 0801 和具体报错类型",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "完成三层诊断（文件层/环境层/会话层），诊断过程有据可查（运行了诊断脚本或对照测试）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "文件层诊断正确：分卷渲染体积小，非文件层超限问题",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "最终结论指向环境缺 poppler 或会话图片投递受限（并给出了修复/重启方案）",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "日志包含 frontmatter、概要 callout、章节索引、≥10 处三色重点标记",
+          "passed": null,
+          "evidence": null
+        },
+        {
+          "text": "如实记录了未能验证的项（如'待重启后终验'），未编造成功",
+          "passed": null,
+          "evidence": null
+        }
+      ]
+    }
+  ]
+}
