@@ -243,3 +243,23 @@
   (Error fixing is a direct-execution action: once an error occurs, autonomously run the full `invoke skill → fix → archive` flow — NEVER ask the user "may I / should I fix it"; only ask "how" when multiple fix approaches exist.)
 - 若报错信息涉及密钥/敏感内容，归档文档中一律使用打码占位（如 `<已打码>`），**禁止回填真实密钥原文**。
   (If the error involves secrets/sensitive content, always use redacted placeholders (e.g. `<已打码>`) in archived docs — NEVER restore the real secret text.)
+
+## 中间文件自动清理规则（Hook 驱动）/ Intermediate File Auto-Cleanup Rule (Hook-driven)
+
+- **触发时机**：每次工作结束（会话结束）时，由 `SessionEnd` hook（`.claude/hooks/kb-temp-cleanup.sh`）**自动清理**知识库中的中间文件，无需手动操作。
+  (Trigger: at every session end, the `SessionEnd` hook (`.claude/hooks/kb-temp-cleanup.sh`) automatically cleans intermediate files in the vault — no manual action needed.)
+- **手动调用**：任务中途需要清理时，可直接执行 `bash .claude/hooks/kb-temp-cleanup.sh`。
+  (Manual invocation: run `bash .claude/hooks/kb-temp-cleanup.sh` at any time to clean intermediate files mid-task.)
+- **清理范围（固定）**：
+  (Cleanup scope (fixed):)
+  1. **知识库根目录临时/测试文件**：`_*.txt`、`_test_*.pdf`、`_test_*.png`、`_preview_bg/` 等调试输出与测试产物；
+  2. **根目录损坏/重复/临时文件**：`F:积昌的知识库`（损坏路径文件）、`积昌的知识库 - 副本_update_doc_*.py`（临时脚本）、`积昌的知识库 - 副本总结好的大纲*`（命名错误的重名 .md）、`.yolov8m-seg.pt.*.part`（未完成的模型下载）；
+  3. **`中间文件/lark-resources` 中间产物**：`_*.png`（认证/配置二维码）、`学员案例提取/`、`学员案例打包文件/`、`群消息图片/`、`近期爆款-3人小组.txt`、`近期爆款-可读版.txt`；
+  4. **`中间文件/lark-im-resources` 下载/转换中间文件**：目录下所有文件（`*_converted.jpg` 转换产物、下载的原始图片等），**保留空目录**。
+- **保留对象（禁止删除）**：
+  (Keep list — never delete:)
+  - `中间文件/lark-resources/数字人口播脚本发音处理.html`（TTS 纠错工具，SOP/业务文档在用）；
+  - 根目录标记文件 `.last-github-backup` / `.last-wiki-maintain` / `.last-maintenance-prompt`；
+  - 所有已整理笔记、技能、配置、`收件箱`、`已整理好的文件`、`自动维护知识库`。
+- **政策说明**：本规则**取代**此前「飞书/IM 资源文件处理完成后不清理」的默认策略——`中间文件/lark-resources` 与 `中间文件/lark-im-resources` 视为**中间/暂存目录**，其中出现的下载/转换中间产物在会话结束后一律自动清理；但仅清理上列已知中间文件模式，**不**对 `中间文件/lark-resources` 做全量清空，未列入清理范围的文件（如新上传待用的业务文件）仍会保留。
+  (Policy note: this rule supersedes the previous "do not clean Feishu/IM resource files after processing" default — `lark-resources` and `lark-im-resources` are treated as staging directories whose intermediate artifacts are auto-cleaned at session end; only the listed intermediate patterns are cleaned, the directory is NOT wiped wholesale, and unlisted files (e.g. newly uploaded business files still in use) are kept.)

@@ -6,23 +6,9 @@
       "Bash(git -C \"F:/jichang-backup\" add -A)",
       "Bash(git -C \"F:/jichang-backup\" commit -m \"知识库备份)",
       "Bash(git -C \"F:/jichang-backup\" push)",
-      "Bash(bash .claude/hooks/kb-github-backup.sh)"
+      "Bash(bash .claude/hooks/kb-github-backup.sh)",
+      "Bash(bash .claude/hooks/kb-temp-cleanup.sh)"
     ]
-  },
-  "enabledPlugins": {
-    "AI咨询师@skills-dir": true,
-    "Excalidraw图表@skills-dir": true,
-    "JD深度剖析@skills-dir": true,
-    "LLM知识库@skills-dir": true,
-    "Markdown排版工具@skills-dir": true,
-    "企业微信总结@skills-dir": true,
-    "会议笔记整理@skills-dir": true,
-    "工作SOP与业务线整理@skills-dir": true,
-    "技能健康检查@skills-dir": true,
-    "技能创建工具@skills-dir": true,
-    "技能搜索@skills-dir": true,
-    "模拟面试@skills-dir": true,
-    "简历素材记录@skills-dir": true
   },
   "hooks": {
     "UserPromptSubmit": [
@@ -62,6 +48,34 @@
           }
         ]
       }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/kb-temp-cleanup.sh\"",
+            "shell": "bash",
+            "timeout": 30,
+            "statusMessage": "清理知识库中间文件"
+          }
+        ]
+      }
     ]
+  },
+  "enabledPlugins": {
+    "AI咨询师@skills-dir": true,
+    "Excalidraw图表@skills-dir": true,
+    "JD深度剖析@skills-dir": true,
+    "LLM知识库@skills-dir": true,
+    "Markdown排版工具@skills-dir": true,
+    "企业微信总结@skills-dir": true,
+    "会议笔记整理@skills-dir": true,
+    "工作SOP与业务线整理@skills-dir": true,
+    "技能健康检查@skills-dir": true,
+    "技能创建工具@skills-dir": true,
+    "技能搜索@skills-dir": true,
+    "模拟面试@skills-dir": true,
+    "简历素材记录@skills-dir": true
   }
 }

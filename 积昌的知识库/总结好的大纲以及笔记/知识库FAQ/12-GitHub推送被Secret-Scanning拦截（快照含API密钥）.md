@@ -114,10 +114,10 @@ rm: cannot remove '.temp_repo': Device or resource busy
 
 | # | 文件 | 密钥 | 位置 | 说明 |
 |---|------|------|------|------|
-| 1 | `总结好的大纲以及笔记/实习就业/全自动爬取短视频、推文爆款程序/本地部署短视频分析程序介绍文档.md` | DeepSeek `sk-910fd...` | 表格 + `.env` 块，各 1 处 | 部署文档把**真实密钥写进了笔记** |
-| 2 | 同上 | ApiZero `sk_test_7eeff...` | 表格 + `.env` 块，各 1 处 | 同上 |
+| 1 | `总结好的大纲以及笔记/实习就业/全自动爬取短视频、推文爆款程序/本地部署短视频分析程序介绍文档.md` | DeepSeek `sk-<已打码>...` | 表格 + `.env` 块，各 1 处 | 部署文档把**真实密钥写进了笔记** |
+| 2 | 同上 | ApiZero `sk_test_<已打码>...` | 表格 + `.env` 块，各 1 处 | 同上 |
 | 3 | `.claudian/sessions/conv-1786522127698-*.meta.json` | Stripe Key | 第 436 / 4613 / 5227 行 | **会话缓存**记录了对话中含密钥的内容 |
-| 4 | `自动维护知识库/.obsidian/plugins/infio-copilot/data.json` | SiliconFlow `sk-uvkpfnw...` | `siliconflowProvider.apiKey` | Obsidian 插件配置文件存了真实 key |
+| 4 | `自动维护知识库/.obsidian/plugins/infio-copilot/data.json` | SiliconFlow `sk-<已打码>...` | `siliconflowProvider.apiKey` | Obsidian 插件配置文件存了真实 key |
 
 > [!IMPORTANT] 深层根因
 > 备份时<span style="color:#e74c3c">没有做密钥消毒</span>，把「笔记里的真实密钥」「插件配置里的真实 key」「会话缓存」一并<span style="color:#ff8c00">打进了快照</span>。其中 `.claudian/sessions/` 是<span style="color:#e74c3c">会话缓存目录，历史备份（如 0817）从不包含它</span>——本次误纳入，正是 Stripe 密钥的来处。
@@ -163,9 +163,9 @@ rm: cannot remove '.temp_repo': Device or resource busy
 
 | 文件 | 替换前 | 替换后 |
 |------|--------|--------|
-| `本地部署短视频分析程序介绍文档.md`（表格 + `.env`） | `sk_test_7eeff0fe4d05...`（×2） | `sk_test_<已打码>` |
-| 同上 | `sk-910fd265d0004c...`（×2） | `sk-<已打码>` |
-| `自动维护知识库/.obsidian/plugins/infio-copilot/data.json` | `sk-uvkpfnwsaembdza...`（×1） | `sk-<已打码>` |
+| `本地部署短视频分析程序介绍文档.md`（表格 + `.env`） | `sk_test_<已打码>...`（×2） | `sk_test_<已打码>` |
+| 同上 | `sk-<已打码>...`（×2） | `sk-<已打码>` |
+| `自动维护知识库/.obsidian/plugins/infio-copilot/data.json` | `sk-<已打码>...`（×1） | `sk-<已打码>` |
 
 > ⚠️ 打码值里使用 `<已打码>` 占位，保留文件结构与字段名，不影响文档阅读；<span style="color:#e74c3c">**不要在 FAQ 文档里回填真实密钥原文**</span>。
 
