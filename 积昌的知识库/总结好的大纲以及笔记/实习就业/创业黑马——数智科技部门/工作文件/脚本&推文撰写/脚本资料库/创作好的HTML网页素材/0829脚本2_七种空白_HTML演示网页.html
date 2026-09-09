@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>七种空白 · 研究空白/选题 演示</title>
+<style>
+  /* ============ 设计令牌（取自科研实验室参考图：深炭暖调 · 米棕学究气 · 克制）============ */
+  :root{
+    --paper:  rgba(252,249,244,.80);
+    --ink:    #3A2E28;   /* 深暖棕标题 */
+    --ink2:   #6B5D52;   /* 次级 */
+    --accent: #A6764A;   /* 主强调 · 古铜棕（可换） */
+    --accent-soft:#C9A67F;
+    --accent-deep:#7A4E2E;
+    --line:   #E3D8C9;
+    --muted:  #93847A;
+    --txt:    #4A4038;
+    --bg-a:   #F5EFE6;
+    --bg-b:   #EFE6D8;
+    --serif: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:  -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ font-family:var(--sans); background:#C9C3BA; overflow:hidden; display:flex; align-items:center; justify-content:center; user-select:none; -webkit-font-smoothing:antialiased; }
+
+  /* 固定 16:9 设计画布 + 居中等比缩放（自适应，防溢出） */
+  #stage{ width:1280px; height:720px; position:relative; transform-origin:center center;
+    background:linear-gradient(160deg,var(--bg-a) 0%,var(--bg-b) 100%);
+    box-shadow:0 40px 90px rgba(60,45,30,.22), inset 0 0 0 1px rgba(255,255,255,.5);
+    overflow:hidden; }
+  .bg-grain{ position:absolute; inset:0; background-image:radial-gradient(rgba(166,118,74,.07) 1px,transparent 1px); background-size:30px 30px; opacity:.55; }
+  .bg-vignette{ position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 30%,transparent 58%,rgba(60,45,30,.12) 100%); }
+  .frame{ position:absolute; inset:20px; border:1px solid rgba(166,118,74,.20); pointer-events:none; }
+  .c{ position:absolute; width:18px; height:18px; opacity:.5; }
+  .c::before,.c::after{ content:""; position:absolute; background:var(--accent-soft); }
+  .c::before{ left:8px; top:0; width:1px; height:18px; }
+  .c::after { left:0; top:8px; width:18px; height:1px; }
+  .c-tl{ top:28px; left:28px; } .c-tr{ top:28px; right:28px; } .c-bl{ bottom:28px; left:28px; } .c-br{ bottom:28px; right:28px; }
+
+  .page-tag{ position:absolute; top:34px; right:42px; z-index:10; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:3px; }
+
+  /* 幻灯片 —— 翻页过渡（学术主题 · 更慢更柔，避免硬切） */
+  .slide{ position:absolute; inset:0; padding:88px 92px 150px; opacity:0; visibility:hidden;
+    transform:translateY(26px) scale(.986);
+    transition:opacity .9s ease, transform .9s ease, visibility 0s .9s; }
+  .slide.active{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+
+  /* 逐块显现 —— 页内内容按"自上而下、自左而右"逐个淡入（数字盘点式 · 柔缓） */
+  .anim{ opacity:0; transform:translateY(18px); }
+  .anim.on{ animation:rise .6s ease forwards; }
+  .cover .anim.on.d1{ animation-delay:.10s } .cover .anim.on.d2{ animation-delay:.20s }
+  .cover .anim.on.d3{ animation-delay:.30s } .cover .anim.on.d4{ animation-delay:.40s }
+  .cover .anim.on.d5{ animation-delay:.50s } .cover .anim.on.d6{ animation-delay:.60s }
+  .cover .anim.on.d7{ animation-delay:.70s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* 通用组件 */
+  .step-tag{ display:inline-flex; align-items:center; gap:8px; font-size:14px; letter-spacing:4px; color:var(--accent-deep);
+    background:rgba(166,118,74,.12); padding:6px 18px; border-radius:999px; }
+  .step-tag i{ width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .h2{ margin-top:10px; font-family:var(--serif); font-weight:800; color:var(--ink); font-size:40px; letter-spacing:1px; }
+  .h2 .no{ color:var(--accent); }
+  .lead{ margin-top:8px; font-family:var(--serif); color:var(--ink2); font-size:20px; letter-spacing:.5px; }
+
+  /* 页面2：两栏对照（换问法） */
+  .duo{ display:flex; gap:22px; margin-top:18px; }
+  .duo .box{ flex:1; border-radius:16px; padding:20px 24px; border:1px solid rgba(166,118,74,.18); }
+  .duo .box .tag{ font-size:13px; letter-spacing:2px; color:var(--muted); }
+  .duo .box .big{ font-family:var(--serif); font-weight:800; font-size:26px; color:var(--ink); margin-top:8px; line-height:1.3; }
+  .duo .box.old{ background:rgba(166,118,74,.10); color:var(--ink); }
+  .duo .box.new{ background:linear-gradient(135deg,#A6764A,#7A4E2E); color:#FBF6EF; }
+  .duo .box.new .tag{ color:rgba(255,255,255,.80); }
+  .duo .box.new .big{ color:#FBF6EF; }
+  .duo .box .p{ margin-top:10px; font-size:14px; color:var(--txt); line-height:1.55; }
+  .duo .box.new .p{ color:rgba(255,255,255,.88); }
+
+  /* 页面3：七种空白网格（核心 · 数字盘点） */
+  .grid7{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:20px; }
+  .cell{ background:var(--paper); border:1px solid rgba(166,118,74,.16); border-radius:13px; padding:14px 16px; position:relative; overflow:hidden; }
+  .cell .n{ font-family:var(--serif); font-weight:800; color:var(--accent); font-size:18px; }
+  .cell .t{ font-family:var(--serif); font-weight:800; color:var(--accent-deep); font-size:20px; margin-top:4px; }
+  .cell .p{ margin-top:6px; font-size:12px; color:var(--txt); line-height:1.5; }
+  .cell .strip{ position:absolute; left:0; top:0; bottom:0; width:4px; background:linear-gradient(var(--accent),var(--accent-soft)); }
+
+  /* 页面4：左文右图（挑空位） */
+  .split{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .split .left{ flex:1; display:flex; flex-direction:column; gap:14px; }
+  .split .cond{ background:var(--paper); border:1px solid rgba(166,118,74,.16); border-radius:14px; padding:15px 20px; }
+  .split .cond .ct{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:17px; display:flex; align-items:center; gap:10px; }
+  .split .cond .ct i{ width:8px; height:8px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
+  .split .cond .cp{ margin-top:7px; font-size:13px; color:var(--txt); line-height:1.55; }
+  .split .right{ flex:0 0 380px; background:linear-gradient(135deg,#A6764A,#7A4E2E); border-radius:16px; padding:26px; color:#FBF6EF; display:flex; flex-direction:column; justify-content:center; }
+  .split .right .k{ font-size:13px; letter-spacing:3px; color:rgba(255,255,255,.82); }
+  .split .right .core{ font-family:var(--serif); font-weight:900; font-size:32px; line-height:1.25; margin-top:10px; }
+  .split .right .sub{ margin-top:14px; font-size:15px; color:rgba(255,255,255,.90); line-height:1.6; }
+
+  /* 结尾回顾页 */
+  .final{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .final h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:50px; line-height:1.15; letter-spacing:1px; }
+  .final h2 .hl{ color:var(--accent); }
+  .final .sub{ margin-top:12px; font-family:var(--serif); color:var(--muted); font-size:20px; }
+  .summary{ margin-top:30px; width:100%; max-width:920px; }
+  .summary .s{ display:flex; align-items:center; gap:22px; background:var(--paper); border:1px solid rgba(166,118,74,.16); border-radius:14px; padding:16px 24px; margin-bottom:13px; text-align:left; }
+  .summary .s .n{ font-family:var(--serif); color:var(--accent); font-size:20px; font-weight:800; flex:0 0 42px; }
+  .summary .s .t{ font-family:var(--serif); color:var(--accent-deep); font-size:28px; font-weight:800; letter-spacing:3px; flex:0 0 auto; }
+  .summary .s .d{ font-size:15px; color:var(--txt); line-height:1.5; margin-left:auto; text-align:right; max-width:380px; }
+  .takeaway{ margin-top:26px; font-family:var(--serif); color:var(--ink); font-size:22px; }
+  .takeaway b{ color:var(--accent); }
+  .final .hook{ margin-top:26px; font-family:var(--serif); color:var(--accent); font-size:22px; line-height:1.5; }
+
+  /* 封面 */
+  .cover{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .cover .eyebrow{ font-size:15px; letter-spacing:6px; color:var(--accent); }
+  .cover h1{ font-family:var(--serif); font-weight:900; color:var(--ink); font-size:72px; line-height:1.12; letter-spacing:2px; margin-top:22px; }
+  .cover h1 .hl{ color:var(--accent); }
+  .cover .csub{ margin-top:20px; font-family:var(--serif); color:var(--ink2); font-size:24px; letter-spacing:2px; }
+  .cover .cdiv{ width:84px; height:2px; background:linear-gradient(90deg,var(--accent),rgba(166,118,74,0)); margin:26px auto 0; }
+  .cover .csteps{ margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .cover .pill{ font-size:16px; color:var(--accent-deep); border:1px solid rgba(166,118,74,.32); background:rgba(255,255,255,.55); border-radius:999px; padding:10px 22px; letter-spacing:2px; }
+  .oncov .counter,.oncov .page-tag{ opacity:0; pointer-events:none; }
+
+  /* 控件 */
+  .progress{ position:absolute; left:0; top:0; height:4px; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-soft)); transition:width .45s ease; z-index:20; }
+  .dots{ position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:20; }
+  .dot{ width:10px; height:10px; border-radius:50%; border:1.5px solid var(--accent-soft); cursor:pointer; transition:.35s; }
+  .dot.on{ background:var(--accent); border-color:var(--accent); transform:scale(1.25); }
+  .counter{ position:absolute; bottom:24px; right:44px; z-index:20; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:2px; }
+  .counter b{ color:var(--accent); font-size:20px; }
+  .nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:74px; z-index:20; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--accent-soft); opacity:0; transition:.3s; }
+  .nav:hover{ opacity:1; color:var(--accent); }
+  .nav.prev{ left:12px; } .nav.next{ right:12px; }
+  .nav svg{ width:26px; height:26px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+  <div class="frame"></div>
+  <div class="c c-tl"></div><div class="c c-tr"></div><div class="c c-bl"></div><div class="c c-br"></div>
+  <div class="page-tag" id="pageTag">01</div>
+  <div class="progress" id="bar"></div>
+
+  <!-- ============ 第1页 · 封面 ============ -->
+  <section class="slide cover" data-i="0">
+    <div class="eyebrow anim d1">华哥聊论文 · 选题</div>
+    <h1 class="anim d2">找不到课题？<br><span class="hl">不是没人做，是做透的少</span></h1>
+    <div class="csub anim d3">研究空白有 7 种，每种都是一个选题</div>
+    <div class="cdiv anim d4"></div>
+    <div class="csteps anim d5">
+      <span class="pill">换问法</span>
+      <span class="pill">七种空白</span>
+      <span class="pill">挑空位</span>
+    </div>
+  </section>
+
+  <!-- ============ 第2页 · 点1（换问法 · 两栏对照）============ -->
+  <section class="slide" data-i="1">
+    <div class="step-tag anim d1"><i></i> 第一点 · 别问错</div>
+    <div class="h2 anim d2"><span class="no">换问法</span></div>
+    <div class="lead anim d3">找课题找到头秃的人，几乎都问过同一句："还有啥没人做。"</div>
+    <div class="duo">
+      <div class="box old anim d4">
+        <div class="tag">❌ 捡漏式</div>
+        <div class="big">"还有啥没人做"</div>
+        <div class="p">没人做的坑，多半是坑。你把文献翻一遍，挑一个没人碰的角落，结果要么做不动，要么做出来没人认。</div>
+      </div>
+      <div class="box new anim d5">
+        <div class="tag">✓ 挖深式</div>
+        <div class="big">"哪里还没做透"</div>
+        <div class="p">真正的课题，藏在还没做透的地方。换个问法，你眼睛盯的方向就全变了。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第3页 · 点2（七种空白 · 数字盘点网格）============ -->
+  <section class="slide" data-i="2">
+    <div class="step-tag anim d1"><i></i> 第二点 · 挨个对照</div>
+    <div class="h2 anim d2"><span class="no">七种空白</span></div>
+    <div class="lead anim d3">研究空白一共 7 种。你挨个对照，课题自己就冒出来了。</div>
+    <div class="grid7">
+      <div class="cell anim d3"><div class="strip"></div><div class="n">01</div><div class="t">实证空白</div><div class="p">缺数据。短期一堆人做，长期没人跟；基准都刷过，真实场景没人碰。</div></div>
+      <div class="cell anim d4"><div class="strip"></div><div class="n">02</div><div class="t">概念空白</div><div class="p">现象有了，没人给得出解释框架。去别的领域借个框架把现象讲圆。</div></div>
+      <div class="cell anim d5"><div class="strip"></div><div class="n">03</div><div class="t">理论空白</div><div class="p">现有理论解释不了现实。数据对不上别慌，也许是你摸到理论边界了。</div></div>
+      <div class="cell anim d6"><div class="strip"></div><div class="n">04</div><div class="t">方法学空白</div><div class="p">问题没变，是方法不对。全在跑定量，这题其实适合定性；换个方法，结论翻过来。</div></div>
+      <div class="cell anim d6"><div class="strip"></div><div class="n">05</div><div class="t">时间空白</div><div class="p">技术更新了，研究还停在旧环境。大模型都出来了，你还在讲传统特征工程。</div></div>
+      <div class="cell anim d7"><div class="strip"></div><div class="n">06</div><div class="t">空间空白</div><div class="p">只在某个地方成立。欧美一堆数据，亚洲几乎没有；城市一堆，乡镇没有。</div></div>
+      <div class="cell anim d7"><div class="strip"></div><div class="n">07</div><div class="t">文献空白</div><div class="p">零散研究一堆，没人系统整理。把散点串成线，一篇高质量综述，时间紧的硕士最爱。</div></div>
+      <div class="cell anim d8" style="background:linear-gradient(135deg,#A6764A,#7A4E2E);color:#FBF6EF;border:1px solid transparent;">
+        <div class="strip" style="background:rgba(255,255,255,.4)"></div>
+        <div class="n" style="color:#F5E9DA">⭐</div>
+        <div class="t" style="color:#FBF6EF">总有一个</div>
+        <div class="p" style="color:rgba(255,255,255,.9)">7 个空位，对照下来，总有一个是你手上正好能做的那一个。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第4页 · 点3（挑空位 · 左文右图）============ -->
+  <section class="slide" data-i="3">
+    <div class="step-tag anim d1"><i></i> 第三点 · 落地</div>
+    <div class="h2 anim d2"><span class="no">挑一个空位</span></div>
+    <div class="lead anim d3">多数人手里不是没题，只是认不出哪个空白值得做。</div>
+    <div class="split">
+      <div class="left">
+        <div class="cond anim d4"><div class="ct"><i></i>看到空缺</div><div class="cp">用"哪里还没做透"这个问法，把文献里的空位一个个揪出来。</div></div>
+        <div class="cond anim d5"><div class="ct"><i></i>判定值得</div><div class="cp">不是"能做"就行——它得讲得通、补得上、别人也认，才值得你花几个月。</div></div>
+        <div class="cond anim d6"><div class="ct"><i></i>对上条件</div><div class="cp">这个空位正好接得住你的数据、方法和时间，做出来才顺手。</div></div>
+      </div>
+      <div class="right anim d7">
+        <div class="k">一句话</div>
+        <div class="core">把问题从<br>"还有啥没人做"<br>换成<br>"哪里还没做透"</div>
+        <div class="sub">科研不是捡漏。空位挑对了，课题就立住了一半。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第5页 · 结尾回顾 ============ -->
+  <section class="slide final" data-i="4">
+    <h2 class="anim d1">课题不是捡漏，<br><span class="hl">是往"没做透"里钻</span></h2>
+    <div class="sub anim d2">7 个空位，总有一个是你的。回来对照，比拍脑袋撞题强。</div>
+    <div class="summary">
+      <div class="s anim"><span class="n">01</span><span class="t">换问法</span><span class="d">别问还有啥没人做，问哪里还没做透</span></div>
+      <div class="s anim"><span class="n">02</span><span class="t">七种空白</span><span class="d">实证/概念/理论/方法学/时间/空间/文献，挨个对照</span></div>
+      <div class="s anim"><span class="n">03</span><span class="t">挑空位</span><span class="d">对得上你的数据、方法、时间，才是你的题</span></div>
+    </div>
+    <div class="takeaway anim d4">你卡在选题，不是手里没题，是<b>认不出哪个空白值得做</b>。</div>
+    <div class="hook anim d5">觉得有用，点赞收藏，别刷过去找不回来。想看更多找课题的干货，关注我。</div>
+  </section>
+
+  <div class="nav prev" id="prev" title="上一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></div>
+  <div class="nav next" id="next" title="下一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">1</b> / <span id="tot">5</span></div>
+</div>
+
+<script>
+  /* 翻页逻辑 + 逐块显现 */
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx=0,N=slides.length;
+  var dotsWrap=document.getElementById('dots'),bar=document.getElementById('bar'),
+      cur=document.getElementById('cur'),tot=document.getElementById('tot'),tag=document.getElementById('pageTag');
+  var num=['封面','01','02','03','04']; tot.textContent=N;
+  var rIdx=0;
+  function listAnims(sl){ return Array.prototype.slice.call(sl.querySelectorAll('.anim')); }
+  function reveal(sl,count){ var els=listAnims(sl); for(var i=0;i<els.length;i++) els[i].classList.toggle('on', i<count); }
+  for(var i=0;i<N;i++){ var d=document.createElement('span'); d.className='dot'+(i===0?' on':''); (function(k){ d.addEventListener('click',function(){go(k);}); })(i); dotsWrap.appendChild(d); }
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n){
+    if(n<0)n=0; if(n>N-1)n=N-1; if(n===idx)return;
+    slides[idx].classList.remove('active'); void slides[n].offsetWidth; idx=n;
+    slides[idx].classList.add('active');
+    if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+    else { rIdx=1; reveal(slides[idx],1); }
+    dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+    cur.textContent=idx+1; tag.textContent=num[idx];
+    bar.style.width=((idx+1)/N*100)+'%';
+    stage.classList.toggle('oncov',idx===0);
+  }
+  function next(){
+    if(idx===0){ go(1); return; }
+    var els=listAnims(slides[idx]);
+    if(rIdx<els.length){ rIdx++; reveal(slides[idx],rIdx); return; }
+    go(idx+1);
+  }
+  function prev(){
+    if(idx===0){ return; }
+    if(rIdx>1){ rIdx--; reveal(slides[idx],rIdx); return; }
+    go(idx-1);
+  }
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(N-1);}
+  });
+  document.getElementById('stage').addEventListener('click',function(e){
+    var r=e.currentTarget.getBoundingClientRect(),x=e.clientX-r.left;
+    if(x<r.width*0.28)prev(); else next();
+  });
+  document.querySelectorAll('.nav,.dot').forEach(function(x){
+    x.addEventListener('click',function(e){e.stopPropagation();});
+  });
+
+  var stage=document.getElementById('stage');
+  function fit(){ var sc=Math.min(window.innerWidth/stage.offsetWidth, window.innerHeight/stage.offsetHeight); stage.style.transform='scale('+sc+')'; }
+  window.addEventListener('resize',fit); fit();
+
+  var h=parseInt(location.hash.slice(1),10);
+  if(!isNaN(h)&&h>=1&&h<=N){idx=h-1;}
+  slides[idx].classList.add('active');
+  if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+  else { rIdx=1; reveal(slides[idx],1); }
+  cur.textContent=idx+1; tag.textContent=num[idx];
+  dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+  bar.style.width=((idx+1)/N*100)+'%';
+  stage.classList.toggle('oncov',idx===0);
+</script>
+</body>
+</html>

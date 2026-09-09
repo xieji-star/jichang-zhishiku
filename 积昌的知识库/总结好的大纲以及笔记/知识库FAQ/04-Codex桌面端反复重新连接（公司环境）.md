@@ -3,7 +3,7 @@ title: "Codex 桌面端反复重新连接（公寓环境）：代理出口、污
 type: "知识库 FAQ / 报错修复"
 date: 2026-08-04
 created: 2026-08-04
-updated: 2026-08-18
+updated: 2026-08-31
 environment: "🏠 公寓"
 tags:
   - Codex
@@ -19,14 +19,15 @@ source: "2026-08-04 用户现场反馈与本机 Codex / Rocket 日志"
 
 # 🔌 Codex 桌面端反复重新连接（🏠 公寓环境）
 
-> [!summary] 📊 报错统计速览（截至 2026-08-18）
-> 🔥 **本文档共记录 <span style="color:#e74c3c">20 次报错/复发事件</span>**（08-04 原始事件 1 次 + 复发/复查 19 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 19 次，以本文档为主发地）。
+> [!summary] 📊 报错统计速览（截至 2026-08-31）
+> 🔥 **本文档共记录 <span style="color:#e74c3c">23 次报错/复发事件</span>**（08-04 原始事件 1 次 + 复发/复查 22 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 22 次，以本文档为主发地）。
 >
 > | 根因 | 台账累计 | 主要发生地 |
 > |------|:---:|------|
-> | 🔴 订阅更新清 OpenAI 分流规则 | **19** | 04（为主）/ 05 / 06 |
+> | 🔴 订阅更新清 OpenAI 分流规则 | **22** | 04（为主）/ 05 / 06 |
 > | 🟠 配置被切 direct 模式 | **10** | 04 / 05 |
 > | 🔴 出口 IP 被 Cloudflare 风控 | **1** | 04 |
+> | 🔴 OpenAI 分流规则钉死到被 CF 风控的数据中心节点 | **1** | 04 |
 > | 🟠 节点质量波动 / 机场线路故障 | **6** | 04 / 05 |
 > | 🟠 Codex 应用长连接卡死（网络全通，重启恢复） | **2** | 04 |
 > | 🟠 mihomo sniffing 关闭致 TUN 直连不按域名分流 | **3** | 11 / 04 |
@@ -1048,6 +1049,118 @@ chatgpt_pubsub_reconnect_scheduled
 
 > [!WARNING] ⚠️ 风险须知（三条硬约束）
 > ① **该备份不是回滚点**——它是损坏版，拷回/改回原名会重新引入插件同步失败与 app-server 崩溃；**永远不要把它重命名回 `codex-primary-runtime`**。② **删除前确认**当前 `codex-primary-runtime\runtime.json` 存在且显示 `bundleVersion: 26.813.12317`。③ 若日后需向 OpenAI 上报/复现该故障，先保留此目录再联系支持。
+
+## 🔁 复发记录（2026-08-31 00:10）：手机热点下 Codex 反复重连——小火箭 OpenAI 规则被清（第 21 次）
+
+> [!SUMMARY] 📌 复发摘要
+> 用户在**手机热点**（移动网络）下使用 Codex，发现又开始"反复重新连接"。三层诊断：**小火箭（Rocket/ClashR）在线**（控制端口 4788、HTTP 4780、系统代理 `127.0.0.1:4780`）、`/configs.mode = rule`（✅ **排除** mode 异常，非 direct/global，与 05/04 前几次的 mode 坑不同）、**OpenAI 5 条分流规则被清空**（=「订阅更新清 OpenAI 分流规则」累计**第 21 次**），chatgpt.com 落入 `MATCH→Others→Proxy→🔰国外流量→台湾 03` **单节点链**；叠加**手机热点抖动** → 08-30 23:40 `error sending request`（chatgpt.com 不可达）+ `timeout waiting for child process to exit`，23:41 网络恢复（`/backend-api/ps/plugins/installed` 回 401 `token_expired`），23:51 `turn-complete` 恢复。处置：**备份 → 逐节点改规则目标实测（香港 01 HKIX / 日本 03 仅 2/6 不稳，台湾 03 / 美国 06 / 新加坡 01 全 6/6 通过）→ 选定迁移期一致的原🇹🇼 台湾 03 中華電信为钉死节点 → 热加载 204 → 8/8 稳定验证**。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 代理配置 | 运行态 `/configs.mode` | `rule` ✅（非 direct/global，排除 mode 异常） |
+| 代理配置 | 运行态 `/configs.port` | `4780`（HTTP）/ `4781`（SOCKS）；`mixed-port=0`；控制 API 在 `4788` |
+| 代理配置 | OpenAI 分流规则（5 条） | <span style="color:#ff0000">被清空（=0）</span>（「订阅更新清规则」累计第 21 次） |
+| 代理配置 | MATCH 兜底 | `- MATCH,Others` → Others→Proxy→🔰国外流量 |
+| 代理配置 | 🔰国外流量 当前节点 | `台湾 03 中華電信`（放行 codex/models=401） |
+| 网络层 | 走代理实测 `codex/models` | **401**（OpenAI 可达，0.96s，✅ 未封） |
+| 网络层 | 走代理实测 `chatgpt.com` | **403**（Cloudflare Turnstile 人机验证页，curl 无 cookie 属正常，✅） |
+| 网络层 | 节点**两阶段**实测（08-31 00:0x） | **①初筛**（PUT 切换 🔰国外流量 + curl）：台湾 03 / 美国 01 / 日本 03 / 香港 01 / 美国 06 全部 `codex/models=401`；⚠️ 美国 01 AT&SANJOSE 的 `api.openai.com` 超时（000/5s）、日本 03 NTTドコモ 偏慢（3.45s）、香港 01 **初看**最快 0.85~0.99s。**②定稿**（改规则目标逐节点连测 6 次）：**香港 01 HKIX 2/6、日本 03 2/6（不稳）；台湾 03 / 美国 06 / 新加坡 01 全 6/6 稳定** → 改判选 **台湾 03 中華電信** |
+| 环境层 | 系统代理 | `ProxyEnable=1`、`ProxyServer=127.0.0.1:4780` ✅（指向小火箭） |
+| 环境层 | Codex 日志（UTC） | 15:40:18Z `error sending request`(chatgpt.com 不可达) + 15:40:44Z `timeout waiting for child process to exit`；15:41:48Z `/backend-api/ps/plugins/installed` 回 401 `token_expired`（网络已恢复）；**15:51:30Z `turn-complete`（恢复）** |
+
+### 修复过程
+
+1. **三层诊断**：`/configs`（mode=rule / port=4780/null / mixed-port=0）、`/rules`（OpenAI 规则 = 0）、`/proxies`（🔰国外流量 = 台湾 03）、走代理 curl 实测 `codex/models`（401）/ `chatgpt.com`（403）；并读 Codex 日志确认 15:40 网络错误 → 15:51 turn-complete。
+2. **两阶段节点体检**：①初筛经 PUT 切换 🔰国外流量 + curl（用 Python UTF-8 切换，见新坑①）→ 台湾 03 / 美国 01 / 日本 03 / 香港 01 / 美国 06 全放行，香港 01 初看最快；②**改规则目标逐节点连测**（这才是有效口径——OpenAI 规则一旦钉死，切换 🔰国外流量 已不影响 codex/models，见新坑④）→ 香港 01 2/6、日本 03 2/6 不稳，台湾 03 / 美国 06 / 新加坡 01 6/6 稳定 → **选定台湾 03 中華電信**。
+3. **备份**：`原始文件备份/rocket-config-20260830-1-before-fix.yaml`（SHA256 前缀 `f002e5d64bbcc6941049`）。
+4. **改 `rocket.yaml`**：在 `GEOIP,CN,Domestic` 之后、`- MATCH,Others` 之前插入 5 条 OpenAI 规则 → `台湾 03 中華電信`（`openai.com / chatgpt.com / chatgpt-api.com / oaistatic.com / oaiusercontent.com`）。
+5. **热加载**：`PUT /configs?force=true` body `{"path":"C:/Users/asus/AppData/Roaming/Rocket/clash-configs/rocket.yaml"}`（⚠️ 用**正斜杠**路径，反斜杠报 `Body invalid`，见新坑②）→ **HTTP 204**。
+6. **验证**：`/rules` OpenAI 规则 **5 条 → 台湾 03 中華電信**；走代理实测 `codex/models` **401** / `chatgpt.com` **403**；**8/8 连测稳定**；Codex 日志 15:51:30Z `turn-complete`（已恢复）。
+
+> [!warning] ⚠️ 关键认知（本次新坑）
+> **① Windows 下 curl 直传中文/日文节点名会被 GBK 编码破坏**：`-d '{"name":"台湾 03 中華電信"}'` 落到服务端变乱码，PUT 切换报 `Selector update error: proxy not exist`（但该名明明在组的 `all` 列表里）；同一请求内 ASCII 名（如 `Others→Proxy`）却 204 成功。**改切换节点/推送规则时一律用 Python `json.dumps(ensure_ascii=False).encode('utf-8')`**，不要用 curl 裸中文——这也是本机 N10「Node fetch 代理兼容性」之外又一"中文/编码兼容"坑。
+> **② 小火箭热加载 body 的 Windows 路径反斜杠会报 `Body invalid`**：`{"path":"C:\\Users\\...\\rocket.yaml"}` 400；**改用正斜杠** `{"path":"C:/Users/.../rocket.yaml"}` 即 204。（05/04 的 mihomo 与 小火箭 热加载均需如此。）
+> **③ OpenAI 规则插入位**：放到 `GEOIP,CN,Domestic` 与 `- MATCH,Others` 之间即可（OpenAI 域名非 CN，GEOIP,CN 不会误吞；置于 MATCH 前确保被命中）；无需插到规则段顶部。
+> **④ ⚠️ 一旦 OpenAI 规则钉死到某节点，再切换 🔰国外流量 分组就不再改变 codex/models 的出口**——因为规则优先命中，直接走钉死节点。此时若改用「切换 🔰国外流量」来测候选节点，测的全是同一个钉死节点，结果会失真（本案例曾据此误判香港 01 最优）。**要横向测候选节点，必须临时改规则目标（改 rocket.yaml 并热加载）再逐节点连测，而不是切分组**。
+
+> [!NOTE] 📌 与「VPN 客户端迁移」小节的关系
+> 本复发正是 [[#🔄 VPN 客户端迁移（2026-08-18 15：45）：SakuraCat（Vortex/mihomo）→ 小火箭（Rocket/ClashR）|迁移小节]] 的「遗留事项①：订阅更新会清掉 OpenAI 规则」被触发——小火箭 GUI 刷新订阅重写 `rocket.yaml`，第 21 次清空这 5 条规则，需重新添加。本次**沿用迁移期的钉死节点 台湾 03 中華電信**（08-31 逐节点实测确认其在香港 01 / 日本 03 不稳时仍全通过，最稳），逻辑与迁移期一致。
+
+## 🔁 复发记录（2026-08-31 18:58）：宿舍 WiFi 下外网访问异常——订阅更新重写 rocket.yaml 清 OpenAI 规则（第 22 次）
+
+> [!SUMMARY] 📌 复发摘要
+> 用户报告**宿舍 WiFi** 下"外网无法正常连接"（VPN = 小火箭，额度充裕）。三层诊断：**小火箭（Rocket/ClashR）在线**（PID 29676，控制端口 4788、HTTP 4780、系统代理 `127.0.0.1:4780`）、`/configs.mode = rule`（✅ **排除** mode 异常，非 direct/global）、**OpenAI 5 条分流规则被清空**（=「订阅更新清 OpenAI 分流规则」累计**第 22 次**），chatgpt.com 落入 `MATCH→Others→Proxy→🔰国外流量→台湾 03` **单节点链**。⚠️ **本次无法复现"外网无法连接"**——走代理实测 google / youtube / github / telegram / reddit 等**全部 200 可达**（显式 `curl -x` 与系统代理/WinINET 两条路径均通），代理栈端到端判定为**健康**；报错最可能源于 **18:15 订阅更新瞬间的隧道抖动**（更新重写 `rocket.yaml` 的当口连接被切）。尽管外网已恢复，仍**按 skill 第六步把 OpenAI 规则补回**（钉死 台湾 03 中華電信），避免后续 codex/models 落入单节点链被抖断。处置：**备份 → 补 5 条 OpenAI 规则 → 台湾 03 中華電信 → 热加载 204 → /rules 5 条 + codex/models 401 + 外网全 200 验证**。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 代理配置 | 运行态 `/configs.mode` | `rule` ✅（非 direct/global，排除 mode 异常） |
+| 代理配置 | 运行态 `/configs.port` | `4780`（HTTP）/ `4781`（SOCKS）；`mixed-port=0`；控制 API 在 `4788` |
+| 代理配置 | OpenAI 分流规则（5 条） | <span style="color:#ff0000">被清空（=0）</span>（「订阅更新清规则」累计第 22 次） |
+| 代理配置 | 配置文件摘要 | `rocket.yaml` 与 **08-30 修复前备份**逐字节一致（SHA256 前缀 `f002e5d64bbcc6941049`，70654 字节）→ 说明订阅更新把配置**整体回退**到未加 OpenAI 规则的状态 |
+| 代理配置 | MATCH 兜底 | `- MATCH,Others` → Others→Proxy→🔰国外流量 |
+| 环境层 | 进程 | 小火箭 `clashr-windows-amd64.exe` PID 29676 运行中 |
+| 环境层 | 系统代理 | `ProxyEnable=1`、`ProxyServer=127.0.0.1:4780` ✅（指向小火箭） |
+| 网络层 | 走显式代理实测外网 | `curl -x http://127.0.0.1:4780` google / youtube / github / telegram / reddit 等**全部 200** ✅（google 8/8 稳定） |
+| 网络层 | 走系统代理实测外网 | PowerShell `Invoke-WebRequest` (WinINET) 同域**全部 200** ✅ |
+| 网络层 | 走代理实测 `codex/models` | **401**（OpenAI 可达）✅ |
+
+### 修复过程
+
+1. **三层诊断**：`/configs`（mode=rule / port=4780 / mixed-port=0）、`/rules`（OpenAI 规则 = 0）、/proxies（🔰国外流量 = 台湾 03）；先走显式代理与系统代理两条路径实测外网——**均 200 可达**，判定代理栈端到端健康（无法复现报错，倾向瞬时抖动）。
+2. **备份**：`原始文件备份/rocket-config-20260831-1-before-fix.yaml`（70654 字节，SHA256 `F002E5D64BBCC69410495F45B0D8A799B2A8ECC7F290C508FE5B037907EC597E`；另有 08-30 早晨的 `rocket-config-20260830-1-before-fix.yaml`）。
+3. **改 `rocket.yaml`**：在 `GEOIP,CN,Domestic` 之后、`- MATCH,Others` 之前插入 5 条 OpenAI 规则 → `台湾 03 中華電信`（`openai.com / chatgpt.com / chatgpt-api.com / oaistatic.com / oaiusercontent.com`），钉死到迁移期一致的最稳节点。
+4. **热加载**：`PUT /configs?force=true` body `{"path":"C:/Users/asus/AppData/Roaming/Rocket/clash-configs/rocket.yaml"}`（⚠️ 用**正斜杠**路径，反斜杠报 `Body invalid`，见 00:10 复发新坑②）→ **HTTP 204**。
+5. **验证**：`/rules` OpenAI 规则 **5 条 → 台湾 03 中華電信**；走代理实测 `codex/models` **401**；外网 google 等**全 200**。
+
+> [!warning] ⚠️ 关键认知（本次补充）
+> **① 本次是少见的"报错已自愈"案例**：用户报告"外网无法连接"，但实测代理栈端到端健康、外网全 200——报错大概率是 **18:15 订阅更新重写 rocket.yaml 的当口连接被切**造成的瞬时抖动，而非持续故障。**诊断时先走「显式代理 + 系统代理」双路径实测**，能快速区分"真故障"与"瞬时抖动"。
+> **② 订阅更新并非只清 OpenAI 规则，而是把整个配置回退到上次未加规则的状态**（08-30 备份逐字节一致）。因此 OpenAI 规则这种**非订阅内容的手工改动一定会被下一次订阅更新清掉**——这是迁移节的「遗留事项①」，已成高频复发根因（N1 累计 22 次）。
+> **③ 哪怕外网已恢复，也要把 OpenAI 规则补回**：chatgpt.com 单走 `MATCH→Others→Proxy→🔰国外流量→台湾 03` 单节点链，一旦该节点抖动就会把 Codex 入口一并抖断；钉死规则才能隔离 OpenAI 流量。**"外网能通" ≠ "Codex 稳"**（与 08-07 案例的 "Codex 能用 ≠ 节点快" 同理，方向相反）。
+
+> [!NOTE] 📌 与「VPN 客户端迁移」小节的关系
+> 本复发是迁移节「遗留事项①：订阅更新会清掉 OpenAI 规则」的**连续第 2 次被触发**（00:10 第 21 次 → 18:58 第 22 次，同日两次）。规律已非常明确：**只要点小火箭 GUI 的刷新订阅，rocket.yaml 就会被整体重写、OpenAI 规则必被清掉、需重新补回**。用户若不想反复手动补，需在订阅更新后养成「检查 `/rules` 是否还有 5 条 OpenAI 规则」的习惯。
+
+## 🔁 复发记录（2026-08-31 19:15）：OpenAI 钉死的台湾 03 数据中心 IP 被 Cloudflare 风控致 chatgpt.com 403——改钉新加坡 01 Singtel（用户要求排除港台澳）
+
+> [!SUMMARY] 📌 复发摘要
+> 用户报告宿舍 WiFi 下「外网仍连不上」，并**硬性要求 OpenAI 与通用流量必须走「非香港/台湾/澳门」节点**。多 Agent（代码总监 + 3 子代理）诊断：**通用流量正常**（走代理 google/youtube/github 全 200、api.openai.com 401），**真正卡点是 OpenAI 被钉死在「台湾 03 中華電信」——该节点出口为数据中心 IP，被 Cloudflare 风控，致 chatgpt.com 返回 403 人机验证拦截页（CF-RAY `-KHH` 台湾高雄）**。深层缺陷：**晨间「选台湾 03」所用的 `api.openai.com 返 401` 是假阳性**——不带 key 时 api.openai.com 恒返 401，与节点是否被 CF 风控无关；真实判别标准是 chatgpt.com 是否回非 challenge 状态。处置：**备份 → 多 Agent 逐节点实测（9 候选全 chatgpt 200 + api 401 + 出口 ICN/SIN/LAX 非港台澳）→ 改钉双 Agent 验证 + ISP 品牌线路（风控面小）的 新加坡 01 Singtel → 热加载 204 → 验证规则 5 条非港台澳 + api 401 + 通用全 200**。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 代理配置 | OpenAI 5 条规则目标 | 改前=台湾 03 中華電信（数据中心 IP，被 CF 风控）→ 改后=**新加坡 01 Singtel**（非港台澳） |
+| 代理配置 | 运行态 `/configs.mode` | `rule` ✅（非 direct/global，排除 mode 异常） |
+| 网络层 | `chatgpt.com` 走代理 | **403 + `Cf-Mitigated: challenge`**（CF-RAY `-KHH` 台湾高雄）——数据中心 IP 被风控，用户「连不上」的真正卡点 |
+| 网络层 | `api.openai.com/v1/models` | **401**（不带 key 恒返 401，**假阳性判据**——不能用来判是否被 CF 风控） |
+| 网络层 | 通用外网站点 | google/youtube/github/wikipedia 全 200/204 ✅（通用流量正常，排除全站断） |
+| 网络层 | 逐节点实测（9 候选） | 韩国 07/01/06/03 SK텔레콤(ICN)、新加坡 01/04 Singtel(SIN)、日本 01 NTTドコモ、美国 06 IDC&VERTEX(LAX)、美国 01(SJC) **全 chatgpt 200 无 challenge + api 401 + 出口非港台澳** |
+| 网络层 | 延迟（gstatic） | 美国 06 460ms / 新加坡 01 509ms / 韩国 07 511ms / 美国 01(对照) 576ms |
+| 环境层 | 第二代理客户端 | 仅 ClashR(PID 29676)，无可冲突的 mihomo/Vortex；7897/7898 已释放 |
+| 环境层 | TUN / IPv6 | 无 TUN 适配器；WLAN2 仅 IPv4 无原生 v6；Teredo active（风控诱因，非主因） |
+| 环境层 | 系统代理 / DNS | ProxyEnable=1 + 127.0.0.1:4780；WLAN2 DNS=223.5.5.5+114.114.114.114（无残留 8.8.8.8）；chatgpt.com 本地解析被污染成 Facebook IP（仅影响直连路径） |
+
+### 修复过程
+
+1. **三层诊断 + 系统侧复核**：`/configs`（mode=rule）、`/rules`（5 条 OpenAI 规则已存在，但钉死台湾 03）、`/proxies`（通用出口美国 01）；双路径（显式 + 系统）实测确认通用流量 200、api.openai.com 401、**chatgpt.com 403+challenge** → 定位卡点为 OpenAI 节点被 CF 风控。
+2. **多 Agent 并行**：① Agent A 只读枚举非港台澳节点 + `/proxies/{name}/delay` 延迟体检（198 叶子，排除 24 个港台澳，172 实测）；② Agent C 系统侧诊断（无第二客户端/无 TUN、DNS 污染、challenge 根因）；③ **代码总监**独立核验 + 风险唱反调（指出备份缺失、台湾节点违反硬性要求、单点钉死风险）。
+3. **备份**：`原始文件备份/rocket-config-20260831-1915-before-openai-node-change.yaml`（71351 字节，SHA256 `8b69a30b71ca222f764c8812d95815b960f7b6ac3235739d233f07fb84783002`）。
+4. **改 `rocket.yaml`**：5 条 OpenAI 规则 台湾 03 中華電信 → **新加坡 01 Singtel**（第 1264-1268 行），并更新第 1263 行注释说明新根因。
+5. **热加载**：`PUT /configs?force=true` body `{"path":"C:/Users/asus/AppData/Roaming/Rocket/clash-configs/rocket.yaml"}`（正斜杠，反斜杠报 `Body invalid`）→ **HTTP 204**。
+6. **验证**：`/rules` 5 条 → 新加坡 01 Singtel（**不含港台澳**）；走代理 `api.openai.com` **401**（可达）；通用 google **204** / youtube / github **200**；`chatgpt.com` **403**（urllib/juan 无浏览器指纹所致，视为弱信号，留待用户浏览器/Codex 终验）。
+
+> [!warning] ⚠️ 关键认知（本次新坑 / 重大纠偏）
+> **① ⚠️「api.openai.com 返 401」不能作为节点是否被 CF 风控的判据——它是假阳性**：不带 key 时 api.openai.com 恒返回 401（哪怕节点被风控）；若节点完全不可达才返回 000/超时。晨间「选台湾 03」正是拿 401 当「全通过」，把被风控的数据中心节点误选为最稳节点。**真正判别标准 = chatgpt.com 是否返回非 challenge 状态（200/302）**。
+> **② 数据中心 IP 更易被 Cloudflare 风控，ISP 品牌线路风控面更小**：台湾 03（中華電信数据机房）/美国 06（IDC）这类机房 IP 易被 CF 判 bot；新加坡 01 Singtel、韩国 SK텔레콤 这类真实 ISP 品牌线路风控面小。选 OpenAI 节点应优先 ISP 线路。
+> **③ chatgpt.com 返 403 依赖 TLS 指纹（JA3/JA4）/UA/Cookie**：用 `requests`/urllib 这类无浏览器指纹的客户端，chatgpt.com 可能回 200 也可能回 403（不稳定、弱判据）。**改节点后必须由用户在真实浏览器/Codex 终验**，日志如实说明未在代理侧 100% 复现用户的风控现象。
+> **④ 用户硬性要求「排除香港/台湾/澳门节点」**：本次已把 OpenAI 钉死的台湾 03 改为新加坡 01 Singtel，通用出口仍为美国 01（在轨、稳定，按代码总监建议暂不盲换）；**任何港/台/澳节点（含「台湾 01-08」「香港 01-16」「★自动选择|香港最优★」）一律不再作为 OpenAI 或通用出口**。
+
+> [!NOTE] 📌 与「VPN 客户端迁移」小节的关系
+> 本复发是**对迁移节「遗留事项①」后续的深化**：迁移期选「台湾 03」依赖的判据（api.openai.com 401）经多 Agent 复核为**假阳性**，实际该节点被 CF 风控。本次为满足用户「排除港台澳节点」的硬性要求，并把 OpenAI 从被风控的数据中心节点迁到 ISP 品牌线路（新加坡 01 Singtel）。遗留事项①（订阅更新清规则）仍未根除——+ 新增「订死节点的 IP 若被风控需随节点切换复核」的认知。
 
 ## 🔄 VPN 客户端迁移（2026-08-18 15:45）：SakuraCat（Vortex/mihomo）→ 小火箭（Rocket/ClashR）
 

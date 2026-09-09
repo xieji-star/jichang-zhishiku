@@ -1,7 +1,7 @@
 ---
 name: feishu-manual-takeover
 description: |
-  飞书智能助手人工接管工作流。当用户通过飞书智能助手的"人工接管"模式发送课堂笔记、会议记录等文件时，本 skill 负责编排完整处理流程：从 lark-resources/ 获取文件，调用 会议笔记整理 skill 进行内容整理，保存结构化笔记到 总结好的大纲以及笔记/ 目录，并建立双向链接。同时支持**多文件批处理**——当多个文件同时到达时，自动批量检测、批量命名映射、顺序处理、交叉链接和合并报告。
+  飞书智能助手人工接管工作流。当用户通过飞书智能助手的"人工接管"模式发送课堂笔记、会议记录等文件时，本 skill 负责编排完整处理流程：从 中间文件/lark-resources/ 获取文件，调用 会议笔记整理 skill 进行内容整理，保存结构化笔记到 总结好的大纲以及笔记/ 目录，并建立双向链接。同时支持**多文件批处理**——当多个文件同时到达时，自动批量检测、批量命名映射、顺序处理、交叉链接和合并报告。
 
   触发条件（只要满足任意一条就应触发）：
   - 用户明确提到"人工接管"或"人工接管模式"且涉及飞书文件处理
@@ -42,7 +42,7 @@ description: |
 用户通过飞书发送文件
        │
        ▼
-  Step 1: 扫描 lark-resources/ ──► 列出待处理文件（按时间排序）
+  Step 1: 扫描 中间文件/lark-resources/ ──► 列出待处理文件（按时间排序）
        │
        ▼
   Step 1.2: 飞书聊天检索 ──► 搜索P2P聊天中的文件名/指令（lark-im）
@@ -75,7 +75,7 @@ description: |
 用户通过飞书发送多个文件
        │
        ▼
-  Step 1: 批量扫描 lark-resources/ ──► 识别所有新文件 → 创建处理队列
+  Step 1: 批量扫描 中间文件/lark-resources/ ──► 识别所有新文件 → 创建处理队列
        │
        ▼
   Step 1.2: 飞书聊天检索 ──► 搜索P2P聊天获取文件名映射/指令
@@ -123,7 +123,7 @@ description: |
 | 🏁 **最低** | **内容推断** | 根据PDF内容自行推断 | 用户说"你定"或未提供时 |
 
 > [!WARNING] 🔴 **核心原则：先查飞书，再问用户**
-> 当发现 lark-resources/ 中有新文件，但 Claude 对话中未提供文件名或指令时，**不要立即询问用户**——先去飞书 P2P 聊天中搜索是否有文本消息。用户很可能已经通过飞书将文件名附在文件后面发送了。
+> 当发现 中间文件/lark-resources/ 中有新文件，但 Claude 对话中未提供文件名或指令时，**不要立即询问用户**——先去飞书 P2P 聊天中搜索是否有文本消息。用户很可能已经通过飞书将文件名附在文件后面发送了。
 
 ---
 
@@ -133,8 +133,8 @@ description: |
 
 | 判断条件 | 模式 |
 |---------|:----:|
-| `lark-resources/` 中只有 **1 个**新文件 | 📄 **单文件模式** |
-| `lark-resources/` 中有 **2 个以上**新文件 | 📦 **多文件批处理模式** |
+| `中间文件/lark-resources/` 中只有 **1 个**新文件 | 📄 **单文件模式** |
+| `中间文件/lark-resources/` 中有 **2 个以上**新文件 | 📦 **多文件批处理模式** |
 | 用户消息中明确为 **多个文件指定了多个名称** | 📦 **多文件批处理模式** |
 | 用户说"分别总结"、"逐个处理"、"每个文件一份" | 📦 **多文件批处理模式** |
 | 飞书聊天消息中为 **多个文件指定了多个名称** | 📦 **多文件批处理模式** |
@@ -143,10 +143,10 @@ description: |
 
 ### Step 1: 扫描资源目录
 
-检查 `lark-resources/` 目录（相对 vault 根目录），列出所有待处理文件：
+检查 `中间文件/lark-resources/` 目录（相对 vault 根目录），列出所有待处理文件：
 
 ```bash
-ls -la "lark-resources/"
+ls -la "中间文件/lark-resources/"
 ```
 
 > [!TIP] 💡 按上传时间识别最新文件
@@ -158,7 +158,7 @@ ls -la "lark-resources/"
 - 📝 **文本文件**（txt/md）→ 直接读取内容后调用 会议笔记整理
 
 > [!NOTE] 📌 上次处理过的文件
-> 如果 `lark-resources/` 中有已被处理过的旧文件（如 `备忘录文档_202607131627.pdf`），忽略它们，只处理最新的未处理文件。
+> 如果 `中间文件/lark-resources/` 中有已被处理过的旧文件（如 `备忘录文档_202607131627.pdf`），忽略它们，只处理最新的未处理文件。
 
 #### 批量检测（多文件模式）
 
@@ -166,7 +166,7 @@ ls -la "lark-resources/"
 
 ```bash
 # 列出所有 PDF 文件，按时间排序
-ls -la "lark-resources/" | grep ".pdf" | sort -k6,7
+ls -la "中间文件/lark-resources/" | grep ".pdf" | sort -k6,7
 ```
 
 记录以下信息到处理队列：
@@ -195,7 +195,7 @@ ls -la "lark-resources/" | grep ".pdf" | sort -k6,7
 
 #### 1.2.2 检索方法
 
-扫描完 lark-resources/ 后，使用 `lark-im` 检索飞书 P2P 聊天中的最近消息：
+扫描完 中间文件/lark-resources/ 后，使用 `lark-im` 检索飞书 P2P 聊天中的最近消息：
 
 ```bash
 # 第一步：确保使用用户身份（飞书消息搜索需要 user 身份）
@@ -273,7 +273,7 @@ lark-cli im +messages-search --query "文件名|路径|存到|整理" --page-siz
 
 **仅在多文件批处理模式时执行此步骤。**
 
-当用户一次性指定了多个文件名时，需要将 lark-resources/ 中的文件与用户指定的名称一一对应。
+当用户一次性指定了多个文件名时，需要将 中间文件/lark-resources/ 中的文件与用户指定的名称一一对应。
 
 #### 1.5.1 解析用户提供的名称映射
 
@@ -317,7 +317,7 @@ lark-cli im +messages-search --query "文件名|路径|存到|整理" --page-siz
 | **飞书聊天和 Claude 对话都有名称** | **优先使用飞书聊天中的名称（信息源优先级最高）** |
 
 > [!TIP] 💡 按序映射是最常见场景
-> 用户通常会说"文件1→XXX，文件2→YYY"，直接按 lark-resources/ 中的时间顺序从新到旧对应即可。
+> 用户通常会说"文件1→XXX，文件2→YYY"，直接按 中间文件/lark-resources/ 中的时间顺序从新到旧对应即可。
 
 ---
 
@@ -333,7 +333,7 @@ lark-cli im +messages-search --query "文件名|路径|存到|整理" --page-siz
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/lark-resources/{{文件名}}')
+doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
 print(f'总页数: {doc.page_count}')
 for i in range(min(3, doc.page_count)):
     text = doc[i].get_text('text')
@@ -444,7 +444,7 @@ ls -la "总结好的大纲以及笔记/{{子目录}}/"
 ```markdown
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\lark-resources\{{文件名}}
+  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件名}}
   存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名}}
   内容来源: {{说明}}
@@ -478,7 +478,7 @@ Args:
 # 第 1 次调用
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\lark-resources\{{文件1}}
+  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件1}}
   存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名1}}
   内容来源: {{来源1}}
@@ -486,7 +486,7 @@ Args:
 # 完成后 → 第 2 次调用
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\lark-resources\{{文件2}}
+  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件2}}
   存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名2}}
   内容来源: {{来源2}}
@@ -746,7 +746,7 @@ Grep pattern="关键词1|关键词2|关键词3|关键词4" path="总结好的大
 ### 阶段一：准备（Steps 1-3）
 
 ```
-1. 扫描 lark-resources/ → 发现 N 个新文件
+1. 扫描 中间文件/lark-resources/ → 发现 N 个新文件
    └── 按上传时间排序，创建处理队列
 
 2. ⭐ 检索飞书聊天 → 搜索P2P聊天中的文本消息（新增关键步骤！）
@@ -810,7 +810,7 @@ Grep pattern="关键词1|关键词2|关键词3|关键词4" path="总结好的大
 
 | 情况 | 处理方式 |
 |------|---------|
-| **lark-resources/ 为空** | 告知用户没有找到待处理文件，请先通过飞书智能助手发送文件 |
+| **中间文件/lark-resources/ 为空** | 告知用户没有找到待处理文件，请先通过飞书智能助手发送文件 |
 | **有旧文件和新文件混在一起** | 按上传时间排序，只处理最新的未处理文件 |
 | **文件不是 PDF 而是图片** | 直接调用 会议笔记整理，它支持图片 OCR |
 | **单个新文件** | 走单文件模式标准流程 |
@@ -841,7 +841,7 @@ Grep pattern="关键词1|关键词2|关键词3|关键词4" path="总结好的大
 
 ```bash
 # 扫描资源目录
-ls -la "lark-resources/"
+ls -la "中间文件/lark-resources/"
 
 # ⭐ 检索飞书聊天消息（新增）
 lark-cli config default-as user
@@ -854,7 +854,7 @@ lark-cli im +messages-search --query "文件名|存到|整理|路径" --page-siz
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/lark-resources/{{文件名}}')
+doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
 print(f'总页数: {doc.page_count}')
 for i in range(min(3, doc.page_count)):
     text = doc[i].get_text('text')
@@ -868,7 +868,7 @@ doc.close()
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/lark-resources/{{文件名}}')
+doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
 for i in range(doc.page_count):
     text = doc[i].get_text('text')
     if text.strip():
@@ -940,4 +940,4 @@ mkdir -p "总结好的大纲以及笔记/{{子目录}}/"
 - `lark-im` — 飞书消息处理（本 skill 的关键辅助——用于 Step 1.2 消息检索）
 - `lark-shared` — 飞书认证和身份切换（确保使用 user 身份检索消息）
 - `总结好的大纲以及笔记/` — 笔记存储根目录
-- `lark-resources/` — 飞书上传文件暂存目录
+- `中间文件/lark-resources/` — 飞书上传文件暂存目录

@@ -1,0 +1,472 @@
+{
+  "schema": "ppt-master.svg-quality-report.v1",
+  "stage": "final",
+  "target": "F:\\积昌的知识库 - 副本\\.claude\\skills\\ppt-master\\projects\\zhiguan_yunlian_beautify_ppt169_20260830",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "digest": "ea9a2f5d9f9cbe8adddc07322f15bf2cafa856da2a3ca25a445daab5b538907e",
+    "file_count": 5,
+    "files": [
+      {
+        "file": "01_market_path.svg",
+        "sha256": "1296cb557db34cb87c5feac2a2b8d333dad361561c0b531af799caac03a3322c"
+      },
+      {
+        "file": "02_scenarios.svg",
+        "sha256": "87ef83c4bb16332c653bc215ba1d095c74e69189287e3910c479dca1c517174f"
+      },
+      {
+        "file": "03_team.svg",
+        "sha256": "d976ad51001ea2f4d80a2ad6688075ef33b23a6d8a5005aa7cd687db51a8936f"
+      },
+      {
+        "file": "04_mentor_resources.svg",
+        "sha256": "6b1a69c49018a957466fc3aa3f656f911485960fc9cabda97e4607c4f2f2b3be"
+      },
+      {
+        "file": "05_development.svg",
+        "sha256": "f28a2dadaa760c4107aefd6b738293dcd404daba7fa760bacc2f9a8d5d7a3b7d"
+      }
+    ]
+  },
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "warnings": 4,
+    "errors": 0
+  },
+  "issue_types": {},
+  "categories": {
+    "blocking": {
+      "count": 0,
+      "issues": []
+    },
+    "introduced": {
+      "count": 13,
+      "issues": [
+        {
+          "file": "01_market_path.svg",
+          "message": "Image ../images/p1_step1.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry"
+        },
+        {
+          "file": "01_market_path.svg",
+          "message": "Image ../images/p1_step2.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry"
+        },
+        {
+          "file": "01_market_path.svg",
+          "message": "Image ../images/p1_step3.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry"
+        },
+        {
+          "file": "01_market_path.svg",
+          "message": "Image ../images/p1_step4.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry"
+        },
+        {
+          "file": "02_scenarios.svg",
+          "message": "Image ../images/p2_card1.png is 268x155 and renders at 1.97x scale in a 528x175 slice frame — may appear blurry"
+        },
+        {
+          "file": "03_team.svg",
+          "message": "Image ../images/p3_m1.png is 143x158 and renders at 1.29x scale in a 184x198 slice frame — may appear blurry"
+        },
+        {
+          "file": "03_team.svg",
+          "message": "Image ../images/p3_m2.png is 141x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry"
+        },
+        {
+          "file": "03_team.svg",
+          "message": "Image ../images/p3_m3.png is 142x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry"
+        },
+        {
+          "file": "03_team.svg",
+          "message": "Image ../images/p3_m4.png is 140x158 and renders at 1.31x scale in a 184x198 slice frame — may appear blurry"
+        },
+        {
+          "file": "03_team.svg",
+          "message": "Image ../images/p3_m5.png is 141x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry"
+        },
+        {
+          "file": "05_development.svg",
+          "message": "Image ../images/p5_step1.png is 250x122 and renders at 1.25x scale in a 312x135 slice frame — may appear blurry"
+        },
+        {
+          "file": "05_development.svg",
+          "message": "Image ../images/p5_step2.png is 240x122 and renders at 1.30x scale in a 312x135 slice frame — may appear blurry"
+        },
+        {
+          "file": "05_development.svg",
+          "message": "Image ../images/p5_step3.png is 250x122 and renders at 1.25x scale in a 312x135 slice frame — may appear blurry"
+        }
+      ]
+    },
+    "inherited": {
+      "count": 0,
+      "issues": []
+    },
+    "source-import": {
+      "count": 0,
+      "summary": {
+        "warning_count": 0,
+        "by_code": {}
+      }
+    }
+  },
+  "drift": {
+    "colors": {},
+    "fonts": {},
+    "sizes": {}
+  },
+  "carrier_receipt": {
+    "scope": "informational-not-a-quota",
+    "pages": 5,
+    "totals": {
+      "text_elements": 80,
+      "image_placements": 21,
+      "icons": 0,
+      "svg_geometry_elements": 134,
+      "preset_shapes": 0,
+      "page_frame_elements": 10,
+      "marker_uses": 0
+    },
+    "pages_with": {
+      "images": 5,
+      "icons": 0,
+      "presets": 0,
+      "charts": 0,
+      "tables": 0,
+      "formulas": 0
+    },
+    "geometry_elements": {
+      "circle": 21,
+      "ellipse": 0,
+      "line": 5,
+      "path": 24,
+      "polygon": 0,
+      "polyline": 0,
+      "rect": 84
+    },
+    "preset_names": {},
+    "native_objects": {
+      "chart": 0,
+      "formula_block": 0,
+      "formula_inline": 0,
+      "other": 0,
+      "table": 0
+    },
+    "image_page_max_frame_share_range": [
+      0.0075,
+      0.1003
+    ]
+  },
+  "project_issues": {
+    "template": [],
+    "animation": [],
+    "illustration": [],
+    "communication_trace": [],
+    "pptx_structure": []
+  },
+  "files": [
+    {
+      "file": "01_market_path.svg",
+      "path": "..\\projects\\zhiguan_yunlian_beautify_ppt169_20260830\\svg_output\\01_market_path.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Image ../images/p1_step1.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry",
+        "Image ../images/p1_step2.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry",
+        "Image ../images/p1_step3.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry",
+        "Image ../images/p1_step4.png is 195x165 and renders at 1.25x scale in a 243x165 slice frame — may appear blurry"
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 19,
+          "images": {
+            "placements": 4,
+            "files": [
+              "p1_step1.png",
+              "p1_step2.png",
+              "p1_step3.png",
+              "p1_step4.png"
+            ],
+            "max_frame_share": 0.0435
+          },
+          "icons": 0,
+          "geometry": {
+            "svg_elements": {
+              "rect": 14,
+              "circle": 6,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 8
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Segoe UI, Microsoft YaHei, sans-serif"
+        ],
+        "text_elements": 19,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "1296cb557db34cb87c5feac2a2b8d333dad361561c0b531af799caac03a3322c"
+    },
+    {
+      "file": "02_scenarios.svg",
+      "path": "..\\projects\\zhiguan_yunlian_beautify_ppt169_20260830\\svg_output\\02_scenarios.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Image ../images/p2_card1.png is 268x155 and renders at 1.97x scale in a 528x175 slice frame — may appear blurry"
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 19,
+          "images": {
+            "placements": 1,
+            "files": [
+              "p2_card1.png"
+            ],
+            "max_frame_share": 0.1003
+          },
+          "icons": 0,
+          "geometry": {
+            "svg_elements": {
+              "rect": 21,
+              "circle": 2,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 5
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Segoe UI, Microsoft YaHei, sans-serif"
+        ],
+        "text_elements": 19,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "87ef83c4bb16332c653bc215ba1d095c74e69189287e3910c479dca1c517174f"
+    },
+    {
+      "file": "03_team.svg",
+      "path": "..\\projects\\zhiguan_yunlian_beautify_ppt169_20260830\\svg_output\\03_team.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Image ../images/p3_m1.png is 143x158 and renders at 1.29x scale in a 184x198 slice frame — may appear blurry",
+        "Image ../images/p3_m2.png is 141x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry",
+        "Image ../images/p3_m3.png is 142x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry",
+        "Image ../images/p3_m4.png is 140x158 and renders at 1.31x scale in a 184x198 slice frame — may appear blurry",
+        "Image ../images/p3_m5.png is 141x158 and renders at 1.30x scale in a 184x198 slice frame — may appear blurry"
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 12,
+          "images": {
+            "placements": 5,
+            "files": [
+              "p3_m1.png",
+              "p3_m2.png",
+              "p3_m3.png",
+              "p3_m4.png",
+              "p3_m5.png"
+            ],
+            "max_frame_share": 0.0395
+          },
+          "icons": 0,
+          "geometry": {
+            "svg_elements": {
+              "rect": 16,
+              "circle": 6,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 5
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Segoe UI, Microsoft YaHei, sans-serif"
+        ],
+        "text_elements": 12,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "d976ad51001ea2f4d80a2ad6688075ef33b23a6d8a5005aa7cd687db51a8936f"
+    },
+    {
+      "file": "04_mentor_resources.svg",
+      "path": "..\\projects\\zhiguan_yunlian_beautify_ppt169_20260830\\svg_output\\04_mentor_resources.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 14,
+          "images": {
+            "placements": 8,
+            "files": [
+              "p4_mentor1.png",
+              "p4_mentor2.png",
+              "p4_mentor3.png",
+              "p4_mentor4.png",
+              "p4_res1.png",
+              "p4_res2.png",
+              "p4_res3.png",
+              "p4_res4.png"
+            ],
+            "max_frame_share": 0.0075
+          },
+          "icons": 0,
+          "geometry": {
+            "svg_elements": {
+              "rect": 21,
+              "circle": 2,
+              "ellipse": 0,
+              "line": 0,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 1
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Segoe UI, Microsoft YaHei, sans-serif"
+        ],
+        "text_elements": 14,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "6b1a69c49018a957466fc3aa3f656f911485960fc9cabda97e4607c4f2f2b3be"
+    },
+    {
+      "file": "05_development.svg",
+      "path": "..\\projects\\zhiguan_yunlian_beautify_ppt169_20260830\\svg_output\\05_development.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Image ../images/p5_step1.png is 250x122 and renders at 1.25x scale in a 312x135 slice frame — may appear blurry",
+        "Image ../images/p5_step2.png is 240x122 and renders at 1.30x scale in a 312x135 slice frame — may appear blurry",
+        "Image ../images/p5_step3.png is 250x122 and renders at 1.25x scale in a 312x135 slice frame — may appear blurry"
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 16,
+          "images": {
+            "placements": 3,
+            "files": [
+              "p5_step1.png",
+              "p5_step2.png",
+              "p5_step3.png"
+            ],
+            "max_frame_share": 0.0457
+          },
+          "icons": 0,
+          "geometry": {
+            "svg_elements": {
+              "rect": 12,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 5
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Segoe UI, Microsoft YaHei, sans-serif"
+        ],
+        "text_elements": 16,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "f28a2dadaa760c4107aefd6b738293dcd404daba7fa760bacc2f9a8d5d7a3b7d"
+    }
+  ]
+}

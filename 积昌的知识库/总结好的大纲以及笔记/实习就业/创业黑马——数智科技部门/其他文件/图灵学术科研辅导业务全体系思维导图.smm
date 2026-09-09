@@ -1,0 +1,1748 @@
+{
+  "layout": "mindMap",
+  "root": {
+    "data": {
+      "text": "图灵学术科研辅导业务全体系战略方案",
+      "uid": "e62802f6d46c45578b4de9a2f1d05440"
+    },
+    "children": [
+      {
+        "data": {
+          "text": "一、获客要素（五要素）",
+          "uid": "f8ed62b5822f4ac2aa85f0c1672df6ae"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "1. 我是谁（身份定位与背书）",
+              "uid": "f78bb5bc31c0438083284c38669dcd82"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "一句话定位",
+                  "uid": "cb9465fe4f044af2b8d34dadc500ffdf"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "图灵学术：A股上市公司创业黑马（300688）旗下，专注计算机与AI领域的科研教育品牌",
+                      "uid": "2e6f6cd048b64b02b4b347c2ac788f9c"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "为高年级本科生及硕博群体提供保研直博、硕博毕业、顶会顶刊发表的1V1科研辅导",
+                      "uid": "7ab263ff982540a29b02b5729efc9a9c"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "可验证的实体背书",
+                  "uid": "615422e3b8b548208d877745a0354a93"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "上市公司背景：创业黑马（300688）市值55亿，独立事业部，打消\"跑路\"顾虑",
+                      "uid": "c13c62b24413461a8b71ca4b56ee0079"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "导师团队：全球1000+AI领域导师、100%博士，含Best Paper得主/谷歌学术引用1.5W+大牛/GitHub 5000星大佬",
+                      "uid": "52d569cb9cf040eeb83c451ed390ec2b"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "交付成果：累计辅导学员、保录率95%、VIP学员转介绍率50%",
+                      "uid": "a5aae5f808684c9999344f5e5f071b60"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "深度教研库：60+验证过的\"AI+X\"成熟课题模板",
+                      "uid": "3d2347e83ae8433a94e7b4c1f699c737"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "标准化交付：行业唯一\"审核报名制\"、5V1社群服务",
+                      "uid": "ebe9a45da4244a8aaee3597963435d2a"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "办公环境：办公场地视频、团队合影、日常工作场景",
+                      "uid": "038d40decf64433ab301b5357485eb1e"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "自研工具/技术壁垒",
+                  "uid": "d6c8e131a92e4750aba4de25e326b4ff"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "深度教研课题库：60+实验验证的蓝海方向，非通用AI随机生成",
+                      "uid": "2cfb77b9cfc84463a7651a52993a39cd"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "导师匹配系统：按学员背景、基础、目标匹配导师",
+                      "uid": "a84c8633f1d147f58213cd951c003cdc"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "阶段交付审核机制：每阶段专人审核成果",
+                      "uid": "60b6e41cc5f24394a7c0cbb7de39e6d5"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "投稿期刊数据库：熟知对国人友好的CCF会议/SCI期刊",
+                      "uid": "f2c7439b75e64eb49653e5e159e38b88"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "注意：所有数据必须可验证、可展示，避免不可考证的自夸",
+                      "uid": "6fc63a1b864544109b6fecfee0eacc09"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "2. 帮谁（目标人群）",
+              "uid": "b7c4faf489564be2b21419795414476d"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "核心主攻人群",
+                  "uid": "2ccc8429331d4823b6ad5aff9589312f"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "申博硕士：985/211/双非研二研三，想申更好学校的博士，多为家长付费",
+                      "uid": "8065349d264040bdb0e4c7e0b8b85263"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "毕业博士：博三博四没小论文、面临延期，付费意愿最强、决策最快",
+                      "uid": "95e45efd2bc1455b992ab18c3e6c508b"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "次要覆盖人群",
+                  "uid": "ae06e1249ccb4e278226cebbb232db98"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "保研本科生（大三大四，想保研或出国）",
+                      "uid": "18e65cde812d4bb4837fc9e2baf2daea"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "大厂算法工程师（想升职加薪或申博）",
+                      "uid": "71e86f1144114ec4b43166e1f628842d"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "国企央企事业单位评职称人员",
+                      "uid": "5daa004e605246d58642b2c8530acf28"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "学生决策特点",
+                  "uid": "df3a0a65d8c5435896edd0d14f727f61"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "决策慢：觉得\"找辅导=能力不行\"",
+                      "uid": "ba571ca8a53a416ab84b9279e46955df"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "付费谨慎：多为家长付费，有\"花了钱必须出结果\"心理负担",
+                      "uid": "01084e0b0b32494cb47e97c6817a73ab"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "合规恐惧极高：怕学术不端，退学+记入档案",
+                      "uid": "20d81a20ae574f999b9dc7745cbec0ed"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "机会成本敏感：延期半年=少赚半年工资+错过校招黄金期",
+                      "uid": "8c9d7498e2e7446ea88f2047bcf3ba58"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "3. 能做什么（核心绝招）",
+              "uid": "90ca76c2418049509ff8d1eda32d158b"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "核心产品",
+                  "uid": "a74f3b1cb0fc481aa1a176d60051009a"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "1V1顶会顶刊加速计划（科研共创模式，非代写、非授课式辅导）",
+                      "uid": "77773daf96754cf3be9206428054098a"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "绝招一：60+深度教研蓝海课题库",
+                  "uid": "5181da18167c4fee8246de6792ccd399"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "60+个\"AI+X\"交叉方向课题（医学影像/气象预测/遥感解译/生物信息/金融时序/自动驾驶等）",
+                      "uid": "798568bef15f4cfdb9ab5acf53cbddeb"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "每个课题经过实验验证，确认\"可发表、易发表、有创新点\"",
+                      "uid": "52fba3d849284486a9ea94df69eac626"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "与通用AI区别：豆包/DeepSeek的idea随机生成没验证，我们的课题跑过实验确认能中",
+                      "uid": "960598e8fa0f498ba876d2989f52c9d7"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "绝招二：1000+实战派大牛导师1V1带教",
+                  "uid": "85c08ce9c0334f6e9cc51beb8dbd38cd"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "导师都是刚出校园或科研一线的博士/教授，科研能力在线",
+                      "uid": "2d7653e871ff45b79d3c29b05264ded8"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "全流程带教：选题定位、文献带读、代码Debug、实验设计、写作框架、审稿回复",
+                      "uid": "9bfc7097c97d4215bd15829612860945"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "绝招三：标准化交付+阶段审核机制",
+                  "uid": "e810e6cad17c4335ae61e39c7b2c269c"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "行业唯一\"审核报名制\"，5V1社群服务（私教导师+班主任+学习陪伴师+学术顾问+评审委员会）",
+                      "uid": "371d61d2d499481e848e91d95a81714b"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "每阶段交付成果审核达标才进入下一阶段，保录率95%是流程控出来的",
+                      "uid": "e5cea1cdda1c47f983ea05f088c930f1"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "关键：保录不是走后门暗箱操作，是靠每阶段成果达标堆出来的",
+                      "uid": "81f58786ddfa45b09622a7493dc59dfb"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "绝招四：期刊/会议数据库+投稿经验",
+                  "uid": "44e319d8977a434abd3d89b15ad74adc"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "熟知哪些CCF会议/SCI期刊对国人友好、录用率高、审稿周期短",
+                      "uid": "71646134726b4f50928fa57ec1ae98b6"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "精准匹配\"方向→方法→期刊\"，直接给投稿list",
+                      "uid": "a7db516baa8248fe97a798c7983b461e"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "附加价值：审稿意见回复（Rebuttal）能力，大幅提升大修录用率",
+                      "uid": "03934a39129c4e2a977020ec60c110ce"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "4. 打败谁（用户的敌人）",
+              "uid": "e7f439ca0b18413eb566352d1dd37abb"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "客观敌人（能说出口的）",
+                  "uid": "13fed2ceff90496b983df39c71d9f11f"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "选题：导师放养、跟风大模型没算力、看200篇文献还是空白",
+                      "uid": "3cc4b23debc6469dadb487094f37895f"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "文献：看不懂、越看越迷糊、不知道哪些是关键文献",
+                      "uid": "6a5e8c5bb231400897311a34021123f1"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "实验：开源代码跑不通、CUDA显存爆炸、Loss负数、过拟合、换数据集性能暴跌",
+                      "uid": "95a4220c161a4d2c82a56f7c4d6f7a18"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "写作：不会写Motivation、大作业流水账、被批Incremental Work",
+                      "uid": "aeea471c8e464c2a954a43134508b7f5"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "投稿：不知道投什么、投审稿极慢的、外文系统看不懂",
+                      "uid": "13dbc9c76255458ca631c905dd7a6335"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "返修：Major Revision三页意见不知如何应对、被拒不知道改投哪",
+                      "uid": "d3af76fa7114436cba341fe7ce1b1ea9"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "情绪敌人（说不出口的——核心武器）",
+                  "uid": "f8bfeab95a5849838bb0c582db08141e"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "延期毕业的恐惧：博三没小论文，延期=简历污点",
+                      "uid": "3488a7d3766b4d078edacf032ee93d8a"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "同学对比的挫败：本科同学拿50W年薪，我还在熬夜抓Bug",
+                      "uid": "d230e3d84b0c47d3a82e1ce9f3c08dee"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "读书人的清高：985硕博找人辅导丢人（最大转化障碍）",
+                      "uid": "5e5848b085a5405eb35f7a95ece4c339"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "家长付费的心理负担：花爸妈钱没结果怎么面对",
+                      "uid": "5e129a08ab484fbca8482c46a8165c42"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "对代写的道德恐惧：怕学术不端被退学记档案",
+                      "uid": "ec6db1bec27348f18f6848952d77fee7"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "对结果的不确定性：\"没时间\"是表象，背后是怕失败",
+                      "uid": "6714a5d9e17c42868da9d35845065a99"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "自我怀疑：反复被拒稿，怀疑智商不够",
+                      "uid": "c4a4629897dc4320877833d6ad2f4453"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "同门压力：同门相继中稿，自己原地踏步",
+                      "uid": "13c0ea27c34745bab4ad5f251039387d"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "5. 竞争对手（替代方案）",
+              "uid": "84d53a1946774b7e827190a96f8979d4"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "直接竞品：其他论文辅导机构",
+                  "uid": "5de8545265194001a6a48f9d36ae7b47"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "弱点：导师不稳定（在读学生兼职）、无标准化交付、没课题库、跑路风险、没投稿经验",
+                      "uid": "a3f1a1ef7c1041a78cf737727a41d929"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "我们差异化：上市公司背景、1000+实名导师、60+课题库、标准化交付+审核、95%保录率、5V1服务",
+                      "uid": "c8d9272e8efc4330a4408f2f49b0c565"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "间接竞品一：自己摸索做",
+                  "uid": "cea1c076d20f406a841f38bbaf90aaa9"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "diss：自己做的成本不是省钱，是延期半年=少赚15-25万+错过校招+心理煎熬",
+                      "uid": "9135229428ec41dc8f38d29620b54362"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "关键：用经济账打破\"省钱\"认知",
+                      "uid": "92a5d8ad4f4e4d8089b53cb024c3f22a"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "间接竞品二：通用AI工具（豆包/DeepSeek/Claude）",
+                  "uid": "35c39f0b9def47668ab8c5411aec361f"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "diss：AI不知道审稿人想看什么、查重率高、没实验支撑、投稿被拒",
+                      "uid": "956ef1583826418683d64ac9bd312c2a"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "关键：AI是工具不是导师（有手术刀≠能做手术）",
+                      "uid": "db065c0a41db4ed6b503671a342d0a15"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "间接竞品三：代写代发",
+                  "uid": "43a042d8c25a40b6a9dbe47c62634e2d"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "diss：学术不端查得严、答辩一问三不知、被查就退学记档案、质量参差",
+                      "uid": "ff9e16aca4a74433813f0f2026d93fa6"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "定位：科研共创——idea导师启发、数据是你的、核心表达是你审核的，合规可答辩",
+                      "uid": "99ac90d6a6124ab1af941c04c16867e3"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "间接竞品四：纯AI润色工具",
+                  "uid": "b9e85e93574d410ca98115fec9ac2045"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "diss：润色改语言，改不了idea和实验设计，很多被拒是方向/创新点问题",
+                      "uid": "60e9a735d8f6470798fabca5214b7efa"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": {
+          "text": "二、服务流程（对外精简版）",
+          "uid": "a42ab6cf422344ccaf24fd39a227a438"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "核心原则",
+              "uid": "5b8d208101634dd28c0c2851b25a14fc"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "全流程透明：每步标注\"用户做什么/我们做什么/好处/与竞品区别\"",
+                  "uid": "38a1a316000b4c55b93fe33d9d7bef30"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "重点突出合规性（区别于代写）",
+                  "uid": "08670514e4874c25ad6bb58ff0b29002"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "售前",
+              "uid": "0ce2ec29996f4ead832e9e4c43c226b9"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "流程：表单摸底 → 1000元审核金 → 双向Meeting评估",
+                  "uid": "d7552cf90fb34ac9a866627f8af53248"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "用户：填背景表单、做个人PPT、参加30-60min评估会议",
+                  "uid": "c0ed29dfb0594a7d84f61579b7831f21"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：导师前置调研、评估匹配度、双方满意才接单",
+                  "uid": "2f4c22f381ef43949a3d3bcc7ab8e4e3"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "特点：行业唯一\"审核报名制\"，不是给钱就收",
+                  "uid": "7deb68ae0136491a8e206d7b90abb042"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "签约",
+              "uid": "745c9631e2ea4287a24a5d8e30e8f3e7"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "流程：签约 → 拉5V1服务群",
+                  "uid": "51fddbe550414e969b57e49c78665aa3"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "1个工作日内建群、安排导师第一次会面",
+                  "uid": "1cdf1faf60324af489ee8f0913247451"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "5V1社群：私教导师+班主任+学习陪伴师+学术顾问+评审委员会",
+                  "uid": "c3059975b02a4b869daa4594595fba10"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第1阶段：选题确认（约1周）",
+              "uid": "b28c03b453a34b73bcf5a9152cf2a174"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：参加1-2次线上会议（约30min/次）、做选择题",
+                  "uid": "55058bfad4794524843734c610d74f19"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：60+课题库匹配2-3个高命中率方向，交付《基础评估报告》《研究方案设计》",
+                  "uid": "d8d60561eba64b86aa227af82255c256"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "价值：避免方向错误努力白费，不用自己看200篇文献找方向",
+                  "uid": "b0e6683400f144c984c9c33e03b81e45"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第2阶段：文献梳理（约3周）",
+              "uid": "f5d01784cfcf43379cde8194df0969bd"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：跟导师读精选文献、预习",
+                  "uid": "8ca8dc02da7a4a019ee6e7214f91747b"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：筛选近3年高引文献、带读关键论文、交付《文献阅读笔记.xlsx》《Related Work研究流派汇报》",
+                  "uid": "3c08b4da8e85436c9f1632d5754d457b"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "价值：不用自己瞎看，节省时间，快速获得正向反馈",
+                  "uid": "76d3b94db042469188968481d2937982"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第3阶段：Idea创新设计（约2周）",
+              "uid": "fdda4a5f5cb94fcb84613f9482b1232e"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：参与讨论、确认创新方向",
+                  "uid": "ecb41565ee58497283ac45950683bdbd"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：提炼核心创新机制、绘制顶会级Figure 1架构图、确立因果闭环",
+                  "uid": "a3a8c088f782442490f05ab839c2af9b"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "价值：核心专业壁垒，确保idea能中稿",
+                  "uid": "8272e06318a24f80872354746b98f0b1"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第4阶段：实验设计与验证（约10周）",
+              "uid": "02a056d854ad49bb817a7e2c2e18b3f6"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：跟导师做实验、跑代码",
+                  "uid": "b15fdd382dfa494aa33f0d6949c9c593"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：梳理实验步骤、单步Debug、指导跑通单变量消融+跨域泛化对比主表",
+                  "uid": "791318586a834cd8be47da91b2dba2dc"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "价值：实验卡壳有人帮，不用自己排查两个月",
+                  "uid": "2be9f1549cf64b81a2671a41cf953dd5"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第5阶段：论文写作与打磨（约4周）",
+              "uid": "769872c12eed49339466d9382001b076"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：写初稿、做专业审核（核心思想确认）",
+                  "uid": "d3f06c0731ba4442bc171c5376cb3267"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：搭建写作框架、团队填充技术内容、学员核心思想审核、顶刊专家终稿润色",
+                  "uid": "15fb75efd79d410a9540353434f202c0"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "合规抓手：数据是你的、核心表达是你审核的，区别于代写",
+                  "uid": "61c5935eb6ef404a8f57e41421cb2373"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第6阶段：选刊与投稿（约1周）",
+              "uid": "2d0ddbe876a642979a77b8ab18af732b"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：准备材料、注册账号",
+                  "uid": "d854947f8e794ffbb5ba06e8e129f466"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：筛选国人友好/高录用率期刊List、顶刊审稿人预审、协助系统规范投稿",
+                  "uid": "8068887247884536a9d0dbb322cac357"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第7阶段：审稿与返修（服务期）",
+              "uid": "ebfa39e7cd6e402e8d55a1e09faa6341"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "用户：配合补实验、确认回复",
+                  "uid": "1112fc36429448c198bdb163696590fc"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "我们：点对点拆解审稿人意见、指导补做实验、撰写10-15页Rebuttal信、被拒则重新选刊改投",
+                  "uid": "7250f4b1dadf416fa3d5089c2cb1738f"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "终态：录用→源码交接→答辩辅导",
+              "uid": "525a7a3ea82346ebbcc89361a4467141"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "移交全部源代码+数据处理脚本+消融记录",
+                  "uid": "c06c9396c55b43ffb953e7ab5c188455"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "辅导学术海报与Presentation",
+                  "uid": "bf430c326fa946ab8425d0e3a1dd92d4"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "合规抓手：把源代码交给用户，用户掌握完整成果",
+                  "uid": "9237a7d7781d48c8b14b889055d9a23f"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "服务流程三大关键作用",
+              "uid": "5a50a0b5dd594930a3be16c67b7d8650"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "打消合规顾虑：选题确认（做选择题）+写作审核（核心思想确认）+终态交接（源码全移交）",
+                  "uid": "d0c5ab03e5cc4e43a7c183c3ddd8008c"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "体现时间价值：全流程用户仅需参与约X小时，对比自己做1-2年形成反差",
+                  "uid": "ff721e5c55f54e71a7be695306b5dbf4"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "主动呈现方案：整理成对外版流程图，用户咨询时直接发送",
+                  "uid": "53a18fb5a23b49768fc56ba3901489c7"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": {
+          "text": "三、用户成功轨迹（\"硕博通关六关\"方法论）",
+          "uid": "2818f2d3612145a289a748357806e4c5"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "核心逻辑",
+              "uid": "5c26f3bafafd480d83154af7fe4e2185"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "树立行业标准：\"发AI顶会/顶刊，必须闯过这六关\"",
+                  "uid": "38e2dedd7e544486baab986c2455829e"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "每一关都有难点，我们每一关都有解决方案",
+                  "uid": "fa7c2aa1fbef4c94b0b578f6491219ac"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第一关：方向关",
+              "uid": "5514efc26b9a4177bd4db60a5627d0ec"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：方向选错=努力白费、跟风被碾压、导师放养看200篇还是空白",
+                  "uid": "978a91eff4f84edd9defc5419970ea51"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：依托60+教研库，匹配2-3个验证过的\"AI+X\"蓝海选题，学员做选择题",
+                  "uid": "453d646cfddd45378015742be523d0e4"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第二关：文献关",
+              "uid": "dff0bca65ce5463d9db7303960200d2b"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：看不懂、越看越迷糊、不知道哪些是关键文献",
+                  "uid": "dc118f1b6eec4ea08fbd703c390efb62"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：导师筛近3年高引文献带读，交付《文献阅读笔记》《研究流派汇报》",
+                  "uid": "64c8e141d3b84318902620b4bf980434"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第三关：实验关",
+              "uid": "e239c3ab34da4e659a837701095249e9"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：代码跑不通、CUDA爆炸、Baseline差十几个点、过拟合、排查两个月无果",
+                  "uid": "7d102a6c315b4258ac17058f9b90c67e"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：导师上帝视角单步Debug、轻量化方法单卡跑通对比消融主表",
+                  "uid": "356780c2ecac4aa59ca76a2f195a0213"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第四关：写作关",
+              "uid": "33bbcab0e84a4b9f8133f2687c491bdd"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：不会写Motivation、流水账、被批Incremental Work、好数据写成三四区",
+                  "uid": "8bb7ff5486914c6995cfe730c352c76a"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：搭建顶会级写作框架、重构Story线、精修Figure 1与图表、学员核心思想审核",
+                  "uid": "0874ca0d3e7a4644a04dfc95cc5afbfc"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第五关：投稿关",
+              "uid": "4c1fd66ca7524984a210281b2d374807"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：不知投什么、投黑名单期刊、外文系统看不懂、Cover Letter不会写",
+                  "uid": "741f2f16f5294d6baa8c6abda6c4834c"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：导师筛期刊List、顶刊审稿人预审把关、协助规范投稿",
+                  "uid": "1f33e22c2d814200b1875e2f31b9ca66"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "第六关：返修关",
+              "uid": "818b157156404f6f9ce9bcec833cf491"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "难点：Major Revision三页意见、回了还被拒、被拒不知改投哪",
+                  "uid": "122211ad163e4a90a7e3c6ace8d26697"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "解法：审稿人背景导师手把手写Rebuttal、指导补实验、被拒重新选刊改投",
+                  "uid": "c6e03b47ca5c487eafc10b9743187a8b"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": {
+          "text": "四、用户卡点（短视频前3秒\"抓包\"钩子素材库）",
+          "uid": "59dfbd9e2176495c97e1e6bbf792711a"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "客观卡点",
+              "uid": "674522a2eb4b4aedb6bfdca006608fff"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "选题阶段",
+                  "uid": "46c27d3b339d411786d556cd3e28218d"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "\"导师放养，进组一年让你自己开拓新方向，开题前夕脑子一片空白\"",
+                      "uid": "0159ba8881054c3ab100e3744b9d3d7d"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"盲目跟风大模型预训练，没有几百张A100算力根本玩不起\"",
+                      "uid": "7dc28ffc291e4849af0e5e4442390bcf"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"看200多篇文献，依然不知道该做什么方向，越看越迷茫\"",
+                      "uid": "1464b91e4c374fd6ad258f5bac68cbb8"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "实验阶段",
+                  "uid": "b63bdc985bec4b5b9b84923010ed0d64"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "\"跑开源Baseline，指标比原论文差十几个点，排查两个月找不到原因\"",
+                      "uid": "993a6b7a89a34170a03b90551ce17fa7"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"训练Loss出现负数、验证集过拟合、多任务负迁移\"",
+                      "uid": "3ed72f90067d4cc6a6f5ba462ffae715"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"本地跑得极好，换外部真实测试集性能断崖下跌\"",
+                      "uid": "d44f30e609424b749644b182d37bfe0d"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"CUDA显存爆炸，4090都跑不动，算力排队排一周\"",
+                      "uid": "387da8b8100042ec94506955b6934287"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "写作阶段",
+                  "uid": "cc78e11f1a61499b8e499ed0ebebc8f0"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "\"把一区潜力的数据写成了三四区流水账，反复被拒\"",
+                      "uid": "09a1a8bcfce34a6290a2a7c95ba78e24"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"Motivation写不出来，被审稿人痛批'Incremental Work'\"",
+                      "uid": "d9328945603b4d1c9907421a5de25dfd"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"论文写出来自己都不想看第二遍，逻辑乱、图表丑\"",
+                      "uid": "e481ad4655114ddb9162b9ca8cefb932"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "投稿阶段",
+                  "uid": "9da6747f3ace4ad3ad9e4f9860bcaf4a"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "\"投了审稿周期一年/国人不友好的黑名单期刊\"",
+                      "uid": "1b6e1cac8a124e9bab894f67ec3101b9"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"外文投稿系统看不懂，一篇投稿搞了一周\"",
+                      "uid": "a44cdc0451e9419fac40f507c9d7a43e"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"Cover Letter不会写\"",
+                      "uid": "a2c1a5a38fe540a29ff5be52adec10cb"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "返修阶段",
+                  "uid": "9356bc77047e40c29fcd0b5aeb64167d"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "\"Major Revision三页苛刻质疑，要求推翻核心实验\"",
+                      "uid": "14b0f534e78d43f0a276662d6111f787"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"认真回了审稿意见还是被拒\"",
+                      "uid": "e6006a46918147068f567e3b2456b22a"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "\"被拒后乱投，恶性循环\"",
+                      "uid": "de69046fcff748e5a897215c1168d89e"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "情绪卡点（深层——说出来用户就信了）",
+              "uid": "e966bfc172ef423299fce30fb69f23a9"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "\"博三没小论文，延期=简历污点，好单位都不要你\"",
+                  "uid": "f13b55df960948e98075b90636caa1bf"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"本科同学拿50W年薪，你还在实验室熬夜抓Bug\"",
+                  "uid": "7554d404c7e04b51b3c95b43b5f19fe7"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"同门相继中稿，你坐角落抬不起头\"",
+                  "uid": "48e2fda53d70472d8a627cd273ca2ee5"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"爸妈问论文，只能说'快了快了'\"",
+                  "uid": "6f931562be1d4430a084bc335d9dac02"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"反复被拒，怀疑自己不适合读博\"",
+                  "uid": "24f37d23204141938c4c2c7a9e2a605f"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"985博士找人辅导丢人，继续一个人死磕\"",
+                  "uid": "ebd0049bcfbd4963a33f64c984f471a0"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"花爸妈几万块没结果，怎么面对\"",
+                  "uid": "294be78610904fc99a60bc3e081bf3f5"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "\"怕学术不端，退学记档案毁一辈子\"",
+                  "uid": "12e7649f63d445f0b7eec5e177e18867"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": {
+          "text": "五、默认常识 vs 反常识真相",
+          "uid": "eadf913844a04ab4865e2cb26e5b0955"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "AI论文越新越热门越好 → 越匹配你的基础和数据越好，热门方向内卷严重卷不过",
+              "uid": "7c2f3bce9ae840b5a95d974a875f383d"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "发顶会靠努力和天赋 → 方向选错再努力也没戏，选对方向=成功一半",
+              "uid": "b495f431d8754e9f83dc65bc13193a07"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "自己做论文省钱 → 延期半年=少赚15-25万+错过校招+心理煎熬，辅导费更便宜",
+              "uid": "d33065484e1a452ea43dcfb502ac763b"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "AI工具（豆包/DeepSeek）可以写论文 → AI不知道审稿人想看什么、没实验支撑、查重高，是工具不是导师",
+              "uid": "bf3b84bc325442528c993ced77a3d3ef"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "论文辅导就是代写 → 科研共创：idea启发、数据你的、核心表达你审核、源码全移交，合规可答辩",
+              "uid": "8cbbadd3971a44358aff6354fc6e267f"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "博士毕业只要有论文就行 → 一区和三区起薪差一倍，申博初审通过率天差地别",
+              "uid": "e29875c405b3488080863ae72c66c7c9"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "看文献越多越好 → 精读10篇匹配方向的关键文献胜过泛读100篇",
+              "uid": "3a9640e5971a4bcb932f7dd91c233a6f"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "实验跑不出是能力问题 → 大部分是方向/方法设计问题，导师十分钟定位你排查两个月的bug",
+              "uid": "9efd16d3328544a4a92e87b8d69c8153"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "投稿被拒是论文不行 → 很多时候是投错了期刊，选对期刊录用率翻倍",
+              "uid": "798c5ca6539a43b4ba33376f0117e3db"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "Rebuttal就是逐条回答问题 → 是跟审稿人的心理博弈，高情商Rebuttal把大修推向录用",
+              "uid": "b6f8dbfbce1746e7819add50ab0bc5f9"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "text": "找辅导=能力不行丢人 → 大佬都有教练，真正丢人的是延期毕业",
+              "uid": "e96a8736dfef4d5393176868501c423d"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "data": {
+          "text": "六、引起重视（好处 vs 坏处，70%挖坑30%填坑）",
+          "uid": "5b41b38ec85a49f2a547a85c1aa94c3a"
+        },
+        "children": [
+          {
+            "data": {
+              "text": "核心公式",
+              "uid": "5de9e2c4384d47f28ff3a901d3477a8e"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "有这个有什么好处？没这个有什么坏处？一对比价值就出来",
+                  "uid": "87abab8bbbcd44cc9a7b9fc747ea9a24"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "铁律：重视不到位，不要给方案",
+                  "uid": "cc84e6b03a5642f2aa3c1b1e6aea3de7"
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "坏处（不改变的灾难后果·70%挖坑）",
+              "uid": "045820542fd44a3993c874e2791c96e1"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "1. 时间与青春巨额沉没",
+                  "uid": "f26a26bedfa74447a2ae5237ab24f0f8"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "错误方向死磕1-2年，最后被强制延毕",
+                      "uid": "03c40c378f5b432785ee479847311c15"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "自己做1-2年 vs 导师带教3-6个月，差的半年到一年是黄金时间",
+                      "uid": "36187ea5aacd494d93fcbf20ae53e2c2"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "看200篇文献、跑半年实验，方向做不出来全部沉没",
+                      "uid": "59106f7336f641c2a16686a60ccc94d2"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "2. 学历与职业下坠（最痛的点）",
+                  "uid": "281db958d0f44b12802a6bd0d2aa5273"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "申博：没有一区/顶会，初审直接被卡，985硕士申博连双非都不要",
+                      "uid": "fcfe4bdccb9443ba82661c2e30cf9b35"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "毕业：延毕留下简历污点，错过应届生40W-50W校招红利期",
+                      "uid": "0a4c5fa6ab934b49ab0803991393189c"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "阶层：本可去清北读博/大厂核心组，最后去了双非/小公司",
+                      "uid": "f78aee05bc2b4c828368174b6948ef58"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "3. 心理与自信彻底崩塌",
+                  "uid": "053e1355bc8d4d5ca1168a3dfe7fca80"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "学术抑郁与挫败感，怀疑自我智商",
+                      "uid": "8bc61a98b32548399d12466ff8a4e727"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "过年亲戚问\"毕业了吗\"，内心羞耻",
+                      "uid": "740690942ecf4da994062452c59e59df"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "对父母花钱供读的愧疚感",
+                      "uid": "180bed7faa264a88a2d39d085144654c"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "4. 机会窗口关闭",
+                  "uid": "3c307213510b4d3bbdbe20d3300e2277"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "AI方向红利窗口可能关闭",
+                      "uid": "abd7cb89f83a41e283546ff04fbac440"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "校招一年一次，明年岗位更少竞争更激烈",
+                      "uid": "f8e9282095614ee1b04be1124bc3f389"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "申博一年一次，明年政策变/导师招满",
+                      "uid": "73ef41a2baa1435582a2c69effb99084"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "好处（确定性价值·30%填坑）",
+              "uid": "7a8e8b26634943a49415acf7817ffd10"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "1. 极速拿到确定性成果",
+                  "uid": "75a20f019f734f478b4a3982ad0b5921"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "3-5个月完成高质量初稿，6个月实现录用闭环",
+                      "uid": "957ee4a225fd40c68dfa99baae023b63"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "95%保录率靠标准化交付流程每阶段达标堆出来",
+                      "uid": "4db3dd5965b743ab9bff3981e3c38679"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "不用再赌\"自己做能不能中\"",
+                      "uid": "dfd2748a68d84ed8b6693b60d8c2e00a"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "2. 掌握终身受益的科研方法论",
+                  "uid": "aafd8f33559f42a7b1eee31f2068d3c2"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "掌握选题、Debug、消融、写作、Rebuttal全套硬核本领",
+                      "uid": "242b6ebbcdc44f58b69d723b7f6935c8"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "组会汇报、盲审答辩对答如流，因为每一步你都参与",
+                      "uid": "980d416f6cd54977b598fb95626991a0"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "方法论未来读博、科研、工作都能用",
+                      "uid": "74f5a3fca65147f6a328a2ede08df554"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "3. 撬动百万级人生回报",
+                  "uid": "330abba4ce3f4068ae6a91f7e0e90643"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "上岸清北/985名校博士，学历再上台阶",
+                      "uid": "c42b9b643e8a439890ce8fe9979d6cc8"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "凭CCF/SCI顶会顶刊背书，斩获大厂算法核心组SP Offer（年薪40W-80W）",
+                      "uid": "e0e4328d83b845ce88cced59c572ebfd"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "按时毕业抓住校招黄金期，人生节奏不被打乱",
+                      "uid": "b5f084103da043b686b3bca9180f5476"
+                    },
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "data": {
+                  "text": "4. 合规安全无后顾之忧",
+                  "uid": "be40102e1f7f442bae3eb6f08d49ab6b"
+                },
+                "children": [
+                  {
+                    "data": {
+                      "text": "科研共创模式，全程参与，合规可答辩",
+                      "uid": "a2c276e02a3548f899507dd615d8e552"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "源码全部移交，掌握完整成果，不怕审查",
+                      "uid": "2bad6b0475094e5a8b8d2dd1f35805f3"
+                    },
+                    "children": []
+                  },
+                  {
+                    "data": {
+                      "text": "A股上市公司背景，不会跑路",
+                      "uid": "7e817127bd8d44e69b155bd09a95f820"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "data": {
+              "text": "具体到个人的动机挖掘（种草属性）",
+              "uid": "984d6b9f120b4986b25f653d4e158e60"
+            },
+            "children": [
+              {
+                "data": {
+                  "text": "申博硕士：一区论文→博导主动回邮件留名额；没论文→发100封邮件石沉大海",
+                  "uid": "ced34d4583884e659570d71433786ab9"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "毕业博士：按时毕业→参加今年秋招拿SP Offer；延毕→好岗位被招完",
+                  "uid": "be638657b2a941159d54162cc5e81870"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "大厂算法工程师：顶会论文→晋升硬通货、跳槽多谈20万；没有→永远是\"调参工程师\"",
+                  "uid": "191e6dbcfd804758b79e7072c1cb8863"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "保研本科生：有科研论文→保研去清北；没有→只能保本校",
+                  "uid": "5ba1e4f7fb7747d6a5b505ec513454b8"
+                },
+                "children": []
+              },
+              {
+                "data": {
+                  "text": "显性好处+隐性好处（社会尊重、职业安全感、家人骄傲）都要呈现",
+                  "uid": "b135a4b061274a0cb95c28da8d534206"
+                },
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "theme": {
+    "template": "gentlebreeze",
+    "config": null
+  }
+}

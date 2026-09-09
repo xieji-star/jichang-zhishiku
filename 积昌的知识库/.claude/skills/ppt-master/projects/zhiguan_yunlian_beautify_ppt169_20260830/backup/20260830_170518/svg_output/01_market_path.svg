@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" data-pptx-page-role="content" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="conclGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2F6B3A"/>
+      <stop offset="100%" stop-color="#1F4A27"/>
+    </linearGradient>
+    <clipPath id="clip-p1-1"><rect x="76" y="198" width="243" height="165" rx="12"/></clipPath>
+    <clipPath id="clip-p1-2"><rect x="371" y="198" width="243" height="165" rx="12"/></clipPath>
+    <clipPath id="clip-p1-3"><rect x="666" y="198" width="243" height="165" rx="12"/></clipPath>
+    <clipPath id="clip-p1-4"><rect x="961" y="198" width="243" height="165" rx="12"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#F5F7EF" data-pptx-role="background"/>
+  <!-- Subtle decoration: soft leaf-orbit ring top-right -->
+  <circle id="deco-orbit" cx="1250" cy="78" r="205" fill="#EAF2E2" data-pptx-role="decoration"/>
+
+  <!-- Header -->
+  <g id="header" data-pptx-bounds="60 36 1160 128">
+    <rect x="60" y="40" width="9" height="50" rx="4" fill="#2F6B3A"/>
+    <text x="92" y="62" font-size="14" font-weight="bold" fill="#6FA84F">PART 01 · 推广路径</text>
+    <text x="92" y="102" font-size="40" font-weight="bold" fill="#2F6B3A">市场推广路径</text>
+    <text x="92" y="136" font-size="18" fill="#6B7260">从示范田切入，逐步复制到合作社与规模农场</text>
+  </g>
+
+  <!-- Steps module -->
+  <g id="steps" data-pptx-bounds="60 182 1160 312">
+    <!-- connector chevrons -->
+    <path d="M 337 271 L 345 278 L 337 285" fill="none" stroke="#2F6B3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 632 271 L 640 278 L 632 285" fill="none" stroke="#2F6B3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 927 271 L 935 278 L 927 285" fill="none" stroke="#2F6B3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Step 1 -->
+    <g id="step-1">
+      <rect x="60" y="182" width="275" height="312" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p1_step1.png" x="76" y="198" width="243" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p1-1)"/>
+      <circle cx="95" cy="218" r="18" fill="#2F6B3A" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="95" y="224" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">01</text>
+      <text x="80" y="408" font-size="22" font-weight="bold" fill="#22301F">示范田验证</text>
+      <rect x="80" y="418" width="30" height="3" rx="1.5" fill="#6FA84F"/>
+      <text x="80" y="450" font-size="15" fill="#6B7260">小范围示范，验证效果与收益</text>
+    </g>
+
+    <!-- Step 2 -->
+    <g id="step-2">
+      <rect x="355" y="182" width="275" height="312" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p1_step2.png" x="371" y="198" width="243" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p1-2)"/>
+      <circle cx="390" cy="218" r="18" fill="#2F6B3A" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="390" y="224" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">02</text>
+      <text x="375" y="408" font-size="22" font-weight="bold" fill="#22301F">合作社复制</text>
+      <rect x="375" y="418" width="30" height="3" rx="1.5" fill="#6FA84F"/>
+      <text x="375" y="450" font-size="15" fill="#6B7260">与合作社合作，批量复制推广</text>
+    </g>
+
+    <!-- Step 3 -->
+    <g id="step-3">
+      <rect x="650" y="182" width="275" height="312" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p1_step3.png" x="666" y="198" width="243" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p1-3)"/>
+      <circle cx="685" cy="218" r="18" fill="#2F6B3A" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="685" y="224" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">03</text>
+      <text x="670" y="408" font-size="22" font-weight="bold" fill="#22301F">区域农场推广</text>
+      <rect x="670" y="418" width="30" height="3" rx="1.5" fill="#6FA84F"/>
+      <text x="670" y="450" font-size="15" fill="#6B7260">向周边大户与规模农场推广</text>
+    </g>
+
+    <!-- Step 4 -->
+    <g id="step-4">
+      <rect x="945" y="182" width="275" height="312" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p1_step4.png" x="961" y="198" width="243" height="165" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p1-4)"/>
+      <circle cx="980" cy="218" r="18" fill="#2F6B3A" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="980" y="224" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">04</text>
+      <text x="965" y="408" font-size="22" font-weight="bold" fill="#22301F">服务网络拓展</text>
+      <rect x="965" y="418" width="30" height="3" rx="1.5" fill="#6FA84F"/>
+      <text x="965" y="450" font-size="15" fill="#6B7260">建设服务网络，提供持续支持</text>
+    </g>
+  </g>
+
+  <!-- Tag chain -->
+  <g id="tags" data-pptx-bounds="60 552 1160 44">
+    <rect x="60" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="106" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">先示范</text>
+    <path d="M 164 573 L 172 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 178 567 L 186 573 L 178 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="198" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="244" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">再复制</text>
+    <path d="M 302 573 L 310 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 316 567 L 324 573 L 316 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="336" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="382" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">后扩张</text>
+  </g>
+
+  <!-- Conclusion banner -->
+  <g id="conclusion" data-pptx-bounds="60 606 1160 72">
+    <rect x="60" y="606" width="1160" height="72" rx="18" fill="url(#conclGrad)"/>
+    <circle cx="106" cy="642" r="18" fill="#FFFFFF" fill-opacity="0.16"/>
+    <path d="M 98 642 L 104 649 L 114 636" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="142" y="650" font-size="24" font-weight="bold" fill="#FFFFFF">推广不是一次卖出，而是靠口碑和效果持续扩散</text>
+  </g>
+</svg>

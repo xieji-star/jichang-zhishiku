@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据开路 · 公开数据集发论文 演示</title>
+<style>
+  /* ============ 设计令牌（取自数据中心参考图：金属灰 · 电光蓝 · 绿色LED · 技术数据范）============ */
+  :root{
+    --paper:  rgba(246,249,252,.84);
+    --ink:    #1F2B3A;   /* 深钢蓝标题 */
+    --ink2:   #5A6C80;   /* 次级 */
+    --accent: #3B82C4;   /* 主强调 · 电光蓝（可换） */
+    --accent-soft:#7FAADC;
+    --accent-deep:#1C4A72;
+    --led:    #4CAF7D;   /* 绿色LED · 点睛 */
+    --line:   #D7E0E9;
+    --muted:  #8A96A4;
+    --txt:    #3A4656;
+    --bg-a:   #EDF2F7;
+    --bg-b:   #E4EBF2;
+    --serif: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:  -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ font-family:var(--sans); background:#C7CFD8; overflow:hidden; display:flex; align-items:center; justify-content:center; user-select:none; -webkit-font-smoothing:antialiased; }
+
+  /* 固定 16:9 设计画布 + 居中等比缩放（自适应，防溢出） */
+  #stage{ width:1280px; height:720px; position:relative; transform-origin:center center;
+    background:linear-gradient(160deg,var(--bg-a) 0%,var(--bg-b) 100%);
+    box-shadow:0 40px 90px rgba(25,40,60,.22), inset 0 0 0 1px rgba(255,255,255,.5);
+    overflow:hidden; }
+  .bg-grid{ position:absolute; inset:0; background-image:radial-gradient(rgba(59,130,196,.07) 1px,transparent 1px); background-size:28px 28px; opacity:.55; }
+  .bg-vignette{ position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 30%,transparent 58%,rgba(25,40,60,.14) 100%); }
+  .frame{ position:absolute; inset:20px; border:1px solid rgba(59,130,196,.20); pointer-events:none; }
+  .c{ position:absolute; width:18px; height:18px; opacity:.5; }
+  .c::before,.c::after{ content:""; position:absolute; background:var(--accent-soft); }
+  .c::before{ left:8px; top:0; width:1px; height:18px; }
+  .c::after { left:0; top:8px; width:18px; height:1px; }
+  .c-tl{ top:28px; left:28px; } .c-tr{ top:28px; right:28px; } .c-bl{ bottom:28px; left:28px; } .c-br{ bottom:28px; right:28px; }
+  .c-br::after{ background:var(--led); } /* 一处绿色LED点睛 */
+
+  .page-tag{ position:absolute; top:34px; right:42px; z-index:10; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:3px; }
+
+  /* 幻灯片 —— 翻页过渡（科技 · 快一点带轻微位移+缩放，仍流畅不硬切） */
+  .slide{ position:absolute; inset:0; padding:88px 92px 150px; opacity:0; visibility:hidden;
+    transform:translateY(22px) scale(.985);
+    transition:opacity .7s cubic-bezier(.22,.9,.36,1), transform .7s cubic-bezier(.22,.9,.36,1), visibility 0s .7s; }
+  .slide.active{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+
+  /* 逐块显现 —— 页内内容按"自上而下、自左而右"逐个淡入（科技 · 稍利落） */
+  .anim{ opacity:0; transform:translateY(16px); }
+  .anim.on{ animation:rise .5s cubic-bezier(.22,.9,.36,1) forwards; }
+  .cover .anim.on.d1{ animation-delay:.08s } .cover .anim.on.d2{ animation-delay:.16s }
+  .cover .anim.on.d3{ animation-delay:.24s } .cover .anim.on.d4{ animation-delay:.32s }
+  .cover .anim.on.d5{ animation-delay:.40s } .cover .anim.on.d6{ animation-delay:.48s }
+  .cover .anim.on.d7{ animation-delay:.56s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* 通用组件 */
+  .step-tag{ display:inline-flex; align-items:center; gap:8px; font-size:14px; letter-spacing:4px; color:var(--accent-deep);
+    background:rgba(59,130,196,.13); padding:6px 18px; border-radius:999px; }
+  .step-tag i{ width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .h2{ margin-top:10px; font-family:var(--serif); font-weight:800; color:var(--ink); font-size:40px; letter-spacing:1px; }
+  .h2 .no{ color:var(--accent); }
+  .lead{ margin-top:8px; font-family:var(--serif); color:var(--ink2); font-size:20px; letter-spacing:.5px; }
+
+  /* 页面2：数据哪来（两条路 · 数据卡 + 左文） */
+  .road{ display:flex; gap:20px; margin-top:18px; align-items:stretch; }
+  .road .intro{ flex:0 0 300px; background:linear-gradient(135deg,#3B82C4,#1C4A72); border-radius:16px; padding:24px; color:#F2F7FC; display:flex; flex-direction:column; justify-content:center; }
+  .road .intro .k{ font-size:13px; letter-spacing:3px; color:rgba(255,255,255,.84); }
+  .road .intro .core{ font-family:var(--serif); font-weight:900; font-size:27px; line-height:1.3; margin-top:10px; }
+  .road .intro .sub{ margin-top:12px; font-size:14px; color:rgba(255,255,255,.90); line-height:1.6; }
+  .road .paths{ flex:1; display:flex; flex-direction:column; gap:13px; }
+  .road .path{ background:var(--paper); border:1px solid rgba(59,130,196,.16); border-radius:14px; padding:16px 22px; }
+  .road .path .pt{ font-family:var(--serif); color:var(--accent-deep); font-weight:800; font-size:18px; display:flex; align-items:center; gap:10px; }
+  .road .path .pt i{ width:8px; height:8px; border-radius:50%; background:var(--accent); flex:0 0 auto; }
+  .road .path .pp{ margin-top:7px; font-size:13px; color:var(--txt); line-height:1.55; }
+  .road .path .ex{ margin-top:6px; font-size:12px; color:var(--muted); }
+
+  /* 页面3：让AI筛题（筛三件事 · 卡组 + 翻车警示） */
+  .qa{ display:flex; gap:20px; margin-top:18px; align-items:stretch; }
+  .qa .left{ flex:1; display:flex; flex-direction:column; gap:12px; }
+  .qa .q{ background:var(--paper); border:1px solid rgba(59,130,196,.16); border-radius:14px; padding:15px 20px; }
+  .qa .q .qt{ font-family:var(--serif); color:var(--accent-deep); font-weight:800; font-size:17px; }
+  .qa .q .qp{ margin-top:6px; font-size:13px; color:var(--txt); line-height:1.5; }
+  .qa .right{ flex:0 0 430px; display:flex; flex-direction:column; gap:13px; }
+  .qa .right .r-title{ font-size:13px; letter-spacing:2px; color:var(--muted); }
+  .qa .warn{ border-radius:14px; padding:16px 22px; }
+  .qa .warn.bad{ background:rgba(59,130,196,.10); border:1px solid rgba(59,130,196,.16); }
+  .qa .warn.good{ background:linear-gradient(135deg,#3B82C4,#1C4A72); color:#F2F7FC; border-color:transparent; }
+  .qa .warn .ct{ font-family:var(--serif); font-weight:800; font-size:17px; }
+  .qa .warn .cp{ margin-top:6px; font-size:12.5px; line-height:1.55; }
+  .qa .warn.bad .ct{ color:var(--accent-deep); } .qa .warn.bad .cp{ color:var(--txt); }
+  .qa .warn.good .ct{ color:#F2F7FC; } .qa .warn.good .cp{ color:rgba(255,255,255,.88); }
+
+  /* 页面4：题目定了才轮到AI（左文右排路径） */
+  .split{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .split .left{ flex:1; background:var(--paper); border:1px solid rgba(59,130,196,.16); border-radius:16px; padding:22px 24px; }
+  .split .left .lt{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:18px; margin-bottom:12px; }
+  .split .left .para{ font-size:14px; color:var(--txt); line-height:1.8; }
+  .split .left .para b{ color:var(--accent-deep); }
+  .split .right{ flex:0 0 470px; display:flex; flex-direction:column; gap:12px; }
+  .split .step{ border-radius:14px; padding:15px 22px; border:1px solid rgba(59,130,196,.16); background:var(--paper); display:flex; gap:14px; align-items:flex-start; }
+  .split .step .n{ font-family:var(--serif); font-weight:900; color:var(--accent); font-size:20px; flex:0 0 34px; line-height:1.2; }
+  .split .step .s{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:16px; }
+  .split .step .d{ margin-top:4px; font-size:13px; color:var(--txt); line-height:1.5; }
+
+  /* 结尾回顾页 */
+  .final{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .final h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:50px; line-height:1.15; letter-spacing:1px; }
+  .final h2 .hl{ color:var(--accent); }
+  .final .sub{ margin-top:12px; font-family:var(--serif); color:var(--muted); font-size:20px; }
+  .summary{ margin-top:30px; width:100%; max-width:920px; }
+  .summary .s{ display:flex; align-items:center; gap:22px; background:var(--paper); border:1px solid rgba(59,130,196,.16); border-radius:14px; padding:16px 24px; margin-bottom:13px; text-align:left; }
+  .summary .s .n{ font-family:var(--serif); color:var(--accent); font-size:20px; font-weight:800; flex:0 0 42px; }
+  .summary .s .t{ font-family:var(--serif); color:var(--accent-deep); font-size:28px; font-weight:800; letter-spacing:3px; flex:0 0 auto; }
+  .summary .s .d{ font-size:15px; color:var(--txt); line-height:1.5; margin-left:auto; text-align:right; max-width:380px; }
+  .takeaway{ margin-top:26px; font-family:var(--serif); color:var(--ink); font-size:22px; }
+  .takeaway b{ color:var(--accent); }
+  .final .hook{ margin-top:26px; font-family:var(--serif); color:var(--accent); font-size:22px; line-height:1.5; }
+
+  /* 封面 */
+  .cover{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .cover .eyebrow{ font-size:15px; letter-spacing:6px; color:var(--accent); }
+  .cover h1{ font-family:var(--serif); font-weight:900; color:var(--ink); font-size:72px; line-height:1.12; letter-spacing:2px; margin-top:22px; }
+  .cover h1 .hl{ color:var(--accent); }
+  .cover .csub{ margin-top:20px; font-family:var(--serif); color:var(--ink2); font-size:24px; letter-spacing:2px; }
+  .cover .cdiv{ width:84px; height:2px; background:linear-gradient(90deg,var(--accent),rgba(59,130,196,0)); margin:26px auto 0; }
+  .cover .csteps{ margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .cover .pill{ font-size:16px; color:var(--accent-deep); border:1px solid rgba(59,130,196,.32); background:rgba(255,255,255,.6); border-radius:999px; padding:10px 22px; letter-spacing:2px; }
+  .oncov .counter,.oncov .page-tag{ opacity:0; pointer-events:none; }
+
+  /* 控件 */
+  .progress{ position:absolute; left:0; top:0; height:4px; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-soft)); transition:width .45s ease; z-index:20; }
+  .dots{ position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:20; }
+  .dot{ width:10px; height:10px; border-radius:50%; border:1.5px solid var(--accent-soft); cursor:pointer; transition:.35s; }
+  .dot.on{ background:var(--accent); border-color:var(--accent); transform:scale(1.25); }
+  .counter{ position:absolute; bottom:24px; right:44px; z-index:20; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:2px; }
+  .counter b{ color:var(--accent); font-size:20px; }
+  .nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:74px; z-index:20; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--accent-soft); opacity:0; transition:.3s; }
+  .nav:hover{ opacity:1; color:var(--accent); }
+  .nav.prev{ left:12px; } .nav.next{ right:12px; }
+  .nav svg{ width:26px; height:26px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+  <div class="frame"></div>
+  <div class="c c-tl"></div><div class="c c-tr"></div><div class="c c-bl"></div><div class="c c-br"></div>
+  <div class="page-tag" id="pageTag">01</div>
+  <div class="progress" id="bar"></div>
+
+  <!-- ============ 第1页 · 封面 ============ -->
+  <section class="slide cover" data-i="0">
+    <div class="eyebrow anim d1">华哥聊论文 · 研究生入门</div>
+    <h1 class="anim d2">没数据没GPU，<br><span class="hl">研究生怎么用公开数据集发论文</span></h1>
+    <div class="csub anim d3">公开数据 + AI，串出一条能落地的研究线</div>
+    <div class="cdiv anim d4"></div>
+    <div class="csteps anim d5">
+      <span class="pill">找数据</span>
+      <span class="pill">AI筛题</span>
+      <span class="pill">排路径</span>
+    </div>
+  </section>
+
+  <!-- ============ 第2页 · 点1（数据哪来 · 两条路）============ -->
+  <section class="slide" data-i="1">
+    <div class="step-tag anim d1"><i></i> 第一步 · 数据哪来</div>
+    <div class="h2 anim d2"><span class="no">公开数据两条路</span></div>
+    <div class="lead anim d3">别以为没实验条件就只能干等——数据，是能自己找着的。</div>
+    <div class="road">
+      <div class="intro anim d4">
+        <div class="k">核心思路</div>
+        <div class="core">公开数据<br>也能做出增量</div>
+        <div class="sub">你在方法上做文章，而不是在采集上卡死。</div>
+      </div>
+      <div class="paths">
+        <div class="path anim d5">
+          <div class="pt"><i></i>路一 · 现成基准</div>
+          <div class="pp">ImageNet、COCO、MMLU，人人能下。你在方法上做增量，门槛最低。</div>
+          <div class="ex">适合：想练手、求稳的第一篇论文。</div>
+        </div>
+        <div class="path anim d6">
+          <div class="pt"><i></i>路二 · 交叉方向开放数据</div>
+          <div class="pp">像 AI 加医学影像——拿别的领域的开放数据开新题，更容易出差异化。</div>
+          <div class="ex">适合：想冲好会、做出新意的同学。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第3页 · 点2（让AI筛题 · 筛三件事 + 翻车警示）============ -->
+  <section class="slide" data-i="2">
+    <div class="step-tag anim d1"><i></i> 第二步 · 让AI筛题</div>
+    <div class="h2 anim d2"><span class="no">AI筛选三件事</span></div>
+    <div class="lead anim d3">把数据集的任务、指标和这几年论文喂给 AI，筛出真正能做的题。</div>
+    <div class="qa">
+      <div class="left">
+        <div class="q anim d4"><div class="qt">哪些已被反复验证？</div><div class="qp">没增量、纯刷脸的方向，避开。</div></div>
+        <div class="q anim d5"><div class="qt">哪些说得通、证据还不足？</div><div class="qp">讲得圆但没做实，正是你插足的缝隙。</div></div>
+        <div class="q anim d6"><div class="qt">哪些空缺正好能被你的数据补上？</div><div class="qp">数据能撑得住，才叫能落地。</div></div>
+      </div>
+      <div class="right">
+        <div class="r-title anim d4">两种翻车，别踩</div>
+        <div class="warn bad anim d5">
+          <div class="ct">✕ 有题无变量</div>
+          <div class="cp">题目听着新，数据里却没变量撑得住，做到一半废掉。</div>
+        </div>
+        <div class="warn bad anim d6">
+          <div class="ct">✕ 有数据无问题</div>
+          <div class="cp">什么都有，随手抓两个模型跑个涨点，数字好看，问题立不住。</div>
+        </div>
+        <div class="warn good anim d7">
+          <div class="ct">✓ 三条件同时满足</div>
+          <div class="cp">科研上值得做 · 文献里还有空位 · 数据正好能做出来。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第4页 · 点3（题目定了才轮到AI · 左文右排路径）============ -->
+  <section class="slide" data-i="3">
+    <div class="step-tag anim d1"><i></i> 第三步 · 才轮到AI</div>
+    <div class="h2 anim d2"><span class="no">把研究路径理清楚</span></div>
+    <div class="lead anim d3">题目定了，才把核心任务、指标、数据交给 AI，让它先排路径。</div>
+    <div class="split">
+      <div class="left anim d4">
+        <div class="lt">每一步，都围着同一个科学问题往下推</div>
+        <div class="para">把核心任务、评测指标、数据交给 AI，让它先理清：主实验从哪开始、基线怎么搭、变量怎么定义，做完一步，<b>下一步补什么</b>——是补消融，还是做泛化。</div>
+      </div>
+      <div class="right">
+        <div class="step anim d5"><div class="n">1</div><div><div class="s">主实验从哪开始</div><div class="d">先定核心任务的起点与评测指标。</div></div></div>
+        <div class="step anim d6"><div class="n">2</div><div><div class="s">基线怎么搭、变量怎么定义</div><div class="d">把对照组立起来，变量口径写清楚。</div></div></div>
+        <div class="step anim d7"><div class="n">3</div><div><div class="s">补消融，还是做泛化</div><div class="d">每做完一步，让 AI 判断下一步补什么。</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第5页 · 结尾回顾 ============ -->
+  <section class="slide final" data-i="4">
+    <h2 class="anim d1">真正的分水岭，<br><span class="hl">在会不会"串"</span></h2>
+    <div class="sub anim d2">别人大半年搭台子，你用公开数据加AI，几个月就能投。</div>
+    <div class="summary">
+      <div class="s anim"><span class="n">01</span><span class="t">找数据</span><span class="d">现成基准或交叉方向开放数据，两条路</span></div>
+      <div class="s anim"><span class="n">02</span><span class="t">AI筛题</span><span class="d">筛三件事 + 避两种翻车 + 过三条件</span></div>
+      <div class="s anim"><span class="n">03</span><span class="t">排路径</span><span class="d">主实验/基线/变量/消融/泛化，一步步推</span></div>
+    </div>
+    <div class="takeaway anim d4">卡住你的往往不是能力，<b>是被没数据没GPU劝退</b>。</div>
+    <div class="hook anim d5">想要这套公开数据论文路线表，回复"路线"，我看到了都会发。</div>
+  </section>
+
+  <div class="nav prev" id="prev" title="上一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></div>
+  <div class="nav next" id="next" title="下一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">1</b> / <span id="tot">5</span></div>
+</div>
+
+<script>
+  /* 翻页逻辑 + 逐块显现 */
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx=0,N=slides.length;
+  var dotsWrap=document.getElementById('dots'),bar=document.getElementById('bar'),
+      cur=document.getElementById('cur'),tot=document.getElementById('tot'),tag=document.getElementById('pageTag');
+  var num=['封面','01','02','03','04']; tot.textContent=N;
+  var rIdx=0;
+  function listAnims(sl){ return Array.prototype.slice.call(sl.querySelectorAll('.anim')); }
+  function reveal(sl,count){ var els=listAnims(sl); for(var i=0;i<els.length;i++) els[i].classList.toggle('on', i<count); }
+  for(var i=0;i<N;i++){ var d=document.createElement('span'); d.className='dot'+(i===0?' on':''); (function(k){ d.addEventListener('click',function(){go(k);}); })(i); dotsWrap.appendChild(d); }
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n){
+    if(n<0)n=0; if(n>N-1)n=N-1; if(n===idx)return;
+    slides[idx].classList.remove('active'); void slides[n].offsetWidth; idx=n;
+    slides[idx].classList.add('active');
+    if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+    else { rIdx=1; reveal(slides[idx],1); }
+    dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+    cur.textContent=idx+1; tag.textContent=num[idx];
+    bar.style.width=((idx+1)/N*100)+'%';
+    stage.classList.toggle('oncov',idx===0);
+  }
+  function next(){
+    if(idx===0){ go(1); return; }
+    var els=listAnims(slides[idx]);
+    if(rIdx<els.length){ rIdx++; reveal(slides[idx],rIdx); return; }
+    go(idx+1);
+  }
+  function prev(){
+    if(idx===0){ return; }
+    if(rIdx>1){ rIdx--; reveal(slides[idx],rIdx); return; }
+    go(idx-1);
+  }
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(N-1);}
+  });
+  document.getElementById('stage').addEventListener('click',function(e){
+    var r=e.currentTarget.getBoundingClientRect(),x=e.clientX-r.left;
+    if(x<r.width*0.28)prev(); else next();
+  });
+  document.querySelectorAll('.nav,.dot').forEach(function(x){
+    x.addEventListener('click',function(e){e.stopPropagation();});
+  });
+
+  var stage=document.getElementById('stage');
+  function fit(){ var sc=Math.min(window.innerWidth/stage.offsetWidth, window.innerHeight/stage.offsetHeight); stage.style.transform='scale('+sc+')'; }
+  window.addEventListener('resize',fit); fit();
+
+  var h=parseInt(location.hash.slice(1),10);
+  if(!isNaN(h)&&h>=1&&h<=N){idx=h-1;}
+  slides[idx].classList.add('active');
+  if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+  else { rIdx=1; reveal(slides[idx],1); }
+  cur.textContent=idx+1; tag.textContent=num[idx];
+  dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+  bar.style.width=((idx+1)/N*100)+'%';
+  stage.classList.toggle('oncov',idx===0);
+</script>
+</body>
+</html>

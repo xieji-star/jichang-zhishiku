@@ -19,15 +19,15 @@ source: "2026-08-06 晚间青旅现场实测 + Vortex 控制 API 诊断"
 
 # 🏨 Codex 网络故障：青旅环境（Vortex direct 模式）
 
-> [!summary] 📊 报错统计速览（截至 2026-08-15）
-> 🔥 **本文档共记录 <span style="color:#e74c3c">10 次报错/复发事件</span>**（2026-08-06 原始事件 1 次 + 复发 9 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 17 次，以 04 为主发地；本文档 08-14 20:56 / 08-15 12:31 再复发 2 次）与 **「Vortex 被切 direct 模式」**（台账累计 8 次，本文档/04 各多次）。
+> [!summary] 📊 报错统计速览（截至 2026-08-29）
+> 🔥 **本文档共记录 <span style="color:#e74c3c">11 次报错/复发事件</span>**（2026-08-06 原始事件 1 次 + 复发 10 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 20 次，以 04 为主发地；本文档 08-14 20:56 / 08-15 12:31 复发，08-29 再复发）与 **「Vortex 被切 mode 异常（direct/global）」**（台账累计 11 次，本文档/04 各多次）。
 >
 > | 根因 | 台账累计 | 主要发生地 |
 > |------|:---:|------|
 > | 🟠 青旅公共网络抖动（长连接偶发重建） | **3** | 05 |
-> | 🔴 订阅更新清 OpenAI 分流规则 | **17** | 04（为主）/ 05 / 06 |
-> | 🔴 Vortex 被切 direct 模式（隧道未建立） | **8** | 05 / 04 |
-> | 🟠 节点质量波动 / 机场线路故障 | **4** | 04 / 05 |
+> | 🔴 订阅更新清 OpenAI 分流规则 | **20** | 04（为主）/ 05 / 06 |
+> | 🔴 Vortex 被切 mode 异常（direct/global，隧道未建立） | **11** | 05 / 04 |
+> | 🟠 节点质量波动 / 机场线路故障 | **6** | 04 / 05 |
 > | 🔴 Codex 应用未运行 / AppsFolder 启动命令坑 | **4** | 05 |
 >
 > 📊 完整统计口径见 [[00-报错统计台账]]。
@@ -454,6 +454,41 @@ Vortex 控制 API（`http://127.0.0.1:39798`）查询结果：
 
 > [!warning] ⚠️ 关键认知（延续 08-14 20:56 / 08-13 19:30）
 > **"回到青旅配置 Codex 网络" = "订阅更新重写 config.yaml"完整套餐再复发**，本次叠加到 **六重**：配置文件 `mode: direct` + OpenAI 规则被清 + 端口脱节 + ipv6 回退 + sniffing 清退 + tun.enable 回退，同时 Codex 应用未运行（F9 同款）。排查顺序固定：① 配置文件第 4 行 mode + 第 6 行 external-controller + 顶层 sniffing/ipv6/tun 项 → ② `/rules` 有无 openai 规则 → ③ 节点 delay + 走代理实测 `api.openai.com`（**401 即放行**，不要被 403 CF 挑战 / 000 瞬时超时误导）→ ④ `Get-Process *codex*,*ChatGPT*` 进程是否在跑。**节点 delay FAIL ≠ 节点挂**：延迟体检要求 HTTP 200，OpenAI 类域名返回 401/403 计 FAIL 属正常，用 204 URL 复核并辅以走代理 / TUN 直连实测，以真实连接链为准。
+
+## 🔁 复发记录（2026-08-29 09:12）：下载 GitHub 软件时全站超时——运行态 mode 被切 global + OpenAI 规则被清（第 20 次）
+
+> [!SUMMARY] 📌 复发摘要
+> 用户要下载 SimpleMindMap（思绪思维导图）桌面客户端安装包，curl 访问 api.github.com / github.com / 百度**全部 HTTP:000 超时**。三层诊断：**Vortex 进程在线（com.vortex.helper.exe PID 26544）、7897 端口 LISTENING**（非代理未启动），但<span style="color:#ff0000">**运行态 `/configs.mode` = `global`（配置文件持久层是 `rule`，运行态被切到全局模式）**</span>，且 **GLOBAL 策略组指向的「🇭🇰|香港家宽-中转 02」节点 delay Timeout 已挂**——global 模式强制所有流量走 GLOBAL 节点，节点挂掉导致全站超时（7897 连接全部 FIN_WAIT_2 半关闭）。同时 **OpenAI 5 条分流规则被清**（「订阅更新清规则」累计第 20 次）、**ipv6 回退 true**、TUN 关闭。关键发现：**控制 API 实际在 `39797`**（与配置 external-controller 一致），而 fix_vortex_config.py 硬编码 `39798` **已不适用**（直接跑会热加载失败），故本次手动修复。处置：备份配置 → 配置文件加回 5 条 OpenAI 规则（→🇹🇼 台湾-IEPL 03）+ MATCH 兜底改 🇭🇰 香港-IEPL 02（实测 69ms）+ 补 `ipv6: false` → 热加载 **204** → 运行态 mode=rule、ipv6=False、/rules **70 条**（OpenAI 5 条→台湾-IEPL 03、MATCH→香港-IEPL 02）→ 走代理实测 baidu **200** / api.github.com **200** / google **302**，全站恢复，随后成功下载 66.5MB 安装包。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 代理配置 | 运行态 `/configs.mode` | <span style="color:#ff0000">`global`（致命项，配置文件是 `rule`，运行态被切到全局模式）</span> |
+| 代理配置 | 磁盘配置文件 `mode` | `rule` ✅（持久层未回退，纯运行态异常） |
+| 代理配置 | external-controller | `39797`（配置与运行态一致 ✅；fix_vortex_config.py 硬编码 39798 已过时） |
+| 代理配置 | OpenAI 分流规则（5 条） | <span style="color:#ff0000">被清空</span>，仅剩 65 条出厂规则（「订阅清规则」累计第 20 次） |
+| 代理配置 | MATCH 兜底 | 修复前 `节点选择`（→日本自动 112ms）；修复后 → 🇭🇰 香港-IEPL 02（69ms） |
+| 代理配置 | GLOBAL 策略组 | 指向「🇭🇰|香港家宽-中转 02」→ **delay Timeout（挂）** ⚠️ |
+| 网络层 | 节点 delay 体检 | 大部分节点通：香港-IEPL 02=69ms、台湾-IEPL 02=90ms、台湾-IEPL 03=330ms、日本-IEPL 01/02=131ms、美国-IEPL 02=220ms；仅 台湾-中转 01 / 美国-直连 / 香港家宽-中转 02 FAIL |
+| 网络层 | 走代理实测（修复前） | baidu / api.github.com / google 全部 HTTP:000 超时 |
+| 网络层 | 走代理实测（修复后） | baidu **200** / api.github.com **200** / google **302** ✅ |
+| 环境层 | 7897 端口 | `0.0.0.0:7897` LISTENING（PID 26544 = com.vortex.helper.exe）✅（大量 FIN_WAIT_2 半关闭连接） |
+| 环境层 | 系统代理 | `ProxyEnable=1`、`ProxyServer=127.0.0.1:7897` ✅ |
+| 环境层 | 处置后 | 配置文件加回 OpenAI 规则 + MATCH 兜底 + ipv6:false，热加载 204，/rules 70 条 ✅ |
+
+### 修复过程
+
+1. **三层诊断**：`/configs`（发现 mode=global、ipv6=True、tun=False）、`/rules`（OpenAI 规则 0、65 条出厂）、配置文件（mode=rule / external-controller=39797 / 无 OpenAI 规则）、GLOBAL 策略组指向（香港家宽-中转 02）、节点 delay 批量体检。
+2. **备份**：`原始文件备份/vortex-config-20260829-0915-before-fix.yaml`。
+3. **手动改配置**（不跑 fix_vortex_config.py，因其 BASE 硬编码 39798 已失效）：加回 5 条 OpenAI 规则→🇹🇼 台湾-IEPL 03（脚本历史验证对 OpenAI 401 放行）、MATCH 兜底→🇭🇰 香港-IEPL 02（69ms 快节点）、补顶层 `ipv6: false`。
+4. **热加载**：`PUT /configs?force=true`（BASE=39797）→ **HTTP 204**。
+5. **验证**：`/configs` mode=rule/ipv6=False/port=7897、`/rules` 70 条（OpenAI 5 条→台湾-IEPL 03、MATCH→香港-IEPL 02）、走代理实测 baidu/github/google 全通。
+
+> [!warning] ⚠️ 关键认知（本次新坑）
+> **① `mode: global` 是 05 已知 `direct` 之外的又一"mode 异常"变体**：global 模式强制所有流量走 GLOBAL 策略组、忽略分流规则，若 GLOBAL 指向的节点挂掉即全站超时——**排查时看 `/configs.mode`，凡非 `rule` 都按"隧道失效"处理**，处置=把运行态/配置切回 rule（本次配置文件本就是 rule，直接热加载即可纠正运行态）。
+> **② 代理进程在 ≠ 隧道通**：7897 在监听、Vortex 进程在线，但连接全 FIN_WAIT_2、外部全超时——说明流量被锁死在已挂的 GLOBAL 节点上，**以实际走代理探测为准，不要因"进程在"就排除代理故障**。
+> **③ fix_vortex_config.py 的 BASE 硬编码 `39798` 已过时**：本次控制 API 实际在 `39797`（与配置 external-controller 一致），直接跑原脚本热加载必失败——**改配置前先 `curl /configs` 探明真实控制端口**，脚本需按环境修正 BASE。
 
 ## 🔗 相关笔记与附件
 

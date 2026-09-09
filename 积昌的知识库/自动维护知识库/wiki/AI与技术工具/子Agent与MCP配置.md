@@ -13,7 +13,7 @@ tags:
   - Cookbook
 source:
   - "[[../总结好的大纲以及笔记/AI/Claude Code打造AI秘书团/Claude Code打造AI秘书团.md]]"
-  - "[[../lark-resources/备忘录文档_202607140043.pdf]]"
+  - "[[../中间文件/lark-resources/备忘录文档_202607140043.pdf]]"
 created: 2026-07-11
 updated: 2026-07-11
 ---

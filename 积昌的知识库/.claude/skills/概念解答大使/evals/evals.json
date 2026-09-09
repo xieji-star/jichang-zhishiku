@@ -1,0 +1,45 @@
+{
+  "skill_name": "概念解答大使",
+  "evals": [
+    {
+      "id": 1,
+      "name": "社会性概念-五险一金",
+      "prompt": "什么是五险一金？我在找工作，HR 跟我说公司福利很好，但我其实不太懂这个，你能帮我把这个概念讲清楚吗？",
+      "expected_output": "以简单易懂的方式解释五险一金，包含行业黑话（社保、按最低基数交等）和常见坑点（试用期不交、税前税后、断缴等），并配一个生活化比喻/例子。",
+      "files": [],
+      "assertions": [
+        {"name": "开头标注概念类型为社会性概念", "check": "contains_text", "text": "社会性概念"},
+        {"name": "包含行业黑话板块", "check": "contains_text", "text": "行业黑话"},
+        {"name": "包含常见坑点板块", "check": "contains_text", "text": "坑"},
+        {"name": "包含比喻或例子", "check": "contains_text", "text": "比喻"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "非社会性概念-电势",
+      "prompt": "什么是电势？我是高中物理学生，老师讲了但没听懂，你能不能帮我解释明白电势到底是什么？",
+      "expected_output": "以简单易懂的方式解释电势这个概念，讲清原理机制、常见误区（电势是标量、电势与电势能区别、正负电荷走向等），配比喻/例子，不出现行业黑话。",
+      "files": [],
+      "assertions": [
+        {"name": "开头标注概念类型为非社会性概念", "check": "contains_text", "text": "非社会性概念"},
+        {"name": "不出现行业黑话板块", "check": "not_contains_text", "text": "行业黑话："},
+        {"name": "区分电势与电势能", "check": "contains_text", "text": "电势能"},
+        {"name": "说明电势是标量", "check": "contains_text", "text": "标量"},
+        {"name": "包含比喻或例子", "check": "contains_text", "text": "比喻"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "社会性概念-毛利率",
+      "prompt": "毛利率是什么意思？我朋友开了家公司，老跟我提毛利率，我不懂这个数字代表什么，你能解释一下吗？",
+      "expected_output": "以简单易懂的方式解释毛利率，说明它是什么、怎么算、跟净利率区别等，属于商业概念可带行业黑话（毛利、净利率、毛利率虚高）和常见坑点（毛利率高不代表赚钱），配生活化比喻/例子。",
+      "files": [],
+      "assertions": [
+        {"name": "开头标注概念类型为社会性概念", "check": "contains_text", "text": "社会性概念"},
+        {"name": "包含行业黑话板块", "check": "contains_text", "text": "行业黑话"},
+        {"name": "区分毛利率与净利率", "check": "contains_text", "text": "净利率"},
+        {"name": "包含比喻或例子", "check": "contains_text", "text": "比喻"}
+      ]
+    }
+  ]
+}

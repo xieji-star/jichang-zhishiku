@@ -15,11 +15,11 @@ lark-cli im +messages-resources-download \
   --message-id {{message_id}} \
   --file-key {{file_key}} \
   --type file \
-  --output "lark-im-resources/{{文件名}}" \
+  --output "中间文件/lark-im-resources/{{文件名}}" \
   --as user --json
 ```
 
-> 下载的文件会保存在 `lark-im-resources/` 目录下。
+> 下载的文件会保存在 `中间文件/lark-im-resources/` 目录下。
 
 ## 2. 使用 PyMuPDF 提取文本（首选方案）
 
@@ -82,7 +82,7 @@ import fitz
 doc = fitz.open('{{PDF文件路径}}')
 for i, page in enumerate(doc):
     pix = page.get_pixmap(dpi=200)
-    pix.save(f'lark-im-resources/{{文件名}}_page_{i+1}.png')
+    pix.save(f'中间文件/lark-im-resources/{{文件名}}_page_{i+1}.png')
     print(f'Page {i+1} saved: {pix.width}x{pix.height}')
 doc.close()
 ```
@@ -123,13 +123,13 @@ for i in range(1, total_pages+1):
 
 ```bash
 # 删除页面截图
-rm -f lark-im-resources/{{文件名}}_page_*.png
+rm -f 中间文件/lark-im-resources/{{文件名}}_page_*.png
 
 # 删除文本提取文件
-rm -f lark-im-resources/{{文件名}}_fulltext.txt
+rm -f 中间文件/lark-im-resources/{{文件名}}_fulltext.txt
 
 # 删除原始 PDF（如果已提取完内容且不再需要）
-rm -f "lark-im-resources/{{原始PDF文件名}}"
+rm -f "中间文件/lark-im-resources/{{原始PDF文件名}}"
 ```
 
 ## 5. 快速判断流程

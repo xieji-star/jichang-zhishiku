@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>为什么论文越来越难发？— 华哥聊论文</title>
+<style>
+  /* ============ 设计令牌（参考首页.png 提取配色） ============ */
+  :root{
+    --cream:      #F3EADF;   /* 米色奶油底 */
+    --cream2:     #EBE1D1;   /* 深一档米色 */
+    --paper:      rgba(255,255,255,.52);
+    --ink:        #1E3A5C;   /* 深藏蓝（标题用） */
+    --blue:       #2E6295;   /* 主蓝（来自图片采样 rgb 45,98,149） */
+    --blue-soft:  #6E93B8;   /* 柔和蓝 */
+    --line:       #A9C4DA;   /* 浅蓝线稿 */
+    --line2:      #7FA5C6;   /* 线稿深一档 */
+    --gold:       #A98A5B;   /* 暖金小点缀 */
+    --muted:      #7C776B;   /* 次要文字 */
+    --deep:       #16283C;   /* 最深蓝 */
+    --serif: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:  -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    font-family:var(--sans);
+    background:#D9CDBB;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    user-select:none;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ============ 舞台（16:9，自动缩放适配，像PPT全屏） ============ */
+  #stage{
+    width:1280px; height:720px;
+    position:relative;
+    background:linear-gradient(155deg,#F6EEE3 0%,var(--cream) 42%,var(--cream2) 100%);
+    box-shadow:0 40px 90px rgba(30,58,92,.22), inset 0 0 0 1px rgba(255,255,255,.4);
+    overflow:hidden;
+    transform-origin:center center;
+  }
+
+  /* ---- 背景质地层 ---- */
+  .bg-texture{ position:absolute; inset:0;
+    background-image:radial-gradient(rgba(46,98,149,.05) 1px, transparent 1px);
+    background-size:26px 26px; opacity:.6; }
+  .bg-vignette{ position:absolute; inset:0;
+    background:radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(30,58,92,.10) 100%); }
+
+  /* ---- 蓝色线稿建筑群（参照封面/首页的蓝图城市线稿） ---- */
+  .skyline{ position:absolute; left:50%; bottom:-12px; transform:translateX(-50%);
+    width:1180px; height:300px; opacity:.5; pointer-events:none; }
+  .skyline path,.skyline rect,.skyline line{ fill:none; stroke:var(--line2); stroke-width:1.4; }
+  .skyline .win{ stroke:var(--line); stroke-width:1; opacity:.7; }
+  .skyline .accent{ stroke:var(--blue-soft); stroke-width:1.8; }
+  .skyline .dim{ stroke:var(--line); opacity:.55; }
+
+  /* ---- 角落十字定位 + 边角框（参考图的registration marks） ---- */
+  .cross{ position:absolute; width:18px; height:18px; opacity:.55; }
+  .cross::before,.cross::after{ content:""; position:absolute; background:var(--blue-soft); }
+  .cross::before{ left:8px; top:0; width:1px; height:18px; }
+  .cross::after { left:0; top:8px; width:18px; height:1px; }
+  .c-tl{ top:26px; left:26px; } .c-tr{ top:26px; right:26px; }
+  .c-bl{ bottom:26px; left:26px; } .c-br{ bottom:26px; right:26px; }
+  .frame{ position:absolute; inset:20px; border:1px solid rgba(46,98,149,.18); pointer-events:none; }
+
+  /* ---- 顶部小 logo ---- */
+  .brand{ position:absolute; top:34px; left:40px; display:flex; align-items:center; gap:11px; z-index:5; }
+  .brand .mark{ width:30px; height:30px; }
+  .brand .name{ font-family:var(--serif); color:var(--blue); font-size:22px; letter-spacing:2px; font-weight:700; }
+  .brand .sub{ font-family:var(--serif); color:var(--muted); font-size:12px; letter-spacing:3px; transform:translateY(2px); margin-left:2px; }
+  .page-tag{ position:absolute; top:38px; right:40px; z-index:5;
+    font-family:var(--serif); color:var(--blue-soft); font-size:13px; letter-spacing:2px; }
+
+  /* ============ 幻灯片 ============ */
+  .slide{ position:absolute; inset:0; padding:96px 92px 150px;
+    display:flex; flex-direction:column; justify-content:center;
+    opacity:0; visibility:hidden; transform:translateY(26px) scale(.985);
+    transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1), visibility 0s .7s; }
+  .slide.active{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+
+  /* 进入动画：内容逐条浮现（离开时自动重置） */
+  .anim{ opacity:0; transform:translateY(18px); }
+  .slide.active .anim{ animation:rise .68s cubic-bezier(.2,.7,.2,1) forwards; }
+  .slide.active .d1{ animation-delay:.10s }
+  .slide.active .d2{ animation-delay:.22s }
+  .slide.active .d3{ animation-delay:.34s }
+  .slide.active .d4{ animation-delay:.46s }
+  .slide.active .d5{ animation-delay:.58s }
+  .slide.active .d6{ animation-delay:.70s }
+  .slide.active .d7{ animation-delay:.82s }
+  .slide.active .d8{ animation-delay:.94s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* 封面 */
+  .cover{ justify-content:center; text-align:center; align-items:center; }
+  .cover .kicker{ font-family:var(--sans); color:var(--blue-soft); letter-spacing:6px; font-size:15px;
+    border:1px solid rgba(46,98,149,.28); padding:7px 22px; border-radius:999px; margin-bottom:34px; }
+  .cover h1{ font-family:var(--serif); font-weight:800; color:var(--ink);
+    font-size:76px; line-height:1.12; letter-spacing:2px; }
+  .cover h1 .hl{ color:var(--blue); }
+  .cover .rule{ width:96px; height:2px; background:linear-gradient(90deg,var(--blue),transparent);
+    margin:30px auto 26px; }
+  .cover .sub{ font-family:var(--serif); color:var(--muted); font-size:24px; letter-spacing:1px; }
+  .cover .meta{ margin-top:40px; display:flex; gap:26px; align-items:center; justify-content:center; color:var(--blue-soft); font-size:14px; letter-spacing:2px; }
+  .cover .meta span{ display:flex; align-items:center; gap:8px; }
+  .cover .meta i{ width:5px; height:5px; background:var(--gold); border-radius:50%; display:inline-block; }
+  .cover .persona{ margin-top:30px; font-family:var(--serif); color:var(--blue); font-size:19px; }
+
+  /* 内容页通用 */
+  .content h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:44px; letter-spacing:1px; }
+  .content h2 .no{ color:var(--blue); }
+  .content .lead{ margin-top:14px; font-family:var(--serif); color:var(--blue); font-size:23px; letter-spacing:.5px; }
+
+  .grid3{ display:flex; gap:24px; margin-top:38px; }
+  .card{ flex:1; background:var(--paper); border:1px solid rgba(46,98,149,.16);
+    border-radius:14px; padding:26px 24px 24px; position:relative; overflow:hidden; }
+  .card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(var(--blue),var(--blue-soft)); }
+  .card .big{ font-family:var(--serif); font-weight:800; color:var(--blue); font-size:34px; line-height:1; }
+  .card .lab{ margin-top:8px; font-size:15px; color:var(--muted); letter-spacing:1px; white-space:nowrap; }
+  .card .plain{ margin-top:14px; font-size:16px; color:#4a4a44; line-height:1.7; }
+  .card .plain b{ color:var(--deep); }
+  .card .chart{ margin-top:16px; }
+
+  /* 对比条 */
+  .vs{ margin-top:30px; border-top:1px dashed rgba(46,98,149,.24); padding-top:22px; }
+  .vs .row{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .vs .row .tag{ font-size:13px; letter-spacing:1px; padding:5px 12px; border-radius:999px; flex:0 0 auto; }
+  .vs .old .tag{ background:#E9E2D5; color:#8a8272; }
+  .vs .new .tag{ background:rgba(46,98,149,.12); color:var(--blue); }
+  .vs .txt{ font-size:17px; color:#5a564d; }
+
+  /* 案例块 */
+  .case{ margin-top:30px; display:flex; align-items:center; gap:18px;
+    background:rgba(46,98,149,.07); border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:18px 22px; }
+  .case .quote{ font-family:var(--serif); color:var(--ink); font-size:18px; line-height:1.6; }
+
+  /* 结尾页 */
+  .final{ text-align:center; align-items:center; justify-content:center; }
+  .final h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:58px; line-height:1.15; letter-spacing:1px; }
+  .final h2 .hl{ color:var(--blue); }
+  .final .steps{ margin-top:30px; display:flex; gap:18px; justify-content:center; }
+  .final .step{ flex:0 1 280px; background:var(--paper); border:1px solid rgba(46,98,149,.18); border-radius:14px; padding:20px 20px 22px; }
+  .final .step .n{ font-family:var(--serif); color:var(--gold); font-size:22px; font-weight:800; }
+  .final .step .t{ margin-top:6px; font-size:16px; color:#4a4a44; line-height:1.6; }
+  .final .hook{ margin-top:38px; font-family:var(--serif); color:var(--blue); font-size:24px; line-height:1.5; }
+  .final .who{ margin-top:26px; color:var(--blue-soft); font-size:14px; letter-spacing:2px; }
+
+  /* ============ 底部控件 ============ */
+  .progress{ position:absolute; left:0; top:0; height:4px; width:0;
+    background:linear-gradient(90deg,var(--blue),var(--blue-soft)); transition:width .45s ease; z-index:20; }
+  .hb{ position:absolute; bottom:34px; left:40px; z-index:20; display:flex; gap:22px; align-items:center; }
+  .hb .t{ font-family:var(--serif); color:var(--blue); font-size:15px; letter-spacing:1px; }
+  .dots{ position:absolute; bottom:34px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:20; }
+  .dot{ width:10px; height:10px; border-radius:50%; border:1.5px solid var(--blue-soft); cursor:pointer; transition:.35s; }
+  .dot.on{ background:var(--blue); border-color:var(--blue); transform:scale(1.25); }
+  .counter{ position:absolute; bottom:30px; right:40px; z-index:20; font-family:var(--serif); color:var(--blue-soft); font-size:15px; letter-spacing:2px; }
+  .counter b{ color:var(--blue); font-size:21px; }
+  .nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:74px; z-index:20; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; color:var(--blue-soft); opacity:0; transition:.3s; }
+  .nav:hover{ opacity:1; color:var(--blue); }
+  .nav.prev{ left:12px; } .nav.next{ right:12px; }
+  .nav svg{ width:26px; height:26px; }
+
+  .help{ position:absolute; bottom:30px; right:180px; z-index:20; color:var(--muted); font-size:12px; letter-spacing:1px; opacity:.75; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- 背景层 -->
+  <div class="bg-texture"></div>
+  <div class="bg-vignette"></div>
+  <div class="frame"></div>
+  <div class="cross c-tl"></div><div class="cross c-tr"></div>
+  <div class="cross c-bl"></div><div class="cross c-br"></div>
+
+  <!-- 蓝色线稿建筑群（参照参考图，可随翻页轻微浮动） -->
+  <svg class="skyline" id="sky" viewBox="0 0 1180 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true"></svg>
+
+  <!-- 顶部品牌 -->
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+      <g fill="none" stroke="#2E6295" stroke-width="2.4">
+        <path d="M20 4 C11 8 9 22 20 25 C31 22 29 8 20 4 Z"/>
+        <path d="M20 12 C16 15 16 22 20 24 C24 22 24 15 20 12 Z"/>
+      </g>
+    </svg>
+    <span class="name">华哥聊论文</span>
+    <span class="sub">图灵学术 · Turing Academy</span>
+  </div>
+  <div class="page-tag" id="pageTag">01</div>
+
+  <div class="progress" id="bar"></div>
+
+  <!-- ================= 第 1 页 · 封面 ================= -->
+  <section class="slide cover" data-i="0">
+    <div class="kicker anim d1">华哥聊论文 · 技术痛点拆解</div>
+    <h1 class="anim d2">为什么现在<br><span class="hl">论文越来越难发？</span></h1>
+    <div class="rule anim d3"></div>
+    <div class="sub anim d4">编辑越来越爱拒稿——其实很多时候，不是你的写作水平问题</div>
+    <div class="meta anim d5">
+      <span><i></i>投稿量暴涨</span>
+      <span><i></i>贡献门槛上移</span>
+      <span><i></i>风向变了</span>
+    </div>
+    <div class="persona anim d6">我是华哥，这半年带过 170+ 学员，常从审稿视角帮人看被拒的稿子</div>
+  </section>
+
+  <!-- ================= 第 2 页 · 真相一 ================= -->
+  <section class="slide content" data-i="1">
+    <h2 class="anim d1"><span class="no">真相①</span> 投稿量暴涨</h2>
+    <div class="lead anim d2">不是你的稿子变差了，是来投稿的人，一下子变多了。</div>
+
+    <div class="grid3">
+      <div class="card anim d3">
+        <div class="big">AI 写论文变容易</div>
+        <div class="lab">原因 · 供给激增</div>
+        <div class="plain">现在从查文献、跑实验到写初稿，整条链路都能用 AI。出稿速度快，写一篇也没以前那么费劲了。</div>
+      </div>
+      <div class="card anim d4">
+        <div class="big">投稿量 翻几倍</div>
+        <div class="lab">现象 · 稿子哗哗涌进来</div>
+        <div class="plain">几乎每家期刊的收稿量，都是过去的好几倍。</div>
+        <div class="chart" id="chartA"></div>
+      </div>
+      <div class="card anim d5">
+        <div class="big">能发的 还是那些</div>
+        <div class="lab">结果 · 供远大于求</div>
+        <div class="plain">一年能发出来的总篇数基本不变。结果就是：<b>录用率只有 5% ~ 10%</b>，大部分稿子注定陪跑。</div>
+      </div>
+    </div>
+
+    <div class="vs anim d6">
+      <div class="row old"><span class="tag">名词</span><span class="txt"><b>SCI</b>：国际核心期刊体系，分一区到四区，一区最牛；<b>期刊</b>就像是专门登学术论文的「杂志圈」。</span></div>
+      <div class="row new"><span class="tag">大白话</span><span class="txt"><b>录用率 5%~10%</b> = 投 100 篇，最后只录 5~10 篇。所以别怀疑自己——多数人其实都倒在这一关。</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 第 3 页 · 真相二 ================= -->
+  <section class="slide content" data-i="2">
+    <h2 class="anim d1"><span class="no">真相②</span> 贡献门槛上移</h2>
+    <div class="lead anim d2">编辑手里那把「尺子」，一年比一年抬得高。</div>
+
+    <div class="vs anim d3">
+      <div class="row old"><span class="tag">以前</span><span class="txt">实验做得完整、数据跑得好看、模型立得住，就有机会送审。</span></div>
+      <div class="row new"><span class="tag">现在</span><span class="txt">只看你有没有「拿得出手的新东西」——只补一点点、没新增贡献的稿子，编辑干脆拒掉。</span></div>
+    </div>
+
+    <div class="grid3" style="margin-top:26px">
+      <div class="card anim d4">
+        <div class="big">理论贡献</div>
+        <div class="lab">大白话</div>
+        <div class="plain">你这篇论文，给大家的领域「新加了」什么别人没想到的东西。这份「增量」，才是编辑最在意的。</div>
+      </div>
+      <div class="card anim d5">
+        <div class="big">审稿人</div>
+        <div class="lab">大白话</div>
+        <div class="plain">编辑部请来帮你把关节的同行专家。现在越来越难约，尤其暑假——所以编辑在初筛时就卡得更紧。</div>
+      </div>
+      <div class="card anim d6">
+        <div class="big">修补型论文</div>
+        <div class="lab">大白话</div>
+        <div class="plain">只是在别人成果上「补一点点缝」的稿子，没有真正的新认知。这种现在越来越不吃香。</div>
+      </div>
+    </div>
+
+    <div class="case anim d7">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A98A5B" stroke-width="1.6"><path d="M4 5h16M4 9h16M4 13h16M9 17h11M9 21h11"/></svg>
+      <div class="quote">上个月有个学员，大修了三轮，改到他自己都觉得稳了。结果编辑一句话——「理论贡献不足」，还是退了。稿子本身真不差，就是没够到那把尺子。</div>
+    </div>
+  </section>
+
+  <!-- ================= 第 4 页 · 怎么办 ================= -->
+  <section class="slide final" data-i="3">
+    <h2 class="anim d1">别怪自己写得不好，<br>是<span class="hl">风向变了</span>。</h2>
+    <div class="lead anim d2" style="font-family:var(--serif);color:var(--muted);font-size:21px;margin-top:16px">你要做的，是让论文的「贡献增量」明明白白地露出来。</div>
+
+    <div class="steps">
+      <div class="step anim d3"><div class="n">01</div><div class="t">把「我补了哪块空」清清楚楚写出来，别藏着。</div></div>
+      <div class="step anim d4"><div class="n">02</div><div class="t">让审稿人第一眼就信服：你补上了别人没补上的那块。</div></div>
+      <div class="step anim d5"><div class="n">03</div><div class="t">找准自己的贡献点，别在「没新东西」上硬耗。</div></div>
+    </div>
+
+    <div class="hook anim d6">把【方向 + 学历 + 卡在哪一步】发给我，我帮你看看<br>这个贡献点该怎么立，才够得到编辑那把尺子。</div>
+    <div class="who anim d7">我是华哥 · 专门跟「论文发不出去」较劲</div>
+  </section>
+
+  <!-- 控件 -->
+  <div class="nav prev" id="prev" title="上一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </div>
+  <div class="nav next" id="next" title="下一页">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </div>
+  <div class="hb"><span class="t">论文越来越难发</span></div>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">1</b> / <span id="tot">4</span></div>
+  <div class="help">← → 或 点击两侧 翻页 · 空格 下一页</div>
+</div>
+
+<script>
+(function(){
+  /* ---------- 蓝色线稿建筑群（蓝图城市线稿，参照参考图） ---------- */
+  var sky = document.getElementById('sky');
+  var s = '';
+  s += '<path class="dim" d="M0 288 L0 190 L34 190 L34 150 L52 150 L52 205 L70 205 L70 120 L96 120 L96 172 L112 172 L112 96 L150 96 L150 210 L176 210 L176 135 L200 135 L200 175 L214 175 L214 60 L256 60 L256 160 L282 160 L282 120 L300 120 L300 230 L322 230 L322 100 L356 100 L356 180 L378 180 L378 140 L402 140 L402 240 L426 240 L426 88 L474 88 L474 150 L498 150 L498 100 L520 100 L520 210 L544 210 L544 70 L600 70 L600 190 L622 190 L622 130 L646 130 L646 90 L690 90 L690 220 L712 220 L712 150 L736 150 L736 180 L758 180 L758 108 L806 108 L806 205 L824 205 L824 140 L850 140 L850 90 L898 90 L898 175 L916 175 L916 205 L940 205 L940 120 L984 120 L984 185 L1004 185 L1004 150 L1028 150 L1028 230 L1052 230 L1052 170 L1080 170 L1080 210 L1110 210 L1110 150 L1140 150 L1140 210 L1180 210 L1180 288 Z" stroke-linejoin="round"/>';
+  /* 几栋主楼的窗户网格 */
+  var win = '';
+  [[214,62,42,96],[544,72,56,118],[690,92,70,128],[850,92,48,112],[256,62,44,98]].forEach(function(b){
+    var x=b[0],y=b[1],w=b[2],h=b[3];
+    for(var cx=x+6; cx<x+w-4; cx+=8){
+      for(var cy=y+6; cy<y+h-4; cy+=10){
+        win += '<line class="win" x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+cy+5+'"/>';
+      }
+    }
+  });
+  s += win;
+  /* 几根天线/标识 + 中部一轮装饰性弧线（类似蓝图半圆） */
+  s += '<line class="accent" x1="238" y1="60" x2="238" y2="30"/>';
+  s += '<line class="accent" x1="572" y1="70" x2="572" y2="34"/>';
+  s += '<line class="accent" x1="874" y1="90" x2="874" y2="46"/>';
+  s += '<line class="accent" x1="238" y1="30" x2="244" y2="30"/><line class="accent" x1="232" y1="30" x2="238" y2="30"/>';
+  s += '<line class="accent" x1="572" y1="34" x2="578" y2="34"/><line class="accent" x1="566" y1="34" x2="572" y2="34"/>';
+  s += '<circle class="dim" cx="1180" cy="40" r="26"/>';
+  s += '<path class="dim" d="M940 288 C 960 240 1030 240 1046 288"/>';
+  s += '<path class="dim" d="M80 288 C 100 245 160 245 178 288"/>';
+  sky.innerHTML = s;
+
+  /* ---------- 第 2 页 小图表：投稿量 vs 刊发量 ---------- */
+  (function(){
+    var el = document.getElementById('chartA'); if(!el) return;
+    var w=210,h=90; var html='';
+    html += '<svg width="'+w+'" height="'+h+'" viewBox="0 0 210 90">';
+    html += '<line x1="20" y1="80" x2="200" y2="80" stroke="#D8CDB9" stroke-width="1"/>';
+    // 以前
+    html += '<rect x="40" y="58" width="26" height="22" fill="#CFC3AE" rx="2"/>';
+    html += '<text x="53" y="52" fill="#8a8272" font-size="9" text-anchor="middle">以前</text>';
+    // 现在 - 投稿量
+    html += '<rect x="90" y="16" width="26" height="64" fill="rgba(46,98,149,.75)" rx="2"/>';
+    html += '<text x="103" y="10" fill="#2E6295" font-size="9" text-anchor="middle">投稿量</text>';
+    // 现在 - 刊发量
+    html += '<rect x="140" y="58" width="26" height="22" fill="rgba(169,138,91,.7)" rx="2"/>';
+    html += '<text x="153" y="52" fill="#A98A5B" font-size="9" text-anchor="middle">刊发量</text>';
+    html += '</svg>';
+    el.innerHTML = html;
+  })();
+
+  /* ---------- 翻页逻辑 ---------- */
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx = 0, N = slides.length;
+  var dotsWrap = document.getElementById('dots');
+  var bar = document.getElementById('bar');
+  var cur = document.getElementById('cur');
+  var tot = document.getElementById('tot');
+  var tag = document.getElementById('pageTag');
+  var num = ['01','02','03','04'];
+  tot.textContent = N;
+
+  for(var i=0;i<N;i++){
+    var d = document.createElement('span'); d.className='dot'+(i===0?' on':'');
+    (function(k){ d.addEventListener('click', function(){ go(k); }); })(i);
+    dotsWrap.appendChild(d);
+  }
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n){
+    if(n<0) n=0; if(n>N-1) n=N-1;
+    if(n===idx) return;
+    slides[idx].classList.remove('active');
+    void slides[n].offsetWidth;           // 强制回流，重置进入动画
+    idx = n;
+    slides[idx].classList.add('active');
+    dots.forEach(function(el,i){ el.classList.toggle('on', i===idx); });
+    cur.textContent = idx+1;
+    tag.textContent = num[idx];
+    bar.style.width = ((idx+1)/N*100) + '%';
+    // 背景线稿轻微微动
+    sky.style.transition = 'transform .8s cubic-bezier(.2,.7,.2,1)';
+    sky.style.transform = 'translateX(-50%) translateX(' + (idx%2===0 ? 0 : -14) + 'px)';
+  }
+  function next(){ go(idx+1); }
+  function prev(){ go(idx-1); }
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){ e.preventDefault(); next(); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); prev(); }
+    else if(e.key==='Home'){ go(0); } else if(e.key==='End'){ go(N-1); }
+  });
+
+  // 点击左右半屏翻页
+  document.getElementById('stage').addEventListener('click', function(e){
+    var r = e.currentTarget.getBoundingClientRect();
+    var x = e.clientX - r.left;
+    if(x < r.width*0.42) prev(); else if(x > r.width*0.58) next();
+  });
+
+  /* 点击到内容/按钮时不误触翻页 */
+  document.querySelectorAll('button,input,a,.card,.nav,.dot,.step').forEach(function(x){
+    x.addEventListener('click', function(e){ e.stopPropagation(); });
+  });
+
+  /* ---------- 自适应缩放（保持 16:9，像 PPT 全屏） ---------- */
+  var stage = document.getElementById('stage');
+  function fit(){
+    var w = stage.offsetWidth, h = stage.offsetHeight;
+    var sw = window.innerWidth, sh = window.innerHeight;
+    var scale = Math.min(sw/w, sh/h);
+    stage.style.transform = 'scale(' + scale + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+
+  // 初始页面（支持 URL hash 直达某一页，如 #2）
+  var h = parseInt(location.hash.slice(1), 10);
+  if(!isNaN(h) && h>=1 && h<=N){ idx = h-1; }
+  slides[idx].classList.add('active');
+  cur.textContent = idx+1;
+  tag.textContent = num[idx];
+  dots.forEach(function(el,i){ el.classList.toggle('on', i===idx); });
+  bar.style.width = ((idx+1)/N*100) + '%';
+})();
+</script>
+</body>
+</html>

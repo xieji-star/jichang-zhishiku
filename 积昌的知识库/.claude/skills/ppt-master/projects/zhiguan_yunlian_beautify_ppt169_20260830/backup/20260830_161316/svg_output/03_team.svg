@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" data-pptx-page-role="content" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="conclGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2F6B3A"/>
+      <stop offset="100%" stop-color="#1F4A27"/>
+    </linearGradient>
+    <clipPath id="clip-p3-m1"><rect x="74" y="197" width="188" height="188" rx="14"/></clipPath>
+    <clipPath id="clip-p3-m2"><rect x="310" y="197" width="188" height="188" rx="14"/></clipPath>
+    <clipPath id="clip-p3-m3"><rect x="546" y="197" width="188" height="188" rx="14"/></clipPath>
+    <clipPath id="clip-p3-m4"><rect x="782" y="197" width="188" height="188" rx="14"/></clipPath>
+    <clipPath id="clip-p3-m5"><rect x="1018" y="197" width="188" height="188" rx="14"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#F5F7EF" data-pptx-role="background"/>
+  <circle id="deco-orbit" cx="1250" cy="78" r="205" fill="#EAF2E2" data-pptx-role="decoration"/>
+
+  <!-- Header -->
+  <g id="header" data-pptx-bounds="60 36 1160 128">
+    <rect x="60" y="40" width="9" height="50" rx="4" fill="#2F6B3A"/>
+    <text x="92" y="62" font-size="14" font-weight="bold" fill="#6FA84F">PART 03 · 核心团队</text>
+    <text x="92" y="102" font-size="40" font-weight="bold" fill="#2F6B3A">核心团队</text>
+    <text x="92" y="136" font-size="18" fill="#6B7260">机械 + 自动化 + 通信 + AI，构成跨学科协同团队</text>
+  </g>
+
+  <!-- Team module -->
+  <g id="team" data-pptx-bounds="60 183 1160 290">
+    <line x1="60" y1="293" x2="1220" y2="293" stroke="#DCE4D0" stroke-width="2"/>
+    <circle cx="286" cy="293" r="6" fill="#6FA84F"/>
+    <circle cx="522" cy="293" r="6" fill="#6FA84F"/>
+    <circle cx="758" cy="293" r="6" fill="#6FA84F"/>
+    <circle cx="994" cy="293" r="6" fill="#6FA84F"/>
+
+    <!-- Member 1 -->
+    <g id="member-1">
+      <rect x="60" y="183" width="216" height="290" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p3_m1.png" x="74" y="197" width="188" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p3-m1)"/>
+      <text x="168" y="425" font-size="21" font-weight="bold" fill="#22301F" text-anchor="middle">机械研发</text>
+      <rect x="152" y="436" width="32" height="3" rx="1.5" fill="#6FA84F"/>
+    </g>
+
+    <!-- Member 2 -->
+    <g id="member-2">
+      <rect x="296" y="183" width="216" height="290" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p3_m2.png" x="310" y="197" width="188" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p3-m2)"/>
+      <text x="404" y="425" font-size="21" font-weight="bold" fill="#22301F" text-anchor="middle">嵌入式控制</text>
+      <rect x="388" y="436" width="32" height="3" rx="1.5" fill="#6FA84F"/>
+    </g>
+
+    <!-- Member 3 -->
+    <g id="member-3">
+      <rect x="532" y="183" width="216" height="290" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p3_m3.png" x="546" y="197" width="188" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p3-m3)"/>
+      <text x="640" y="425" font-size="21" font-weight="bold" fill="#22301F" text-anchor="middle">AI算法</text>
+      <rect x="624" y="436" width="32" height="3" rx="1.5" fill="#6FA84F"/>
+    </g>
+
+    <!-- Member 4 -->
+    <g id="member-4">
+      <rect x="768" y="183" width="216" height="290" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p3_m4.png" x="782" y="197" width="188" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p3-m4)"/>
+      <text x="876" y="425" font-size="21" font-weight="bold" fill="#22301F" text-anchor="middle">通信与物联</text>
+      <rect x="860" y="436" width="32" height="3" rx="1.5" fill="#6FA84F"/>
+    </g>
+
+    <!-- Member 5 -->
+    <g id="member-5">
+      <rect x="1004" y="183" width="216" height="290" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <image href="../images/p3_m5.png" x="1018" y="197" width="188" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p3-m5)"/>
+      <text x="1112" y="425" font-size="21" font-weight="bold" fill="#22301F" text-anchor="middle">市场调研</text>
+      <rect x="1096" y="436" width="32" height="3" rx="1.5" fill="#6FA84F"/>
+    </g>
+  </g>
+
+  <!-- Tag chain -->
+  <g id="tags" data-pptx-bounds="60 552 1160 44">
+    <rect x="60" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="106" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">跨学科</text>
+    <path d="M 164 573 L 172 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 178 567 L 186 573 L 178 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="198" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="244" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">能研发</text>
+    <path d="M 302 573 L 310 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 316 567 L 324 573 L 316 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="336" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="382" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">懂田间</text>
+  </g>
+
+  <!-- Conclusion banner -->
+  <g id="conclusion" data-pptx-bounds="60 606 1160 72">
+    <rect x="60" y="606" width="1160" height="72" rx="18" fill="url(#conclGrad)"/>
+    <circle cx="106" cy="642" r="18" fill="#FFFFFF" fill-opacity="0.16"/>
+    <path d="M 98 642 L 104 649 L 114 636" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="142" y="650" font-size="24" font-weight="bold" fill="#FFFFFF">一个能把想法做成设备的团队，才有资格谈落地</text>
+  </g>
+</svg>

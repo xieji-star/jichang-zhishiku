@@ -7,6 +7,18 @@ description: Helps users discover and install agent skills when they ask questio
 
 This skill helps you discover and install skills from the open agent skills ecosystem.
 
+## ⭐ 免费优先原则（硬性规则 / Mandatory Rule）
+
+**搜索或推荐 GitHub 项目时，一律「免费优先」。** 这是用户 2026-08-29 确认的固定规则，适用于本 skill 的一切搜索场景（搜索 agent skills、搜索任意 GitHub 软件/项目均适用）：
+
+1. **优先选择免费 + 开源的项目**：带开源许可证（MIT / Apache-2.0 / BSD / GPL / MPL 等）的项目优先；
+2. **区分"开源"与"免费商用"**：部分许可证有附加限制（如 SSPL、Elastic License 2.0、AGPL 对商用/托管有约束），推荐时要说明清楚；闭源但免费（freeware）其次；
+3. **付费软件默认排除**：需要购买授权 / 订阅付费 / 闭源商业软件，仅在用户明确表示"付费也可以"时才纳入推荐，且必须明确标注「💰 付费」；未标注一律视为不推荐；
+4. **核实方式**：用 GitHub API 查仓库 `license` 字段；无该字段时查看仓库 LICENSE 文件或 README 的授权说明；
+5. **推荐呈现**：候选项目对比表中必须带「许可证 / 是否免费」列，让用户一眼看出免费性。
+
+> 📌 案例（2026-08-29）：核实 SimpleMindMap（wanglin2/mind-map）——MIT 协议、软件本体免费、文档站"收费"栏目为作者教学课程而非软件功能，判定为免费项目，予以保留。
+
 ## When to Use This Skill
 
 Use this skill when the user:
@@ -70,6 +82,7 @@ For example:
 1. **Install count** — Prefer skills with 1K+ installs. Be cautious with anything under 100.
 2. **Source reputation** — Official sources (`vercel-labs`, `anthropics`, `microsoft`) are more trustworthy than unknown authors.
 3. **GitHub stars** — Check the source repository. A skill from a repo with <100 stars should be treated with skepticism.
+4. **License / Free** — ⭐ 硬性规则（免费优先）：prefer free & open-source projects (MIT / Apache-2.0 / BSD / GPL, etc.). Check the repo's `license` field or LICENSE file. Paid / commercial software is excluded by default and only recommended when the user explicitly asks, clearly marked as「💰 付费」.
 
 ### Step 5: Present Options to the User
 

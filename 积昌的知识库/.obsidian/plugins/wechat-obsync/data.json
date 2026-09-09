@@ -1,0 +1,12 @@
+{
+  "settingsVersion": 3,
+  "apiBaseUrl": "https://ob.agentok.top",
+  "token": "obs_dk_q1ndVGxwGB984GlsNrIuwwEpc6BVzmUxk6MZj69I",
+  "userId": "usr_f0ae0b2d9f224d5abb0cba6a26fae5f0",
+  "syncFolder": "微信公众号文章",
+  "deviceName": "Obsidian",
+  "syncIntervalMinutes": 1,
+  "localizeImages": true,
+  "subfolderByAccount": true,
+  "customFrontmatter": ""
+}

@@ -192,7 +192,7 @@ description: |
 
 ```
 PDF 文件
-  ├── 从飞书下载（如来源为飞书）→ lark-im-resources/
+  ├── 从飞书下载（如来源为飞书）→ 中间文件/lark-im-resources/
   ├── 使用 PyMuPDF 提取文本
   │     ├── 文字可读 → 直接使用
   │     └── 文字乱码 → 渲染为图片 → OCR / 碎片文本理解
@@ -235,9 +235,9 @@ python3 scripts/extract_pdf_text.py "{{PDF文件路径}}" --render-images --dpi 
 #### 0.5.3 任务结束后必须清理临时文件
 
 ```bash
-rm -f lark-im-resources/{{文件名}}_page_*.png
-rm -f lark-im-resources/{{文件名}}_fulltext.txt
-rm -f "lark-im-resources/{{原始PDF文件名}}"
+rm -f 中间文件/lark-im-resources/{{文件名}}_page_*.png
+rm -f 中间文件/lark-im-resources/{{文件名}}_fulltext.txt
+rm -f "中间文件/lark-im-resources/{{原始PDF文件名}}"
 ```
 
 > [!TIP] 详细指南

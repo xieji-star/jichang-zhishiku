@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(git:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(dir:*)",
+      "Bash(python:*)",
+      "Bash(pip:*)",
+      "Bash(cd:*)",
+      "Bash(echo:*)",
+      "Bash(copy:*)",
+      "Bash(move:*)",
+      "Bash(del:*)",
+      "Bash(rm:*)",
+      "Bash(curl:*)",
+      "Bash(powershell:*)",
+      "Grep",
+      "Glob",
+      "WebFetch",
+      "WebSearch"
+    ]
+  }
+}

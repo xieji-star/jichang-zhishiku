@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI三坑 · 用AI润色论文 演示</title>
+<style>
+  /* ============ 设计令牌（取自AI头参考图：紫罗兰金属 · 微光绿 · 未来科技但克制）============ */
+  :root{
+    --paper:  rgba(245,242,250,.82);
+    --ink:    #2E2640;   /* 深李子标题 */
+    --ink2:   #6B5F7C;   /* 次级 */
+    --accent: #7B5BA6;   /* 主强调 · 紫罗兰（可换） */
+    --accent-soft:#B4A0D0;
+    --accent-deep:#4E3780;
+    --glow:   #5EBB7A;   /* 微光绿 · 点睛（AI眼的绿光） */
+    --line:   #DDD6EA;
+    --muted:  #948AA6;
+    --txt:    #463D5A;
+    --bg-a:   #EFEAF6;
+    --bg-b:   #E6E0F0;
+    --serif: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:  -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ font-family:var(--sans); background:#C9C3D2; overflow:hidden; display:flex; align-items:center; justify-content:center; user-select:none; -webkit-font-smoothing:antialiased; }
+
+  /* 固定 16:9 设计画布 + 居中等比缩放（自适应，防溢出） */
+  #stage{ width:1280px; height:720px; position:relative; transform-origin:center center;
+    background:linear-gradient(160deg,var(--bg-a) 0%,var(--bg-b) 100%);
+    box-shadow:0 40px 90px rgba(50,35,80,.24), inset 0 0 0 1px rgba(255,255,255,.5);
+    overflow:hidden; }
+  .bg-grid{ position:absolute; inset:0; background-image:radial-gradient(rgba(123,91,166,.07) 1px,transparent 1px); background-size:30px 30px; opacity:.55; }
+  .bg-vignette{ position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 30%,transparent 58%,rgba(50,35,80,.14) 100%); }
+  .frame{ position:absolute; inset:20px; border:1px solid rgba(123,91,166,.20); pointer-events:none; }
+  .c{ position:absolute; width:18px; height:18px; opacity:.5; }
+  .c::before,.c::after{ content:""; position:absolute; background:var(--accent-soft); }
+  .c::before{ left:8px; top:0; width:1px; height:18px; }
+  .c::after { left:0; top:8px; width:18px; height:1px; }
+  .c-tl{ top:28px; left:28px; } .c-tr{ top:28px; right:28px; } .c-bl{ bottom:28px; left:28px; } .c-br{ bottom:28px; right:28px; }
+  .c-br::after{ background:var(--glow); } /* 一处绿光点睛 */
+
+  .page-tag{ position:absolute; top:34px; right:42px; z-index:10; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:3px; }
+
+  /* 幻灯片 —— 翻页过渡（科技主题 · 快一点带轻微位移+缩放，仍流畅不硬切） */
+  .slide{ position:absolute; inset:0; padding:88px 92px 150px; opacity:0; visibility:hidden;
+    transform:translateY(22px) scale(.985);
+    transition:opacity .7s cubic-bezier(.22,.9,.36,1), transform .7s cubic-bezier(.22,.9,.36,1), visibility 0s .7s; }
+  .slide.active{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+
+  /* 逐块显现 —— 页内内容按"自上而下、自左而右"逐个淡入（科技 · 稍利落） */
+  .anim{ opacity:0; transform:translateY(16px); }
+  .anim.on{ animation:rise .5s cubic-bezier(.22,.9,.36,1) forwards; }
+  .cover .anim.on.d1{ animation-delay:.08s } .cover .anim.on.d2{ animation-delay:.16s }
+  .cover .anim.on.d3{ animation-delay:.24s } .cover .anim.on.d4{ animation-delay:.32s }
+  .cover .anim.on.d5{ animation-delay:.40s } .cover .anim.on.d6{ animation-delay:.48s }
+  .cover .anim.on.d7{ animation-delay:.56s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* 通用组件 */
+  .step-tag{ display:inline-flex; align-items:center; gap:8px; font-size:14px; letter-spacing:4px; color:var(--accent-deep);
+    background:rgba(123,91,166,.13); padding:6px 18px; border-radius:999px; }
+  .step-tag i{ width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .h2{ margin-top:10px; font-family:var(--serif); font-weight:800; color:var(--ink); font-size:40px; letter-spacing:1px; }
+  .h2 .no{ color:var(--accent); }
+  .lead{ margin-top:8px; font-family:var(--serif); color:var(--ink2); font-size:20px; letter-spacing:.5px; }
+  .pit{ font-family:var(--serif); font-weight:800; color:var(--accent-deep); font-size:18px; }
+
+  /* 页面2：概念超证据（反例 三栏） */
+  .three{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr) minmax(0,1fr); gap:16px; margin-top:18px; }
+  .three .col{ min-width:0; border-radius:14px; padding:18px 20px; border:1px solid rgba(123,91,166,.18); }
+  .three .col .tag{ font-size:12px; letter-spacing:2px; color:var(--muted); }
+  .three .col .q{ font-family:var(--serif); font-size:19px; font-weight:800; color:var(--ink); margin-top:8px; line-height:1.45; }
+  .three .col .note{ margin-top:9px; font-size:13px; color:var(--txt); line-height:1.5; }
+  .three .col.a{ background:var(--paper); }
+  .three .col.b{ background:linear-gradient(135deg,#7B5BA6,#4E3780); color:#F4F0FB; }
+  .three .col.b .tag{ color:rgba(255,255,255,.80); } .three .col.b .q{ color:#F4F0FB; } .three .col.b .note{ color:rgba(255,255,255,.88); }
+  .three .col.col3{ background:rgba(94,187,122,.14); }
+  .three .arrow{ position:absolute; }
+
+  /* 页面3：段落只顾局部（左文右对比） */
+  .split{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .split .left{ flex:1; background:var(--paper); border:1px solid rgba(123,91,166,.16); border-radius:16px; padding:22px 24px; }
+  .split .left .lt{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:18px; margin-bottom:12px; }
+  .split .left .para{ font-size:14px; color:var(--txt); line-height:1.85; }
+  .split .right{ flex:0 0 460px; display:flex; flex-direction:column; gap:14px; }
+  .split .cmp{ border-radius:14px; padding:18px 22px; border:1px solid rgba(123,91,166,.16); }
+  .split .cmp.bad{ background:rgba(123,91,166,.10); }
+  .split .cmp.good{ background:linear-gradient(135deg,#7B5BA6,#4E3780); color:#F4F0FB; border-color:transparent; }
+  .split .cmp .ct{ font-family:var(--serif); font-weight:800; font-size:17px; }
+  .split .cmp .cp{ margin-top:6px; font-size:13px; line-height:1.55; }
+  .split .cmp.bad .ct{ color:var(--muted); } .split .cmp.bad .cp{ color:var(--txt); }
+  .split .cmp.good .ct{ color:#F4F0FB; } .split .cmp.good .cp{ color:rgba(255,255,255,.88); }
+
+  /* 页面4：限制语反噬结论（左文右卡） */
+  .duo2{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .duo2 .left{ flex:1; display:flex; flex-direction:column; gap:14px; }
+  .duo2 .case{ background:var(--paper); border-radius:14px; padding:16px 22px; border:1px solid rgba(123,91,166,.16); }
+  .duo2 .case .ct{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:17px; }
+  .duo2 .case .quote{ margin-top:8px; font-family:var(--serif); font-size:15px; color:var(--ink2); line-height:1.7; font-style:italic; }
+  .duo2 .case .re{ margin-top:8px; font-size:13px; color:var(--muted); line-height:1.55; }
+  .duo2 .right{ flex:0 0 400px; background:linear-gradient(135deg,#7B5BA6,#4E3780); border-radius:16px; padding:26px; color:#F4F0FB; display:flex; flex-direction:column; justify-content:center; }
+  .duo2 .right .k{ font-size:13px; letter-spacing:3px; color:rgba(255,255,255,.82); }
+  .duo2 .right .core{ font-family:var(--serif); font-weight:900; font-size:30px; line-height:1.28; margin-top:10px; }
+  .duo2 .right .sub{ margin-top:14px; font-size:15px; color:rgba(255,255,255,.90); line-height:1.6; }
+
+  /* 结尾回顾页 */
+  .final{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .final h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:50px; line-height:1.15; letter-spacing:1px; }
+  .final h2 .hl{ color:var(--accent); }
+  .final .sub{ margin-top:12px; font-family:var(--serif); color:var(--muted); font-size:20px; }
+  .summary{ margin-top:30px; width:100%; max-width:920px; }
+  .summary .s{ display:flex; align-items:center; gap:22px; background:var(--paper); border:1px solid rgba(123,91,166,.16); border-radius:14px; padding:16px 24px; margin-bottom:13px; text-align:left; }
+  .summary .s .n{ font-family:var(--serif); color:var(--accent); font-size:20px; font-weight:800; flex:0 0 42px; }
+  .summary .s .t{ font-family:var(--serif); color:var(--accent-deep); font-size:28px; font-weight:800; letter-spacing:3px; flex:0 0 auto; }
+  .summary .s .d{ font-size:15px; color:var(--txt); line-height:1.5; margin-left:auto; text-align:right; max-width:380px; }
+  .takeaway{ margin-top:26px; font-family:var(--serif); color:var(--ink); font-size:22px; }
+  .takeaway b{ color:var(--accent); }
+  .final .hook{ margin-top:26px; font-family:var(--serif); color:var(--accent); font-size:22px; line-height:1.5; }
+
+  /* 封面 */
+  .cover{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .cover .eyebrow{ font-size:15px; letter-spacing:6px; color:var(--accent); }
+  .cover h1{ font-family:var(--serif); font-weight:900; color:var(--ink); font-size:72px; line-height:1.12; letter-spacing:2px; margin-top:22px; }
+  .cover h1 .hl{ color:var(--accent); }
+  .cover .csub{ margin-top:20px; font-family:var(--serif); color:var(--ink2); font-size:24px; letter-spacing:2px; }
+  .cover .cdiv{ width:84px; height:2px; background:linear-gradient(90deg,var(--accent),rgba(123,91,166,0)); margin:26px auto 0; }
+  .cover .csteps{ margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .cover .pill{ font-size:16px; color:var(--accent-deep); border:1px solid rgba(123,91,166,.32); background:rgba(255,255,255,.55); border-radius:999px; padding:10px 22px; letter-spacing:2px; }
+  .oncov .counter,.oncov .page-tag{ opacity:0; pointer-events:none; }
+
+  /* 控件 */
+  .progress{ position:absolute; left:0; top:0; height:4px; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-soft)); transition:width .45s ease; z-index:20; }
+  .dots{ position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:20; }
+  .dot{ width:10px; height:10px; border-radius:50%; border:1.5px solid var(--accent-soft); cursor:pointer; transition:.35s; }
+  .dot.on{ background:var(--accent); border-color:var(--accent); transform:scale(1.25); }
+  .counter{ position:absolute; bottom:24px; right:44px; z-index:20; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:2px; }
+  .counter b{ color:var(--accent); font-size:20px; }
+  .nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:74px; z-index:20; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--accent-soft); opacity:0; transition:.3s; }
+  .nav:hover{ opacity:1; color:var(--accent); }
+  .nav.prev{ left:12px; } .nav.next{ right:12px; }
+  .nav svg{ width:26px; height:26px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+  <div class="frame"></div>
+  <div class="c c-tl"></div><div class="c c-tr"></div><div class="c c-bl"></div><div class="c c-br"></div>
+  <div class="page-tag" id="pageTag">01</div>
+  <div class="progress" id="bar"></div>
+
+  <!-- ============ 第1页 · 封面 ============ -->
+  <section class="slide cover" data-i="0">
+    <div class="eyebrow anim d1">华哥聊论文 · AI写作</div>
+    <h1 class="anim d2">用AI润色论文？<br><span class="hl">先避开这3个致命坑</span></h1>
+    <div class="csub anim d3">越润越心虚，多半是踩了AI挖的坑</div>
+    <div class="cdiv anim d4"></div>
+    <div class="csteps anim d5">
+      <span class="pill">概念收敛</span>
+      <span class="pill">段落整体</span>
+      <span class="pill">限制语克制</span>
+    </div>
+  </section>
+
+  <!-- ============ 第2页 · 点1（概念超过证据 · 反例三栏）============ -->
+  <section class="slide" data-i="1">
+    <div class="step-tag anim d1"><i></i> 第一坑 · 最要命</div>
+    <div class="h2 anim d2"><span class="no">概念超过证据</span></div>
+    <div class="lead anim d3">你吹的，比你做的大——审稿人一眼看穿。</div>
+    <div class="three">
+      <div class="col a anim d4">
+        <div class="tag">你想写</div>
+        <div class="q">"引入双层结构，提升吸附性能。"</div>
+        <div class="note">一句平实的话，实验能撑住。</div>
+      </div>
+      <div class="col b anim d5">
+        <div class="tag">AI 一改</div>
+        <div class="q">"引入门控机制，构筑多离子协同传输通道。"</div>
+        <div class="note">漂亮到你盯半天才看懂，可你的实验根本证不出来。</div>
+      </div>
+      <div class="col col3 anim d6">
+        <div class="tag">审稿人眼里</div>
+        <div class="q">"吹的比做的大。"</div>
+        <div class="note">轻则让你补实验，重则怀疑整篇的真实性。投稿最怕这个。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第3页 · 点2（段落只顾局部 · 左文右对比）============ -->
+  <section class="slide" data-i="2">
+    <div class="step-tag anim d1"><i></i> 第二坑 · 悄悄拆散主线</div>
+    <div class="h2 anim d2"><span class="no">段落只顾局部</span></div>
+    <div class="lead anim d3">AI 一段一段处理，天然只盯每段的局部最优，丢了整篇主线。</div>
+    <div class="split">
+      <div class="left anim d4">
+        <div class="lt">他初稿的逻辑本来是通的</div>
+        <div class="para">人写文章，段落长短都服务整体——该展开的展开，该收的收，错落有致才有呼吸感。被 AI 整成每段一样长，看着整齐，读着却割裂了。</div>
+      </div>
+      <div class="right">
+        <div class="cmp bad anim d5">
+          <div class="ct">✕ 每段一般长</div>
+          <div class="cp">整齐是整齐了，主线散了，读起来一段段各说各话。</div>
+        </div>
+        <div class="cmp good anim d6">
+          <div class="ct">✓ 服务整体</div>
+          <div class="cp">该展开的展开、该收的收，错落有致，从头读到尾是一条线。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第4页 · 点3（限制语反噬结论 · 左文右卡）============ -->
+  <section class="slide" data-i="3">
+    <div class="step-tag anim d1"><i></i> 第三坑 · 自我否定</div>
+    <div class="h2 anim d2"><span class="no">限制语反噬结论</span></div>
+    <div class="lead anim d3">一句叫严谨，句句就是自我否定。</div>
+    <div class="duo2">
+      <div class="left">
+        <div class="case anim d4">
+          <div class="ct">AI 见缝插针地加</div>
+          <div class="quote">"缺乏直接证据""然而，受限于……""但是"</div>
+          <div class="re">你结论本来挺硬，通篇塞满"但是、然而"，读到最后，审稿人以为你自己都不信了。</div>
+        </div>
+        <div class="case anim d5">
+          <div class="ct">审稿人要的</div>
+          <div class="quote">是"你对自己结论的笃定"</div>
+          <div class="re">不是一堆自我设限。把限制语删到一句，话才立得住。</div>
+        </div>
+      </div>
+      <div class="right anim d6">
+        <div class="k">改完必过三查</div>
+        <div class="core">概念有没有盖过证据<br>段落是不是服务整体<br>限制语有没有反噬结论</div>
+        <div class="sub">最常翻车的是第一查。改的时候多花十分钟，投出去少后悔一个月。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第5页 · 结尾回顾 ============ -->
+  <section class="slide final" data-i="4">
+    <h2 class="anim d1">改完必过三查，<br><span class="hl">第一版永远自己写</span></h2>
+    <div class="sub anim d2">AI 只能帮你改，不能替你写。</div>
+    <div class="summary">
+      <div class="s anim"><span class="n">01</span><span class="t">概念收敛</span><span class="d">回归证据范围，别让漂亮话盖过结果</span></div>
+      <div class="s anim"><span class="n">02</span><span class="t">段落整体</span><span class="d">按主线重新排，别让每段各说各话</span></div>
+      <div class="s anim"><span class="n">03</span><span class="t">限制语克制</span><span class="d">删到一句，保住你对结论的笃定</span></div>
+    </div>
+    <div class="takeaway anim d4">用 AI 改论文，改完拿这三条<b>把稿子重查一遍</b>。</div>
+    <div class="hook anim d5">你也在用 AI 改论文的话，这条一定要看完，别投出去才后悔。</div>
+  </section>
+
+  <div class="nav prev" id="prev" title="上一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></div>
+  <div class="nav next" id="next" title="下一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">1</b> / <span id="tot">5</span></div>
+</div>
+
+<script>
+  /* 翻页逻辑 + 逐块显现 */
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx=0,N=slides.length;
+  var dotsWrap=document.getElementById('dots'),bar=document.getElementById('bar'),
+      cur=document.getElementById('cur'),tot=document.getElementById('tot'),tag=document.getElementById('pageTag');
+  var num=['封面','01','02','03','04']; tot.textContent=N;
+  var rIdx=0;
+  function listAnims(sl){ return Array.prototype.slice.call(sl.querySelectorAll('.anim')); }
+  function reveal(sl,count){ var els=listAnims(sl); for(var i=0;i<els.length;i++) els[i].classList.toggle('on', i<count); }
+  for(var i=0;i<N;i++){ var d=document.createElement('span'); d.className='dot'+(i===0?' on':''); (function(k){ d.addEventListener('click',function(){go(k);}); })(i); dotsWrap.appendChild(d); }
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n){
+    if(n<0)n=0; if(n>N-1)n=N-1; if(n===idx)return;
+    slides[idx].classList.remove('active'); void slides[n].offsetWidth; idx=n;
+    slides[idx].classList.add('active');
+    if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+    else { rIdx=1; reveal(slides[idx],1); }
+    dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+    cur.textContent=idx+1; tag.textContent=num[idx];
+    bar.style.width=((idx+1)/N*100)+'%';
+    stage.classList.toggle('oncov',idx===0);
+  }
+  function next(){
+    if(idx===0){ go(1); return; }
+    var els=listAnims(slides[idx]);
+    if(rIdx<els.length){ rIdx++; reveal(slides[idx],rIdx); return; }
+    go(idx+1);
+  }
+  function prev(){
+    if(idx===0){ return; }
+    if(rIdx>1){ rIdx--; reveal(slides[idx],rIdx); return; }
+    go(idx-1);
+  }
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(N-1);}
+  });
+  document.getElementById('stage').addEventListener('click',function(e){
+    var r=e.currentTarget.getBoundingClientRect(),x=e.clientX-r.left;
+    if(x<r.width*0.28)prev(); else next();
+  });
+  document.querySelectorAll('.nav,.dot').forEach(function(x){
+    x.addEventListener('click',function(e){e.stopPropagation();});
+  });
+
+  var stage=document.getElementById('stage');
+  function fit(){ var sc=Math.min(window.innerWidth/stage.offsetWidth, window.innerHeight/stage.offsetHeight); stage.style.transform='scale('+sc+')'; }
+  window.addEventListener('resize',fit); fit();
+
+  var h=parseInt(location.hash.slice(1),10);
+  if(!isNaN(h)&&h>=1&&h<=N){idx=h-1;}
+  slides[idx].classList.add('active');
+  if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+  else { rIdx=1; reveal(slides[idx],1); }
+  cur.textContent=idx+1; tag.textContent=num[idx];
+  dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+  bar.style.width=((idx+1)/N*100)+'%';
+  stage.classList.toggle('oncov',idx===0);
+</script>
+</body>
+</html>

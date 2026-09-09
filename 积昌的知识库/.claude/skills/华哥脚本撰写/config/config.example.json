@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "created_at": "YYYY-MM-DD",
+  "feishu": {
+    "as_flag": "bot",
+    "account_name": "请填：绑定的飞书账号名（bot 优先；个人账号填本人账号名）",
+    "server_dir": "请填：飞书智能助手服务所在目录（含 server.py）"
+  },
+  "docs": {
+    "记录": {
+      "title": "请填：记录爆款脚本的文档标题",
+      "url": "请填：文档 wiki 链接，或用于搜索定位的关键词",
+      "is_default": true
+    },
+    "洗稿": {
+      "title": "请填：洗稿功能使用的文档标题",
+      "url": "请填：文档 wiki 链接，或用于搜索定位的关键词",
+      "is_default": true
+    },
+    "创作": {
+      "title": "请填：创作华哥脚本的文档标题",
+      "url": "请填：文档 wiki 链接，或用于搜索定位的关键词",
+      "is_default": true
+    }
+  },
+  "paths": {
+    "base_dir": "请填：素材库根目录（打包分享版默认 = 包内 绑定的资料/）"
+  }
+}

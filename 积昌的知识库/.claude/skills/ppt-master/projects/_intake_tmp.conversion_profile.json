@@ -1,0 +1,28 @@
+{
+  "schema": "ppt-master.source_to_md.profile.v1",
+  "converter": "pdf_to_md.py",
+  "conversion_type": "pdf",
+  "source": {
+    "path": "F:/积昌的知识库 - 副本/源文件/pdf文件/PPT后5页.pdf",
+    "name": "PPT后5页.pdf",
+    "suffix": ".pdf",
+    "kind": "file",
+    "exists": true,
+    "size_bytes": 425900
+  },
+  "outputs": {
+    "markdown": "_intake_tmp",
+    "asset_dir": "_intake_tmp_files",
+    "image_manifest": "_intake_tmp_files/image_manifest.json",
+    "image_count": 5
+  },
+  "markdown": {
+    "line_count": 19,
+    "char_count": 362,
+    "heading_count": 1,
+    "table_count": 0,
+    "image_ref_count": 5,
+    "link_count": 0
+  },
+  "warnings": []
+}

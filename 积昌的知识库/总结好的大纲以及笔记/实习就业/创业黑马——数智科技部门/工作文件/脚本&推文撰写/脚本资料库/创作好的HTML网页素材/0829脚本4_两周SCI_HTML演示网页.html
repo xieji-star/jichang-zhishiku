@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>两周SCI · 会"抄"就会写 演示</title>
+<style>
+  /* ============ 设计令牌（取自效率参考图：奶油暖白 · 珊瑚橙 · 温暖从容有条理）============ */
+  :root{
+    --paper:  rgba(255,251,246,.82);
+    --ink:    #3B2E27;   /* 暖深棕标题 */
+    --ink2:   #7A6A5F;   /* 次级 */
+    --accent: #E07A5F;   /* 主强调 · 珊瑚橙（可换） */
+    --accent-soft:#F0A48A;
+    --accent-deep:#BE5B42;
+    --line:   #EBDDD2;
+    --muted:  #A39284;
+    --txt:    #574A40;
+    --bg-a:   #FBF6EF;
+    --bg-b:   #F6ECDF;
+    --serif: "Source Han Serif SC","Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:  -apple-system,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{ font-family:var(--sans); background:#D9CFC6; overflow:hidden; display:flex; align-items:center; justify-content:center; user-select:none; -webkit-font-smoothing:antialiased; }
+
+  /* 固定 16:9 设计画布 + 居中等比缩放（自适应，防溢出） */
+  #stage{ width:1280px; height:720px; position:relative; transform-origin:center center;
+    background:linear-gradient(160deg,var(--bg-a) 0%,var(--bg-b) 100%);
+    box-shadow:0 40px 90px rgba(90,60,45,.20), inset 0 0 0 1px rgba(255,255,255,.5);
+    overflow:hidden; }
+  .bg-grain{ position:absolute; inset:0; background-image:radial-gradient(rgba(224,122,95,.07) 1px,transparent 1px); background-size:30px 30px; opacity:.55; }
+  .bg-vignette{ position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 30%,transparent 58%,rgba(90,60,45,.12) 100%); }
+  .frame{ position:absolute; inset:20px; border:1px solid rgba(224,122,95,.20); pointer-events:none; }
+  .c{ position:absolute; width:18px; height:18px; opacity:.5; }
+  .c::before,.c::after{ content:""; position:absolute; background:var(--accent-soft); }
+  .c::before{ left:8px; top:0; width:1px; height:18px; }
+  .c::after { left:0; top:8px; width:18px; height:1px; }
+  .c-tl{ top:28px; left:28px; } .c-tr{ top:28px; right:28px; } .c-bl{ bottom:28px; left:28px; } .c-br{ bottom:28px; right:28px; }
+
+  .page-tag{ position:absolute; top:34px; right:42px; z-index:10; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:3px; }
+
+  /* 幻灯片 —— 翻页过渡（主题：从容有效率 · 中速柔缓） */
+  .slide{ position:absolute; inset:0; padding:88px 92px 150px; opacity:0; visibility:hidden;
+    transform:translateY(24px) scale(.986);
+    transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1), visibility 0s .8s; }
+  .slide.active{ opacity:1; visibility:visible; transform:none; transition-delay:0s; }
+
+  /* 逐块显现 —— 页内内容按"自上而下、自左而右"逐个淡入 */
+  .anim{ opacity:0; transform:translateY(16px); }
+  .anim.on{ animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards; }
+  .cover .anim.on.d1{ animation-delay:.09s } .cover .anim.on.d2{ animation-delay:.18s }
+  .cover .anim.on.d3{ animation-delay:.27s } .cover .anim.on.d4{ animation-delay:.36s }
+  .cover .anim.on.d5{ animation-delay:.45s } .cover .anim.on.d6{ animation-delay:.54s }
+  .cover .anim.on.d7{ animation-delay:.63s }
+  @keyframes rise{ to{ opacity:1; transform:none; } }
+
+  /* 通用组件 */
+  .step-tag{ display:inline-flex; align-items:center; gap:8px; font-size:14px; letter-spacing:4px; color:var(--accent-deep);
+    background:rgba(224,122,95,.12); padding:6px 18px; border-radius:999px; }
+  .step-tag i{ width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .h2{ margin-top:10px; font-family:var(--serif); font-weight:800; color:var(--ink); font-size:40px; letter-spacing:1px; }
+  .h2 .no{ color:var(--accent); }
+  .lead{ margin-top:8px; font-family:var(--serif); color:var(--ink2); font-size:20px; letter-spacing:.5px; }
+
+  /* 页面2：借骨架（两栏：借外壳 vs 填自己） */
+  .duo{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .duo .box{ flex:1; border-radius:16px; padding:22px 26px; border:1px solid rgba(224,122,95,.18); }
+  .duo .box .tag{ font-size:13px; letter-spacing:2px; color:var(--muted); }
+  .duo .box .big{ font-family:var(--serif); font-weight:800; font-size:25px; color:var(--ink); margin-top:8px; line-height:1.35; }
+  .duo .box .p{ margin-top:10px; font-size:14px; color:var(--txt); line-height:1.6; }
+  .duo .box.borrow{ background:rgba(224,122,95,.10); }
+  .duo .box.own{ background:linear-gradient(135deg,#E07A5F,#BE5B42); color:#FBF3EE; border-color:transparent; }
+  .duo .box.own .tag{ color:rgba(255,255,255,.82); } .duo .box.own .big{ color:#FBF3EE; } .duo .box.own .p{ color:rgba(255,255,255,.90); }
+
+  /* 页面3：从哪抄（左文 + 三栏卡片） */
+  .source{ display:flex; gap:20px; margin-top:18px; }
+  .source .tip{ flex:0 0 300px; background:linear-gradient(135deg,#E07A5F,#BE5B42); border-radius:16px; padding:24px; color:#FBF3EE; display:flex; flex-direction:column; justify-content:center; }
+  .source .tip .k{ font-size:13px; letter-spacing:3px; color:rgba(255,255,255,.84); }
+  .source .tip .core{ font-family:var(--serif); font-weight:900; font-size:28px; line-height:1.3; margin-top:10px; }
+  .source .tip .sub{ margin-top:12px; font-size:14px; color:rgba(255,255,255,.90); line-height:1.6; }
+  .source .list{ flex:1; display:flex; flex-direction:column; gap:12px; }
+  .source .row{ display:flex; align-items:center; gap:14px; background:var(--paper); border:1px solid rgba(224,122,95,.16); border-radius:13px; padding:13px 20px; }
+  .source .row .tag{ font-family:var(--serif); font-weight:800; color:var(--accent-deep); font-size:16px; flex:0 0 130px; }
+  .source .row .txt{ font-size:13px; color:var(--txt); line-height:1.5; }
+  .source .row.sel{ background:linear-gradient(135deg,#E07A5F,#BE5B42); border-color:transparent; }
+  .source .row.sel .tag{ color:#FBF3EE; } .source .row.sel .txt{ color:rgba(255,255,255,.90); }
+
+  /* 页面4：怎么抄成自己的（左文右卡 · 拆解） */
+  .split{ display:flex; gap:22px; margin-top:18px; align-items:stretch; }
+  .split .left{ flex:1; background:var(--paper); border:1px solid rgba(224,122,95,.16); border-radius:16px; padding:22px 24px; }
+  .split .left .lt{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:18px; margin-bottom:12px; }
+  .split .left .para{ font-size:14px; color:var(--txt); line-height:1.85; }
+  .split .left .para b{ color:var(--accent-deep); }
+  .split .right{ flex:0 0 470px; display:flex; flex-direction:column; gap:12px; }
+  .split .step{ border-radius:14px; padding:15px 22px; border:1px solid rgba(224,122,95,.16); background:var(--paper); display:flex; gap:14px; align-items:flex-start; }
+  .split .step .n{ font-family:var(--serif); font-weight:900; color:var(--accent); font-size:20px; flex:0 0 34px; line-height:1.2; }
+  .split .step .s{ font-family:var(--serif); color:var(--accent-deep); font-weight:700; font-size:16px; }
+  .split .step .d{ margin-top:4px; font-size:13px; color:var(--txt); line-height:1.5; }
+
+  /* 结尾回顾页 */
+  .final{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .final h2{ font-family:var(--serif); font-weight:800; color:var(--ink); font-size:50px; line-height:1.15; letter-spacing:1px; }
+  .final h2 .hl{ color:var(--accent); }
+  .final .sub{ margin-top:12px; font-family:var(--serif); color:var(--muted); font-size:20px; }
+  .summary{ margin-top:30px; width:100%; max-width:920px; }
+  .summary .s{ display:flex; align-items:center; gap:22px; background:var(--paper); border:1px solid rgba(224,122,95,.16); border-radius:14px; padding:16px 24px; margin-bottom:13px; text-align:left; }
+  .summary .s .n{ font-family:var(--serif); color:var(--accent); font-size:20px; font-weight:800; flex:0 0 42px; }
+  .summary .s .t{ font-family:var(--serif); color:var(--accent-deep); font-size:28px; font-weight:800; letter-spacing:3px; flex:0 0 auto; }
+  .summary .s .d{ font-size:15px; color:var(--txt); line-height:1.5; margin-left:auto; text-align:right; max-width:380px; }
+  .takeaway{ margin-top:26px; font-family:var(--serif); color:var(--ink); font-size:22px; }
+  .takeaway b{ color:var(--accent); }
+  .final .hook{ margin-top:26px; font-family:var(--serif); color:var(--accent); font-size:22px; line-height:1.5; }
+
+  /* 封面 */
+  .cover{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .cover .eyebrow{ font-size:15px; letter-spacing:6px; color:var(--accent); }
+  .cover h1{ font-family:var(--serif); font-weight:900; color:var(--ink); font-size:74px; line-height:1.1; letter-spacing:2px; margin-top:22px; }
+  .cover h1 .hl{ color:var(--accent); }
+  .cover .csub{ margin-top:20px; font-family:var(--serif); color:var(--ink2); font-size:24px; letter-spacing:2px; }
+  .cover .cdiv{ width:84px; height:2px; background:linear-gradient(90deg,var(--accent),rgba(224,122,95,0)); margin:26px auto 0; }
+  .cover .csteps{ margin-top:28px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .cover .pill{ font-size:16px; color:var(--accent-deep); border:1px solid rgba(224,122,95,.32); background:rgba(255,255,255,.6); border-radius:999px; padding:10px 22px; letter-spacing:2px; }
+  .oncov .counter,.oncov .page-tag{ opacity:0; pointer-events:none; }
+
+  /* 控件 */
+  .progress{ position:absolute; left:0; top:0; height:4px; width:0; background:linear-gradient(90deg,var(--accent),var(--accent-soft)); transition:width .45s ease; z-index:20; }
+  .dots{ position:absolute; bottom:28px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:20; }
+  .dot{ width:10px; height:10px; border-radius:50%; border:1.5px solid var(--accent-soft); cursor:pointer; transition:.35s; }
+  .dot.on{ background:var(--accent); border-color:var(--accent); transform:scale(1.25); }
+  .counter{ position:absolute; bottom:24px; right:44px; z-index:20; font-family:var(--serif); color:var(--accent-soft); font-size:14px; letter-spacing:2px; }
+  .counter b{ color:var(--accent); font-size:20px; }
+  .nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:74px; z-index:20; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--accent-soft); opacity:0; transition:.3s; }
+  .nav:hover{ opacity:1; color:var(--accent); }
+  .nav.prev{ left:12px; } .nav.next{ right:12px; }
+  .nav svg{ width:26px; height:26px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-grain"></div>
+  <div class="bg-vignette"></div>
+  <div class="frame"></div>
+  <div class="c c-tl"></div><div class="c c-tr"></div><div class="c c-bl"></div><div class="c c-br"></div>
+  <div class="page-tag" id="pageTag">01</div>
+  <div class="progress" id="bar"></div>
+
+  <!-- ============ 第1页 · 封面 ============ -->
+  <section class="slide cover" data-i="0">
+    <div class="eyebrow anim d1">华哥聊论文 · 写作方法</div>
+    <h1 class="anim d2">一篇SCI，<br><span class="hl">方法对，两周够</span></h1>
+    <div class="csub anim d3">你以为是造新楼，其实是按图纸盖楼</div>
+    <div class="cdiv anim d4"></div>
+    <div class="csteps anim d5">
+      <span class="pill">借骨架</span>
+      <span class="pill">抄顶刊</span>
+      <span class="pill">填自己</span>
+    </div>
+  </section>
+
+  <!-- ============ 第2页 · 点1（借骨架 · 两栏对照）============ -->
+  <section class="slide" data-i="1">
+    <div class="step-tag anim d1"><i></i> 第一点 · 核心思维</div>
+    <div class="h2 anim d2"><span class="no">借骨架</span></div>
+    <div class="lead anim d3">真正的高手，靠的是一个"抄"字——借骨架，装进你自己的数据和结论。</div>
+    <div class="duo">
+      <div class="box borrow anim d4">
+        <div class="tag">可以借 · 骨架</div>
+        <div class="big">把别人的框架吃透，套到你的问题上。</div>
+        <div class="p">引言怎么从宽收到窄、方法怎么组织、结果怎么讨论、结论怎么落——好论文的骨架高度相似。</div>
+      </div>
+      <div class="box own anim d5">
+        <div class="tag">必须自己 · 血肉</div>
+        <div class="big">数据是你跑的，图表是你画的，结论是你推的。</div>
+        <div class="p">记得一句话：骨架可以借，句子必须是你自己的。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第3页 · 点2（从哪抄 · 左文 + 三栏）============ -->
+  <section class="slide" data-i="2">
+    <div class="step-tag anim d1"><i></i> 第二点 · 第一个问题</div>
+    <div class="h2 anim d2"><span class="no">从哪抄</span></div>
+    <div class="lead anim d3">抄顶刊，别碰灌水文。别贪多，三篇就够，宁精勿滥。</div>
+    <div class="source">
+      <div class="tip anim d4">
+        <div class="k">挑骨架的标准</div>
+        <div class="core">你方向的顶刊<br>导师发过的<br>综述里反复出现的</div>
+        <div class="sub">这三类，都是好骨架。</div>
+      </div>
+      <div class="list">
+        <div class="row anim d5"><div class="tag">抽象</div><div class="txt">摘要几句话讲清什么，怎么把贡献立起来。</div></div>
+        <div class="row anim d6"><div class="tag">引言</div><div class="txt">怎么从宽收到窄，一步步落到你的问题。</div></div>
+        <div class="row anim d7"><div class="tag">方法</div><div class="txt">实验怎么组织、流程怎么排，能不能照搬。</div></div>
+        <div class="row anim d7"><div class="tag">结果·讨论</div><div class="txt">结果怎么呈现、讨论怎么围绕主线展开。</div></div>
+        <div class="row sel anim d8"><div class="tag">宁精勿滥</div><div class="txt">三篇顶级同方向，拆透，远胜过十篇泛读。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第4页 · 点3（怎么抄成自己的 · 左文右卡）============ -->
+  <section class="slide" data-i="3">
+    <div class="step-tag anim d1"><i></i> 第三点 · 第二个问题</div>
+    <div class="h2 anim d2"><span class="no">怎么抄成自己</span></div>
+    <div class="lead anim d3">框架借别人的，血肉全是你自己的，查重那关自然过。</div>
+    <div class="split">
+      <div class="left anim d4">
+        <div class="lt">把一个方向的好骨架，变成你的论文</div>
+        <div class="para">把大纲照搬下来，每一节都用你自己的话重写。别人铺背景、留空位，你也铺、也留，但讲的是<b>你的问题</b>；他的流程你能复现，换成你的设置就能跑。</div>
+      </div>
+      <div class="right">
+        <div class="step anim d5"><div class="n">1</div><div><div class="s">花两天拆三篇顶刊</div><div class="d">摘要/引言/方法/结果/结论，一节节拆出骨架。</div></div></div>
+        <div class="step anim d6"><div class="n">2</div><div><div class="s">按大纲填自己的实验与结论</div><div class="d">数据你的、图表你的、结论你的，逐段划掉。</div></div></div>
+        <div class="step anim d7"><div class="n">3</div><div><div class="s">最后两天改格式、过查重</div><div class="d">两周，够写出结构完整、逻辑清楚的SCI。</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第5页 · 结尾回顾 ============ -->
+  <section class="slide final" data-i="4">
+    <h2 class="anim d1">两步走：<br><span class="hl">找对骨架，填进自己</span></h2>
+    <div class="sub anim d2">逻辑就这么简单，两周够你写出一篇SCI。</div>
+    <div class="summary">
+      <div class="s anim"><span class="n">01</span><span class="t">借骨架</span><span class="d">"抄"的思维——框架借别人，句子自己写</span></div>
+      <div class="s anim"><span class="n">02</span><span class="t">抄顶刊</span><span class="d">选三篇顶级同方向，宁精勿滥，拆透它</span></div>
+      <div class="s anim"><span class="n">03</span><span class="t">填自己</span><span class="d">数据、图表、结论全是你自己的，查重自然过</span></div>
+    </div>
+    <div class="takeaway anim d4">原来以为写论文是在造新楼，<b>其实是在按图纸盖楼</b>。</div>
+    <div class="hook anim d5">想要这套SCI写作框架模板，评论区扣"框架"，我发你。</div>
+  </section>
+
+  <div class="nav prev" id="prev" title="上一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></div>
+  <div class="nav next" id="next" title="下一页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">1</b> / <span id="tot">5</span></div>
+</div>
+
+<script>
+  /* 翻页逻辑 + 逐块显现 */
+  var slides=Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx=0,N=slides.length;
+  var dotsWrap=document.getElementById('dots'),bar=document.getElementById('bar'),
+      cur=document.getElementById('cur'),tot=document.getElementById('tot'),tag=document.getElementById('pageTag');
+  var num=['封面','01','02','03','04']; tot.textContent=N;
+  var rIdx=0;
+  function listAnims(sl){ return Array.prototype.slice.call(sl.querySelectorAll('.anim')); }
+  function reveal(sl,count){ var els=listAnims(sl); for(var i=0;i<els.length;i++) els[i].classList.toggle('on', i<count); }
+  for(var i=0;i<N;i++){ var d=document.createElement('span'); d.className='dot'+(i===0?' on':''); (function(k){ d.addEventListener('click',function(){go(k);}); })(i); dotsWrap.appendChild(d); }
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n){
+    if(n<0)n=0; if(n>N-1)n=N-1; if(n===idx)return;
+    slides[idx].classList.remove('active'); void slides[n].offsetWidth; idx=n;
+    slides[idx].classList.add('active');
+    if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+    else { rIdx=1; reveal(slides[idx],1); }
+    dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+    cur.textContent=idx+1; tag.textContent=num[idx];
+    bar.style.width=((idx+1)/N*100)+'%';
+    stage.classList.toggle('oncov',idx===0);
+  }
+  function next(){
+    if(idx===0){ go(1); return; }
+    var els=listAnims(slides[idx]);
+    if(rIdx<els.length){ rIdx++; reveal(slides[idx],rIdx); return; }
+    go(idx+1);
+  }
+  function prev(){
+    if(idx===0){ return; }
+    if(rIdx>1){ rIdx--; reveal(slides[idx],rIdx); return; }
+    go(idx-1);
+  }
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='Enter'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(N-1);}
+  });
+  document.getElementById('stage').addEventListener('click',function(e){
+    var r=e.currentTarget.getBoundingClientRect(),x=e.clientX-r.left;
+    if(x<r.width*0.28)prev(); else next();
+  });
+  document.querySelectorAll('.nav,.dot').forEach(function(x){
+    x.addEventListener('click',function(e){e.stopPropagation();});
+  });
+
+  var stage=document.getElementById('stage');
+  function fit(){ var sc=Math.min(window.innerWidth/stage.offsetWidth, window.innerHeight/stage.offsetHeight); stage.style.transform='scale('+sc+')'; }
+  window.addEventListener('resize',fit); fit();
+
+  var h=parseInt(location.hash.slice(1),10);
+  if(!isNaN(h)&&h>=1&&h<=N){idx=h-1;}
+  slides[idx].classList.add('active');
+  if(idx===0){ rIdx=listAnims(slides[0]).length; reveal(slides[0],rIdx); }
+  else { rIdx=1; reveal(slides[idx],1); }
+  cur.textContent=idx+1; tag.textContent=num[idx];
+  dots.forEach(function(el,i){el.classList.toggle('on',i===idx);});
+  bar.style.width=((idx+1)/N*100)+'%';
+  stage.classList.toggle('oncov',idx===0);
+</script>
+</body>
+</html>

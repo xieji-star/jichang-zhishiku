@@ -40,6 +40,19 @@
 - **收件箱**——用于存储未整理的文件，**可对其进行编辑**（整理、移动、重命名等）。
   (**收件箱** — stores unorganized files; it MAY be edited (organize, move, rename, etc.).)
 
+## 源文件目录存储规则 / Source Files Storage Rule
+
+- 知识库根目录下的 `源文件/` 是用户主动保存**原始资料**（图片、PDF 等）的固定目录，由用户手动管理。
+  (The `源文件/` folder at the vault root is the fixed location where the user manually stores raw source materials — images, PDFs, etc.)
+- `源文件/图片/`：存放各类原始图片（截图、照片、素材图等）。
+  (`源文件/图片/` stores raw images — screenshots, photos, material images, etc.)
+- `源文件/pdf文件/`：存放原始 PDF，**主要是课堂/会议纪要类文档**（课堂笔记、会议纪要、讲义等）。
+  (`源文件/pdf文件/` stores raw PDFs, primarily classroom/meeting-minutes documents — lecture notes, meeting minutes, handouts, etc.)
+- 收到需要存档的原始图片 / PDF 时，默认存放位置分别为 `源文件/图片/` 与 `源文件/pdf文件/`。
+  (When archiving new raw images / PDFs, the default storage locations are `源文件/图片/` and `源文件/pdf文件/` respectively.)
+- 这两个目录属于**保留目录**：处理时默认只读取使用，**不主动删除、移动或重命名**其中内容；如需整理归档（如把纪要 PDF 提炼为笔记），须先征得用户同意。
+  (These two directories are KEEP directories: treat their contents as read-only by default — do NOT delete, move, or rename them; when organizing/archiving (e.g. distilling a minutes PDF into notes), obtain user consent first.)
+
 ## Skill 默认安装位置规则 / Skill Default Installation Location Rule
 
 - 以后安装（下载）skill 的默认位置固定为：`E:\积昌的知识库 - 副本\.claude\skills`
@@ -48,6 +61,19 @@
   (Unless there is a specific request, all skills are always installed into this folder, not installed globally (e.g., `~/.claude/skills`).)
 - 只有当用户明确强调安装到其他位置（例如全局或其他目录）时，才安装到指定位置。
   (Only when the user explicitly emphasizes installing to another location (e.g., global or another directory) should the skill be installed to that specified location.)
+
+## 下载内容默认安装位置规则 / Download Default Installation Location Rule
+
+- **以后从 GitHub 或其他来源下载、安装的任何内容，一律默认安装到 F 盘**（用户 2026-08-29 确认的固定规则）。
+  (From now on, anything downloaded/installed from GitHub or other sources defaults to the **F drive** by default — fixed rule confirmed by the user on 2026-08-29.)
+- 默认安装目录为 `F:\Programs` 下按软件名建子目录（如 `F:\Programs\SimpleMindMap`）；安装器支持自定义路径时，必须把安装位置指向 F 盘对应目录。
+  (Default target is `F:\Programs\<AppName>`, e.g. `F:\Programs\SimpleMindMap`; when the installer supports a custom path, always point it to the F-drive directory.)
+- **禁止默认装进 C 盘（系统盘）**；除非用户明确要求安装到 C 盘或其他盘，否则一律选 F 盘。
+  (Never default to the C drive (system drive); unless the user explicitly asks for C or another drive, always choose F.)
+- 若下载的是无需安装的解压即用工具（绿色版），也统一解压/放置到 `F:\Programs` 对应子目录，不留在下载目录或 C 盘。
+  (For portable/extracted tools, extract them to `F:\Programs\<AppName>` as well, not into the download folder or C drive.)
+- 本规则与「Skill 默认安装位置规则」不冲突：skill 仍装到 `E:\积昌的知识库 - 副本\.claude\skills`（知识库既有规则），其余软件/工具一律装 F 盘。
+  (This rule does not conflict with the Skill Default Installation Location Rule: skills still go to the knowledge base `.claude\skills` folder; other software/tools go to F drive.)
 
 ## 指令确认规则 / Instruction Clarification Rule
 
@@ -252,14 +278,16 @@
   (Manual invocation: run `bash .claude/hooks/kb-temp-cleanup.sh` at any time to clean intermediate files mid-task.)
 - **清理范围（固定）**：
   (Cleanup scope (fixed):)
-  1. **知识库根目录临时/测试文件**：`_*.txt`、`_test_*.pdf`、`_test_*.png`、`_preview_bg/` 等调试输出与测试产物；
+  1. **知识库根目录临时/测试文件**：`_*.txt`、`_test_*.pdf`、`_test_*.png`、`临时_*`（含 `临时_*.png`/`临时_*.txt`/`临时_*.md` 等任意扩展名）、`_preview_bg/` 等调试输出与测试产物；
   2. **根目录损坏/重复/临时文件**：`F:积昌的知识库`（损坏路径文件）、`积昌的知识库 - 副本_update_doc_*.py`（临时脚本）、`积昌的知识库 - 副本总结好的大纲*`（命名错误的重名 .md）、`.yolov8m-seg.pt.*.part`（未完成的模型下载）；
   3. **`中间文件/lark-resources` 中间产物**：`_*.png`（认证/配置二维码）、`学员案例提取/`、`学员案例打包文件/`、`群消息图片/`、`近期爆款-3人小组.txt`、`近期爆款-可读版.txt`；
-  4. **`中间文件/lark-im-resources` 下载/转换中间文件**：目录下所有文件（`*_converted.jpg` 转换产物、下载的原始图片等），**保留空目录**。
+  4. **`中间文件/lark-im-resources` 下载/转换中间文件**：目录下所有文件（`*_converted.jpg` 转换产物、下载的原始图片等），**保留空目录**；
+  5. **PDF 转图中间产物文件夹（全库范围）**：任何位置名为 `_pdf_img` 的文件夹（读取/处理 PDF 时生成的逐页转图 `page-*.png`）——纯中间产物，无笔记引用，可随时由源 PDF 重新生成，会话结束后一律自动删除（`源文件/` 保留目录除外）；
+     (5. PDF-to-image intermediate folders (vault-wide): any folder named `_pdf_img` anywhere (per-page PNG renders `page-*.png` generated when reading/processing a PDF) — pure intermediate artifacts with no note references, always regenerable from the source PDF; auto-deleted at session end (except inside the `源文件/` keep directory).)
 - **保留对象（禁止删除）**：
   (Keep list — never delete:)
   - `中间文件/lark-resources/数字人口播脚本发音处理.html`（TTS 纠错工具，SOP/业务文档在用）；
   - 根目录标记文件 `.last-github-backup` / `.last-wiki-maintain` / `.last-maintenance-prompt`；
-  - 所有已整理笔记、技能、配置、`收件箱`、`已整理好的文件`、`自动维护知识库`。
+  - 所有已整理笔记、技能、配置、`收件箱`、`已整理好的文件`、`自动维护知识库`、`源文件/`（用户原始资料目录）。
 - **政策说明**：本规则**取代**此前「飞书/IM 资源文件处理完成后不清理」的默认策略——`中间文件/lark-resources` 与 `中间文件/lark-im-resources` 视为**中间/暂存目录**，其中出现的下载/转换中间产物在会话结束后一律自动清理；但仅清理上列已知中间文件模式，**不**对 `中间文件/lark-resources` 做全量清空，未列入清理范围的文件（如新上传待用的业务文件）仍会保留。
   (Policy note: this rule supersedes the previous "do not clean Feishu/IM resource files after processing" default — `lark-resources` and `lark-im-resources` are treated as staging directories whose intermediate artifacts are auto-cleaned at session end; only the listed intermediate patterns are cleaned, the directory is NOT wiped wholesale, and unlisted files (e.g. newly uploaded business files still in use) are kept.)

@@ -1,0 +1,28 @@
+{
+  "schema": "ppt-master.source_to_md.profile.v1",
+  "converter": "ppt_to_md.py",
+  "conversion_type": "pptx",
+  "source": {
+    "path": "zhiguan_yunlian_beautify_20260830_170518.pptx",
+    "name": "zhiguan_yunlian_beautify_20260830_170518.pptx",
+    "suffix": ".pptx",
+    "kind": "file",
+    "exists": true,
+    "size_bytes": 1015763
+  },
+  "outputs": {
+    "markdown": "zhiguan_yunlian_beautify_20260830_170518.md",
+    "asset_dir": "zhiguan_yunlian_beautify_20260830_170518_files",
+    "image_manifest": "zhiguan_yunlian_beautify_20260830_170518_files/image_manifest.json",
+    "image_count": 21
+  },
+  "markdown": {
+    "line_count": 216,
+    "char_count": 2968,
+    "heading_count": 6,
+    "table_count": 0,
+    "image_ref_count": 21,
+    "link_count": 0
+  },
+  "warnings": []
+}

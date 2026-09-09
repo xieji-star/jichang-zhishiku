@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" data-pptx-page-role="content" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="conclGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2F6B3A"/>
+      <stop offset="100%" stop-color="#1F4A27"/>
+    </linearGradient>
+    <clipPath id="clip-p4-m1"><rect x="98" y="268" width="72" height="96" rx="12"/></clipPath>
+    <clipPath id="clip-p4-m2"><rect x="366" y="268" width="72" height="96" rx="12"/></clipPath>
+    <clipPath id="clip-p4-m3"><rect x="98" y="424" width="72" height="96" rx="12"/></clipPath>
+    <clipPath id="clip-p4-m4"><rect x="366" y="424" width="72" height="96" rx="12"/></clipPath>
+    <clipPath id="clip-p4-r1"><rect x="682" y="262" width="96" height="57" rx="10"/></clipPath>
+    <clipPath id="clip-p4-r2"><rect x="682" y="349" width="96" height="57" rx="10"/></clipPath>
+    <clipPath id="clip-p4-r3"><rect x="682" y="436" width="96" height="57" rx="10"/></clipPath>
+    <clipPath id="clip-p4-r4"><rect x="682" y="523" width="96" height="57" rx="10"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#F5F7EF" data-pptx-role="background"/>
+  <circle id="deco-orbit" cx="1250" cy="78" r="205" fill="#EAF2E2" data-pptx-role="decoration"/>
+
+  <!-- Header -->
+  <g id="header" data-pptx-bounds="60 36 1160 128">
+    <rect x="60" y="40" width="9" height="50" rx="4" fill="#2F6B3A"/>
+    <text x="92" y="62" font-size="14" font-weight="bold" fill="#6FA84F">PART 04 · 导师与资源</text>
+    <text x="92" y="102" font-size="40" font-weight="bold" fill="#2F6B3A">导师与资源</text>
+    <text x="92" y="136" font-size="18" fill="#6B7260">高校导师、实验平台与试验田资源，共同支撑项目成长</text>
+  </g>
+
+  <!-- Mentor panel -->
+  <g id="mentor-panel" data-pptx-bounds="60 183 560 407">
+    <rect x="60" y="183" width="560" height="407" rx="20" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+    <text x="84" y="230" font-size="22" font-weight="bold" fill="#2F6B3A">导师阵容</text>
+    <rect x="84" y="252" width="244" height="142" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_mentor1.png" x="98" y="268" width="72" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-m1)"/>
+    <text x="184" y="310" font-size="19" font-weight="bold" fill="#22301F">农艺指导</text>
+    <rect x="184" y="322" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="352" y="252" width="244" height="142" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_mentor2.png" x="366" y="268" width="72" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-m2)"/>
+    <text x="452" y="310" font-size="19" font-weight="bold" fill="#22301F">节水灌溉</text>
+    <rect x="452" y="322" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="84" y="408" width="244" height="142" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_mentor3.png" x="98" y="424" width="72" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-m3)"/>
+    <text x="184" y="466" font-size="19" font-weight="bold" fill="#22301F">工程实现</text>
+    <rect x="184" y="478" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="352" y="408" width="244" height="142" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_mentor4.png" x="366" y="424" width="72" height="96" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-m4)"/>
+    <text x="452" y="466" font-size="19" font-weight="bold" fill="#22301F">项目管理</text>
+    <rect x="452" y="478" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+  </g>
+
+  <!-- Resource panel -->
+  <g id="resource-panel" data-pptx-bounds="644 183 576 407">
+    <rect x="644" y="183" width="576" height="407" rx="20" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+    <text x="668" y="230" font-size="22" font-weight="bold" fill="#2F6B3A">资源支撑</text>
+    <rect x="668" y="252" width="528" height="77" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_res1.png" x="682" y="262" width="96" height="57" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-r1)"/>
+    <text x="792" y="294" font-size="18" font-weight="bold" fill="#22301F">黑龙江大学</text>
+    <rect x="792" y="306" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="668" y="339" width="528" height="77" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_res2.png" x="682" y="349" width="96" height="57" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-r2)"/>
+    <text x="792" y="381" font-size="18" font-weight="bold" fill="#22301F">实验平台</text>
+    <rect x="792" y="393" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="668" y="426" width="528" height="77" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_res3.png" x="682" y="436" width="96" height="57" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-r3)"/>
+    <text x="792" y="468" font-size="18" font-weight="bold" fill="#22301F">合作社</text>
+    <rect x="792" y="480" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+    <rect x="668" y="513" width="528" height="77" rx="14" fill="#F7F9F2" stroke="#E0E7D6" stroke-width="1"/>
+    <image href="../images/p4_res4.png" x="682" y="523" width="96" height="57" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p4-r4)"/>
+    <text x="792" y="555" font-size="18" font-weight="bold" fill="#22301F">试验田</text>
+    <rect x="792" y="567" width="26" height="3" rx="1.5" fill="#6FA84F"/>
+  </g>
+
+  <!-- Conclusion banner -->
+  <g id="conclusion" data-pptx-bounds="60 606 1160 72">
+    <rect x="60" y="606" width="1160" height="72" rx="18" fill="url(#conclGrad)"/>
+    <circle cx="106" cy="642" r="18" fill="#FFFFFF" fill-opacity="0.16"/>
+    <path d="M 98 642 L 104 649 L 114 636" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="142" y="650" font-size="24" font-weight="bold" fill="#FFFFFF">项目不是单兵作战，而是建立在持续资源支撑之上</text>
+  </g>
+</svg>

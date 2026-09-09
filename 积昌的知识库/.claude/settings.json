@@ -7,7 +7,14 @@
       "Bash(git -C \"F:/jichang-backup\" commit -m \"知识库备份)",
       "Bash(git -C \"F:/jichang-backup\" push)",
       "Bash(bash .claude/hooks/kb-github-backup.sh)",
-      "Bash(bash .claude/hooks/kb-temp-cleanup.sh)"
+      "Bash(bash .claude/hooks/kb-temp-cleanup.sh)",
+      "Bash(rm -rf \"F:/Programs/SimpleMindMap/\"*)",
+      "Bash(tar -xzf \"中间文件/thoughts-0.20.0.tar.gz\" -C \"F:/Programs/SimpleMindMap\")",
+      "Read(//f/Programs/SimpleMindMap/**)",
+      "Bash(xargs echo \"剩余条目数:\")",
+      "Bash(rm -f \"中间文件/thoughts-0.20.0.tar.gz\")",
+      "Bash(rm -f \"C:/Users/asus/AppData/Local/Temp/kb_shots/\"*)",
+      "Bash(rmdir \"C:/Users/asus/AppData/Local/Temp/kb_shots/\")"
     ]
   },
   "hooks": {

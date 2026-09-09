@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" data-pptx-page-role="content" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+  <defs>
+    <linearGradient id="conclGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2F6B3A"/>
+      <stop offset="100%" stop-color="#1F4A27"/>
+    </linearGradient>
+    <clipPath id="clip-p5-1"><rect x="84" y="308" width="312" height="135" rx="12"/></clipPath>
+    <clipPath id="clip-p5-2"><rect x="484" y="308" width="312" height="135" rx="12"/></clipPath>
+    <clipPath id="clip-p5-3"><rect x="884" y="308" width="312" height="135" rx="12"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect id="bg" x="0" y="0" width="1280" height="720" fill="#F5F7EF" data-pptx-role="background"/>
+  <circle id="deco-orbit" cx="1250" cy="78" r="205" fill="#EAF2E2" data-pptx-role="decoration"/>
+
+  <!-- Header -->
+  <g id="header" data-pptx-bounds="60 36 1160 128">
+    <rect x="60" y="40" width="9" height="50" rx="4" fill="#2F6B3A"/>
+    <text x="92" y="62" font-size="14" font-weight="bold" fill="#6FA84F">PART 05 · 发展规划</text>
+    <text x="92" y="102" font-size="40" font-weight="bold" fill="#2F6B3A">发展规划</text>
+    <text x="92" y="136" font-size="18" fill="#6B7260">以示范验证为起点，逐步走向区域复制与规模推广</text>
+  </g>
+
+  <!-- Timeline module -->
+  <g id="timeline" data-pptx-bounds="60 192 1160 312">
+    <line x1="60" y1="222" x2="1220" y2="222" stroke="#DCE4D0" stroke-width="2"/>
+    <circle cx="240" cy="222" r="7" fill="#2F6B3A"/>
+    <circle cx="640" cy="222" r="7" fill="#2F6B3A"/>
+    <circle cx="1040" cy="222" r="7" fill="#2F6B3A"/>
+    <line x1="240" y1="229" x2="240" y2="252" stroke="#C9D6BF" stroke-width="2"/>
+    <line x1="640" y1="229" x2="640" y2="252" stroke="#C9D6BF" stroke-width="2"/>
+    <line x1="1040" y1="229" x2="1040" y2="252" stroke="#C9D6BF" stroke-width="2"/>
+
+    <rect x="209" y="192" width="62" height="30" rx="15" fill="#EAF2E2"/>
+    <text x="240" y="213" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">2026</text>
+    <rect x="609" y="192" width="62" height="30" rx="15" fill="#EAF2E2"/>
+    <text x="640" y="213" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">2027</text>
+    <rect x="1009" y="192" width="62" height="30" rx="15" fill="#EAF2E2"/>
+    <text x="1040" y="213" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">2028</text>
+
+    <!-- Stage 1 -->
+    <g id="stage-1">
+      <rect x="60" y="252" width="360" height="252" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <text x="84" y="292" font-size="23" font-weight="bold" fill="#22301F">示范验证</text>
+      <image href="../images/p5_step1.png" x="84" y="308" width="312" height="135" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p5-1)"/>
+      <text x="84" y="484" font-size="16" fill="#6B7260">落地示范基地，验证效果与模式</text>
+    </g>
+
+    <!-- Stage 2 -->
+    <g id="stage-2">
+      <rect x="460" y="252" width="360" height="252" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <text x="484" y="292" font-size="23" font-weight="bold" fill="#22301F">区域复制</text>
+      <image href="../images/p5_step2.png" x="484" y="308" width="312" height="135" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p5-2)"/>
+      <text x="484" y="484" font-size="16" fill="#6B7260">拓展合作伙伴，复制服务模式</text>
+    </g>
+
+    <!-- Stage 3 -->
+    <g id="stage-3">
+      <rect x="860" y="252" width="360" height="252" rx="18" fill="#FFFFFF" stroke="#E0E7D6" stroke-width="1.5"/>
+      <text x="884" y="292" font-size="23" font-weight="bold" fill="#22301F">规模推广</text>
+      <image href="../images/p5_step3.png" x="884" y="308" width="312" height="135" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-p5-3)"/>
+      <text x="884" y="484" font-size="16" fill="#6B7260">实现规模化推广，服务更多农田</text>
+    </g>
+  </g>
+
+  <!-- Tag chain -->
+  <g id="tags" data-pptx-bounds="60 552 1160 44">
+    <rect x="60" y="554" width="116" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="118" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">200亩示范</text>
+    <path d="M 188 573 L 196 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 202 567 L 210 573 L 202 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="222" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="268" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">区域复制</text>
+    <path d="M 326 573 L 334 573" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 340 567 L 348 573 L 340 579" fill="none" stroke="#6FA84F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="360" y="554" width="92" height="38" rx="19" fill="#EAF2E2"/>
+    <text x="406" y="580" font-size="15" font-weight="bold" fill="#2F6B3A" text-anchor="middle">持续迭代</text>
+  </g>
+
+  <!-- Conclusion banner -->
+  <g id="conclusion" data-pptx-bounds="60 606 1160 72">
+    <rect x="60" y="606" width="1160" height="72" rx="18" fill="url(#conclGrad)"/>
+    <circle cx="106" cy="642" r="18" fill="#FFFFFF" fill-opacity="0.16"/>
+    <path d="M 98 642 L 104 649 L 114 636" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="142" y="650" font-size="24" font-weight="bold" fill="#FFFFFF">让每一亩玉米田，都能用得上、用得好智能水肥决策</text>
+  </g>
+</svg>
