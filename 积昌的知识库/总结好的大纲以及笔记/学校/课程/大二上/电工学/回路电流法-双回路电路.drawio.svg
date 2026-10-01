@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="780" height="540" viewBox="0 0 780 540" content="&lt;mxfile host=&quot;app.diagrams.net&quot; modified=&quot;2026-09-12T23:30:00.000Z&quot; agent=&quot;Claudian&quot; version=&quot;24.7.17&quot; type=&quot;device&quot;&gt;&lt;diagram id=&quot;mesh2&quot; name=&quot;回路电流法&quot;&gt;7Ztdb6s4EIZ/jW8rbAOByyZLdyudSqv2Yi8rCm6CFnAEzkf316+dGgIYQnLCR1TSSq2ZmCHM49cMYwB4Ee3/TNz16oX6JARI8/cA/wEQgpqm8X/C8vVtsTLDMgl82eloeAv+I9me0roJfJKWOjJKQxasy0aPxjHxWMnmJgndlbt90rB81LW7JIrhzXND1fpP4LOVPAtDO9r/IsFylR0ZZucXuVlnaUhXrk93BRN2gPYIRFsDeJFQykqm7INovyChCGoWL+kPoKfz+uenkJCYNbho98ICxmNy2G3rhhsZHuAYwJ4D2wGOBeYz8PgEnBmwdTA3gGOKvxY8NDCwDeF5gUQ33uA7Wk/AWpz0kFm+A8i+MiqM7PmZzFcsCrkB8mbKEvovWdCQJtwS05j3nH8GYVgxuWGwjPmmx2NBuH2+JQkLOO9H+UEU+L44zHy3Chh5W7ueOOaOj25uS+gm9omIiCbc05jJEYvybfklodzODg8Qhq745XYZRX5gsm9EBOUQOWiL0Iiw5It3kTugbADmsvre3B3HKNalbVUYn1jaXCmLZe65MB7wgjfkADh3eOygAonE/qNQ4DH4Cq9MUkghqMaL+IpSW6OVkNBlwba8X925y13/pgH3mEcZmuUoQ70SvpRuEo/IvUoRVHzpqMUXc5MlYXW+DjTys6oF1EYH/UA6rRG9gI5pjUkHT0A7htaddhRfvdLRJ6Cda+hUtdMtnTMA/bpfe04TUnzZQ+rnF5oAHmR3hwfreEg8U7j66NDqDM/g89sLvGdvF+UH+Q3uIAJ6mUJyjdGtpm9nEHr9iQJqvWW55vZn0AThFU0AzzUJQtXXsAnCK54AnmsShLFvgGqmt3TlrkUz2i9FXf6BhMRjiahzPiQkDVJGkzRvvQtGa/HtSOJseeDTjGRWshbVTd9NV3nps7HyWoSrDoRiQZb3/Dz8HOqqjMOkov5qa91USCGs6A+rJdK8WF8skaLfK5G2McJ3RgojPKswMsdlhO6MFEYmHlZH7Zici6a7NFjGbvj+PZ2nD74nm+9wbFhdTHLIqE8MCnBmNWxmRh/6cdAdTKYafVAw7WzCjyxLKKzevgKOzEJijfbmV1h5fqausHZAalYGhaCpgDLqZjerDwVxSriZEp4uJV23ypj0kTGhZkxowmKCt6UmR53znPuchyppNzZHpoSaKU1ZTNqgmNpJrWvkBNB8FEJ18S/kch+WoRtaP1ygbVZyO13hglANF9SHfKI6KEI8FrDR5NHY5oho1jUT2wT1YlaXkkbWC7rrpRFNv3pppxOcXKnzQjdNA+/i5QZ/Zn9o2k09zWN19zwCNAZcrAsD9XLzPG5KXdTPrP0x7MpguO56o1VR6OelaGZf+kE/Uz/KArXV3XLdwPpBzfpBU9NPtV4wvn7wz9SP8oQURN29yTCsfnCzfvDU9KNXFufguSWCvvQTPV+ewHmbZHuoq5yppjwhHk1NqLq6Y/z+sz0Yt/jqVU05r5KcxPDAPMp6HuQbuCU6IanKiLjyzboKD007a+Wut6pb9IwmIClD605Shj2upNAJSRkTlJQBB5VUhobbCy9VZ2yPr6lj538=&lt;/diagram&gt;&lt;/mxfile&gt;">
+  <defs>
+    <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d79b00"/></marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b85450"/></marker>
+  </defs>
+  <rect x="0" y="0" width="780" height="540" fill="#ffffff"/>
+  <text x="390" y="58" font-size="26" font-weight="bold" fill="#1a1a1a" text-anchor="middle" font-family="KaiTi, SimSun, serif">回路电流法 · 双回路电路</text>
+  <line x1="150" y1="100" x2="690" y2="100" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="460" x2="690" y2="460" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="100" x2="150" y2="150" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="250" x2="150" y2="300" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="372" x2="150" y2="460" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="420" y1="100" x2="420" y2="190" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="420" y1="290" x2="420" y2="460" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="690" y1="100" x2="690" y2="150" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="690" y1="250" x2="690" y2="300" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="690" y1="372" x2="690" y2="460" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 150.0,150.0 L 150.0,162.0 L 163.0,174.7 L 137.0,187.3 L 163.0,200.0 L 137.0,212.7 L 163.0,225.3 L 137.0,238.0 L 150.0,238.0 L 150.0,250.0" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 420.0,190.0 L 420.0,202.0 L 433.0,214.7 L 407.0,227.3 L 433.0,240.0 L 407.0,252.7 L 433.0,265.3 L 407.0,278.0 L 420.0,278.0 L 420.0,290.0" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 690.0,150.0 L 690.0,162.0 L 703.0,174.7 L 677.0,187.3 L 703.0,200.0 L 677.0,212.7 L 703.0,225.3 L 677.0,238.0 L 690.0,238.0 L 690.0,250.0" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="150" cy="336" r="36" fill="#ffffff" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="150" y="330" font-size="24" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">+</text>
+  <text x="150" y="364" font-size="24" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">&#8722;</text>
+  <circle cx="690" cy="336" r="36" fill="#ffffff" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="690" y="330" font-size="24" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">+</text>
+  <text x="690" y="364" font-size="24" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">&#8722;</text>
+  <circle cx="420" cy="100" r="5" fill="#1a1a1a"/>
+  <circle cx="420" cy="460" r="5" fill="#1a1a1a"/>
+  <text x="128" y="212" font-size="22" font-weight="bold" fill="#1a1a1a" text-anchor="end" font-family="Times New Roman, SimSun, serif">R&#8321;</text>
+  <text x="452" y="252" font-size="22" font-weight="bold" fill="#1a1a1a" text-anchor="start" font-family="Times New Roman, SimSun, serif">R&#8323;</text>
+  <text x="712" y="212" font-size="22" font-weight="bold" fill="#1a1a1a" text-anchor="start" font-family="Times New Roman, SimSun, serif">R&#8322;</text>
+  <text x="100" y="344" font-size="22" font-weight="bold" fill="#1a1a1a" text-anchor="end" font-family="Times New Roman, SimSun, serif">E&#8321;</text>
+  <text x="740" y="344" font-size="22" font-weight="bold" fill="#1a1a1a" text-anchor="start" font-family="Times New Roman, SimSun, serif">E&#8322;</text>
+  <line x1="150" y1="142" x2="150" y2="112" stroke="#d79b00" stroke-width="3" marker-end="url(#arrO)"/>
+  <line x1="420" y1="182" x2="420" y2="152" stroke="#d79b00" stroke-width="3" marker-end="url(#arrO)"/>
+  <line x1="690" y1="142" x2="690" y2="112" stroke="#d79b00" stroke-width="3" marker-end="url(#arrO)"/>
+  <text x="128" y="128" font-size="20" font-weight="bold" fill="#d79b00" text-anchor="end" font-family="Times New Roman, SimSun, serif">I&#8321;</text>
+  <text x="438" y="170" font-size="20" font-weight="bold" fill="#d79b00" text-anchor="start" font-family="Times New Roman, SimSun, serif">I&#8323;</text>
+  <text x="710" y="128" font-size="20" font-weight="bold" fill="#d79b00" text-anchor="start" font-family="Times New Roman, SimSun, serif">I&#8322;</text>
+  <path d="M 245,400 Q 295,436 345,400" fill="none" stroke="#b85450" stroke-width="3" marker-end="url(#arrR)"/>
+  <path d="M 495,400 Q 545,436 595,400" fill="none" stroke="#b85450" stroke-width="3" marker-end="url(#arrR)"/>
+  <text x="295" y="372" font-size="26" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">&#8544;</text>
+  <text x="545" y="372" font-size="26" font-weight="bold" fill="#b85450" text-anchor="middle" font-family="Times New Roman, SimSun, serif">&#8545;</text>
+</svg>

@@ -42,12 +42,12 @@ Skill 可能因为以下原因变得不可调用：
 
 ```bash
 # 推荐方式：使用 Glob
-Glob pattern="*" path="F:\积昌的知识库 - 副本\.claude\skills"
+Glob pattern="*" path="D:\积昌的知识库\.claude\skills"
 
 # 或使用 Bash
 Bash command="python3 -c \"
 import os
-skills_dir = r'F:\积昌的知识库 - 副本\.claude\skills'
+skills_dir = r'D:\积昌的知识库\.claude\skills'
 for d in sorted(os.listdir(skills_dir)):
     if os.path.isdir(os.path.join(skills_dir, d)):
         print(d)
@@ -166,7 +166,7 @@ description: |
 }
 ```
 
-使用 Edit 工具修改 `F:\积昌的知识库 - 副本\.claude\settings.json`。
+使用 Edit 工具修改 `D:\积昌的知识库\.claude\settings.json`。
 
 ### Step 5：验证修复
 
@@ -215,7 +215,7 @@ Skill skill="skill-name" args="test"
 ### 路径规范
 
 - 使用绝对路径访问 `.claude/skills/` 目录
-- `settings.json` 路径：`F:\积昌的知识库 - 副本\.claude\settings.json`
+- `settings.json` 路径：`D:\积昌的知识库\.claude\settings.json`
 - 所有相对路径均相对于 vault 根目录
 
 ### 会话缓存限制

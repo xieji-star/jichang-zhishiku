@@ -1,0 +1,278 @@
+International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+Analysis of CPI Film on Bnding Performance of Flexible
+                               OLED Panels
+
+                Chen Zheng*, Zhe Dong*, Qibin Feng**, Zi Wang**, Guoqiang Lv*
+
+  * School of Instrument Science and Opto-Electronics Engineering, Hefei University of Technology,
+                                                           Hefei, Anhui, China.
+
+** Special Display and Imaging Technology Innovation Center of Anhui Province, National Engineering
+Laboratory of Special Display Technology, Academy of Photoelectric Technology, Hefei University of
+
+                                                  Technology, Hefei, Anhui, China.
+
+Abstract                                                                      performance can be improved.
+Flexible OLED displays have become a development trend. CPI                   2. Simulation Model of a Flexible OLED Panel
+film in a flexible panel can improve the bending performance of
+the panel. However, CPI film is prone to plastic deformation in                  The bending structure of the flexible OLED panel is a kind of
+the bending process, which will affect the reliability and service            water-drop. The simplified water-drop geometry is shown in
+life of OLED panel. Finite element analysis is employed in this               Figure 1, in which the bending radius is R, the tip of the water-
+paper to analyze how CPI film affects the bending performance of              drop is L, and the gap between the two screens is G.
+a flexible OLED panel. The simulation results show that the
+optimization of the structure of water-drop-shaped bending can                Figure 1. Simplified geometry of water-drop.
+improve the plastic deformation of CPI film. The reasonable                      The stacked structure of the flexible OLED panel is illustrated
+position of CPI film in the stacked structure can also improve its
+plastic deformation. The increase of the thickness of the OCA                 in Figure 2, which consists of Cover film, touch panel (TP),
+located below the CPI film can significantly reduce its plastic               polarizer (POL), OCA1 - OCA6, substrate (PET), backplane (BP),
+deformation. The analysis method used in this paper can help                  CPI, and an OLED light-emitting surface. Some material property
+improve the bending performance of a flexible OLED panel.                     parameters are presented in Table 1, in which E and  are Elastic
+                                                                              Modulus and Poisson ratio, respectively. To realize the bending
+Author Keywords                                                               action, the fixture board is necessary, which is also included in
+OLED, flexible panels, CPI, bending performance                               Table 1.
+
+1. Introduction                                                               Figure 2. Stacked structure of a flexible OLED panel.
+   Flexible OLED panels consist of multiple layers of films, and
+
+each film is laminated with Optically Clear Adhesive (OCA).
+Colorless Polyimide (CPI) film has good properties of bending
+resistance, high light transmission and conductivity. CPI film in a
+flexible OLED panel can reduce the overall thickness of a panel
+and improve the optical performance and flexibility. However,
+CPI film is most prone to plastic deformation in a flexible panel,
+which can affect the display reliability and service life of flexible
+panels. Therefore, how to reduce the plastic deformation of CPI
+film becomes an important issue in designing the stacking
+structure of flexible OLED panels.
+
+   Pengle Dang studied the structural reliability of flexible OLED
+panels, and the results showed that the stress gradually increases
+with the decrease of bending radius, and the stress situation
+becomes more complicated with the decrease of bending radius
+[1]. Zhengzhou Liu conducted a specific stress and strain analysis
+of the bending process of flexible OLED panels, and investigated
+the effects of different stacking structures and backplane stiffness
+on the panel stress [2]. Niu et al. investigated the effect of bending
+mode on stress distribution during panel folding, and the
+experimental results showed that the water-drop-shaped bending
+can effectively improve the structural stability of flexible panels
+and reduce the risk of panel damage [3].
+
+   In this paper, the finite element simulation method is used to
+establish the simulation model of flexible OLED panel containing
+CPI film. The simulation analysis of the flexible module focuses
+on the strain of the CPI film and the OLED in the flexible module.
+By adjusting the water-drop-shaped bending structure of the
+flexible module, the stacking order of the flexible module, and the
+thickness of each OCA layer in the flexible module, the bending
+
+                                                                        1457
+                International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+Table 1 Material parameters of each stacked layer in a
+flexible OLED panel.
+
+     Layer       Thickness (um) E (MPa) 
+
+    Cover film            56          4000            0.3
+
+     OCA1                 30                /         /
+
+     TP                   20          7900            0.3
+
+     OCA2                 30                /         /                            (a)
+
+     POL                  67                22.5      0.3
+
+     OCA3                 30                /         /
+
+     OLED                 20          7900            0.3
+
+     OCA4                 30                /         /
+
+     BP                   25          3500 0.33
+
+     OCA5                 30                /         /
+
+     CPI                  100         2500 0.34                                    (b)
+
+     OCA6                 30                /         /
+
+     PET                  75          2500            0.3
+
+Fixture board             80      200000 0.3
+
+   OCA is defined with both hyperelasticity and viscoelasticity [4-                (c)
+6], as shown in Table 2 and Table 3.
+
+Table 2 Parameters of the hyperelastic Yeoh model.
+
+C10         C20           C30     D1              D2       D3
+
+0.0675 -0.000253 7.54×10-6        0               0           0            Figure 3. Strain simulation distribution of three structures:
+                                                                           (a) L = 2.5R; (b) L = 3R; (c) L = 3.5R.
+Table 3 Parameters of the viscoelastic Prony model.
+                                                                              The values of the maximum plastic strain produced on CPI film
+i           1          2       3               4           5               and the maximum strain produced on the OLED under the three
+                                                                           bending structures are obtained respectively. The maximum
+gi        0.591 0.147 0.113 0.064 0.035                                    plastic strain results are shown in Table 5 and the maximum strain
+                                                                           results are shown in Table 6.
+ti        0.019 0.208 1.878 19.196 235.07
+                                                                           Table 5 Maximum plastic strain of CPI film under different
+                                                                           bending structures.
+
+                                                                                        Maximum Plastic Strain
+
+   A multilinear isotropic reinforcement model was employed for            L=2.5R       0.01341
+the CPI. The relevant parameters are shown in Table 4.
+                                                                           L=3.0R       0.00273
+
+Table 4 Plasticity parameters of CPI film.                                 L=3.5R       0.01233
+
+     Yield Stress/MPa          Plastic Strain Increment
+
+            66                                 0                           Table 6 Maximum strain of the OLED under different
+                                                                           bending structures.
+            91                              0.02
+
+            233                             0.71                                        Maximum Strain
+
+                                                                           L=2.5R       0.0099
+
+3. Simulation Analysis and Discussion                                      L=3.0R       0.0064
+3.1 Analysis of the bending structure
+                                                                           L=3.5R       0.0095
+    The bending radius of a flexible OLED panel is set to 1 mm.
+The tip of the water drop L is variable. In this paper, three                 The simulation results show that when L is three times of R, the
+structures of L=2.5R, L=3R and L=3.5R are discussed. The                   maximum plastic strain of CPI film reaches the minimum, and the
+simulation results illustrated in Figure 3.                                maximum strain of the OLED reaches the minimum. It indicates
+
+                                                                     1458
+International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+that by adjusting the structure of the water-drop-shaped bending,                                              (b)
+the plastic deformation of CPI film can be effectively improved,
+and the deformation suffered by the OLED is also reduced. When             Figure 5. Simulation results for different stacked schemes:
+L=3R, the maximum plastic strain of CPI film is reduced by                 (a) Scheme 1; (b) Scheme 2.
+79.6% and the maximum strain of OLED is reduced by 35.4%
+compared with the case of L=2.5R. When L=3R, the maximum                   Table 7 Maximum plastic strain of CPI film with different
+plastic strain of CPI film is reduced by 77.6% and the maximum             stacked schemes.
+strain of the OLED is reduced by 32.6% compared with the case
+of L=3.5R.
+
+3.2 Analysis of the stacked structure
+
+   CPI film plays an important role in a flexible panel. CPI film
+can be used in combination with a backplane and located below
+the OLED. CPI film can also be used on its own and laminated on
+top of the OLED. Plastic deformation of CPI film can be reduced
+by adjusting the stacked structure of the flexible module.
+Different module stacked schemes are shown in Figure 4.
+
+                                                                                                  Maximum Plastic Strain
+
+                                                                               BP+CPI                 0.00273
+
+                                                                               CPI                    0.00149
+
+                                                                           Table 8 Maximum strain of the OLED with different stacked
+                                                                           schemes.
+
+                                      (a)                                                         Maximum Strain
+
+                                      (b)                                     BP+CPI                  0.0064
+Figure 4. Different stacking schemes for a flexible OLED
+panel module: (a) Scheme 1; (b) Scheme 2.                                      CPI                    0.0062
+
+   The backplane and CPI film are used in Scheme 1, and CPI                3.3 Analysis of OCA thickness
+film is used alone in Scheme 2. The specific simulation results are
+shown in Figure 5, and the simulation data are shown in Table 7               The total thickness of OCAs in a flexible module is set to
+and Table 8. The simulation results show that the maximum                  constant, the thicknesses of each OCA are varied. The five
+plastic strain on CPI film is reduced by 45.4% and the maximum             thickness combinations, noted as C1-C5, are shown in Table 9.
+strain suffered by the OLED is reduced by 3.1% in Scheme 2
+compared with Scheme 1. Therefore, changing the stacked                    Table 9 Five different thickness combinations (Thickness
+structure of the flexible module can also effectively reduce the           unitm).
+plastic deformation of CPI film.
+                                                                           Number of   C1  C2     C3  C4          C5
+                                                                             layers
+
+                                                                           2           17.5 42.5  45  15          30
+
+                                                                           4           22.5 37.5  30  30          30
+
+                                                                           6           27.5 32.5  15  45          30
+
+                                                                           8           32.5 27.5  15  45          30
+
+                                                                           10          37.5 22.5  30  30          30
+
+                                                                           12          42.5 17.5  45  15          30
+
+                                                                           The simulation data are shown in Table 10 and Table 11. The
+
+                                                                           simulation results show that the maximum plastic strain suffered
+
+                                                                           by CPI film decreases significantly with the increase of the
+
+                                                                           thickness of OCA under CPI film. For the OCA thickness
+
+                                                                           combination of C1 and C3, the maximum plastic strain suffered
+
+(a)                                                                        by CPI film was reduced by 61.9% and 79.5%, respectively,
+
+                                                                           compared to C5. In particular, the maximum plastic strain on CPI
+
+                                                                           film reaches the minimum with a plastic strain of 0.00056 with
+
+                                                                     1459
+    International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+C3. The maximum strain on the OLED does not change                       structures, the maximum plastic deformation of CPI film and the
+significantly for the five OCA thickness combinations.                   maximum strain on the OLED can be reduced by changing the
+                                                                         stacked order. For different OCA thickness combinations, thicker
+Table 10 Maximum plastic strain of CPI film with different               the thickness of the OCA located below the CPI film, less the
+OCA thickness combinations.                                              maximum plastic strain suffered by CPI film, but the maximum
+                                                                         strain suffered by the OLED is not significantly improved. In the
+    Maximum Plastic Strain                                               case of the thickness combination 3 of OCAs, the thickness of
+                                                                         OCA below the CPI film is maximum, and the maximum plastic
+C1  0.00104                                                              strain suffered by CPI film reaches the minimum, which
+                                                                         effectively improves the plastic performance of CPI film and
+C2  0.00714                                                              improves the structural reliability and service life of the flexible
+                                                                         OLED panel.
+C3  0.00056
+                                                                         5. Acknowledgments
+C4  0.00887                                                                 This work was supported by Hefei science and technology
+
+C5  0.00273                                                              major project. (No. 2023z020002).
+
+Table 11 Maximum strain of the OLED with different OCA                   6. References
+thickness combinations.                                                  [1] Lin L, Dang P, Hu K, et al. 31 - 4L: Late - News Paper:
+                                                                         Challenges and Progress of Small Bending Radius Foldable
+    Maximum Strain                                                       AMOLED Display Module Technology[C]//SID Symposium
+                                                                         Digest of Technical Papers. 2017, 48(1): 445-446.
+C1  0.0068
+                                                                         [2] Jia Y, Liu Z, Wu D, et al. Mechanical simulation of foldable
+C2  0.0061                                                               AMOLED panel with a module structure[J]. Organic Electronics,
+                                                                         2019, 65: 185-192.
+C3  0.0064
+                                                                         [3] Niu L, Ding J, Liu W. Analysis on the mechanical behavior of
+C4  0.0061                                                               flexible screens[J]. Materials, 2022, 15(8): 2829.
+
+C5  0.0064                                                               [4] J. T. Abrahamson, H. Z. Beagi, F. Salmon, C. J. Campbell,
+                                                                         "Optically clear adhesives for OLED", OLED Technology and
+4. Conclusion                                                            Applications, 1st ed.; Pyshkin, S., Ed.; IntechOpen: London, UK,
+   In this paper, the finite element analysis model of a flexible        2019, pp.1­27.
+
+OLED panel containing CPI film is established. By changing the           [5] F. Salmon, A. Everaerts, C. Campbell, B. Pennington, B.
+bending structure, stacked structure and OCA thickness                   Erdogan-Haug, G. Caldwell, "Modeling the mechanical
+combination, the maximum plastic strain values of CPI film and           performance of a foldable display panel bonded by 3M optically
+the maximum strain values of the OLED in different cases are             clear adhesives", Dig. Tech. Pap. , vol. 48, 2017, pp. 938­941.
+obtained.
+                                                                         [6] Z.W. Xue, "Analysis on dynamic mechanical behavior for
+   For the bending structure, the maximum plastic strain of the          optical adhesive based on Abaqus", Comp. Aided Eng. , vol. 22,
+CPI film is minimized when L is three times of the radius, while         2013, pp. 404­40.
+the maximum strain on the OLED is minimized. For the stacked
+
+                                                                   1460
+

@@ -3,7 +3,7 @@
 # 知识库 GitHub 增量备份脚本（单一目录）
 # ------------------------------------------------------------
 # 用法：bash .claude/hooks/kb-github-backup.sh
-# 说明：将知识库备份范围增量同步到本地镜像仓库 F:/jichang-backup
+# 说明：将知识库备份范围增量同步到本地镜像仓库 D:/jichang-backup
 #       的单一目录「积昌的知识库/」，git add -A + commit + push，
 #       仅提交变更与新增文件（未改动文件跳过），完成后更新标记。
 # 备份范围（固定，与远程最新快照一致）：
@@ -18,11 +18,22 @@
 set -u
 
 VAULT="$(cd "$(dirname "$0")/../.." && pwd)"
-BACKUP_DIR="F:/jichang-backup"
+BACKUP_DIR="D:/jichang-backup"
 TARGET="$BACKUP_DIR/积昌的知识库"
 REPO_URL="https://github.com/xieji-star/jichang-zhishiku.git"
 
 ITEMS=(.claude .claudian .obsidian AGENTS.md CLAUDE.md "总结好的大纲以及笔记" "自动维护知识库")
+
+# 网络出口：国内直连 GitHub 会被重置/超时，必须经本机代理。
+# 本机代理（Vortex / mihomo 内核）mixed 端口 7897（可用 KB_GIT_PROXY 覆盖）。
+# ⚠️ 代理端口会随客户端升级/重装漂移（历史用过 4780）。失效时脚本会报
+#    "Failed to connect to github.com port 443 via 127.0.0.1"——此时用
+#    `netstat -ano | findstr LISTENING` 找到实际 mixed 端口，覆盖 KB_GIT_PROXY 即可。
+# 用 http_proxy/https_proxy 环境变量让 git（libcurl）走代理——只对本脚本内的 git 生效，
+# 不改动任何 git config（全局/仓库配置均保持原样）。
+GIT_PROXY="${KB_GIT_PROXY:-http://127.0.0.1:7897}"
+export http_proxy="$GIT_PROXY"
+export https_proxy="$GIT_PROXY"
 
 # 网络重试：应对 GitHub 瞬时 SSL/网络抖动（最多 4 次，间隔 3s）
 retry() {
@@ -62,6 +73,8 @@ items = [i for i in items_str.split("|") if i]
 #   CLEANUP    = 同步后强制清理的相对路径（防 /MIR 残留历史数据）
 ROBO_EXTRA = {
     ".claudian": ["/XD", "sessions"],   # Claude 会话运行态目录（含密钥/对话记录）
+    # draw.io 插件的客户端本体（约 147MB，3412 个文件），可随时重新下载，不进公开仓库
+    ".obsidian": ["/XD", "plugins/drawio/webapp"],
     "总结好的大纲以及笔记": ["/XD",
         "技能/AI/智能助手的配置/企业微信智能助手/微信智能助手/logs",
         "技能/AI/智能助手的配置/企业微信智能助手/微信智能助手/wecom-resources",
@@ -71,6 +84,7 @@ ROBO_EXTRA = {
 }
 CLEANUP = {
     ".claudian": ["sessions"],
+    ".obsidian": ["plugins/drawio/webapp"],
     "总结好的大纲以及笔记": [
         "实习就业/创业黑马——数智科技部门/全自动爬取短视频、推文爆款程序/本地部署短视频分析程序介绍文档.md",
         # 智能助手配置（2026-08-29 迁移入此目录）：排除密钥与运行态

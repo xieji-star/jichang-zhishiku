@@ -1,0 +1,794 @@
+Advanced Science
+
+                                                                                                      www.advancedscience.com
+
+RESEARCH ARTICLE
+
+Isosorbide-Based Optically Clear Adhesives With Ultrahigh
+Transparency and Rapid Strain Recovery for Flexible
+Displays
+
+Yoonji Choi1   Geonwoo Lee1         Yeonseo Kim1  Dahyun Jin1        Jinhoon Lee1                     Ki Sung Jung2
+
+Dong Woo Kim2  Myung-Jin Baek1      Dong Woog Lee1
+
+1School of Energy and Chemical Engineering, Ulsan National Institute of Science and Technology (UNIST), Ulsan, Republic of Korea 2Youngwoo Co, Ltd
+(YOUNGWOO), Gunpo-si, Gyeonggi-do, Republic of Korea
+
+Correspondence: Myung-Jin Baek (bagmj100@unist.ac.kr) Dong Woog Lee (dongwoog.lee@unist.ac.kr)
+Received: 9 June 2026 Revised: 2 August 2026 Accepted: 13 August 2026
+Keywords: crosslinker | flexible display | optically clear adhesives | recoverability | transparency
+
+ABSTRACT
+Flexible and foldable displays require optically clear adhesives (OCAs) that combine ultrahigh optical transparency with
+mechanical resilience under repeated deformation. However, conventional acrylic-based OCAs often fail to achieve both properties
+simultaneously. Herein, we synthesized a polyurethane diacrylate (PUDA) crosslinker incorporating biomass-derived isosorbide
+and photostable 1,3-bis(isocyanatomethyl)cyclohexane (H6XDI) for flexible display adhesives. The segmented polyurethane
+architecture forms a mechanically flexible yet robust network, enabling rapid strain recovery while maintaining ultrahigh
+optical transparency. Furthermore, the incorporation of an isosorbide-based PUDA crosslinker introduces a biomass-derived
+component and preserves excellent optical properties due to its intrinsically low birefringence. As a result, the PUDA crosslinked
+OCA exhibits exceptional optical transmittance (99.8%) and maintains high transparency (98.6%) even at 50% tensile strain,
+alongside low modulus, stable adhesion, and clean debonding behavior. These results highlight the potential of PUDA OCAs
+for high-performance and energy-efficient foldable display applications.
+
+1 Introduction                                                       photons emitted from the organic light-emitting diode (OLED)
+                                                                     must pass through the adhesive layer before reaching the viewer
+Recent developments in flexible display technologies have            [5]. Consequently, even small reductions in optical transmittance
+increasingly focused on foldable and rollable form factors, which    directly influence display luminance and overall energy con-
+significantly enhance device portability and user convenience        sumption [6­8]. Because the adhesive layer is located between
+[1, 2]. However, these structural configurations simultaneously      multiple functional layers and often near the top optical path of
+impose substantial mechanical stresses on the constituent mate-      the display stack, maintaining ultrahigh optical transparency is a
+rials. Therefore, materials employed in such devices must be         critical requirement [4].
+capable of withstanding repeated mechanical deformation while
+maintaining stable mechanical integrity and optical performance      At the device level, optical efficiency has a significant impact
+[3]. These requirements are particularly critical for optically      on power consumption and device performance [6]. Improving
+clear adhesives (OCAs), which are positioned directly along the      the optical transmittance of OCA can directly reduce OLED
+light propagation path in multilayer display architectures [4]. All  power consumption under identical luminance conditions [5].
+
+This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the
+original work is properly cited.
+© 2026 The Author(s). Advanced Science published by Wiley-VCH GmbH
+
+Advanced Science, 2026; 0:e77348                                                                                     1 of 15
+https://doi.org/10.1002/advs.77348
+Such improvements enhance visual clarity while lowering power        Herein, we report a polyurethane diacrylate (PUDA) crosslinker        21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+demand, both of which are critical for reliable and energy-          incorporating biomass-derived isosorbide and photostable H6XDI
+efficient operation in flexible electronic devices [7]. Therefore,   to enhance optical transparency of flexible display adhesives.
+ultrahigh transparency adhesives are essential not only for          The PUDA crosslinker forms a mechanically robust yet flexible
+improving display quality but also for enhancing the overall         network, enabling rapid strain recovery (< 2.5 s) while preserving
+energy efficiency of flexible electronics.                           ultrahigh optical transmittance under deformation. The resulting
+                                                                     OCAs exhibit near-perfect transparency, low modulus, stable
+Conventional acrylic-based OCAs can provide adequate adhe-           adhesion, and clean debonding, highlighting their potential for
+sion; however, maintaining high transparency under repeated          energy-efficient foldable display applications.
+bending remains a persistent challenge [9, 10]. As flexible display
+architectures evolve toward thinner and more highly integrated       2 Results and Discussions
+configurations, adhesive materials must preserve optical clarity
+while accommodating mechanical deformation [10]. In this             2.1 Characterization of Synthesized Crosslinker
+context, urethane acrylate systems are widely employed in flex-      and OCAs
+ible and stretchable applications due to their tunable network
+architecture and mechanical compliance [11, 12]. Polyurethanes       As shown in Figure 1a, isosorbide is synthesized through a
+consist of soft polyol segments and rigid diisocyanate-derived       stepwise conversion process starting from glucose-derived inter-
+hard segments, and the microphase separation between these           mediates [23]. Subsequently, an isosorbide-based polyol and
+segments enables a balance of elasticity and mechanical strength     H6XDI were used to prepare the PUDA crosslinker (Figure 1b).
+[13]. Such a segmented structure is advantageous for flexible        The PUDA was synthesized via a urethane reaction between
+adhesive systems, as it allows the material to maintain struc-       the isosorbide polyol and H6XDI, followed by acrylation of
+tural stability while facilitating strain recovery under repeated    the terminal hydroxyl groups to introduce acrylate function-
+deformation.                                                         alities. The corresponding PUDA crosslinked OCA structure
+                                                                     is illustrated in Figure 1c. The chemical structure of the
+In addition, sustainability considerations are increasingly driving  synthesized polyurethane diacrylate was confirmed by proton
+the incorporation of environmentally responsible components          nuclear magnetic resonance (1H NMR). Vinyl proton peaks
+into advanced polymer systems [14­17]. The incorporation of          from the acrylate end groups appeared at 5.6 and 6.1 ppm
+biomass-derived components into polymer systems provides a           with an approximately 1:1 integral ratio, indicating the suc-
+pathway to reduce reliance on petroleum-based resources while        cessful introduction of acrylate functionalities (Figure S1). The
+maintaining advanced functional properties [18]. Isosorbide, a       progress of the urethane reaction was also tracked by FT-IR
+rigid bicyclic diol derived from agricultural resources such as      spectroscopy, where the isocyanate (NCO) absorption band at
+corn starch through glucose and sorbitol intermediates, has          2264 cm-1 progressively decreased and eventually disappeared,
+emerged as a promising bio-based material [19]. Owing to its         confirming complete consumption of NCO groups during syn-
+renewable origin, isosorbide has attracted considerable attention    thesis (Figure S2). The molecular weight of PUDA was deter-
+as a biomass-derived building block for polymer systems [20].        mined by gel permeation chromatography, showing a molecular
+Importantly, isosorbide has been reported to exhibit inherently      weight of approximately 44 000 g mol-1 (Figure S3 and Table
+low birefringence, which is advantageous for minimizing optical      S1 ).
+anisotropy and maintaining high optical transmittance in trans-
+parent materials [21, 22]. These characteristics make isosorbide     OCA films were fabricated using 2-carboxyethyl acrylate and 2-
+particularly suitable for the design of ultrahigh-transparency       ethylhexyl acrylate as monomers. As shown in Figure S4, the
+polyurethane networks [23]. The diisocyanate structure further       adhesion strength increases up to 40 mol% CEA and plateaus
+influences optical durability and color stability [12]. Aliphatic    thereafter. Accordingly, a CEA:EHA ratio of 4:6 was selected,
+diisocyanates are generally preferred over aromatic counterparts     as it provides sufficient adhesion and good recoverability. The
+because of their resistance to yellowing and UV-induced degra-       synthesized PUDA and conventional 1,6-hexanediol diacrylate
+dation [24]. Among them, 1,3-bis(isocyanatomethyl)cyclohexane        (HDDA) were used as crosslinkers (0.175 mol%) to examine the
+(H6XDI) offers a balanced combination of optical clarity and         effect of crosslinker structure. The crosslinker compositions of the
+photochemical stability, while its rigid cycloaliphatic structure    synthesized OCA formulations are summarized in Table 1.
+imparts excellent mechanical resilience, including rapid strain
+recovery and low hysteresis under repeated deformation, making       To evaluate the crosslinking density, the gel fraction of each
+it well suited for high-transparency, flexible adhesive systems      OCA was measured. As the PUDA content increased from 0.1 to
+[ 25­28 ].                                                           0.2 mol%, the gel fraction increased steadily from 67% to 86.3%,
+                                                                     indicating a higher crosslinking density with increasing PUDA
+Although polyurethane-based OCA systems have been previously         content. Specifically, gel fraction values of 67%, 80.3%, 84.9%, and
+reported, these studies have primarily focused on recyclable on-     86.3% were obtained for 0.1, 0.15, 0.175, and 0.2 PUDA, respectively
+demand debonding [26], mechanical durability under impact            (Table S2).
+[27], or processability [28], rather than simultaneously achieving
+ultrahigh optical transparency and rapid strain recovery required    For flexible display applications, OCAs must remain soft and
+for repeated folding. Consequently, a polyurethane-based OCA         deformable within the operating temperature range of -40C to
+crosslinker capable of combining near-perfect optical trans-         85C [29, 30]. The glass transition temperature (Tg) of the OCAs
+mittance with rapid strain recovery under deformation, while         was measured by differential scanning calorimetry (DSC) as a
+incorporating bio-based components, has yet to be demonstrated.
+
+2 of 15                                                              Advanced Science, 2026
+FIGURE 1 Schematic illustration of the bio-based design, synthesis, and application of isosorbide-based polyurethane diacrylate (PUDA) for                   21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+optically clear adhesives (OCAs). (a) Biomass-derived origin of isosorbide. (b) Synthetic route and molecular structure of PUDA. (c) Schematic illustration
+of a PUDA crosslinked OCA layer laminated with PET films.
+
+TABLE 1 The crosslinker content of synthesized OCAs.
+
+Crosslinker [mol%]      0.1 PUDA  0.15 PUDA                       0.175 PUDA  0.2 PUDA  0.175 HDDA
+                                                                       0.175      0.2         --
+PUDA                    0.1                           0.15              --         --        0.175
+HDDA
+                        --                            --
+
+function of crosslinker type and content (Figure S5). The PUDA    which can be attributed to the increased crosslink density and the
+OCAs exhibited Tg values in the range of -57C to -52C, which      resulting restriction of chain mobility [32, 33]. Thermogravimetric
+are considerably lower than the Tg of HDDA OCA (-44.5C). The      analysis (TGA) was conducted to assess thermal stability (Figure
+lower Tg values observed for PUDA OCAs are attributed to the      S6). A minor weight loss was observed around 220C due to the
+flexible polyurethane backbone and the much higher molecular      decomposition of the COOH groups in CEA [34, 35]. However, all
+                                                                  PUDA OCAs showed their primary degradation event near 390C,
+weight of PUDA compared to HDDA, which can increase free          confirming that the OCAs possess sufficient thermal stability for
+                                                                  practical display processing and operation.
+volume and enhance polymer chain mobility [31]. In addition, a
+
+slight increase in Tg was observed with increasing PUDA content,
+
+Advanced Science, 2026                                                                  3 of 15
+FIGURE 2 Adhesive performance of OCAs. (a) The peel strength of OCAs crosslinked with PUDA and HDDA, on stainless steel (SUS304). (b) The             21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+peel strength of 0.175 PUDA on different substrates. (c) The probe tack value and (d) the lap shear strength of OCAs crosslinked with PUDA and HDDA.
+(e) Scanning electron microscopy (SEM) images and energy-dispersive X-ray spectroscopy (EDS) mapping of stainless steel (SUS) surfaces after peeling
+of 0.175 PUDA and 0.175 HDDA at 80C.
+
+The mechanical behavior of the OCAs was examined using             0.15 PUDA, 10.71 ± 0.50 N 25 mm-1 for 0.175 PUDA, and 9.28
+a universal testing machine (UTM), and the resulting stress­       ± 0.39 N 25 mm-1 for 0.2 PUDA (Table S4). The decrease in
+strain curves are shown in Figure S7. Mechanical parameters        peel strength is attributed to the increased crosslinker content,
+including Young's modulus, ultimate tensile strength, elongation   which restricts polymer chain mobility and reduces interfacial
+at break, and toughness are summarized in Table S3. As the PUDA    wettability [36­38]. Despite this decrease, 0.175 PUDA maintained
+content increased from 0.1 to 0.175 mol%, the OCAs exhibited pro-  sufficient peel strength, exhibiting adhesion performance com-
+gressively higher stress and reduced strain, indicating increased  parable to both the HDDA crosslinked OCA (11.65 ± 1.03 N
+stiffness with increasing crosslink density. Accordingly, Young's  25 mm-1) and a commercial PSA from Avery Corporation (11.9
+modulus and ultimate tensile strength reached their maximum        ± 1.30 N 25 mm-1). These results indicate that PUDA enables
+values at 0.175 mol% PUDA. When the PUDA content was further       stable and practical adhesion performance under the investigated
+increased to 0.2 mol%, both stress and strain decreased compared   crosslinking conditions.
+to 0.175 mol%, accompanied by a reduction in Young's modulus
+and toughness. This trend is consistent with the rheological       To further evaluate the applicability of the optimized formulation
+analysis shown in Figure S8. As presented in Figure S8a,c, both    under representative temperature conditions relevant to flexible
+storage modulus (G) and loss modulus (G) increased with            displays, temperature-dependent 180 peel tests were conducted
+PUDA content up to 0.175 mol% and then decreased at 0.2 mol%.      from -20C to 60C (Figure S9). Both the 0.175 PUDA and HDDA
+Overall, 0.175 PUDA provided the most balanced mechanical          exhibited comparable peel adhesion at room temperature and
+performance in terms of stiffness, strength, and extensibility.    60C, indicating stable adhesion performance under ambient
+                                                                   and elevated temperature conditions. In contrast, a pronounced
+2.2 Adhesive Properties of OCAs                                    difference was observed under sub-ambient conditions. The
+                                                                   optimized 0.175 PUDA maintained a high peel strength of 45.8
+The adhesive performance of the OCAs was first evaluated by        N 25 mm-1 at -20C, whereas the 0.175 HDDA exhibited a sub-
+measuring the peel strength on stainless steel substrates as a     stantial reduction to 3.7 N 25 mm-1 under the same conditions.
+function of crosslinker type and content, as shown in Figure 2a.   These findings suggest that the lower Tg and more compliant
+The PUDA crosslinked OCAs exhibited a gradual decrease in peel     polyurethane network of PUDA preserve sufficient segmen-
+strength with increasing PUDA content, showing values of 13.99     tal mobility and substrate conformability at low temperatures,
+± 1.48 N 25 mm-1 for 0.1 PUDA, 11.59 ± 0.95 N 25 mm-1 for          thereby supporting its suitability for flexible display applications
+                                                                   requiring robust low-temperature performance.
+
+4 of 15                                                            Advanced Science, 2026
+To gain further insight into the origin of this temperature-           tions (e.g., hydrogen bonding) with the substrate [43­45]. As        21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+dependent adhesion behavior, oscillatory rheological measure-          shown in Figure 2d and Table S4, the 0.175 HDDA exhibited the
+ments were performed under sub-ambient (-5C) and elevated              highest lap shear strength (147.4 ± 1.4 kPa), whereas the PUDA
+temperature (40C) conditions (Figure S10). Across the inves-           OCAs showed lower values ranging from 85.7 ± 2.9 kPa at 0.1
+tigated temperature range, the 0.175 PUDA OCA consistently             mol% to 56.8 ± 5.2 kPa at 0.2 mol%. The higher lap shear strength
+exhibited lower storage modulus (G) values than the correspond-        of 0.175 HDDA can be attributed to its compact and densely
+ing HDDA formulation. Notably, even under sub-ambient condi-           packed network structure. Owing to its low molecular weight,
+tions, the storage modulus of 0.175 PUDA remained substantially        0.175 HDDA enables closer chain spacing within the network,
+lower than that of 0.175 HDDA, indicating that the polyurethane        which facilitates stronger intermolecular interactions such as
+network maintains a relatively compliant and deformable state at       hydrogen bonding and leads to higher cohesive strength, which is
+reduced temperatures. Furthermore, although both formulations          consistent with higher stiffness of 0.175 HDDA compared to that
+exhibited increased storage moduli with decreasing temperature,        of 0.175 PUDA measured with UTM (Figure S7). Nevertheless, the
+the increase in G from room temperature to -5C was con-                lap shear strength of the PUDAs are sufficient compared to the
+siderably less pronounced for 0.175 PUDA, suggesting reduced           previously reported PSAs for flexible electronics [42].
+temperature-induced network rigidification and greater preser-
+vation of segmental mobility within the polyurethane network.          The observed behavior is consistent with the adhesion­cohesion
+These rheological observations are consistent with the peel            trade-off commonly observed in pressure-sensitive adhesives
+adhesion results. Excessive rigidification of the HDDA network         [42]. Increasing the PUDA content increased the gel fraction
+at low temperatures limits substrate wetting and adhesion,             and effective crosslink density, enhancing the cohesive strength
+whereas the PUDA network maintains an appropriate balance              of the OCA network. However, excessive crosslinking restricted
+between mechanical integrity and molecular mobility across the         segmental mobility and substrate wetting, resulting in reduced
+investigated temperature range.                                        adhesion performance. These findings highlight the importance
+                                                                       of balancing network connectivity and molecular mobility in
+Based on this balance between adhesion strength and network            high-performance OCA systems.
+stability, the 0.175 PUDA formulation was selected for further
+evaluation on different substrates. Figure 2b and Table S5 summa-      As high-value, multifunctional display modules become thinner
+rize the peel strength of 0.175 PUDA measured on stainless steel,      and more integrated, the need for clean and damage-free reuse
+glass, poly(methyl methacrylate) (PMMA), poly(ethylene tereph-         has become increasingly critical beyond sustainability consider-
+thalate) (PET), PU film, polypropylene (PP), and Teflon. 0.175         ations alone [46, 47]. From this perspective, clean removability
+PUDA exhibited sufficient adhesion across all tested surfaces,         after debonding is essential to enable recycling of the substrate
+demonstrating broad interfacial compatibility. Notably, PMMA           without the need for additional cleaning steps. To evaluate
+showed the highest peel strength (17.11 ± 0.88 N 25 mm-1),             this aspect, residue formation was examined after peel testing
+followed by glass (14.45 ± 1.69 N 25 mm-1) and PET (10.18 ± 0.83       using scanning electron microscopy and energy-dispersive X-ray
+N 25 mm-1), likely due to enhanced interfacial bonding arising         spectroscopy, as shown in Figure 2e. At room temperature, both
+from polar interactions between the acrylate-based adhesive and        the 0.175 PUDA and 0.175 HDDA samples showed no detectable
+the ester functionalities of PMMA [39, 40]. In addition, the 0.175     residue on the surface after debonding. Importantly, the 0.175
+PUDA exhibited reasonable adhesion strength to PU and PP,              PUDA maintained this residue-free behavior even under high-
+highlighting its suitability for plastic-based flexible displays [9].  temperature conditions (80C), where cohesive failure is more
+Although negligible peel strength was observed on Teflon, the          likely to occur [48]. In contrast, the 0.175 HDDA left behind
+overall results demonstrate that PUDA OCAs provide robust              clear adhesive residues remaining on the substrate, as confirmed
+adhesion across a wide range of substrate chemistries.                 by surface morphology and elemental mapping. These results
+                                                                       demonstrate that the PUDA OCA enables clean and reliable
+The instantaneous adhesion behavior of the OCAs was evaluated          debonding, making it particularly suitable for applications where
+by probe tack measurements, as shown in Figure 2c. Probe tack          substrate reuse and recyclability are required.
+values are primarily governed by rapid interfacial wetting and
+the formation of physical interactions during short contact times      2.3 Optical Properties of OCAs
+[41]. The PUDA crosslinked OCAs exhibited probe tack values
+ranging from 184 to 202 kPa depending on PUDA content. (Table          OCAs are positioned directly along the optical path between the
+S4) The 0.1 PUDA sample showed the highest probe tack (202             light-emitting layer and the viewer, therefore maintaining high
+± 21 kPa), followed by a gradual decrease to 184 ± 7 kPa at 0.2        optical transmittance is extremely critical for display performance
+mol%. As predicted, this tendency indicates that increasing PUDA       [4]. Figure 3 shows the optical properties of 0.175 PUDA and 0.175
+content slightly reduces segmental mobility at the interface,          HDDA. The optical transmittance of PUDA adhesive films was
+limiting instantaneous wetting while maintaining comparable            evaluated in the visible light range, and all samples exhibited
+initial adhesion performance. Overall, the probe tack values are       exceptionally high transmittance exceeding 99.8% due to excellent
+sufficient to ensure adequate interfacial wetting and practical        intrinsic optical clarity of the PUDA, surpassing 0.175 HDDA and
+adhesion performance [42].                                             a commercial PSA (Figure S11).
+
+Lap shear tests were conducted to evaluate the shear-dependent         From an energy-efficiency perspective, the optical transmittance
+adhesion behavior of the OCAs. Lap shear strength is influenced        of the OCA directly influences OLED power consumption [6­8,
+by both the cohesive strength of the adhesive and the adhesive         49]. The external luminance (Lout) is determined by the internally
+strength determined by the wettability and interfacial interac-
+
+Advanced Science, 2026                                                 5 of 15
+FIGURE 3 Optical transmittance of OCAs crosslinked with PUDA and HDDA. The transmittance of 0.175 PUDA and 0.175 HDDA under (a) 0%               21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+strain, (b) 20% strain, and (c) 50% strain. (d) The transmittance of PUDA OCAs with varying PUDA contents. (e) Haze values of OCAs (PUDA and
+HDDA) measured at 0% and 50% strain. (f) Yellow index values of OCAs (PUDA and HDDA) measured at 0% and 50% strain. (g) Optical images of 0.175
+PUDA and 0.175 HDDA under different strain. (h) Comparison of optical transmittance and peel strength of PUDA crosslinked OCAs with previously
+reported OCAs and a commercial PSA (Avery Corporation).
+
+generated luminance (LOLED) and the total transmittance of the        Under identical brightness conditions, the PUDA OCA (99.8%
+display stack (Tstack), including the OCA layer. To achieve a target  transmittance) consumes 7.31% lower OLED power than the
+luminance (Ltarget), higher internal luminance is required as the     HDDA OCA (93% transmittance) to achieve the same external
+stack transmittance decreases. Since OLED power consumption           luminance. Considering that the display typically accounts for
+                                                                      approximately 50%, of the total power consumption in smart-
+(P) scales with (LOLED), it is inversely proportional to the stack    phones [50, 51], this improvement translates into an overall
+transmittance (Tstack) [6, 7]:                                        device-level power reduction of approximately 3.66%. Impor-
+                                                                      tantly, this corresponds to a potential increase in total battery
+               1                                                      operating time of approximately 4%, highlighting that even
+             
+
+6 of 15                                                               Advanced Science, 2026
+small differences in OCA transmittance can produce meaningful        deterioration of optical and mechanical performance [3]. During          21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+improvements in practical device energy efficiency.                  repetitive deformation, the continuously applied strain can both
+                                                                     disrupt and regenerate hydrogen bonds within the adhesive
+More importantly, PUDA crosslinked adhesives exhibited out-          network [34]. The newly formed hydrogen bonds generated
+standing optical stability under mechanical deformation, main-       during straining hinder complete chain relaxation after stress
+taining high transparency even under strain. At 0% strain            release, resulting in prolonged recovery time and, in some cases,
+(Figure 3a), the 0.175 PUDA showed transmittance above 99.8%         permanent deformation [34, 42].
+across the visible region (400­800 nm), whereas the 0.175 HDDA
+exhibited a lower value of 93%. Unlike previous reports where        To evaluate the strain recovery behavior of the prepared OCAs, a
+transmittance decreases due to semi-crystallinity [52, 53], the      100-cycle repetitive test was conducted under an applied strain of
+PUDA showed less than a 1.2% reduction up to 50% strain, main-       20%, as shown in Figure 4a and Movies S1 and S2. Representative
+taining 99.6% at 20% strain (Figure 3b) and 98.6% at 50% strain      images obtained immediately after the 100th cycle and after full
+(Figure 3c). In contrast, the 0.175 HDDA showed a significant        recovery are presented in Figure 4b, revealing a clear depen-
+decrease to 85.1% and 71.9% at 20% and 50% strain, respectively.     dence of recovery behavior on PUDA content. As summarized
+These results demonstrate that the PUDA crosslinked network          in Figure 4c, the recovery time systematically decreased with
+effectively preserves optical clarity under tensile deformation.     increasing PUDA concentration. The 0.1 PUDA sample required
+                                                                     16 s to recover its original length, whereas 0.15 PUDA recovered
+The optical transmittance of PUDA OCAs with varying PUDA             within 5 s and 0.175 PUDA exhibited even faster recovery within
+contents remained consistently high across the visible region,       2.5 s. The most highly crosslinked formulation, 0.2 PUDA, showed
+exceeding 99.8%, indicating that incorporation of PUDA does not      the fastest recovery within 1.5 s. In contrast, the 0.175 HDDA
+compromise intrinsic optical clarity (Figure 3d). In addition to     exhibited markedly slower recovery, requiring more than 100 s
+optical transmittance, haze and yellow index were also system-       for full recovery.
+atically evaluated, as low haze is essential for minimizing light
+scattering and maintaining display sharpness [54, 55], while a       This pronounced difference originates from the distinct molec-
+low yellow index ensures minimal yellowing and reduced optical       ular characteristics of the PUDA crosslinked network. In par-
+deterioration [56]. The haze values at 0% and 50% strain revealed a  ticular, the cyclohexane ring in H6XDI incorporated into PUDA
+clear distinction between PUDA and HDDA (Figure 3e). For 0.175       interrupts the formation of hydrogen bonds between urethane
+PUDA, haze remained extremely low, increasing only slightly          groups and polymer chains, as previously reported by FT-IR
+from 0.54% ± 0.06% at 0% strain to 1.25% ± 0.11% at 50% strain.      analyses [62]. In addition, the PEG-containing segments in PUDA
+In contrast, 0.175 HDDA exhibited significantly higher haze,         act as soft domains with excellent flexibility [63], resulting in
+increasing from 5.70% ± 0.71% to 9.49% ± 0.61%, indicating greater   high mobility of the polymer chains. Moreover, the relatively
+light scattering during deformation. The yellow index (YI) values    high molecular weight of PUDA increases the interchain spacing,
+under 0% and 50% strain are shown in Figure 3f. The 0.175 PUDA       thereby hindering the formation of strain-induced hydrogen
+exhibited low YI values of 1.43 ± 0.02 at 0% strain and 1.39 ± 0.01  bonds between neighboring CEA units during cyclic deformation
+at 50% strain, while 0.175 HDDA showed higher values of 3.27 ±       [42, 64].
+0.01 and 2.78 ± 0.06 at 0% and 50% strain, respectively. The slight
+decrease in YI during tensile deformation should be attributed to    Furthermore, increasing PUDA content enhances the crosslink-
+thickness reduction of deformed OCAs.                                ing density of the adhesive network, leading to a reinforced
+                                                                     elastic structure with improved restoring force. Although higher
+Figure 3g shows optical images of 0.175 PUDA and 0.175 HDDA          crosslinking density partially restricts chain mobility, it effectively
+under 0%, 20%, and 50% strain. The 0.175 PUDA maintained             suppresses the generation of newly formed hydrogen bonds
+visual transparency without noticeable whitening even at high        during deformation. As a result, rapid and stable strain recovery
+strain, whereas the 0.175 HDDA exhibited visible whitening and       is achieved. This interpretation is further supported by the
+optical degradation with increasing strain. Overall, these results   hysteresis loss behavior observed during cyclic loading (Figure
+demonstrate that PUDA maintains superior optical properties          S12). As summarized in Table S6, the hysteresis loss decreased
+under mechanical strain compared to HDDA. Finally, Figure 3h         from 5.16 kJ m-3 for 0.1 PUDA to 3.80 kJ m-3 for 0.2 PUDA. In
+compares the optical transmittance and peel strength of the          contrast, the 0.175 HDDA sample exhibited a higher hysteresis
+PUDA OCAs with previously reported OCAs and a commercial             loss (4.76 kJ m-3), which is consistent with its slower recovery
+PSA (Avery Corporation) [42, 47, 54, 57­61]. The PUDA OCAs           behavior.
+are positioned in the upper region of the plot, achieving an ultra-
+high transmittance (>99.8%) while maintaining competitive peel       To quantitatively evaluate the recovery kinetics, the time-
+strength, demonstrating their outstanding potential for practical    dependent strain recovery behavior was monitored following
+flexible display applications.                                       the removal of applied stress. The recovery curves (Figure 4d,e)
+                                                                     were fitted using a normalized single-exponential decay model,
+2.4 Strain Recovery Properties of OCAs                               expressed as
+
+Rapid recovery of the original dimensions after mechanical                                           = exp (-)
+deformation is a critical requirement for optically clear adhesives
+used in flexible display applications, since insufficient recovery   where  represents the recovery time constant. All OCAs were
+under repeated strain can induce residual deformation and            well fitted with high coefficients of determination (R2  0.99;
+                                                                     Table S7), indicating that the recovery process can be described
+
+Advanced Science, 2026                                               7 of 15
+FIGURE 4 (a) Schematic illustration of the strain recovery after a 100-cycle repetitive test. (b) Images showing the deformation of OCAs              21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+immediately after the 100-cycle test, and after full recovery. (c) Full recovery time of OCAs and (d, e) strain recovery behavior analyzed by length
+monitoring and single-exponential decay fitting to determine the recovery time constant ().
+
+by a dominant relaxation mechanism. The  values decreased           to irreversible deformation under long-term loading [66]. In
+significantly with increasing PUDA content, from 4.70 ± 0.07 s      contrast, 0.175 HDDA showed a significantly lower recovery ratio
+for 0.1 PUDA to 0.28 ± 0.02 s for 0.2 PUDA, reflecting rapid chain  of 74.6%.
+reorganization and faster strain recovery. In contrast, HDDA
+crosslinked OCA exhibited a much larger  value (27.68 ± 0.60        Overall, the combination of short recovery times (down to 1.5 s),
+s), confirming substantially slower recovery. These quantitative    low hysteresis loss (3.8 kJ m-3), small recovery time constants
+results are in good agreement with the directly measured recovery   with high fitting reliability (  0.28 s, R2  0.99), and high
+times and further support the rapid elastic recovery of PUDA        creep recovery ratios (up to 88.8% after 300 s) demonstrates that
+OCAs.                                                               PUDA-based OCAs exhibit outstanding recovery performance.
+                                                                    These characteristics make PUDA crosslinked OCAs particularly
+Irreversible deformation remaining after stress removal under       suitable for flexible and foldable display applications that require
+sustained loading can accumulate during repeated folding and        repeated mechanical deformation without permanent damage or
+bending, leading to wrinkles or optical defects in display modules  loss of performance.
+[3]. Therefore, a high creep recovery ratio is a critical param-
+eter for optically clear adhesives, as it minimizes permanent       The folding stability of the OCAs was systematically evaluated
+deformation and ensures long-term stability [3, 65]. To evaluate    under repeated bending conditions with a curvature radius of 2
+the recovery performance of the OCAs under constant stress          mm and up to 100 000 (100k) folding cycles to investigate their
+conditions, creep and recovery tests were conducted at an applied   mechanical durability relevant to foldable display applications
+stress of 1000 Pa, and the normalized creep­recovery curves are     (Figure 5a). The sagging-induced displacement was continuously
+shown in Figure S13. PUDA OCAs exhibited rapid strain recovery      monitored as a function of folding cycles while simultaneously
+immediately after load removal. Even after a relatively long creep  capturing micro-vision images. As shown in Figure 5b and Figure
+duration of 300 s, high creep recovery ratios of 86.1%, 87.8%,      S14, PUDA OCAs exhibited stable displacement behavior without
+88.3%, and 88.8% were maintained for 0.1, 0.15, 0.175, and 0.2      progressive accumulation of permanent deformation. After 100
+PUDA, respectively. (Table S8) These high creep recovery ratios     k folding cycles, the displacement values of 0.1, 0.15, 0.175, and
+indicate minimal residual deformation and strong resistance         0.2 PUDA were -13.41, -5.97, -5.68, and -0.72 µm, respectively,
+
+8 of 15                                                             Advanced Science, 2026
+FIGURE 5 Folding and rolling stability test of OCAs. (a) Schematic of folding stability test and the displacement change of the OCA after folding.          21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+(b) Micro-vision images of 0.1, 0.15, 0.175, and 0.2 PUDA, and 0.175 HDDA before and after 100 k folds. (c) A graph illustrating the displacement change
+of each OCA during 100 k folds. (d) Folding durability test on a foldable module with 0.175 PUDA, and micro-vision images before and after 10 k folds.
+(e) Displacement at the top, middle, and bottom positions during 10 k folds. (f) Schematic of the rolling stability test. (g) Micro-vision images of 0.175
+PUDA before and after 10 k rolls.
+
+whereas the 0.175 HDDA sample showed a significantly larger        where  is the elastic modulus,  is the radius of curvature, and
+displacement of -25.07 µm (Figure 5c and Table S9).                 is the distance from the neutral plane [67]. Furthermore, the
+                                                                   bending strain applied to the outer and inner surfaces of the OCA
+During folding, the OCA layer experiences simultaneous tensile     can be expressed as
+and compressive stresses on the outer and inner surfaces, respec-
+tively, resulting in shear deformation within the adhesive layer                                        = 
+[67]. The bending stress applied during folding is expressed as
+                                                                   Under the present folding conditions, each OCA layer undergoes
+                                  = ()                             tensile and compressive strains of approximately ±2.5% on the
+                                                                   outer and inner surfaces, respectively [67]. As the PUDA content
+
+Advanced Science, 2026                                             9 of 15
+increased from 0.1 to 0.175 mol%, the elastic modulus increased       and buffers the stress transferred to rigid components [67].         21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+accordingly, leading to a gradual increase in the maximum             Accordingly, maintaining a sufficiently low modulus in OCA is
+bending stress during folding. As summarized in Table S10, the        essential to ensure mechanical stability under repeated folding.
+maximum bending stress max values increased from 2.00 kPa
+(0.1 PUDA) to 2.40 kPa (0.15 PUDA) and further to 3.23 kPa            The viscoelastic properties of the PUDA OCAs were investigated
+(0.175 PUDA). However, at 0.2 PUDA, max slightly decreased to         using a rheometer under frequency sweep conditions (Figure
+2.60 kPa, reflecting the lower E due to incomplete crosslinking       S8). The storage modulus of the OCAs increased with increasing
+[32, 68]. Notably, the differences in max among the PUDA              PUDA crosslinker content, reflecting the enhanced network
+samples remain relatively small, and even at 0.175 PUDA, the          cohesion induced by higher crosslinking density. Nevertheless,
+bending stress is still remarkably low. In contrast, the 0.175 HDDA   all PUDA samples maintained a sufficiently low storage modulus
+exhibited a significantly higher max value of 11.40 kPa, which is     across the measured frequency range. For flexible and foldable
+approximately four to five times greater than those of the PUDA       display applications, the storage modulus of OCAs should be
+OCAs.                                                                 lower than 0.3 MPa to effectively relax applied stress by tuning
+                                                                      the neutral plane during bending [29, 67]. As shown in Figure
+Such low bending stress effectively reduces the mechanical load       S18, the PUDA OCAs are well positioned within the PSA region,
+imposed on the adhesive layer during folding, thereby alleviating     satisfying the Dahlquist criterion (G < 0.1 MPa at 1 Hz) [72].
+stress concentration and suppressing mechanical damage [69].          Notably, the storage modulus of all PUDA crosslinked OCAs
+In particular, under repetitive folding conditions, localized stress  was even lower than 0.1 MPa, indicating their strong capability
+accumulation is a primary driving force for crack initiation,         to accommodate deformation and effectively relieve mechanical
+interfacial delamination, and residual deformation [4]. The low       stress under folding conditions.
+bending stress of PUDA OCAs helps mitigate these failure
+pathways and contributes to improved long-term reliability [70].      Low-modulus OCAs facilitate polymer chain flow and rear-
+                                                                      rangement, enabling efficient dissipation of applied stress during
+Furthermore, foldable module tests were conducted using an            mechanical deformation [66, 71]. Therefore, high stress relaxation
+actual flexible display module (Figure 5d and Movie S3). The opti-    capability is a critical requirement for flexible display adhesives
+mized 0.175 PUDA was laminated onto the module and subjected          to prevent stress accumulation under repeated folding [13].
+to 10 k folding cycles. The displacement values measured after        The stress relaxation behavior was evaluated by monitoring the
+10 k cycles were -3.5 µm (top), -2.6 µm (middle), and -1.6 µm         time-dependent decay of normalized stress under a constant
+(bottom), demonstrating good dimensional stability across the         strain of 20% (Figure S19). As the PUDA content increased, the
+folded region (Figure 5e and Table S11). Also, as shown in Figure     stress relaxation ratios gradually decreased from 58.5% to 54.2%,
+S15, the micro-vision images acquired before and after the folding    41.9%, and 37.3%, respectively. (Table S12) This trend indicates
+tests showed no noticeable deformation or visible defects, such       that increasing crosslink density suppresses stress relaxation by
+as cracks, wrinkles, or delamination, confirming that the surface     restricting chain rearrangement and segmental motion, while still
+condition was well maintained during repeated folding.                maintaining a mechanically stable network suitable for flexible
+                                                                      display applications.
+In addition, rolling stability tests were performed under continu-
+ous rolling deformation with a curvature radius of 20 mm (20R)        3 Conclusion
+at a rolling speed of 5 s per cycle for up to 10 000 cycles to
+evaluate the mechanical durability of the OCA (Figure 5f and          In summary, we synthesized a polyurethane diacrylate (PUDA)
+Movie S4). The rolling test specimen was prepared by laminating       crosslinker derived from biomass-based isosorbide and H6XDI
+the OCA between two polyurethane (PU) films (Figure S16). After       to develop optically clear adhesives (OCAs) with high opti-
+10 k rolling cycles, 0.175 PUDA maintained their original surface     cal transparency and superior mechanical recovery. Among
+condition without observable defects, further confirming their        the investigated compositions, the OCA containing 0.175 mol%
+mechanical robustness and recovery capability under practical         PUDA exhibited the most optimized performance. It achieved
+operating conditions (Figure 5g and Figure S17). Collectively,        exceptional optical transmittance of 99.8% in the visible region
+the low bending stress, suppressed permanent deformation,             and maintained 98.6% even under 50% tensile strain. The opti-
+and stable surface condition demonstrate that PUDA OCAs are           mized formulation also showed stable adhesion comparable
+mechanically more suitable than HDDA OCA for foldable and             to commercial adhesives with clean, residue-free debonding
+rollable display applications.                                        after 80C heating. Mechanically, 0.175 PUDA exhibited an
+                                                                      extremely low modulus (G'0.029 MPa at 1 Hz), leading to
+2.5 Rheological Properties and Stress Relaxation                      a significantly reduced maximum bending stress (max) dur-
+Properties of OCAs                                                    ing deformation. It also demonstrated a high creep recovery
+                                                                      ratio (88.3%), indicating minimal residual deformation after
+Flexible and foldable displays consist of multiple functional         mechanical loading. In addition, PUDA showed rapid recov-
+layers that must deform together during bending [4]. Because          ery behavior of approximately 2.5 s, and no defects were
+each layer possesses a different stiffness, mechanical mismatch       observed during folding and rolling stability tests. Overall,
+can generate localized stress concentrations, which may lead to       PUDA incorporated OCAs maintain high transparency and fast
+cracking or delamination within the device stack [71]. Optically      recovery under folding and tensile stress conditions, demon-
+clear adhesives play a critical role in mitigating these issues       strating potential for flexible and stretchable electronic applica-
+by providing a soft interlayer that accommodates deformation          tions.
+
+10 of 15                                                              Advanced Science, 2026
+4 Experimental Section                                                 monomer), and phenylbis(2,4,6-trimethyl-benzoyl) phosphine             21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                                                                       oxide (0.1 mol%) was introduced as a photoinitiator. The mixtures
+4.1 Materials                                                          were stirred thoroughly using a vortex mixer until homogeneous.
+                                                                       The resulting syrups were coated onto PET substrates using a
+Isosorbide-polyol was supplied by PUCORE corporation (Korea)           knife coater to obtain wet films corresponding to a final thickness
+and 1,3-bis(isocyanatomethyl)cyclohexane (H6XDI) was pur-              of 100 ± 10 µm after curing. A release film was laminated on top of
+chased from TCI Chemicals. 2-Carboxyethyl acrylate (CEA)               the coated layer, and the samples were cured under UV irradiation
+and 2-ethylhexyl acrylate (EHA) were obtained from Sigma-              (365 nm) using a conveyor-type curing system. After curing, the
+Aldrich and used as acrylate monomers. Hydrophobic fumed               OCA films were stored in the dark at room temperature prior to
+silica (Aerosil R974) was purchased from Evonik Industries. 1,6-       testing.
+Hexanediol diacrylate (HDDA) was purchased from Alfa Aesar
+and used as a reference crosslinker. Phenylbis(2,4,6-trimethyl-        4.5 Gel Fraction of OCAs
+benzoyl) phosphine oxide (photoinitiator) and dibutyltin dilau-
+rate (DBTDL, catalyst) were purchased from TCI Chemicals. Poly         To determine the gel fraction, cured OCA films were cut into
+(ethylene terephthalate) (PET) film (SH82) and releasing film          small pieces (10 × 10 mm), dried at 40C under vacuum, and
+(SG31) were purchased from SKC. All reagents were used without         weighed to obtain the initial mass (W0). The samples were then
+further purification. As a reference, the commercial PSA (Avery        immersed in excess toluene at room temperature for 24 h to
+Dennison, USA) was used.                                               extract the soluble fraction. After extraction, the samples were
+                                                                       removed, gently blotted to remove surface solvent, and dried
+4.2 Synthesis of Polyurethane Diacrylate (PUDA)                        again in a vacuum oven at 40C for 24 h until a constant mass
+                                                                       (Wg) was reached. The gel fraction was calculated as:
+PUDA crosslinkers were synthesized via a two-step urethane
+and acrylation reaction. In a dried two-neck round-bottom flask        Gel f raction (%) =  × 100
+equipped with a mechanical stirrer and nitrogen inlet, H6XDI                                                 0
+(5.8 g, 30 mmol) and isosorbide-polyol (50.0 g, 25 mmol) were
+charged in EHA (45 ml) under a nitrogen atmosphere and reacted         4.6 Mechanical Properties
+at 60C for 2 h. DBTDL (79 mg) was added as a catalyst, and the
+mixture was stirred until the NCO peak of H6XDI (2264 cm-1)            Tensile properties of the OCA films were measured using a
+in the FT-IR spectrum disappeared, confirming the formation of         UTM (WL2100C, Withlab, South Korea) at room temperature.
+urethane linkages. After completion of the urethane reaction, 2-       Rectangular specimens were prepared with dimensions suitable
+hydroxyethyl methacrylate (1.2 g, 9 mmol, 0.3 equiv. relative to       for uniaxial tensile testing, and the crosshead speed was set to
+the initial H6XDI feed) was added as an end-capping agent to           100 mm min-1. Stress­strain curves were recorded, and Young's
+convert the remaining terminal NCO groups into methacrylate            modulus, ultimate tensile strength (UTS), elongation at break,
+functionalities. The reaction was continued for an additional 0.5      and toughness were obtained from the curves. Each condition
+h until no residual isocyanate signal was observed in the FT-          was tested at least five times to ensure reproducibility. Rheological
+IR spectrum (Figure S2), confirming complete end-capping of            properties were measured with a rheometer (Kinexus pro+,
+the terminal NCO groups. The resulting PUDA was obtained               NETZSCH, Germany).
+as a solution with a solid content of 60 wt.% in EHA and was
+used directly for OCA formulation without further purification         4.7 Thermal Properties
+or isolation. The molecular weight (Mw) of the synthesized
+PUDA was determined by gel permeation chromatography to be             DSC (Q200, TA Instrument, USA) was used to determine the
+approximately 44 000 g mol-1 (Figure S3 and Table S1).                 glass transition temperature (Tg) of the OCA films. Samples were
+                                                                       placed in platinum pans and analyzed from -80C to 80C at a
+4.3 Characterization of Synthesized PUDA                               heating rate of 10C min-1 under nitrogen. All Tg values discussed
+                                                                       in this manuscript were obtained from the 2nd heating scan and
+The chemical structures of PUDA were analyzed by FT-IR and             determined from the midpoint of the corresponding heat capacity
+1H NMR. 1H NMR spectrum of PUDA was recorded using a 400               change. Thermal stability of the cured OCAs was evaluated by
+MHz NMR spectrometer (AVANCE III HD, Bruker, USA) with                 TGA (Q400, TA Instrument, USA). The specimens were heated
+CDCl3 as the solvent. FT-IR spectra were performed on FT/IR-           from 40C to 600C at a rate of 10C min-1 under nitrogen, and
+4600 (JASCO, Japan) with attenuated total reflection mode. The         the onset and main decomposition temperatures were recorded.
+weight-average molecular weight (Mw) and molecular weight
+distribution of PUDA were determined by GPC (1200S, Agilent,           4.8 Adhesion Properties
+USA) using tetrahydrofuran (THF) as the eluent and polystyrene
+standards for calibration.                                             Peel adhesion tests were carried out to evaluate the adhesion
+                                                                       performance of the OCA films on various substrates. OCA strips
+4.4 Preparation of OCA Films                                           (25 × 200 mm) were laminated onto stainless steel (SUS304),
+                                                                       glass, PMMA, and PET substrates using a 2.5 kg hand roller,
+OCA formulations were prepared by mixing CEA and EHA in a
+4:6 molar ratio. PUDA or HDDA was then added as a crosslinker
+at various contents (0.1, 0.15, 0.175, and 0.2 mol% relative to total
+
+Advanced Science, 2026                                                 11 of 15
+passed twice at a speed of 10 mm s-1. The laminated samples were     Korea), where the OCA films were attached to a bending radius of         21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+conditioned at room temperature for 15 min before testing. 180       2 mm (2R). An in-folding mode was employed at a folding speed of
+peel tests were performed at a crosshead speed of 300 mm min-1       1 cycle s-1 for up to 100 000 folding cycles at room temperature.
+using a UTM (WL2100C, Withlab, South Korea). Peel strength           Optical micro-vision images were collected before and after the
+measurements were performed at room temperature in a 180             folding test, and displacement during folding was recorded at
+configuration with a crosshead speed of 300 mm min-1 (ASTM           1000, 5000, and 10 000 cycles, followed by measurements at every
+D3330). To assess the temperature-dependent adhesion behavior,       subsequent interval of 10 000 cycles.
+additional 180 peel tests were conducted at -20C, 0C, and
+60C using a chamber-type UTM (QM200EL, QMESYS, South                 The rolling test specimen was prepared by laminating the OCA
+Korea). The lap shear test was performed at room temperature         between two polyurethane (PU) films, where the adhesive layer
+with a crosshead speed of 1.3 mm min-1 in accordance with ASTM       was first attached onto a PU film and subsequently covered with
+D1002. Probe tack measurements were carried out using a texture      another PU film (Figure S15). The rolling durability performance
+analyzer (TXA, Yeonjin, South Korea) equipped with a flat-type       of the OCA (0.175 PUDA) was further evaluated under repeated
+stainless-steel cylindrical probe (5 mm in diameter). Following      rolling conditions. Rolling tests were conducted using a rolling
+ASTM D2979, the probe was brought into contact with the OCA          test machine (Rolly&Slidy-20, FlexiGo, South Korea) with a
+under a 100 gf load for 1 s, and both the approach and withdrawal    bending radius of 20 mm (20R) at a rolling speed of 5 s per cycle at
+were performed at a constant speed of 10 mm s-1. For all adhesion    room temperature. One cycle sequence consisted of 1000 rolling
+measurements, including 180 peel tests at room temperature and       cycles at room temperature, followed by an inspection at the same
+at varying temperatures (-20C, 0C, and 60C), peel tests on           temperature. This sequence was repeated ten times, resulting in
+different substrates, lap shear tests, and probe tack tests, each    a total of 10 000 rolling cycles. Optical micro-vision images were
+sample was tested five times (n = 5) to confirm repeatability,       collected before and after the rolling test to examine whether any
+and the results are reported as mean ± standard deviation with       defects were generated in the OCA film.
+error bars representing the standard deviation. SEM imaging
+and EDS mapping were conducted using an SU7000 electron              4.10 Stress Relaxation Properties
+microscope (Hitachi High-Technologies) operated at 10 kV to
+examine adhesive residue on SUS substrates. Residue analysis         The stress relaxation characteristics of the OCAs were examined
+of the 0.175 PUDA and 0.175 HDDA sample was performed after          using a rotational rheometer (Kinexus Pro+, NETZSCH, Ger-
+adhesion at 80C for 5 min, followed by an additional 10 min at       many). Disk-shaped samples with a diameter of 20 mm and a
+room temperature before detachment.                                  thickness of 100 µm were prepared following the same procedure
+                                                                     used for rheological measurements. Stress relaxation tests were
+4.9 Recovery Properties                                              performed by imposing a constant strain of 20% and monitoring
+                                                                     the temporal decay of stress over a duration of 10 min at room
+The recovery behavior of the OCAs was systematically inves-          temperature.
+tigated through cyclic mechanical testing. Repetitive tensile
+loading­unloading experiments were carried out using a uni-          4.11 Optical Properties
+versal testing machine (UTM, DAO-u1, DAO Technology, South
+Korea) at room temperature. Rectangular OCA specimens with           The optical transmittance of the OCA films was measured using
+dimensions of 13 × 39 mm2 (W × L) were subjected to 100              a UV-Vis-NIR spectroscopy (V-750, JASCO, Japan). OCA films
+consecutive stretching­recovery cycles at a crosshead speed of       with a thickness of 100 µm were laminated onto bare glass
+500 mm min-1 under a fixed strain of 20%. All final measurements     (Slide Glass, Marienfeld, Germany) and evaluated at strains
+were based on five repetitions (n = 5), and the reported values      of 0%, 20%, and 50% using a custom stretching setup. The
+are presented as mean ± standard deviation to ensure reliability.    transmittance at 800 nm was used as a reference, and the spectra
+The energy dissipation during cyclic deformation was quantified      were recorded in the wavelength range of 370­800 nm to assess
+by calculating the hysteresis loss from the enclosed area of the     changes in optical clarity under deformation. In addition, the
+stress­strain curve obtained in the 100th cycle.                     haze and yellowness index (YI) of the OCA films were measured
+                                                                     using a spectrophotometer (CM-3700A, Konica Minolta, Japan).
+Following the completion of cyclic testing, the strain recovery      For haze and YI measurements, OCA films were laminated
+kinetics of the OCAs were evaluated. After releasing the applied     onto MATSUNAMI MICRO SLIDE GLASS (S9213, Japan). Each
+load, the length of each sample at 0% nominal strain was continu-    sample was independently measured five times (n = 5), and all
+ously monitored until the material returned to its original length,  reported values are presented as mean ± standard deviation.
+defined as the point at which no further dimensional change
+was observed. To enable quantitative comparison, the measured        Author Contributions
+strain values were normalized using Min-Max normalization (=         Dong Woo Kim: formal analysis. Dahyun Jin: formal analysis. Jinhoon
+( ­ min) (max ­ min)-1). The normalized recovery curves were         Lee: formal analysis. Dong Woog Lee: conceptualization, funding acqui-
+subsequently fitted with a single-exponential decay function, and    sition, writing ­ review and editing, supervision, methodology, project
+the corresponding time constants () were extracted.                  administration. Ki Sung Jung: formal analysis, resources. Yeonseo
+                                                                     Kim: formal analysis. Geonwoo Lee: formal analysis. Myung-Jin Baek:
+The folding recovery performance of the OCAs was further
+evaluated under repeated bending conditions. Folding tests were
+conducted using a folding machine (Foldy-200, FlexiGo, South
+
+12 of 15                                                             Advanced Science, 2026
+conceptualization, methodology, investigation, project administration,       12. F. E. Golling, R. Pires, A. Hecking, et al., "Polyurethanes for Coatings  21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+visualization, writing ­ review and editing. Yoonji Choi: methodology,       and Adhesives--Chemistry and Applications," Polymer International 68
+investigation, data curation, formal analysis, writing ­ original draft,     (2019): 848­855, https://doi.org/10.1002/pi.5665.
+visualization.
+                                                                             13. H. Xia, M. Song, Z. Zhang, and M. Richardson, "Microphase Separa-
+Acknowledgements                                                             tion, Stress Relaxation, and Creep Behavior of Polyurethane Nanocom-
+                                                                             posites," Journal of Applied Polymer Science 103 (2007): 2992­3002,
+This research was supported by the Basic Science Research Program (RS-       https://doi.org/10.1002/app.25462 .
+2023-NR077057) and Nano & Material Technology Development Program
+(RS-2025-25441844) through the National Research Foundation of Korea         14. J. M. Schoenung, E. A. Olivetti, and E. Guest, "Sustainable Develop-
+(NRF) funded by the Ministry of Science and ICT. This study contains the     ment of Materials: Broadening Stakeholder Engagement," MRS Bulletin
+results obtained by using the equipment of the UNIST Office of Research      48 (2023): 362­367, https://doi.org/10.1557/s43577-023-00521-8.
+Facilities and Training (ResFacT).
+                                                                             15. L. A. Heinrich, "Future Opportunities for Bio-Based Adhesives--
+Conflicts of Interest                                                        Advantages Beyond Renewability," Green Chemistry 21 (2019): 1866­1888,
+                                                                             https://doi.org/10.1039/C8GC03746A .
+The authors declare no conflicts of interest.
+                                                                             16. Y. Zhu, C. Romain, and C. K. Williams, "Sustainable Polymers From
+Data Availability Statement                                                  Renewable Resources," Nature 540 (2016): 354­362, https://doi.org/10.
+                                                                             1038/nature21001 .
+The data that support the findings of this study are available in the
+supplementary material of this article.                                      17. M. D. Bartlett and A. J. Crosby, "High Capacity, Easy Release Adhesives
+                                                                             From Renewable Materials," Advanced Materials 26 (2014): 3405­3409,
+References                                                                   https://doi.org/10.1002/adma.201305593 .
+
+1. J. H. Koo, D. C. Kim, H. J. Shim, T.-H. Kim, and D.-H. Kim, "Flexible     18. Z. Wang, M. S. Ganewatta, and C. Tang, "Sustainable Polymers From
+and Stretchable Smart Display: Materials, Fabrication, Device Design, and    Biomass: Bridging Chemistry With Materials and Processing," Progress in
+System Integration," Advanced Functional Materials 28 (2018): 1801834,       Polymer Science 101 (2020): 101197, https://doi.org/10.1016/j.progpolymsci.
+https://doi.org/10.1002/adfm.201801834 .                                     2019.101197 .
+
+2. J. Park, S. Heo, K. Park, et al., "Research on Flexible Display at Ulsan  19. J. Lv, Q. Wang, and H. Xie, "Isosorbide-Based Acrylic Pressure-
+National Institute of Science and Technology," NPJ Flexible Electronics 1    Sensitive Adhesives Through UV-Cured Crosslinking With a Balance
+(2017): 9, https://doi.org/10.1038/s41528-017-0006-9.                        Between Adhesion and Cohesion," Polymers 16 (2024): 3178, https://doi.
+                                                                             org/10.3390/polym16223178 .
+3. Y. Du, Y. Li, C. Li, R. Xu, L. Meng, and Y. Bai, "Optical Adhesives and
+Screen Sealants for Foldable Displays: Analysis, Progress and Trends,"       20. O. Gómez-de-Miranda-Jiménez-de-Aberasturi, A. Centeno-Pedrazo,
+ACS Applied Materials & Interfaces 17 (2025): 5578­5594, https://doi.org/    S. Prieto Fernández, et al., "The future of isosorbide as a fundamental
+10.1021/acsami.4c11678 .                                                     constituent for polycarbonates and polyurethanes," Green Chemistry
+                                                                             Letters and Reviews 14 (2021): 534­544, https://doi.org/10.1080/17518253.
+4. Y. Park, J. Kim, D. Kim, S. Lee, D. Hwang, and M. S. Kwon, "Towards       2021.1965223.
+the Optimal Design of Optically Clear Adhesives for Flexible Display,"
+Soft Science 4 (2024): 28.                                                   21. J. H. Park, M. S. Koo, S. H. Cho, and M.-Y. Lyu, "Comparison of
+                                                                             Thermal and Optical Properties and Flowability of Fossil-Based and
+5. Y. Du, Y. Bai, W. Cao, L. Meng, and Y. Bai, "Research Progress on         Bio-Based Polycarbonate," Macromolecular Research 25 (2017): 1135­1144,
+Displays and Optical Adhesives for Flexible 3C Products," European           https://doi.org/10.1007/s13233-017-5153-2.
+Polymer Journal 212 (2024): 113053, https://doi.org/10.1016/j.eurpolymj.
+2024.113053 .                                                                22. Z. Li, H. Wang, H. Yan, et al., "Design and Synthesis of Optical
+                                                                             Biobased Polycarbonates With High Refractive Index and Low Birefrin-
+6. Q. Yizhou, Y. Zhiyong, C. Sung-Chun, et al., "Power Consumption of        gence," Industrial & Engineering Chemistry Research 63 (2024): 3975­3985,
+Light Engines for Emerging Augmented Reality Glasses: Perspectives and       https://doi.org/10.1021/acs.iecr.3c04461 .
+Challenges," Advanced Photonics 7 (2025): 034001.
+                                                                             23. S.-W. Lee, J.-H. Back, G.-S. Shim, S.-W. Jang, and H.-J. Kim, "Adhe-
+7. E.-L. Hsiang, Z. Yang, Q. Yang, Y.-F. Lan, and S.-T. Wu, "Prospects and   sion Performance and Optical Properties of Optically Pressure-Sensitive
+Challenges of Mini-LED, OLED, and Micro-LED Displays," Journal of            Adhesives Including an Isosorbide," International Journal of Adhesion
+the Society for Information Display 29 (2021): 446­465, https://doi.org/10.  and Adhesives 98 (2020): 102503, https://doi.org/10.1016/j.ijadhadh.2019.
+1002/jsid.1058 .                                                             102503 .
+
+8. D. Poitras, C.-C. Kuo, and C. Py, "Design of High-Contrast OLEDs          24. S. Nozaki, S. Masuda, K. Kamitani, et al., "Superior Properties
+With Microcavity Effect," Optics Express 16 (2008): 8003, https://doi.org/   of Polyurethane Elastomers Synthesized With Aliphatic Diisocyanate
+10.1364/OE.16.008003 .                                                       Bearing a Symmetric Structure," Macromolecules 50 (2017): 1008­1015,
+                                                                             https://doi.org/10.1021/acs.macromol.6b02044 .
+9. T.-H. Lee, J.-S. Kim, J.-H. Lee, and H.-J. Kim, "Pressure-Sensitive
+Adhesives for Flexible Display Applications," in Hybrid Nanomaterials--      25. X. Wang, H. Zhang, B. Yang, L. Wang, and H. Sun, "A Colorless,
+Flexible Electronics Materials, eds. R. Vargas-Bernal, P. He, and S. Zhang   Transparent and Self-Healing Polyurethane Elastomer Modulated by
+(IntechOpen, 2019), 67­82, https://doi.org/10.5772/intechopen.90619.         Dynamic Disulfide and Hydrogen Bonds," New Journal of Chemistry 44
+                                                                             (2020): 5746­5754, https://doi.org/10.1039/C9NJ06457E.
+10. C. J. Campbell, J. Clapper, R. E. Behling, et al., "P-198: Optically
+Clear Adhesives Enabling Foldable and Flexible OLED Displays," SID           26. X. Zhang, M. Wang, H. Yang, Z. Ding, Y. Li, and B. Wang,
+Symposium Digest of Technical Papers 48 (2017): 2009­2011, https://doi.      "Mechanically and Chemically Recyclable Polyurethane-Based Optically
+org/10.1002/sdtp.12071 .                                                     Clear Adhesive With On-Demand Adhesion/Deadhesion," Science China
+                                                                             Materials 69 (2026): 1634­1646, https://doi.org/10.1007/s40843-025-3777-
+11. Y. Deng, J. Li, Z. He, J. Hong, and J. Bao, "Urethane Acrylate-Based     0.
+Photosensitive Resin for Three-Dimensional Printing of Stereolitho-
+graphic Elastomer," Journal of Applied Polymer Science 137 (2020): 49294,    27. I. Son, D. Lee, J. Park, W. S. Kim, and K. W. Lee, "A Double-Layered
+https://doi.org/10.1002/app.49294.                                           Optically Clear Adhesive With Enhanced Resistance to Waviness and
+                                                                             Impact, Designed for Use in High-End Mobile Display," International
+                                                                             Journal of Adhesion and Adhesives 137 (2025): 103897, https://doi.org/10.
+                                                                             1016/j.ijadhadh.2024.103897 .
+
+Advanced Science, 2026                                                       13 of 15
+28. G. Wang, Z. Zhou, M. Chen, J. Wang, and Y. Yu, "UV-Curable               Mechanical Properties, Lap Shear Strength, and Thermal Stability," Poly-      21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+Polyurethane Acrylate Pressure-Sensitive Adhesives With High Optical         mer Composites 43 (2022): 1637­1655, https://doi.org/10.1002/pc.26485.
+Clarity for Full Lamination of TFT-LCD," ACS Applied Polymer Materials
+5 (2023): 2051­2061, https://doi.org/10.1021/acsapm.2c02092.                 44. J. H. Lee, M. H. Myung, M. J. Baek, H.-S. Kim, and D. W. Lee,
+                                                                             "Effects of Monomer Functionality on Physical Properties of 2-ethylhexyl
+29. W. Jo, K. Jeong, Y.-S. Park, J.-I. Lee, S. Gap Im, and T.-S. Kim,        Acrylate Based Stretchable Pressure Sensitive Adhesives," Polymer Testing
+"Thermally Stable and Soft Pressure-Sensitive Adhesive for Foldable          76 (2019): 305­311, https://doi.org/10.1016/j.polymertesting.2019.03.033.
+Electronics," Chemical Engineering Journal 452 (2023): 139050, https://
+doi.org/10.1016/j.cej.2022.139050 .                                          45. R. P. Ingale, R. N. Jagtap, and R. V. Adivarekar, "Effect of Molecular
+                                                                             Weight on Performance Properties of Pressure-Sensitive Adhesive of Poly
+30. P. McCluskey, F. Lilie, O. Beysser, and A. Gallo, "Low Temperature       (2-ethylhexyl acrylate) Synthesized by RAFT-Mediated Miniemulsion
+Delamination of Plastic Encapsulated Microcircuits," Microelectronics        Polymerization," The Journal of Adhesion 92 (2016): 236­256, https://doi.
+Reliability 38 (1998): 1829­1834, https://doi.org/10.1016/S0026-2714(98)     org/10.1080/00218464.2015.1022649.
+00183-8.
+                                                                             46. D. Kim, Y. Park, and M. S. Kwon, "Debonding-on-Demand Adhesives
+31. W. C. Seok, J. H. Park, and H. J. Song, "Effect of Silane Acrylate on    for Recycling and Reusing of Electronic Devices," Materials Horizons 12
+the Surface Properties, Adhesive Performance, and Rheological Behavior       (2025): 4934­4939, https://doi.org/10.1039/D5MH00468C.
+of Acrylic Pressure Sensitive Adhesives for Flexible Displays," Journal of
+Industrial and Engineering Chemistry 111 (2022): 98­110, https://doi.org/    47. D. Kim, H. Kim, W. Jeon, et al., "Ultraviolet Light Debondable
+10.1016/j.jiec.2022.03.040.                                                  Optically Clear Adhesives for Flexible Displays Through Efficient Visible-
+                                                                             Light Curing," Advanced Materials 36 (2024): 2309891, https://doi.org/10.
+32. A. Zhang, Z. Ha, Y. Xia, et al., "Synergistic Improvement on Both the    1002/adma.202309891 .
+Oil-Resistance and Heat-Resistance Performance of a Single-Component
+Acrylic Pressure-Sensitive Adhesive," Progress in Organic Coatings 172       48. X. Zhang, J. He, L. Yue, Y. Bai, and H. Liu, "Heat Resistance of Acrylic
+(2022): 107096, https://doi.org/10.1016/j.porgcoat.2022.107096.              Pressure-Sensitive Adhesives Based on Commercial Curing Agents and
+                                                                             UV/Heat Curing Systems," Journal of Applied Polymer Science 136 (2019):
+33. M. Zhu, Z. Cao, H. Zhou, et al., "Preparation of Environmentally         47310, https://doi.org/10.1002/app.47310.
+Friendly Acrylic Pressure-Sensitive Adhesives by Bulk Photopolymeriza-
+tion and Their Performance," RSC Advances 10 (2020): 10277­10284.            49. Y. Kwon, S. Lee, J. Kim, et al., "Ultraviolet Light Blocking Optically
+                                                                             Clear Adhesives for Foldable Displays via Highly Efficient Visible-Light
+34. D. Lim, M.-J. Baek, H.-S. Kim, C. Baig, and D. W. Lee, "Carboxyethyl     Curing," Nature Communications 15 (2024): 2829, https://doi.org/10.1038/
+Acrylate Incorporated Optically Clear Adhesives With Outstanding             s41467- 024- 47104- y.
+Adhesion Strength and Immediate Strain Recoverability for Stretchable
+Electronics," Chemical Engineering Journal 437 (2022): 135390, https://doi.  50. A. Carroll and G. Heiser, Proceedings of the 2010 USENIX Conference
+org/10.1016/j.cej.2022.135390.                                               on USENIX Annual Technical Conference (USENIX Association, 2010).
+
+35. L. Voorhaar, M. M. Diaz, F. Leroux, et al., "Supramolecular Thermo-      51. M. Dong, Y.-S. K. Choi, and L. Zhong, Proceedings of the 46th Annual
+plastics and Thermoplastic Elastomer Materials With Self-Healing Ability     Design Automation Conference, (Association for Computing Machinery,
+Based on Oligomeric Charged Triblock Copolymers," NPG Asia Materials         2009).
+9 (2017): 385, https://doi.org/10.1038/am.2017.63.
+                                                                             52. G. Giubertoni, M. Hilbers, F. Caporaletti, et al., "Hydrogen Bonds
+36. J.-H. Lee, G.-S. Shim, J.-W. Park, H.-J. Kim, and Y. Kim, "Adhe-         Under Stress: Strain-Induced Structural Changes in Polyurethane
+sion Performance and Recovery of Acrylic Pressure-Sensitive Adhesives        Revealed by Rheological Two-Dimensional Infrared Spectroscopy," The
+Thermally Crosslinked With Styrene­Isoprene­Styrene Elastomer Blends         Journal of Physical Chemistry Letters 14 (2023): 940­946, https://doi.org/
+for Flexible Display Applications," Journal of Industrial and Engineering    10.1021/acs.jpclett.2c03109 .
+Chemistry 78 (2019): 461­467, https://doi.org/10.1016/j.jiec.2019.05.019.
+                                                                             53. J. H. Lee, J. Park, M. H. Myung, M.-J. Baek, H.-S. Kim, and D.
+37. Y. Kashihara, S. Okada, Y. Urahama, et al., "Effects of the Degree of    W. Lee, "Stretchable and Recoverable Acrylate-Based Pressure Sensitive
+Crosslinking and Test Rate on the Tensile Properties of a Crosslinked        Adhesives With High Adhesion Performance, Optical Clarity, and Metal
+Polyacrylic Pressure-Sensitive Adhesive and Vulcanized Rubber," Journal      Corrosion Resistance," Chemical Engineering Journal 406 (2021): 126800,
+of Applied Polymer Science 136 (2019): 47272, https://doi.org/10.1002/app.   https://doi.org/10.1016/j.cej.2020.126800 .
+47272 .
+                                                                             54. J. Min and J. Qu, "Optically Clear Pressure-Sensitive Adhesive
+38. A. Kowalski and Z. Czech, "The Effects of Substrate Surface Properties   With Flexible Crosslinking Agent for High Recovery Efficiency, Low
+on Tack Performance of Acrylic Pressure-Sensitive Adhesives (PSAs),"         Energy Storage Modulus, and Excellent Folding Resistance," Polymers for
+International Journal of Adhesion and Adhesives 60 (2015): 9­15.             Advanced Technologies 35 (2024): 6574, https://doi.org/10.1002/pat.6574.
+
+39. C. Zhang, J. Hu, and Y. Wu, "Theoretical Studies on Hydrogen-            55. S.-S. Baek, S.-J. Jang, and S.-H. Hwang, "Preparation and Adhesion
+Bonding Interactions in Hard Segments of Shape Memory Polyurethane-          Performance of Transparent Acrylic Pressure Sensitive Adhesives: Effects
+III: Isophorone Diisocyanate," Journal of Molecular Structure 1072 (2014):   of Substituent Structure of Acrylate Monomer," International Journal
+13­19, https://doi.org/10.1016/j.molstruc.2014.04.012.                       of Adhesion and Adhesives 64 (2016): 72­77, https://doi.org/10.1016/j.
+                                                                             ijadhadh.2015.10.005 .
+40. F.-S. Yen, L.-L. Lin, and J.-L. Hong, "Hydrogen-Bond Interactions
+Between Urethane-Urethane and Urethane-Ester Linkages in a Liquid            56. K. Takada, Y. Mae, and T. Kaneko, "Fluorinated and Bio-Based
+Crystalline Poly(ester-urethane)," Macromolecules 32 (1999): 3068­3079,      Polyamides With High Transparencies and Low Yellowness Index,"
+https://doi.org/10.1021/ma9804186 .                                          Polymers 10 (2018): 1311, https://doi.org/10.3390/polym10121311.
+
+41. J. S. Doyle and R. C. O'Quinn, Adhesives: Types, Mechanics and           57. W. Xiang and J. Xia, "Synthesis of Novel (Meth)acrylates With
+Applications (Nova Science Publishers, 2011), 47­71.                         Variable Hydrogen Bond Interaction and Their Application in a Clear
+                                                                             Viscoelastic Film," ACS Omega 9 (2024): 13644­13654, https://doi.org/10.
+42. H. Park, D. Lim, G. Lee, M.-J. Baek, and D. W. Lee, "Tailoring Pressure  1021/acsomega.3c07566 .
+Sensitive Adhesives With H6XDI-PEG Diacrylate for Strong Adhesive
+Strength and Rapid Strain Recovery," Advanced Functional Materials 33        58. X. Liu, J. Zhao, and X. Lin, "Construction of Strong Non-Covalent
+(2023): 2305750, https://doi.org/10.1002/adfm.202305750.                     Interactions for Preparation of Flame-Retarded Acrylic Pressure-Sensitive
+                                                                             Adhesives With Improved Shear and Peel Strengths," Journal of Applied
+43. M. Fallahi, O. Moini Jazani, and P. Molla-Abbasi, "Design and Charac-    Polymer Science 139 (2022): 52122, https://doi.org/10.1002/app.52122.
+terization of High-Performance Epoxy Adhesive With Block Copolymer
+and Alumina Nanoparticles in Aluminum-Aluminum Bonded Joints:                59. J.-H. Lee, J.-S. Kim, H.-J. Kim, et al., "Free Volume Effect via Various
+                                                                             Chemical Structured Monomers on Adhesion Property and Relative
+
+14 of 15                                                                     Advanced Science, 2026
+Permittivity in Acrylic Pressure Sensitive Adhesives," Polymers 12 (2020):     Supporting File 3: advs77348-sup-0003-MovieS2.mp4.            21983844, 0, Downloaded from https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77348, Wiley Online Library on [24/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2633, https://doi.org/10.3390/polym12112633.                                   Supporting File 4: advs77348-sup-0004-MovieS3.mp4.
+                                                                               Supporting File 5: advs77348-sup-0005-MovieS4.mp4.
+60. C.-F. J. Kuo, H.-T. Yen, W.-L. Lan, G. R. S. Dewangga, J.-B. Chen, and
+S.-H. Chang, "A Study of Optimization Parameters for the Development
+of Ultraviolet Cured Low-Acid Optically Clear Adhesive," Textile Research
+Journal 89 (2019): 3987­3996, https://doi.org/10.1177/0040517519826934.
+
+61. R. Zong, X. Hu, S. Liu, A. Zhong, and B. Shentu, "Preparation and
+Properties of Dual Cross-Linking Acrylic Pressure-Sensitive Adhesives for
+Flexible Displays," ACS Applied Polymer Materials 7 (2025): 5025­5033,
+https://doi.org/10.1021/acsapm.5c00269 .
+
+62. C.-K. Lin, J.-F. Kuo, and C.-Y. Chen, "Synthesis and Mesomor-
+phism of Thermotropic Liquid Crystalline Polyurethanes Based on
+Meta-Diisocyanates With 4,4-bis(-hydroxyalkoxy) Biphenyls," Euro-
+pean Polymer Journal 36 (2000): 1183­1193, https://doi.org/10.1016/S0014-
+3057(99)00164-0.
+
+63. S.-W. Chen, P. Lu, Z.-Y. Zhao, C. Deng, and Y.-Z. Wang, "Recyclable
+Strong and Tough Polyamide Adhesives via Noncovalent Interactions
+Combined With Energy-Dissipating Soft Segments," Chemical Engineer-
+ing Journal 446 (2022): 137304, https://doi.org/10.1016/j.cej.2022.137304.
+
+64. L. Kwisnek, M. Kaushik, C. E. Hoyle, and S. Nazarenko, "Free Volume,
+Transport, and Physical Properties of n-Alkyl Derivatized Thiol-Ene
+Networks: Chain Length Effect," Macromolecules 43 (2010): 3859­3867,
+https://doi.org/10.1021/ma1001113 .
+
+65. M.-H. Lee, S. Jang, B.-H. Hwang, T. Kwak, J.-J. Kim, and S. Yoon, "53-
+1: The Foldable Display Architecture Technique Depending on the Wide
+Temperature Range and the Folding Curvature," SID Symposium Digest
+of Technical Papers 53 (2022): 692­695, https://doi.org/10.1002/sdtp.15583.
+
+66. W. C. Seok, J. T. Leem, and H. J. Song, "Acrylic Pressure-Sensitive
+Adhesives Based on Ethylene Glycol Acrylate for Flexible Display Appli-
+cation: Highly Elastic and Recoverable Properties," Polymer Testing 108
+(2022): 107491, https://doi.org/10.1016/j.polymertesting.2022.107491.
+
+67. M. Nishimura, K. Takebayashi, M. Hishinuma, H. Yamaguchi, and A.
+Murayama, "A 5.5-Inch Full HD Foldable AMOLED Display Based on
+Neutral-Plane Splitting Concept," Journal of the Society for Information
+Display 27 (2019): 480­486, https://doi.org/10.1002/jsid.796.
+
+68. V. Krongauz, "Crosslink Density Dependence of Polymer Degrada-
+tion Kinetics: Photocrosslinked Acrylates," Thermochimica Acta 503-504
+(2010): 70­84, https://doi.org/10.1016/j.tca.2010.03.011.
+
+69. F. Salmon, A. Everaerts, C. Campbell, B. Pennington, B. Erdogan-
+Haug, and G. Caldwell, "64-1: Modeling the Mechanical Performance of
+a Foldable Display Panel Bonded by 3 M Optically Clear Adhesives," SID
+Symposium Digest of Technical Papers 48 (2017): 938­941, https://doi.org/
+10.1002/sdtp.11796.
+
+70. Y. Chae, G. S. Chae, Y. O. Youn, S. Woo, S. H. Shin, and J. Lee, "Optimal
+Design of Thickness and Young's Modulus of Multi-Layered Foldable
+Structure Considering Bending Stress, Neutral Plane and Delamination
+Under 2.5 mm Radius of Curvature," International Journal of Precision
+Engineering and Manufacturing 19 (2018): 1143­1154, https://doi.org/10.
+1007/s12541-018-0135-7.
+
+71. J.-H. Back, D. Baek, K.-B. Sim, et al., "Optimization of Recovery
+and Relaxation of Acrylic Pressure-Sensitive Adhesives by Using UV
+Patterning for Flexible Displays," Industrial & Engineering Chemistry
+Research 58 (2019): 4331­4340, https://doi.org/10.1021/acs.iecr.8b05208.
+
+72. E. P. Chang, "Viscoelastic Properties of Pressure-Sensitive Adhesives,"
+The Journal of Adhesion 60 (1997): 233­248, https://doi.org/10.1080/
+00218469708014421.
+
+Supporting Information                                                                                                             15 of 15
+Additional supporting information can be found online in the Supporting
+Information section.
+Supporting File 1: advs77348-sup-0001-SuppMat.docx.
+Supporting File 2: advs77348-sup-0002-MovieS1.mp4.
+
+Advanced Science, 2026
+

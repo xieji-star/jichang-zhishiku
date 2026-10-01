@@ -1,0 +1,396 @@
+Received: 22 July 2024  Revised: 22 January 2025  Accepted: 26 January 2025
+DOI: 10.1002/jsid.2032
+
+RESEARCH ARTICLE
+
+Genetic algorithm-based structural optimization of foldable
+OLED panels
+
+Qibin Feng | Chen Zheng, SID Student Member |
+Zhe Dong, SID Student Member | Yusong Guo, SID Student Member | Zi Wang |
+Guoqiang Lv
+
+Special Display and Imaging Technology            Abstract
+Innovation Center of Anhui Province,              OLEDs are playing an important role in flexible displays, smart wearable, in-
+National Engineering Laboratory of                vehicle displays, and other fields. Foldable OLED panels consist of multiple
+Special Display Technology, Hefei                 layers of film. To ensure the reliability, some key films such as the OLED
+University of Technology, Hefei, China            should be placed on the neutral plane, which is usually achieved by adjusting
+                                                  the thickness of each layer. In this paper, genetic algorithm is introduced to
+Correspondence                                    find the optimum configurations of the thickness of each layer. Based on the
+Guoqiang Lv, Special Display and                  mathematical express of the stress happening on each film when an OLED
+Imaging Technology Innovation Center of           panel is folded, the objective function can be defined and the optical thick-
+Anhui Province, National Engineering              nesses of some layers can be got. The simulation results show that with such
+Laboratory of Special Display Technology,         optical thickness configuration, the stresses on key films can effectively reduce.
+Hefei University of Technology, Hefei             The method proposed in the paper can help improve the folding performance
+230009, China.                                    of a foldable OLED panel.
+Email: guoqianglv@hfut.edu.cn
+                                                  KEYWORDS
+Funding information                               foldable OLED, genetic algorithm, neutral plane, stress, structural optimization
+Major Science and Technology Research
+Project of Anhui Province, Grant/Award
+Number: 2023z020002
+
+1 | INTRODUCTION                                                             the stress on ITO film.7 Lee et al. changed the cover
+                                                                             thickness of the foldable OLED device to make the neu-
+In recent years, flexible organic light-emitting devices                     tral plane move towards the ITO film, thus reducing the
+(OLEDs) have become more and more popular.1,2 An                             stress on the ITO film.8 Niu et al. adjusted the thickness
+OLED panel is a composite stacked structure composed of                      of the encapsulation layer in AMOLED panels to reduce
+different thin functional films.3,4 During the process of                    the stress on the barrier layer locating above the OLED
+folding, excessive stresses on some key films can lead to                    layer, while keeping the neutral plane still on the
+the functional failure, which can affect the overall reliabil-               OLED layer.9 By adjusting the ratio of the thicknesses of
+ity of the foldable panel.5 According to the neutral plane                   the top and bottom layers of the films, Li's research team
+theory, if the key films can be placed on the neutral plane,                 demonstrated that the neutral plane can happen on the
+the stress on this film can be greatly reduced, which can                    layer with the larger thickness.5
+improve the overall structural reliability.6
+                                                                                 The above researches indicate that the reliability can
+    Many scholars have shown interest in the neutral                         be improved by moving neutral plane towards the key
+plane theory and have applied it to the research on fold-                    film by adjusting the thickness of each layer in foldable
+able OLED panels. Park et al. added a layer of aluminum                      OLED panels. Currently, finite element analysis is usu-
+buffer between the ITO film and the substrate, which                         ally used to analyze the stress distribution of a foldable
+makes the neutral plane happen on ITO film to reduce                         OLED panel. Based on huge simulations, the optimal
+
+J Soc Inf Display. 2025;33:255­262.               wileyonlinelibrary.com/journal/jsid  © 2025 Society for Information Display.  255
+256                                                                                                                      FENG ET AL.
+
+configuration can be possibly found in which the neural       genetic algorithm become one inspiration to be used in
+plane happens on the key film.10,11 The current simula-       this paper.
+tion based on analysis method suffers from the problems
+of large workload, long optimization time, and difficulty         Genetic algorithm is an optimization algorithm that
+in finding the optimal solution. In this paper, genetic       simulates the principles of biological genetic evolution. It
+algorithm is introduced to find the optimum configura-        combines the principles of "survival of the fittest" and
+tions of the thickness of each layer, which can help          genetic crossover and mutation, encoding the problem to
+shorten the design time and reduce development risk.          be solved into chromosomes. By simulating the process
+                                                              of biological evolution and performing population
+2 | MODEL OF FOLDABLE OLED                                    iteration, selection, crossover, mutation, and multiple
+PANELS                                                        iterations, the algorithm selects the best chromosomes.
+                                                              The solution corresponding to the best chromosome is
+The stacked structure of a foldable OLED panel is illus-      the optimal solution to the problem.
+trated in Figure 1, which consists of cover layer, glue
+layer, passivation layer, cathode, OLED layer, ITO layer,         When employing the genetic algorithm to optimize
+three barrier layers, and PI substrate.                       the thickness of each layer in foldable OLED panels to
+                                                              make the neutral planes happening on some key films,
+    As the fact that the panel is symmetrical in structure,   the reasonable objective function should be firstly
+only half of the panel is analyzed. The schematic diagram     established.
+of the structure before and after being folded is shown in
+Figure 2, which is inward folding with the rotation angle         Lee's research team has provided a mathematical
+of 90 degrees. To realize the folding action, the rigid body  calculation model for the bending stress experienced by
+is necessary, which is also included in Figure 2. The         each film in the multilayer stacked structure during
+length of the foldable OLED panel and the length of           bending.5 The equations for the stress experienced on
+the rigid body are donated as L, LR, and R is the bending     each film when bending is expressed as follows:
+radius, respectively.
+                                                              d1 þ d2 þ Á Á Á þ dnÀ1  zn  h :  n  ¼  h  bot  þ  z  À     À  bot  Ái
+                                                                                                     E          h   top
+
+                                                                                                     n
+
+                                                                                                                            ð1aÞ
+
+3 | GENETIC-ALGORITHM-BASED
+STRUCTURAL OPTIMIZATION
+
+As the fact that there exists almost infinite number of
+thickness combinations, it is almost impossible to simu-
+late all the combinations to find an optimal solution.
+Take the combination of three layers (Cover, Glue, and
+PI) as example. Even there is only 20 thickness choice for
+each layer, the total simulation number would reach
+8000, which is almost impossible to finish and make
+
+F I G U R E 1 Stacked structure of a foldable OLED panel.     F I G U R E 2 The schematic diagram of the foldable OLED
+                                                              panel: (A) before being folded, (B) after being folded.
+FENG ET AL.                                                                                                                                   257
+
+d1  z2  d1 þ d2 :          2   ¼       h      þ         z  À     À  bot  Ái  ð1bÞ      When we need to improve the stress distribution of
+                                    E2 bot              h   top              ð1cÞ  multiple layers, we can write the stresses of these multi-
+                                                                              ð2Þ  ple layers in the objective function. We also choose the
+             0  z1  d1 :  1  ¼   E 1   h     þ   z      À     À  bot  Ái      ð3Þ  cover layer thickness (dCover), glue layer thickness (dGlue),
+                                        bot      h       top                       and PI substrate thickness (dPI) as the optimized parame-
+                                                                                   ters. OLED layer and the third barrier layer (Barrier 3)
+                bot  ¼  À  1     PPniin¼¼11EEiiÀðzzi2i  À  zi2À1Á!                 are chosen as the improvement objectives; thus, the
+                           2R                           À  ziÀ1Þ                   objective function F3 is defined as following:
+
+             top   ¼  h   À  1      PPinin¼¼11EEiiÀðzzi2i  À zi2À1Á!                         F3 ¼ F1 þ F2                                      ð8Þ
+                      R      2R                            À ziÀ1Þ                                                                             ð9Þ
+                                                                                             E OLED hbot         zOLED  À                 Ái  ð10Þ
+                                                                                      F1  ¼                   þ    h     top      À  bot
+
+                                       Xi
+                             Zi ¼ dj
+                                                                             ð4Þ            E Barrier 3 hbot     zBarrier3  À             Ái
+                                                                                                                    h        top
+                                       j¼1                                         F  2  ¼                    þ                   À  bot
+
+                               E i  ¼  1  Ei                                 ð5Þ             E OLED           ¼     EOLED                     ð11Þ
+                                          À vi2                                                                     À v2OLED
+                                                                                                                 1
+
+where Ei represents elastic modulus of each film, vi repre-                                  E Barrier3       ¼  1  EBarrier3                 ð12Þ
+sents Poisson's ratio of each film, h is the thickness of the                                                       À vB2arrier3
+overall foldable panel, zi represents the position of each
+film in the thickness direction, R is the bending radius,                              Equation (8) represents the sum of the stress values
+and top and bot represent the bending strain at the top                            on the OLED layer and the third barrier layer, as smaller
+and bottom surfaces of the panel.                                                  as better.
+
+    Based on the above calculation equations, we can cal-                          4 | RESULTS AND DISCUSSION
+culate the bending stresses on each film during the bend-
+ing process. First, with the consideration of no changing                          4.1 | Simulation parameters
+on the coating process of OLED, the thicknesses of the
+OLED layer, barrier layers, and passivation layer are not                          To verify the proposed method, the finite element simula-
+to be optimized. Therefore, the thicknesses of the cover                           tion analysis is performed. To simulate the stress distribu-
+layer (dCover), glue layer (dGlue), and PI substrate (dPI) are                     tion of a foldable OLED panel, some mechanical
+selected as the optimized parameters. After that, the                              parameters should be given. Table 1 presents elastic modu-
+objective function is established.                                                 lus and Poisson ratio of each layer in the foldable OLED
+                                                                                   panel model. Based on the products on the market, we
+    In a foldable OLED panel, the luminance and                                    choose the bending radius of 1.5 mm as an example for
+uniformity are mainly decided by OLED layer, and the                               analysis.
+layer of OLED is taken as a key functional layer. The
+reduction of the stress on OLED layer is beneficial for                                In the simulation model, the length L of the foldable
+enhancing the overall reliability of the panel. Therefore,                         OLED panel model is 67.12 mm, the length of the rigid
+we choose the OLED layer as the stress improvement                                 body LR is 64.76 mm, and the bending radius R is 1.5 mm.
+objective, and thus the objective function F is defined as                         The initial thicknesses of each layer are given in Table 2.
+following:
+
+             F  ¼         h         þ  zOLED  À            À      Ái         ð6Þ
+                   EOLED bot             h     top            bot
+
+                          E OLED    ¼  1  EOLED                              ð7Þ   4.2 | Single-objective optimization and
+                                          À vO2 LED                                simulations
+
+    Equation (6) represents the stress value on OLED layer,                        Based on Equation (6), the stress on OLED layer is set as
+as smaller as better. Based on this objective function, the                        the optimized objective. The optimized thickness range
+optimal combination of the thickness of the cover layer,                           of cover layer, glue layer, and PI substrate are shown in
+glue layer, and PI substrate can be achieved.                                      Table 3.
+258                                                           FENG ET AL.
+
+T A B L E 1 Mechanical parameters of each stacked layer in a
+foldable OLED panel.
+
+Layer        E (GPa)                                    
+
+Cover        8.6                                        0.29
+
+Glue         3.2                                        0.45
+
+Passivation  99.51                                      0.3
+
+Cathode      70                                         0.33
+
+OLED         58.6                                       0.3
+
+ITO          106.5                                      0.3
+
+Barrier1     99.51                                      0.3
+
+Barrier2     69                                         0.3
+
+Barrier3     99.51                                      0.3
+
+PI           6.75                                       0.33
+
+Rigid body   200                                        0.3
+
+T A B L E 2 The initial thickness of each layer.              F I G U R E 3 Relationship between objective function and
+                                                              number of iterations of single-objective optimization.
+Layer                 Thickness (m)
+                                                              ends when no superior solution emerges during the
+Cover                 30                                      evolutionary process, and the algorithm identifies the
+                                                              optimal solution as the smallest individual with the high-
+Glue                  20                                      est fitness value. The iteration process is depicted in
+                                                              Figure 3.
+Passivation           0.4
+                                                                  As shown in Figure 3, the objective function value
+Cathode               0.4                                     decreases gradually with the increased number of genetic
+                                                              generations and eventually converges, which indicates
+OLED                  0.4                                     that the magnitude of the objective layer stress is
+                                                              approaching the minimum value. After 170 generations,
+ITO                   0.2                                     the objective function value tends to be constant, indicat-
+                                                              ing that the stress has reached its optimal value.
+Barrier1              0.4
+                                                                  The optimized parameters are calculated as follows:
+Barrier2              0.5                                     dCover = 15.469 m, dGlue = 10.242 m, dPI = 26.346 m.
+                                                              The simulation with such configuration dCover = 15 m,
+Barrier3              0.5                                     dGlue = 10 m, dPI = 26 m is performed. Figure 4 shows
+                                                              the stress distributions of the foldable OLED panel along
+PI                    18                                      the thickness direction.
+
+Rigid body            20                                          It can be seen from Figure 4 that the stresses on films
+                                                              are significantly reduced except for the slight increase of
+T A B L E 3 Film thickness range for single- objective        the stress on cover layer. The stress improvement of the
+optimization.                                                 films with higher elastic modulus such as passivation
+                                                              layer, cathode layer, OLED layer, ITO layer, and the bar-
+Layer                 Optimal range                           rier layer is particularly significant.
+Cover                 Thickness (m)
+Glue                  15­45                                       To better compare the simulation results of the
+PI                    10­30                                   initial and optimal thickness configuration, the stresses
+                      9­27                                    on passivation layer, ITO layer, cathode layer, OLED
+                                                              layer, and the barrier layers are taken out to present in
+    The genetic algorithm employs the following               Figure 5.
+operational parameters: a population size MM = 300, a
+maximum number of iterations maxgen = 600, a genera-              It can be seen from Figure 5 that both equivalent
+tion gap Ggap = 0.9, a crossover probability Pc = 0.96,       stresses and normal bending stresses are significant
+and a variance probability Pm = 0.06. The iteration           reduced with the optimal thicknesses.
+FENG ET AL.                                                          259
+
+F I G U R E 4 Simulation results of single-objective optimization:
+(A) equivalent stress distribution; (B) normal stress distribution.
+
+4.3 | Multi-objective optimization and
+simulation
+
+Based on Equation (8), we optimize the thicknesses of                F I G U R E 5 Simulation results of single-objective optimization
+cover layer, glue layer, and PI substrate. The initial thick-        (passivation layer, cathode layer, OLED layer, ITO layer, and
+ness of these films and the range to be optimized are the            barrier layer): (A) equivalent stress distribution; (B) normal stress
+same to the single-objective optimization, as shown in               distribution.
+Table 3.
+
+    The operational parameters are as same as single-
+objective optimization, except a maximum number of
+iterations maxgen = 5000. The iteration process is
+depicted in Figure 6.
+
+    As shown in Figure 6, the objective function value
+decreases gradually with the number of genetic genera-
+tions and eventually converges. This trend indicates that
+the total stress value of the objective layers is approach-
+ing the minimum value. After 1000 generations, the
+260                                                                  FENG ET AL.
+
+F I G U R E 6 Relationship between objective function and
+number of iterations of multi-objective optimization.
+
+                                                                     F I G U R E 8 Simulation results of multi-objective optimization
+                                                                     (passivation layer, cathode layer, OLED layer, ITO layer, and
+                                                                     barrier layer): (A) equivalent stress distribution; (B) normal stress
+                                                                     distribution.
+
+F I G U R E 7 Simulation results of multi-objective optimization:    objective function becomes constant, indicating that the
+(A) equivalent stress distribution; (B) normal stress distribution.  total stress value has reached its optimal value according
+                                                                     to our design.
+
+                                                                         The optimized parameters are calculated as follows:
+                                                                     dCover = 14.317 m, dGlue = 10.461 m, dPI = 26.876 m.
+                                                                     The stress value of the objective function is calculated
+FENG ET AL.                                                                                                                     261
+
+according to Equation (8), and the value F3 was obtained           3. Niu L, Ding J, Liu W. Analysis on the mechanical behavior of
+as 47.19 MPa. The layer thicknesses used in the simula-
+tion are as follows: dCover = 14 m, dGlue = 10 m,                  flexible screens. Materials. 2022;15(8):2829. https://doi.org/10.
+dPI = 27 m. Figure 7 shows stress distributions of the
+foldable OLED panel along the thickness direction.                 3390/ma15082829
+
+    Figure 7 presents the similar trend as Figure 4. The           4. Jia Y, Liu Z, Wu D, Chen J, Meng H. Mechanical simulation of
+stress distribution on passivation layer, cathode layer,
+OLED layer, ITO layer, and three barrier layers are also           foldable AMOLED panel with a module structure. Org
+enlarged for the detailed analysis, as shown in
+Figure 8.                                                          Electron. 2019;65:185­92. https://doi.org/10.1016/j.orgel.2018.
+
+    It can be seen from Figure 8 that both equivalent              11.026
+stresses and normal bending stresses are significant
+reduced. The sum of the stresses on OLED layer and the             5. Lee CC, Liou YY. Dependent analyses of multilayered
+third barrier layer is 58.64 MPa. In the design aimed at
+reducing the stress on OLED layer independently, the               material/geometrical characteristics on the mechanical reliabil-
+sum of the stress on OLED layer and the third barrier
+layer is 64.82 MPa. This indicates that the stress on these        ity of flexible display devices. IEEE Trans Device Mater Reliab.
+two films has been further reduced.
+                                                                   2018;18(4):639­42.          https://doi.org/10.1109/TDMR.2018.
+5 | CONCLUSION
+                                                                   2878485
+In this paper, we propose a method to optimize the struc-
+ture of foldable OLED panels. Based on the calculation             6. Walls R, Viljoen C, de Clercq H. A nonlinear, beam finite ele-
+model for the bending stress, the genetic algorithm is
+employed to find the optimal configuration of each layer           ment with variable, eccentric neutral axis. Eng Struct. 2019;
+thickness, which can make the neutral plane happening
+on the key films. The stress improvement of a single layer         187:341­51. https://doi.org/10.1016/j.engstruct.2019.02.056
+and multiple layers are discussed, respectively. The
+method is verified by the numerical simulation results.            7. Park SK, Han JI, Moon DG, Kim WK. Mechanical stability of
+The proposed method can help guide the structure design
+and improve folding performance of a flexible OLED                 externally deformed indium­tin­oxide films on polymer sub-
+panel.
+                                                                   strates. Jpn J Appl Phys. 2003;42(2R):623­9. https://doi.org/10.
+
+                                                                   1143/JJAP.42.623
+
+                                                                   8. Nematollahisarvestani A, Lee YCYC. A review on
+
+                                                                   United States patents to prevent mechanical failures in foldable
+
+                                                                   smartphones. J Electron Packag. 2021;143(2):020802. https://
+
+                                                                   doi.org/10.1115/1.4048011
+
+                                                                   9. Niu YF, Liu SF, Chiou JY, Huang CY, Chiu YW, Lai MH, et al.
+
+                                                                   Improving the flexibility of AMOLED display through modu-
+
+                                                                   lating thickness of layer stack structure. J Soc Inf Display.
+
+                                                                   2016;24(5):293­8. https://doi.org/10.1002/jsid.443
+
+                                                                   10. Wang H, Hsieh M, Xie C, Cai B, Guo Y, Liu L, et al. Influence
+
+                                                                   of substrate structure on the properties of flexible AMOLED
+
+                                                                   displays. SID Symp Dig Tech Pap. 2016;47(1):1526­8. https://
+
+                                                                   doi.org/10.1002/sdtp.10990
+
+                                                                   11. Lee, CC, Wu, CS, Tzeng, TL, Tsai CH, Yeh ST, Peng YH, et al.
+
+                                                                   Packaging designs and flexural stress estimation for thin-film
+
+                                                                   types of OLED devices. 2012 7th International Microsystems,
+
+                                                                   Packaging, Assembly and Circuits Technology Conference
+
+                                                                   (IMPACT), 2012: 415­8.
+
+ACKNOWLEDGMENTS                                                    AUTHOR BIOGRAPHIES
+This research was supported by Major Science and
+Technology Research Project of Anhui Province under                                       Qibin Feng received the BS and MS
+grant NO. 2023z020002.                                                                    degrees from the Department of
+                                                                                          Automatic Instrumentation, Shang-
+ORCID                                                                                     hai Machinery Institute, Shanghai,
+Qibin Feng https://orcid.org/0000-0002-7752-2507                                          China, in 1992 and 1995, respec-
+Guoqiang Lv https://orcid.org/0009-0000-2763-5557                                         tively, and the Ph.D. degree from the
+                                                                                          Department of Information Engi-
+REFERENCES                                                           neering, Vienna University of Technology, in 2006.
+                                                                     She was a teacher with Hefei University of Technol-
+ 1. Komatsu R, Nakazato R, Sasaki T, Suzuki A, Senda N,              ogy from 1995 to 2001. She became a senior
+     Kawata T, et al. Repeatedly foldable book-type AMOLED dis-      researcher and an associate professor of Academy of
+     play. SID Symp Dig Tech Pap. 2014;45(1):326­9. https://doi.     Photoelectric Technology, Hefei University of Tech-
+     org/10.1002/j.2168-0159.2014.tb00088.x                          nology. Her research interests include LC display,
+                                                                     LED backlight, 3D display.
+ 2. Yagi I, Hirai N, Miyamoto Y, Noda M, Imaoka A, Yoneya N,
+     et al. A flexible full-color AMOLED display driven by OTFTs.
+     J Soc Inf Disp. 2008;16(1):15­20. https://doi.org/10.1889/1.
+     2835023
+262                                        FENG ET AL.
+
+     Chen Zheng is currently pursuing                           worked in the Academy of Photo-
+     the MEng degree at Hefei University   electric Technology, Hefei University of Technology
+     of Technology. His current research   as an assistant researcher. His current research inter-
+     interests include mechanical simula-  ests include LC display, LED backlight, and 3D
+     tion of flexible OLED displays.       display.
+
+     Zhe Dong is currently pursuing the                         Guoqiang Lv received the BS and
+     MEng degree at Hefei University of                         MS degrees from the Department of
+     Technology. Her current research                           Optical Instrumentation, Zhejiang
+     interests include mechanical simula-                       University, Hangzhou, China, in
+     tion of flexible TFTs.                                     1983 and 1986, respectively. Since
+                                                                then, he worked in the school of
+     Yusong Guo is currently pursuing                           instrumentation, Hefei University of
+     the MEng degree at Hefei University   Technology, and became a professor in 2001. He was
+     of Technology. His current research   a Senior Visiting Scholar with the Institute of Com-
+     interests include volume holographic  puter Technology, Vienna University of Technology,
+     grating and diffractive waveguide.    from 2001 to 2002. Since 2003, he has been the dean
+                                           of Academy of Photoelectric Technology, Hefei Uni-
+                                           versity of Technology. His current research interests
+                                           include LC display, LED backlight, and 3D display.
+
+     Zi Wang received the BS and Ph.D.     How to cite this article: Feng Q, Zheng C,
+     degrees from the Department of        Dong Z, Guo Y, Wang Z, Lv G. Genetic algorithm-
+     Optics and Optical Engineering, Uni-  based structural optimization of foldable OLED
+     versity of Science and Technology of  panels. J Soc Inf Display. 2025;33(4):255­62.
+     China, Hefei, China, in 2012 and      https://doi.org/10.1002/jsid.2032
+     2017, respectively. Since then, he
+

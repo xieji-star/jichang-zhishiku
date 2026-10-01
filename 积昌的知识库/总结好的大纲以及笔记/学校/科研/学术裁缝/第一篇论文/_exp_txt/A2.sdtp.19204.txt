@@ -1,0 +1,231 @@
+2025 International Conference on Display Technology (ICDT 2025)
+
+              Optimization of Support Layer in Foldable OLED Module
+
+Liting Huang1, Dunming Liao1,*, Zikang Feng2, Jiajun Jiang2, Wenqiang Wang1, Ying Zhou1,
+                                                Yali Liu2, Keyu Chen1
+
+1.State Key Laboratory of Materials Processing and Die & Mould Technology, School of Materials Science
+           and Engineering, Huazhong University of Science and Technology, Wuhan, 430074, China
+
+ 2.Wuhan China Star Optoelectronics Semiconductor Display Technology Co.,Ltd, Wuhan,430078,China
+                                        *Corresponding author: liaodunming@hust.edu.cn
+
+Abstract                                                                      2. Simulation model and optimization of metal
+                                                                                   support layer structure
+With the advancement of flexible OLED display technology,
+foldable display modules have emerged as a crucial solution for               2.1 Simulation model
+achieving both portability and large screen display. Foldable                 The bending process of a flexible OLED panel was simulated using
+display modules are composed of multiple heterogeneous material               the finite element software ABAQUS, with the model simplified as
+layers bonded by optical clear adhesive (OCA). However, due to                a two-dimensional plane strain problem. The boundary conditions
+significant differences in the mechanical properties of each layer,           and model structure are illustrated in Figure 1. The display module
+issues such as interlayer peeling and film fracture are prone to              has a length of 150 mm, and to ensure the flatness of the module, a
+occur during the bending process. This study proposes an optimized            thin stainless steel plate is typically used as the support layer at the
+design approach for the metal support layer structure. By adjusting           bottom. Due to the symmetry of the module structure, a two-
+the modulus distribution of the support layer to mitigate stress              dimensional symmetric model was established for the simulation.
+concentrations in bending regions and enhance the bending                     Each film and adhesive layer was discretized into four layers of
+reliability of the module. Finite element analysis (FEA) was                  mesh, with the mesh type being linear reduced-integration plane
+employed to simulate the bending process of the module, with                  strain elements. The film layers are composed of polymer materials
+particular attention to characterizing the crease defects. The results        and modeled using a linear elastic constitutive model. The adhesive
+demonstrate that the optimized support layer effectively reduces              layer exhibits both hyperelastic and viscoelastic properties, with the
+stress peaks and mitigates crease formation, providing valuable               hyperelastic behavior described by a third-order reduced
+insights and references for the reliability design of foldable OLED           polynomial (Yeoh model) and the viscoelastic behavior represented
+modules.                                                                      by a Prony series in the form of a generalized Maxwell model. The
+                                                                              material parameters and thicknesses of each layer from top to
+Author Keywords                                                               bottom are listed in Tables 1 and 2. In this study, a water-drop-
+                                                                              shaped bending method was employed to ensure tight folding of the
+Foldable OLED Module; Pattern Design; Structural Optimization;                screen while minimizing bending marks. The foldable phone frame
+Crease.                                                                       was modeled as a rigid body attached to the flexible panel to drive
+                                                                              the screen's motion.
+1. Introduction
+                                                                                  Figure 1. Schematic Diagram of the Module Bending
+Organic Light-emitting Diode (OLED) display devices,                                   Process. (a) Before bending. (b) After bending
+characterized by their ultra-thin and lightweight design,
+bendability, and high color gamut, are widely utilized in the field
+of electronic displays. Foldable OLED screens have emerged as a
+novel form of smart terminal displays, with the foldable display
+market gradually expanding[1, 2]. The core component of foldable
+mobile terminals is the flexible OLED display module, which is
+composed of multiple layers stacked together to form a layered
+structure. These layers are bonded using Optical Clear Adhesive
+(OCA).
+
+Within the OLED module, the support layer is a critical component
+that determines the thickness, weight, bendability, and impact
+resistance of the screen. Currently, support layers are typically
+made from metallic materials such as stainless steel, titanium
+alloys, and copper alloys[3]. To accommodate the bendability of
+OLED modules, the bending area of the support layer is often
+designed with a hollowed-out through-hole structure. By
+modifying the structural dimensions of these holes, the deformation
+consistency during the bending process can be adjusted. This study
+focuses on the mechanical behavior of the metallic support layer in
+flexible OLED modules during bending. Through finite element
+simulation, the research explores flexible design solutions for the
+metallic support layer structure, aiming to optimize the modulus
+distribution in the bending region. The goal is to reduce local stress
+concentrations and enhance the bending reliability of the OLED
+module.
+
+                                                                        1748
+                           2025 International Conference on Display Technology (ICDT 2025)
+
+Table 1. Thickness and mechanical parameters of each                        Ei = ax3 + bx2 + cx + d  (1)
+                    layer in the OLED module
+
+    Panel    Thickness(m)  Elastic       Poisson's                          Where Ei represents the modulus at position, and x denotes the
+components
+                    55     modulus(MPa)  ratio                              distance from the symmetric axis. When x = 0, Ei is the modulus
+    CW-1            25
+    OCA1            62     5500          0.33                               of the original pattern (3 MPa), and thus d = -3 . The initial
+    CW-2            50                                                      modulus distribution parameters are set as a = 0.1 , b = 1 and
+    OCA2            31     Hyperelastic & Viscoelastic                      c = 10 . The Nonlinear Programming by Quadratic Lagrangian
+  Polarizer         15                                                      (NLPQL) algorithm is selected, and modulus optimization is
+    OCA3             3     5600          0.33                               performed to adjust the values of a , b , and c to minimize the
+     DOT           14.2                                                     pressure on the OCA. The optimization process is illustrated in
+     TFE           7.56    Hyperelastic & Viscoelastic                      Figure 3. In this study, the bending region of the metal support layer
+    Array           16                                                      is divided into 100 equal segments. For ease of operation during
+                    25     3769          0.33                               simulation, a Python script is employed to batch-process tasks such
+      PI            25                                                      as part sections and material property assignment. The modulus
+    OCA4            25     Hyperelastic & Viscoelastic                      values of each segment are stored in an Excel table and called in
+ Backplane         100                                                      Isight for optimization.
+    OCA5            25     32100         0.33
+    Foam
+    OCA6           150     25130         0.33
+    Metal
+ supporting                31630         0.33
+
+                           9100          0.33
+
+                           Hyperelastic & Viscoelastic
+
+                           3500          0.33
+
+                           Hyperelastic & Viscoelastic
+
+                           Hyperfoam
+
+                           Hyperelastic & Viscoelastic
+
+                           194000        0.33
+
+Table 2. The hyperelastic and viscoelastic parameters of
+                                the OCA
+
+Hyperelastic parameters    Viscoelastic parameters                          Figure 2. Segmentation results of the bending region in the
+                                                                                                      metal support layer
+C10 (MPa)    4.8204E-3 g1 0.3928 1 (s) 0.0218
+
+C20 (MPa) -1.5020E-4 g2 0.2265  2 (s) 0.2878
+
+C30 (MPa) 5.1208E-6 g3 0.1446 3 (s) 4.3123
+
+Di (MPa)     0             g4 0.0761  4 (s) 124.4600
+
+2.2 Optimization of Modulus Distribution in the Metal
+Support Layer
+
+Due to the significant difference in modulus between the layers of          Figure 3. Flowchart of the modulus distribution optimization
+the module, the modulus of the OCA is only a few MPa, while the                                       for the support layer
+modulus of the metal support layer reaches 194 GPa. The modulus
+difference between functional layers ranges from 100 to 1000                3. Results and Discussion
+times. During the bending process of the module, the deformation
+of adjacent layers becomes inconsistent, leading to defects such as         3.1 Module Failure Risk Assessment
+panel damage, module peeling, and crease, which severely impact
+the user experience[4-6]. Therefore, while ensuring the overall             After optimization using Isight, the parameters for the modulus
+stiffness and supportability of the non-bending regions of the              distribution were determined as a = 0.6062 , b = 2.0316 and
+module, it is necessary to consider appropriate design
+modifications to the bending region of the metal support layer to           c = 20.0022 . By comparing the modulus differences in the
+reduce or avoid bending failures.                                           bending region before and after optimization, it is observed that the
+                                                                            modulus of the patterned SUS gradually increases from the
+The design of patterned holes in the metal support layer is closely         symmetric axis to the non-bending region. This phenomenon leads
+related to the modulus distribution. In the initial design, the             to a distinct morphology of the bending region, as illustrated by the
+patterned structure was uniformly distributed, resulting in a               modulus distribution curve of the metal support layer in Figure 4.
+suboptimal stress distribution in the module. After bending, the            At the junction of the bending and non-bending regions, the
+OCA at the supported areas bears greater forces, leading to defects         modified modulus results in a smoother transition in the bending
+such as module peeling and edge bulging. In this study, the pressure        morphology of the module. Moreover, the optimized module
+borne by the OCA is taken as the optimization objective, and the            exhibits a smaller bending radius, which effectively reduces the
+Isight optimization tool is utilized to achieve a non-uniform               overall thickness of the foldable device. The morphological
+modulus distribution in the metal support layer, thereby reducing           comparison of the module before and after optimization of the SUS
+the pressure on the OCA. The specific approach involves dividing            support layer is presented in Figure 5. Additionally, the pressure
+the bending region of the initially uniformly distributed metal             distribution on the OCA within the module before and after
+support layer into n equal segments, as shown in Figure 2. The              optimization is depicted in Figure 6. The maximum pressure on the
+modulus distribution in the bending region is adjusted to be non-           OCA decreases from an initial value of -0.398 MPa to -0.2203
+uniform, assuming the modulus follows a cubic formula (Equation             MPa, thereby significantly reducing the risk of module peeling
+1):                                                                         failure.
+
+                                                                      1749
+2025 International Conference on Display Technology (ICDT 2025)
+
+                                                                             for 3600 seconds before being unfolded. The surface height curve
+                                                                             of the module after flattening and resting is extracted. The highest
+                                                                             and lowest points are identified from the surface height curve, and
+                                                                             the difference between them is defined as the surface height
+                                                                             difference. However, when the surface height difference is the
+                                                                             same, a steeper curve slope indicates more pronounced crease.
+                                                                             Therefore, the maximum surface curvature is introduced. The
+                                                                             curvature k is calculated using Equation (2):
+
+                                                                             =k 1= / R 2sin A / a  (2)
+
+Figure 4. Optimization results of the modulus distribution for               where a represents the side length of a triangle formed by three
+                             the support layer                               adjacent points on the surface curve, and R is the circumradius of
+                                                                             the triangle.
+
+                                                                             The surface curve and corresponding surface curvature of the
+                                                                             flexible OLED display module after flattening and resting are
+                                                                             shown in Figure 7. The surface height difference and the maximum
+                                                                             curvature of the optimized module are significantly reduced,
+                                                                             indicating that the non-uniform modulus distribution of the support
+                                                                             layer effectively improves the crease severity of the module.
+
+    Figure 5. Comparison of module bending morphology                        Figure 7. Surface height curve and corresponding curvature
+   before and after support layer modulus optimization. (a)                  of the module
+
+            Original structure. (b) Optimized structure.                     4. Conclusions
+
+    Figure 6. Comparison of pressure borne by the OCA                        This paper proposes an optimization scheme for the non-uniform
+3.2 Analysis of Crease Degree in the Module                                  modulus distribution of the metal support layer. The optimized
+After optimizing the support layer structure, the module achieves a          module exhibits a smoother transition in the water-drop-shaped
+smaller bending curvature radius. However, a smaller bending                 bending morphology, which not only diminishes the risk of stress
+radius typically increases the stress in each layer of the flexible          concentration but also enhances deformation compatibility
+OLED module within the bending region, exacerbating the issue of             between the support layer and adjacent layers. This approach
+module crease. Therefore, it is necessary to evaluate the severity of        effectively mitigates the risk of module peeling failure,
+crease in the module before and after optimization. In the current           concurrently reducing the bending radius and alleviating the
+display industry, the crease severity of flexible display modules            severity of module creasing. The proposed method provides
+after flattening is generally assessed using the surface height              valuable insights for the reliability design of flexible OLED
+difference and the maximum curvature. Based on the                           modules.
+aforementioned finite element model, the module is bent and held
+                                                                             5. Acknowledgements
+
+                                                                             The authors gratefully acknowledge the financial support from the
+                                                                             Science and Technology Unveiling Program of Hubei Province
+                                                                             (Grant No. 2020BED014) and the data support of Wuhan China
+                                                                             Star Optoelectronics Semiconductor Display Technology Co., Ltd.
+
+                                                                             6. References
+
+                                                                             1. Hong G, Gan X, Leonhardt C, Zhang Z, Seibert J, Busch JM,
+                                                                                   et al. A Brief History of OLEDs--Emitter Development and
+                                                                                   Industry Milestones. Advanced Materials.
+                                                                                   2021;33(9):2005630.
+
+                                                                             2. Niu L, Ding J, Liu W. Analysis on the Mechanical Behavior
+                                                                                   of Flexible Screens. Materials. 2022;15(8):2829.
+
+                                                                       1750
+2025 International Conference on Display Technology (ICDT 2025)
+
+3. Wang W, Jia Y, Li H, Jiang M, Zhang Z. Mechanical                           impact failure of foldable AMOLED panel.
+      simulation of foldable organic light-emitting diode display              2024;55(S1):1478-80.
+      supporting layer. Journal of the Society for Information
+      Display. 2021;29(9):723-30.                                        6. Jiang J, Liu Y, Wang W, Cheng Y, Jia Y, Zhang Z. P-13.3:
+                                                                               Crease Improvement Method for Foldable OLED Module by
+4. Huang L, Liao D-m, Peng W, Zhou Y, Chen KJD. Study on                       Preloading Mechanism. 2023;54(S1):919-20.
+      interface fatigue failure of flexible OLED display modules
+      based on cyclic cohesive zone model. 2024;87:102949.
+
+5. Wang S, Feng Z, Tang J, Dai C, Wu Y. P-15.17: Study of
+
+                                                                   1751
+

@@ -88,7 +88,7 @@
     "claude": "yolo"
   },
   "lastCustomModel": "",
-  "maxTabs": 3,
+  "maxTabs": 5,
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
   "expandFileEditsByDefault": false,

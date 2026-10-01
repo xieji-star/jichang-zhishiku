@@ -1,0 +1,232 @@
+2026 International Conference on Display Technology (ICDT 2026)
+
+Modulation of BP Acrylic PSA Modulus for Enhanced Drop Impact
+                       Strength of Flexible OLED Panels
+
+Lijia Pan*, Guofeng Zhang*, Zheng Wang*, Xiaolong Zhu* ,Jinjin Yang*Zhu Zhang*
+
+                         *Xiamen Tianma Display Technology Co., Ltd., Xiamen, China
+                                  Tianma Microelectronics Co. Ltd., Xiamen, China
+
+Abstract                                                                      Serving as the direct contact layer with the OLED panel, the
+      Flexible OLED represents an emerging development in the                 bonding effectiveness of the acrylic PSA emerges as a pivotal
+                                                                              consideration. In accordance with the JKR contact theory--which
+field of flat panel displays (FPD), offering numerous advantages              characterizes the contact behavior between two elastic spheres
+over LTPS LCD such as lighter weight, thinner profile, greater                under the influence of surface energy--we present the formula for
+flexibility, and usability in multiple forms including bending and            contact radius "a". This formulation explicitly incorporates the
+folding. However, the trend toward increasingly thinner and lighter           material's modulus "E".
+product designs has posed severe challenges to mechanical strength,
+particularly the impact resistance of the panel. In this paper, the JKL       a3=R(F+3R+6RF + 3R2 ), K= 4E (1)
+contact theory is cited to illustrate the reduction of modulus, the           K                                               31-v²
+improvement of the wettability of PSA adhesive, and the better
+adhesion between the PSA and the panel during attachment.. So the                   Based on the JKR contact theory, where  represents the
+stress transmission from the impact of the falling ball to the                surface energy, R is the radius, and F denotes the applied load, the
+attachment interface is more uniform. Secondly, the John Ferry                contact radius `a' increases as the modulus E decreases under
+high-frequency modulus dissipation theorem is introduced, and the             constant surface energy and load conditions. This implies a larger
+time temperature equivalence theorem is referenced. The modulus               contact area and improved wetting coverage. The same principle
+of PSA adhesive is ensured to be within 1000Kpa below -20 ,                   applies to the Acrylic PSA adhesive. When the adhesive contacts
+which has good energy dissipation and buffering effect, reduces the           the panel, a lower modulus enhances its fluidity, allowing it to
+impact energy transmitted to the panel, and can improve the impact            effectively wet and fill the micro-scale irregularities on the panel
+strength of panel falling balls by more than 20%.                             surface. As illustrated in Figure 2, the actual contact area exceeds
+                                                                              the nominal surface area. In contrast, when the modulus is higher
+Author Keywords                                                               (as shown in Figure 3), the adhesive exhibits poor fluidity during
+flexible OLED ; impact resistance; PSA;energy dissipation                     lamination, resulting in inadequate filling and an actual contact area
+                                                                              smaller than the nominal surface area. This condition carries a risk
+1. Introduction                                                               of stress concentration.
+      The BP support film is composed of PET material and acrylic
+                                                                                                          PET                         PET
+pressure-sensitive adhesive. Figure 1 illustrates the mainstream                               Acrylic PSA                    Acrylic PSA
+module stack structure of current flexible OLED panels, wherein
+the acrylic adhesive within the substrate film serves as the direct                                     Panel                        Panel
+bonding contact layer with the OLED display panel. The stress-
+strain it experiences, along with any undissipated energy, can be             Figure 2. High-Conformability Figure 3. Low-Conformability
+directly transmitted to the internal film layers of the panel, leading
+to crack formation and consequently causing display defects such              Table1.Wettability and Its Interfacial Effects
+as bright spots and dark spots. However, there is currently a lack of
+systematic theoretical explanation or practical guidance within the              Condition        High Wettability Low Wettability
+industry regarding how variations in the relevant properties of this
+acrylic UV PSA affect the impact strength of flexible OLED screens.              Contact area     Large area                  Limited Area
+
+                 Figure 1. Flexible OLED Module Stack                            Stress                        Low            High
+      Herein, we have focused our research on enhancing the impact
+resistance of OLED panels through acrylic pressure-sensitive                  Energy Dissipation               High           Low
+adhesive (PSA), with findings indicating that modulus adjustment
+constitutes a critical factor in improving impact performance.                Impact Resistance                High           Low
+
+                                                                                    Furthermore, as a viscoelastic material, PSA exhibits both
+                                                                              viscous and elastic properties. The viscous component enables the
+                                                                              adhesive to flow in a liquid-like manner, where internal molecular
+                                                                              chains move relative to each other at very high speeds,
+                                                                              disentangling and generating friction. The intense motion of these
+
+                                                                         302
+2026 International Conference on Display Technology (ICDT 2026)
+
+molecular chains must overcome significant internal frictional                                                              Figure4.Crosslinking Density of Acrylic PSA
+resistance, thereby converting macroscopic, ordered kinetic energy                                                 To visually demonstrate the impact of wettability on drop-ball
+into microscopic, disordered thermal energy (2). Integrating this                                                  performance and ensure it remains the sole variable, the same
+mechanism into the drop impact model of the panel: if the kinetic                                                  Acrylic UV PSA adhesive was used under two different processing
+energy of the impacting ball is effectively dissipated, the amount of                                              flows:
+energy transmitted to the panel is reduced. As a result, the panel
+demonstrates higher performance in drop impact tests. This energy                                                        Process Flow 1: The first sample was laminated onto the panel
+dissipation behavior can be further explained by referring to the                                                  surface before UV curing, during which its modulus was 50 kPa.
+John Ferry high-frequency energy dissipation theorem.                                                              It was then UV-cured to increase the modulus to over 100 kPa.
+
+      W_d =  ² G"  is the strain amplitude (3)                                                                           Process Flow 2: The second sample was first UV-cured to
+                                                                                                                   achieve a modulus of >100 kPa before being laminated onto the
+      The above formula shows , a higher value of G indicates a                                                    panel surface.
+greater ability of the material to convert mechanical energy into heat
+per cycle. However, the dissipated energy is extremely sensitive to                                                      After sample preparation, a test model was established. It is
+the deformation amplitude ² (strain = compression displacement /                                                   understood that the primary cause of panel failure is excessive peak
+sample thickness). If the strain amplitude doubles, the dissipated                                                 impact force, which leads to fractures in the internal film layers. By
+energy increases by a factor of four, demonstrating that deformation                                               measuring the difference in the impact force transmitted to the
+is the key driver of energy dissipation. If the strain amplitude of the                                            underside of the PI layer, the buffering effectiveness of the PSA
+pressure-sensitive adhesive is enhanced, meaning its modulus is                                                    adhesive combined with the PI layer under different bonding
+reduced (Figure 4). The aforementioned theory has been validated                                                   conditions can be qualitatively evaluated.
+through physical prototype fabrication and drop impact testing,
+confirming that a reduction in modulus results in superior impact                                                        Refer to the test model in Figure 5. The buffer rate is calculated
+resistance levels for OLED panels.                                                                                 as follows:
+
+                                                                         Impact strain                                   Buffer Rate = (No-load Impact - Sample Buffering Impact) /
+                                                                                                                   No-load Impact × 100%
+                                                                                                        SCF
+                                                                                                                                Figure 5. Test Model for Energy Buffer Rate
+                                                                                                         PET
+                                                                                                                                     Figure 6. modulus and buffering rate
+                                                        energy dissipation PSA                                           Through the verification of the above data, it further confirms
+                                                                                                                   that the JKL contact theory can be applied to Acrylic PSA adhesive,
+                                                                                                       Panel       which synchronously indicates that the lower the modulus during
+                                                                                                                   attachment, the better the wettability, and the sufficient contact with
+            Figure 4. Drop impact energy dissipation                                                               the pasted interface. During impact, stress concentration points are
+                                                                                                                   avoided, weakening the peak impact force transmitted to the interior
+2. PSA modulus and drop ball impact verification                                                                   of the panel and improving the drop ball impact performance of the
+                                                                                                                   screen to a certain extent.
+2.1 WettabilityAttachment modulusand ball dropping ability
+
+      The previous text has already explained the relationship
+between modulus and wettability through JKL contact theory. Now,
+we are developing Acrylic UV PSA adhesives with different moduli
+to characterize the relationship between wettability and product anti
+ball ability; The Tg point of this adhesive system can be designed
+to be below -20 . Prior to UV, the internal cross-linking degree
+of the colloid is low, the movement space of the chain segments is
+large, the modulus at room temperature is  50Kpa, and the
+softness of the colloid is high. After UV, secondary cross-linking is
+carried out by exciting free groups and doping reactants, and the
+cross-linking density is increased. The modulus at room
+temperature can be increased to the range of 100-500Kpa, and the
+colloid hardness is improved.
+
+                                                                                                              303
+2026 International Conference on Display Technology (ICDT 2026)
+
+2.2 Low-Temperature Modulus and Drop Ball Performance                        log  =  -C1T-Tref   (5)
+
+Verification                                                                         C2+T-Tref
+      In addition to the improved drop impact strength achieved
+                                                                             For the PSA adhesive, the WLF constants are C = 17.44 and C =
+through the high wettability of the Acrylic PSA, the modulus of the          51.66, Tref=25°C=298.15K.The principle of modulus
+adhesive itself at the moment of impact also significantly influences
+the peak impact force and energy dissipation efficiency. If the drop         equivalenceGT, 1Hz=G251GHzAccording
+impact event is regarded as a dynamic system with a millisecond-             to the time-temperature superposition principle, the shift factor aT
+level response during the instant of impact, it is essential to focus        satisfies Equation
+on analyzing the effect of high-frequency modulus on drop impact
+performance.                                                                            fatTref
+                                                                                          fatT
+                                                                                     =           (5)
+
+a) Mechanical Analysis Using the Momentum Theorem
+
+F·t=m·V                                            (4)                             Therefore, the shift factor aT is negatively correlated with the
+                                                                             shifted temperature T. That is, the higher the instantaneous impact
+      The change in kinetic energy of the ball is equal to the impulse       frequency, the lower the corresponding shifted temperature T.
+of the external forceF, as shown in Figure4. This forceF                     Consequently, the modulus of the Acrylic PSA is lower at this lower
+corresponds entirely to the peak impact force exerted on the screen          temperature, making it more prone to strain buffering and energy
+body during the ball impact. Therefore, for the same drop height             dissipation upon impact.
+(i.e., constant momentum), a longer impact duration results in a
+lower peak impact force. To achieve this, it is necessary to increase              Two acrylic UV PSA adhesives, denoted as Sample A and
+the deformation of the PSA adhesive, thereby extending the impact            Sample B, were prepared with significant differences in modulus at
+time and reducing the peak impact force. This requirement                    low temperatures. The rheological test results of modulus versus
+corresponds to a lower modulus of the adhesive at high frequencies,
+which enhances its deformation capabili                                      temperature at 1Hz frequency are as follows. Below 0°C, the
+
+b) From the perspective of energy dissipation, with reference to             modulus of Sample A consistently remains lower than that of
+      John Ferry's high-frequency energy dissipation theorem:                Sample B, meaning that under high-frequency impact conditions
+                                                                             equivalent to small ball impacts, the modulus of Sample A is always
+W_d =  ² G"  is the strain amplitude (3)                                     lower than that of Sample B. This ensures that Sample A generates
+                                                                             greater strain and dissipates impact energy when subjected to
+                                                                             impacts, as further explained in the subsequent simulation
+
+      Refer to Formula 3., a higher value of G indicates a greater
+
+ability of the material to convert mechanical energy into heat per
+cycle. Especially, the dissipated energy is extremely sensitive to the
+deformation amplitude ² (strain = compression displacement /
+sample thickness). If the strain amplitude doubles, the dissipated
+energy increases by a factor of four, demonstrating that deformation
+is the key driver of energy dissipation.
+
+2.2.1 Temperature-Modulus Conversion                                                     Figure 8.Modulus vs. temperature curve at 1 Hz
+
+The drop impact test waveform obtained from the testing equipment                  The two types of PSA were applied in the same OLED panel
+is shown below. The impact pulse width is <0.15 ms, indicating that          module structure, with BPPSA as the only variable factor. A ball
+the contact time from the initial impact to the peak force is <0.075         drop impact test was conducted, and the failure height data
+ms.                                                                          (displaying bright spots and dark spots) of the panel under ball drop
+                                                                             impact were recorded for reference in Figure 9.
+
+               Figure7. Falling ball impact waveform diagram                             Figure 9.Falling ball failure height data
+
+      Based on the contact time of <0.075 ms, the impact                           Based on the drop ball failure height data in Figure 9, the drop
+frequencyfexceeds 1GHz. This frequency lies beyond the                       ball resistance range of panels using Sample A adhesive is 55­70
+measurement range of conventional rheometers. By applying the                mm, while that of panels using Sample B adhesive is 40­50 mm.
+time-temperature superposition (TTS) principle, the high-frequency
+modulus at room temperature can be characterized using low-
+frequency data obtained at lower temperatures, with reference to the
+Williams-Landel-Ferry (WLF) equation.
+
+                                                                        304
+2026 International Conference on Display Technology (ICDT 2026)
+
+The ability to increase the intensity of falling balls is about 20% or                Figure12. PSA Sample B strain cloud map
+more.
+                                                                        4. Conclusion
+3. Simulation Data Extension                                                  In summary, both JKL contact theory and John Ferry energy
+      Based on dynamic mechanics, contact mechanics, and
+                                                                        dissipation mechanism are applicable for analyzing the strength
+viscoelastic theory , Establish a drop-ball impact simulation           performance improvement of flexible OLED displays under drop
+platform.. The simulation structure refers to Figure 10. By inputting
+the frequency-modulus curves and stress-strain curves of BP-PSA         impact; When the PSA is being attached, the modulus (25 , 1Hz)
+adhesive, the contour evolution of impact strain from the surface to
+the internal structure is presented as follows. It can be clearly seen  is reduced from 200Kpa to 50Kpa, which improves the wettability
+that the strain of Sample A PSA adhesive with low modulus is            and increases the contact area of the adhesive,The drop Impact
+higher than that of Sample B PSA adhesive.                              strength can be increased by 2%. By controlling the low-
+
+      Select the panel layer located directly under the PSA adhesive,   temperature modulus (-20 , 1Hz) within 1000Hz and increasing
+adjust the upper and lower limits of strain, update the strain cloud
+map of this layer, and obtain the maximum strain of the panel layer     the strain of the PSA adhesive during high-frequency impact, the
+under Sample A PSA, which is 2.825E * -3. Referring to Figure 11,       energy dissipation effect of the adhesive is improved, and the drop
+the maximum strain of the panel layer under Sample B PSA is             Impact strength is increased by more than 20%. Based on this, the
+4.106E * -3. Referring to Figure 12, By comparing the data, it can      existing analysis results can provide some inspiration and guidance
+be clearly observed that the strain level of the panel layer below      for the trend of thin and lightweight technology in the flexible
+Sample A PSA has decreased by 67%, which proves that the PSA            OLED display industry, while improving the impact strength of
+adhesive with lower modulus has better energy buffering at low          Flexible OLED Panels
+temperatures, reduces the energy transmitted to the panel, lowers
+the strain of the panel, and improves the impact resistance of falling  5. References
+balls                                                                   [1] Johnson, K. L., Kendall, K., & Roberts, A. D. (1971). Surface
+
+                       Figure10. Simulation model                            energy and the contact of elastic solids. Proceedings of the
+                                                                             Royal Society of London. A. Mathematical and Physical
+                                                                             Sciences, *324*(1558), 301-313.
+                                                                        [2] Creton, C., & Leibler, L. (1999). "How does tack depend on
+                                                                             time of contact and contact pressure". The Journal of Polymer
+                                                                             Science Part B: Polymer Physics, 37(16), 2031-2039
+                                                                        [3] Ferry, J. D. (1980). Viscoelastic Properties of Polymers. John
+                                                                             Wiley & Sons.
+                                                                        [4] Newton, I. (1687). Philosophiæ Naturalis Principia
+                                                                              Mathematica
+                                                                        [5] The Temperature Dependence of Relaxation Mechanisms in
+                                                                              Amorphous Polymers and Other Glass-Forming Liquids
+
+Figure11. PSA Sample A strain cloud map
+                                                            305
+

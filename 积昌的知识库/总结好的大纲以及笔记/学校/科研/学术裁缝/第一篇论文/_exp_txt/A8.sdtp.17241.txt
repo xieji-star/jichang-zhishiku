@@ -1,0 +1,157 @@
+International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+Wrinkle-free stack-up design of watch display with 3D spherical glass by
+                                        FEM simulation
+
+Zhang Shuangbing*, Wang Qi*, Li Konglai*, Zhang Fang*
+
+             *Hefei Visionox Technology Co.,Ltd, Hefei, China
+
+Abstract                                                                       the elastic energy required to compress a film is reduced by the out-
+                                                                               of-plane deformation that accompanies wrinkling. Figure 6a show
+The use of 3D glass as a cover will significantly improve the stylish          the typical wrinkling phenomenon after attaching flexible display
+sense of the product and provide a wider display interface. However            to 3D spherical glass.
+flexible film are notoriously difficult to fully conform to non-               The flexible display modulus is a composite stack structure
+developable surface such as spheres. The greatest challenge when               composed of polarizer, AMOLED panel layer and backplane layer,
+trying to attaching flexible display to 3D spherical glass is avoiding         using optical clear adhesive(OCA) for lamination to 3D spherical
+wrinkling phenomenon at the edge of flexible display. In this paper            glass as shown in Figure 2. In this study the finite element method
+the finite element method is used to study the optimization of the             is used to study the optimization of the stack-up to avoid obvious
+stack-up to avoid obvious wrinkling phenomenon. We confirm that                wrinkling phenomenon. A model that imitates the lamination
+the modulus and thickness of Optical Clear Adhesive(OCA)                       process is developed. The stress distribution and morphology after
+between flexible modulus and 3D glass cover have decisive impact               attaching the flexible display to 3D spherical glass are analyzed.
+on the formation of wrinkles. A wrinkle-free watch product was                 When we design the best structure, the key factor considered is
+successfully fabricated by replacing the low-modulus OCA with                  OCA performance design. This is mainly based on the following
+high-modulus OCA or by reducing the thickness of low-modulus                   two reasons: first, the thickness and modulus of OCA can be
+OCA to 50um.                                                                   adjusted in a wide range, so that it is convenient to design
+                                                                               experiments. Second, wrinkles of flexible display modulus leads to
+Author Keywords                                                                the deformation of OCA which is dependent on the thickness and
+                                                                               modulus of OCA. So we expect that the modulus and thickness of
+Flexible display, watch display, 3D spherical glass, wrinkling                 OCA have decisive impact on the formation of wrinkles.
+phenomenon, FEM simulation.
+                                                                                Figure 1. Diagram of a dis-shaped flexible film attached to
+1. Introduction                                                                  spherical surface (a) and the azimuthal strain in the radial
+
+Traditional watches only provide time information, the application                                             direction (b)
+scenarios of smart watches will be more extensive including health
+monitoring and exercise tracking. In addition to functionality, smart                 Figure 2. Diagram of the flexible display modulus
+watches still have the decorative attributes of watches, industrial
+designs such as dial shape is also a key consideration for                     2. Simulation and Experimental
+manufactures. The cover glass of a smart watches can be divided
+into 2D, 2.5D and 3D. In pursuit of a more three-dimensional                   The lamination procedure is simulated by using nonlinear finite
+appearance and narrow bezel, the smart watch cover glass may                   element method to analyze the wrinkling phenomenon. In this study
+evolve into 3D. The use of 3D glass as a cover will significantly              the polarizer, AMOLED panel and backplane are presented by
+improve the stylish sense of the product and provide a wider display           using linear elastic constitutive model, the OCA is adopted to
+interface.                                                                     hyperelastic model. The Polarizer, AMOLED panel and backplane
+
+Flexible film are notoriously difficult to fully conform to non-
+developable surface such as spheres [1-2]. The greatest challenge
+when trying to attaching flexible display to 3D spherical glass is
+avoiding wrinkling phenomenon at the edge of flexible display. As
+shown schematically in figure1a, if we assume for a moment that
+the dis-shaped flexible film with radius W is inextensible in the
+radial direction and that the central point of the display is attached
+to the north pole of the spherical surface with radius R, then each
+circle with radius r is approximately mapped to the circle Sr on the
+sphere at distance r from the north pole. The arc length of Sr then
+can be calculated to be 2Rsin(r/R). Apparently the arc length of Sr
+is less than 2r, therefore the edge of the film is subjected to
+azimuthal compressive strain. Roughly, the geometric strain at edge
+of the film is ~1/6(W/R)2. One must note that the preceding account
+is oversimplified, flexible film is not inextensible and can slip along
+the sphere. If the bending strain in the radial direction is considered,
+the compressive stress only occurs at the region that radius bigger
+than L as shown in Figure 1b.
+
+A compressed elastic film on a compliant substrate can form
+winkles when the compressive strain is large enough [3], a simple
+example is the buckling of a sheet of paper when compressed along
+two edges. Since the tensile stiffness is significant greater than the
+bending stiffness for film structure, this instability occurs because
+
+                                                                          936
+International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+are simulated with continuum shell element SC8R, the OCA is                  are plotted in figure 5. The profile is extracted on the top surface of
+simulated with solid element C3D8H. The complete analysis                    the polarizer and the bottom surface of the backplane. Since the
+process can be divided into three steps as illustrated in Figure 3. In       deformation of cover glass can be ignored, the periodic sinusoidal
+the first step, the panel was drag down by the distributed load              fluctuations indicate the thickness variation of OCA. The gap
+applied to the bottom surface of the backplane to contact with the           between the top surface of the polarizer and the bottom surface of
+Pad as to deform to a spherical shape, in the second step the 3D             the backplane is equal at any polar angle, which indicates that the
+glass was move down to laminate with the top surface of the flexible         thickness of the display has not changed. So we confirm that the
+display, follow by the third step in which the pad was removed.              wrinkles are the results of the out-of-plane deformation of the
+                                                                             flexible display modulus.
+To confirm simulation results, experiments are also conducted with
+flexible display using OCA of different thickness and modulus for
+lamination.
+
+Figure 3. Diagram of the complete analysis process. Step1,                      Figure 5. Surface profile of flexible display with wrinkle.
+    the panel was drag down to contact with the Pad as to
+  deform to a spherical shape. Step2, the glass was move                     As already known that the display tend to deform out of plane to
+                                                                             reduce strain energy when subjected to azimuthal compressive
+  down to laminate with the flexible display. Step3, the pad                 stress. Though the compressive stress is almost independent of the
+                               was removed.                                  modulus and thickness of OCA, the out-of-plane deformation of the
+                                                                             display must overcome energy barriers required to deform OCA.
+3. Results and Discussion                                                    The energy barrier is dependent on the modulus and thickness of
+                                                                             OCA. Reducing thickness and increasing modulus both increase the
+We first study the morphological of flexible display when using of           energy barriers, which is beneficial for eliminating wrinkles. In
+OCA with 150um thickness and low modulus for lamination to 3D                order to find suitable OCA performance, we conducted a series of
+glass at different stages. Before removing the pad, the deformation          simulations using OCA with thinner thickness and higher modulus
+of the display is limited by the pad, the surface of the watch display       for lamination. The typical results are shown in figure 4b and figure
+is a very smooth spherical surface, no wrinkles are observed. After          4c. For the OCA with thickness of 150umthe wrinkles will
+removing the pad, obvious wrinkles then appear at the edge of the            disappear when the modulus of OCA increases by more than 10
+flexible display as shown in Figure 4a. It is worth noting that the          times. If we keep the modulus of OCA constant, the wrinkles will
+radial wrinkles are only observed in compressive stress zones as             disappear when the thickness of OCA is reduced to 50um.
+shown in Fig 1, this confirms that wrinkles are related to azimuthal
+compressive stress.                                                          Wrinkle can also be reflected by the stress distribution of membrane
+                                                                             layer. Without wrinkle, the stress distribution is axisymmetric,
+Figure 4. Simulated morphology (top) and strain distribution                 while with wrinkle, the stress distribution is periodic but not
+   (bottom) after attaching flexible display to 3D glass. (a)                axisymmetric. Notably, wrinkle will significantly increase the
+                                                                             stress on the edge as shown in figure 4, and results to greater risks
+150um low-modulus OCA (b) 150um high-modulus OCA (c)                         such as peeling.
+                        50um low-modulus OCA
+                                                                             The OCA is actually a viscoelatic material, the modulus may
+In order to further study the wrinkling pattern, the profile of the          decrease over time, so the wrinkle may grow over time [4]. Our
+display vs. polar angle along the edge is measured, and the results          simulation cannot reflect this process because the hyperelastic
+                                                                             constitute is used in our model. However, we can still evaluate
+                                                                             wrinkle by setting the modulus of OCA to the relaxation modulus.
+
+                                                                             To confirm simulation results, experiments are also conducted with
+                                                                             flexible display using OCA of different thickness and modulus for
+                                                                             lamination. Actually, consistent with the simulation results,
+                                                                             wrinkle-free watch product was successfully fabricated by
+                                                                             replacing the low-modulus OCA with high-modulus OCA or by
+                                                                             reducing the thickness of low-modulus OCA to 50um. One example
+                                                                             of wrinkle-free watch product after stack-up optimization is shown
+                                                                             in figure 6b.
+
+                                                                        937
+International Conference on Display Technology 2024 (Volume 55, Issue S1)
+
+    Figure 6. (a) Wrinkles before stack-up optimization (b)                beneficial for eliminating wrinkles. A series of simulations using
+        Wrinkle - free product after stack-up optimization                 OCA with different thickness and modulus are conducted to obtain
+                                                                           appropriate OCA properties control. For the OCA with thickness of
+4. Conclusions                                                             150umthe wrinkles will disappear when the modulus increases
+                                                                           by more than 10 times. If we keep the modulus of OCA constant,
+The greatest challenge when trying to attaching flexible display to        the wrinkles will disappear when the thickness is reduced to 50um.
+3D spherical glass is avoiding wrinkling phenomenon at the edge            Finally, the wrinkle-free watch product was successfully fabricated.
+of flexible display. The wrinkles are the result of the out-of-plane
+deformation of the flexible display modulus when subjected to              5. Acknowledgements
+azimuthal compressive stress. Increasing modulus and reducing
+thickness of OCA both increase the energy barriers, which is               This work was supported by the Hefei Visionox Technology
+                                                                           Co.,Ltd.
+
+                                                                           6. References
+
+                                                                           [1] G.M. Grason and B. Davidovitch, Proc Natl Acad Sci USA,
+                                                                                 110(32):12893-12898.
+
+                                                                           [2] H. King, R.D. Schroll, B. Davidovith, N. Menon, Proc Natl
+                                                                                 Acad Sci USA, 109(25)9716-9720.
+
+                                                                           [3] Z.Y. Huang, W. Hong and Z. Suo, J. Mech. Phys. Solids, 53
+                                                                                 (2005)2101.
+
+                                                                           [4] R. Huang, J. Mech. Phys. Solids, 53 (2005)63-89
+
+                                                                      938
+

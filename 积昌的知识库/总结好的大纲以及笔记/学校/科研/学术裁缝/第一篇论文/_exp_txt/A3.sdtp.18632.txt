@@ -1,0 +1,310 @@
+P-160 / X. Li
+
+Study of Factors Affecting Dynamic Bending Performance of Folded Flexible
+                                      AMOLED Modules
+
+    Xin Lia,*, Huinan Shi a,*, Qing Gong a,*, Zhi Zhang a, Changman Kim a, Haijun Qiu a, Lei
+Zhang a, Zhihui Wang a, Shaokui Liu a, Danping Sheng a, Xuan Zhang a,Liang Gao a,#, Xu Lu a,#
+
+a Chengdu BOE Optoelectronics Group Co., Ltd. Chengdu, China
+
+            * These authors contributed equally to this work
+             # These authors are co-corresponding authors
+
+Abstract                                                                stress and strain of each film layer in the U-shape increases with a
+This article establishes a water droplet bending model for flexible     decrease in radius, while changes in radius have little effect on its
+AMOLED display modules using nonlinear finite element                   stress and strain. Cheng et al [9] used finite element simulation to
+software. Through analysis and comparison of different design           control the design of the neutral layer in the display module. This
+conditions and practical verification, the factors affecting the        was done to enhance the folding performance of the module.
+bending performance of flexible AMOLED display modules are
+analyzed, including integrated edge design of display modules,          In practical applications, the stack design of foldable display and
+pattern design of support components, and selection of adhesive         material selection directly impact the folding performance of the
+for each layer.                                                         product. Based on this, this paper focuses on foldable AMOLED
+Author Keywords                                                         display, employing a combination of simulation and
+Flexible AMOLED display; drop-shaped; bending performance;              experimentation to analyze the effects of display bezel design,
+mechanical simulation.                                                  OCA, and support component design on the bending performance
+                                                                        of individual flexible display. The successful application of these
+1. Introduction                                                         findings in products provides a certain reference for the design and
+With the widespread implementation of flexible OLED (organic            manufacturing of subsequent foldable flexible display modules.
+light-emitting diode) displays in the mobile phone market,              The findings have already been successfully applied in a product,
+smartphones have surpassed their previous limitations of a straight     providing valuable reference for subsequent design and production
+form and introduced the innovative folding phone format [1].            of folded flexible display modules.
+Foldable phones not only provide a convenient way to carry
+mobile phones, but also largely meet consumer demand for large          2. Description of the model
+screen displays, providing an opportunity for the development of        Numerical implementation: Foldable display is composed of
+smartphones [2]. However, the development and use of foldable           several functional layers, such as the protective layer, flexible
+phones has brought about numerous risks and challenges, owing to        cover film, polarizer layer, display light-emitting layer panel
+their growing popularity and diverse range of applications.             (which includes FMLOC and flexible AMOLED), support parts,
+Problems such as delamination caused by bending, support parts          and adhesive layer [10]. The bending process of the folded display
+fractures, and creases in the bend zone have surfaced [3].              module can be modelled as a plane strain problem by simulation.
+                                                                        Table 1 presents the thickness, density, elastic modulus and other
+In foldable display, each functional layer (such as cover film,         parameters of each stacked layer. The cover film can be stacked
+polarizer, light emitting layer, substrate layer, etc.) is bonded into  with various materials to meet the demands of folding mobile
+a whole using g optically clear adhesive (OCA) or pressure-             phones. To better align with real-world applications, this paper
+sensitive adhesives (PSA). Researchers have conducted an                analyses the simulation of subsequent combinations of UTG [11]
+investigation into the impact of bending on the functional layers.      (flexible ultra-thin glass) and PET (Polyethylene terephthalate) as
+Hsien and colleagues [4] examined the bending behavior of touch         the cover film stack.
+display panels (TDPs) that had protective structures and those
+without. They discovered that immoderate bending creates                In the simulation model, it is essential to employ the material
+significant tensile and compressive stresses on the ITO/PR              properties in Table 1 and use the drop-shaped bending
+conductive/insulating layers. These stresses rise with the curvature    morphology to characterize the motion of the in-folding display
+during bending, resulting in the breakdown of the display. Lee et       while folding, whereby the bending radius of the drop-shaped
+al [5] analyzed the effect of the cover film on the bending             bending amounts to 2.6 mm. Considering the actual force of the
+behavior of foldable display by simulation and experiment. OCA          display on the mobile phone, in order to ensure that the foldable
+as an adhesive is an almost incompressible material and cannot be       display maintains the stability of the water droplet form during the
+considered as a simple elastomer. JIA et al [6] employed the            bending process, a support point will be set on the left and right
+fitting method to establish the analytical equations for the            sides of the water droplet tail (i.e., at the reverse arc) of the display
+superelasticity and viscoelasticity of OCA. Liu et al [7] used OCA      module, as shown in Figure 1.
+as a superelastic to develop a simulation model for a display
+module. The research established that thicker OCA results in            Figure 1. Foldable display simulation model schematic.
+decreased strain within the adhesive layer.
+
+Currently, the morphology of droplets in foldable displays is
+classified as either U-shape or drop-shaped bending morphology.
+Wang et al [8] conducted an analysis on the impact of bending
+stress from different display modules with varying bending radii
+using the simulation software. Their findings indicate that the
+
+             SID 2025 DIGEST · 2056
+ISSN 0097-996X/25/5603-2056-$1.00 © 2025
+                                                          P-160 / X. Li
+
+Table 1. The stack structure of foldable display                      AMOLEDs due to its transparency and high light transmittance. It
+                                                                      is a polymer material possessing a low elastic modulus [13]. The
+    Label            Thickness  Poisson           Elasticity          variation in Young's modulus between the different types of OCA
+                        (m)      ratio            modulus             adhesives appears to be insignificant, as they are all of a similar
+(From top to                                                          order of magnitude, but there are differences in adhesive
+   bottom)                                          (GPa)             properties, material cohesion and the rate of creep recovery after
+                                                                      material deformation. Table 2 provides information on the
+              PET    60         0.3               4                   properties of the three commonly used OCA adhesives.
+
+Cover         OCA0   50         0.25              5.1×10-5
+ film
+
+              UTG    30         0.3               73.3
+
+       OCA1          50         0.25              5.1×10-5            Table 2. Comparison of the properties of different adhesive
+                                                                                                       materials
+Polarizer            68         0.3               4
+
+FMLOC                10         0.3               3                   Type      Young's    20kpa recover  Adhesion to
+                                                                            modulus (kPa)  @25,10min      PET(gf/inch)
+
+       Panel         30         0.3               3                      A  50             90%            650
+
+Base film-PSA        15         0.3               5×10-5                 B  46             80%            800
+
+Base film            50         0.3               4                      C  30             80%            650
+
+       PSA           65         0.3               5×10-5              Based on the simulation model established in Chapter 2, we
+                                                                      conducted finite element simulations on the stacked display
+Support parts (SUS)  150        0.3               194                 module of Table 1 using varying types of OCA adhesive. The final
+                                                                      simulation results are presented in Fig. 2. By keeping the OCA1
+Mesh verification: The model mesh size is a tetrahedral mesh          unchanged and altering the OCA0, a comparison was made
+of 0.05 mm in the thickness direction to ensure at least four layers  between split2 and split3. The results show that the maximum
+of mesh for each film, as shown in Fig. 2. First order fully          principal stress of the OCA0 in split3 is 5.92% lower than that of
+integrated cells were used. Since the simulation is a plane strain    split2. The remaining layers of glue showed insignificant
+hyperelastic case, a hybrid formulation is also used. After           differences of less than 0.5%. By keeping the OCA0 constant and
+verification of mesh-independence, the maximum difference in          adjusting the OCA1, a comparison between split1 and split3
+stress distribution on the symmetry plane was only 0.0035%.           shows that the maximum principal stresses at the glue collocation
+Therefore, the default mesh in Fig. 2 was used for all models.        for split1 are 10.16% lower than those for split3 at OCA1.
+
+             Figure 2. Part of the mesh in the display                   Figure 2. Strain simulation results of different OCA
+                                                                                                  combinations
+3. Results and discussions
+Influence of adhesive selection As previously mentioned,                   Figure 3. Experimental results of different OCA
+foldable display is typically united into a singular entity using an                              combinations
+adhesive bonding agent for each functional layer. When the
+foldable display is bent, each functional layer has a different
+bending radius, which creates a misalignment between the layers
+and stresses the adhesive between the functional layers. If the
+choice of adhesive is not appropriate, the adhesive will cause
+delamination between the functional layers of the foldable display
+due to the failure of the adhesive during the bending process [12],
+and in serious cases, the display layer will be damaged, which will
+lead to the scrapping of the foldable display. In severe cases, such
+failure can damage the display layer, and this results in the
+foldable display being scrapped. Therefore, the selection of
+adhesive properties is particularly important for the improvement
+of folding and bending performance.
+
+OCA is commonly utilized as a bonding agent in flexible
+
+                                                  SID 2025 DIGEST · 2057
+P-160 / X. Li
+
+Based on the simulation results discussed above and the                  Table 3. Design parameter table of support components
+comparison of the three different OCAs presented in Table 2, it is
+evident that the selection of OCAs with higher cohesion and                       Parameters                   P1(m) P2(m)
+stronger creep recovery rate for the foldable display utilizing UTG
+as the Cover film is advantageous. This feature significantly            c: minimum through-hole lead hammer   150     100
+reduces the stress value of the adhesive material in the display                          clearance
+module and facilitates bending.
+                                                                         Blind groove etching retention depth  80      60
+To determine the effect of various types of adhesive on the
+bending performance of the folding display, the above three              Table 4. Simulation results for different support designs
+different split adhesives were employed in physical production
+and bending tests. The accompanying test results are illustrated in                     Item                     P1      P2
+Figure 3. The test results show that during the actual bending               Maximum strain of OCA0            99.7%   99.2%
+process, the Split2 adhesive collocation experiences delamination            Maximum strain of OCA1            122.5%  124.2%
+between the functional layers less than 100,000 times. Split3                                                  4.70%   3.95%
+performs better than Split2, but still falls short of the 200,000                    Strain of PSA               840     733
+times required by the standard [10]. To meet customer acceptance         Maximum stress of SUSMPa
+criteria, the Split1 OCA textbook collocation would be the
+preferred choice. This experiment's outcome aligns with the              Using the simulation model discussed previously, this study
+simulation analysis's conclusion. From the verification results, it      compares the maximum stresses of both support member schemes
+can be seen that for the display module using the UTG scheme for         and the maximum strains of the remaining stacks within the
+Cover, using a higher creep recovery rate adhesive can effectively       display module through finite element simulation. The simulation
+improve the bending times of the display module.                         results are shown in Table 4, based on the simulation outcomes,
+                                                                         employing the P2 scheme reduced the maximum stress of the
+Influence of support Design: In addition to the impact of                support member by 14.59% compared to the P1 scheme.
+OCA materials, the design of support components, as a major              Additionally, the risk of fracture for the support member during
+material part of the module, is also critically important. The rear of   the bending process was lower. Furthermore, the two display
+the folded display module generally adopts a metal support               modules had a negligible impact on the adhesive layer's strain.
+member (e.g. SUS) to provide support and meet electrical and             Therefore, the P2 scheme offers better support for bending the
+thermal conductivity requirements between the display module             display module.
+and the entire machine [14]. To achieve the flexibility of the
+display module, the back support will be pattern-etched in the           In order to verify the influence of the design of the support
+bending region. This reduces stress during bending and decreases         member on the bending performance of the folded display module,
+the rebound force. To align the appearance of the display module's       the above two designs are used for physical fabrication and
+water droplet shape with the terminal hinge design, it will be           bending test, taking into account the increased risk of fracture of
+placed at the hinge support point (as shown in Figure 1) and the         metal materials at low temperatures, the actual verification is
+water droplet arc will be etched into the region of the blind groove     based on the low-temperature test, and the test results are shown in
+design. This is intended to reduce rebound force.                        Figure 5.
+
+The pattern uses through-hole etching, comprising a series of                      Figure 5. Schematic diagram of Pattern
+through-holes arranged in parallel with the bending direction and
+spaced at specific intervals. If the support is to be effective in thin  (P1-1: Blind groove etching retention 80m; P1-2: Blind
+metal material (such as 0.1/0.12/0.15mm), the strength of the            groove etching retention 60m; P2-1: Routine accuracy
+support in the bending area can be impacted by the gap of the
+through holes in the pattern area and the etching depth of the blind        control; P2-2: Strict control of precision collection)
+groove region. In case the design value is unreasonable, it will
+affect the support's strength after etching leading to inferior
+bending performance. Using the spindle pattern design illustrated
+in Fig. 4 as a case study, this study examines the effects of pattern
+design and retention depth of blind slot etching on bending
+performance. Two patterns with distinct through-hole widths and
+blind groove designs are utilized on the 0.12 mm SUS material
+support. For their dimensional specifications, please refer to Table
+3.
+
+             Figure 4. Schematic diagram of Pattern
+(Parameters: through-hole length a, maximum through-hole
+width e, minimum through-hole width d, horizontal through-
+hole clearance b, and minimum through-hole lead hammer
+
+                               clearance c)
+
+                                                          SID 2025 DIGEST · 2058
+P-160 / X. Li
+
+             edges, which in turn leads to OCA peeling (i.e. delamination
+             between cover and polarizer) as depicted in Figure 9.
+
+                                                                        Figure 7. Schematic of the display module section of the
+                                                                                              OCA1 retracted design
+
+ Figure 6. Two types of support design: manual bending of               Figure 8. Diagram of Flexion Principle Analysis
+                       water droplet morphology
+                                                                        Figure 9. Diagram of failure display after multiple bends
+As illustrated in Figure 6, the P1 solution exhibits poor bending
+performance due to excess depth in the blind slot, resulting in an      Using the previously established design, the simulation model
+excessive rebound force on the display module in that area. This        compares two different edge states through finite element
+impairs bendability into a teardrop shape during bending and            simulation. The simulation results are shown in Table 5, the
+distorts the through-hole area, which leads to stress concentration     simulation results show that implementing the OCA1 adhesive
+at the top of the teardrop and ultimately results in a fracture in the  with a flush edge design results in a 57% decrease in stress
+pattern. After the blind groove depth is optimized to 1/2 of the        compared to the non-flush edge design (maximum OCA1 stress
+thickness of the support member, the actual measurement of the          decreases from 0.14MPa to 0.06MPa). These results align with the
+bending enhancement of 66.66%. It can be seen that the blind            actual fabrication of samples used in the bending test. From the
+groove retention depth should not be too thick, and taking into         above validation analysis, it can be found that the use of one-piece
+account the material fracture blind groove etching depth at the         cut design is more conducive to bending performance
+same time should not be too shallow, in summary, it is                  improvement.
+recommended that the blind groove etching for the 1/2 of the
+thickness of the support.                                               Table 5. Simulation results for different support designs
+
+In order to verify the through-hole lead hammer gap design              Design of OCA1           Maximum      Results of test
+minimum value, in accordance with the P2 design for the                                       strain of OCA1      results
+fabrication, due to the actual processing process PATTERN
+etching there are precision errors, including the P2 design of the      Inside-out design of  0.14MPa         13,000 times NG
+minimum tendon width precision control 0.1 ± 0.03mm, this                       OCA1
+support member design in the low-temperature bending 50,000
+times the appearance of SUS fracture. After conducting a physical       flush design of OCA1  0.06MPa         200,000 times OK
+analysis, it was discovered that the support fracture of the
+minimum bar width is too small (less than the specification of the      The OCA1 and panel flush edge design is cut by laser. Since the
+following line). In combination with the results of actual              Cover Film verified above adopts the ultra-thin glass UTG
+verification and testing, it is recommended to enhance control over     scheme, due to the fragile nature of the glass, the UTG will be
+the minimum bar width (ensuring it is greater than or equal to          broken when the edge is cut in one piece, so it is not possible to
+80m). This will result in an improvement of the bending                 achieve the design where the cover film is equilateral to the OCA1
+performance. From the above, it can be seen that the P2 design          and the panel. If the cover film is made of CPI or PET, the process
+compared to the P1 design scheme, the former actually performs          can meet the entire display module light-emitting layer and above
+better than the latter and matches the simulation results.              the stack to achieve the flush design. Through the actual
+                                                                        verification can be found, this design can also meet the terminal
+Influence of Flush Edge Design: Besides the impact of the               bending reliability standards (200,000 times).
+folded materials discussed, the design of the module stack is
+equally crucial. To ensure that there is no overflow of glue and
+risk of bonding foreign objects on the four sides of the panel,
+OCA1 is commonly used as the bonding layer between the display
+module cover and polarizer. This is due to limitations in
+equipment layout and process. Thus, it can be observed that the
+OCA1 profile is typically smaller in size compared to the Panel
+profile. The profile's depiction can be seen in Figure 7 below.
+
+When attaching the cover, the above design may result in
+incomplete bonding between the display module edge position
+cover and polarizer. As a consequence, the cover of the display
+module will be subjected to pressure from both sides during the
+bending process, leading to bending (as illustrated in Figure 8).
+Extended periods of bending are predisposed to raise the
+probability of bubbling or pulling of the OCA adhesive from the
+
+SID 2025 DIGEST · 2059
+P-160 / X. Li
+
+4. Conclusions                                                        5. Lee CC, Shih YS, Wu CS, et al. Development of robust
+                                                                            flexible OLED encapsulations using simulated estimations
+To confirm the effect of display module stack design and material           and experimental validations. J Phys D Appl Phys.
+selection on its bending performance. This paper establishes the            2012;45(27):275102­9.
+water droplet bending model of flexible AMOLED display
+module through nonlinear finite element software, and obtains the     6. Jia Y , Liu Z , Wu D ,et al.Mechanical simulation of foldable
+factors affecting the bending performance of flexible display               AMOLED panel with a module structure[J].North-
+AMOLED by analyzing and comparing different design                          Holland,2019.DOI:10.1016/j.orgel.2018.11.026.
+conditions and supplementing them with actual verification, so as
+to provide a certain reference for the design and production of the   7. Zhenzhou Liu, Dunming LIAO, Yongzhen JIA, et al.The
+subsequent folded flexible display module.                                  bending stress of flexible OLED screen simulation [J].
+                                                                            Journal of LCD to display, 2018, 33 (7) : 6. DOI: 10.3788 /
+For the bending trajectory for the water droplet form of the display        YJYXS20183307.0555.
+module, the support piece pattern lead hammer gap should not be
+too narrow, from the actual verification results suggest that more    8. Su W , Cui J , Dong M ,et al.Influence of bending radius on
+than 0.08mm, and in order to reduce the display module bending              the properties of flexible AMOLED displays[J].Journal of the
+rebound force, the depth of the blind groove etching is                     Society for Information Display, 2022, 30(3):224-
+recommended for the 1/2 of the thickness of the support piece; For          232.DOI:10.1002/jsid.1090.
+the ultra-thin glass UTG as the cover of the display module, the
+use of adhesive material with higher creep recovery rate can          9. Cheng A, Chen Y, Jin J, Su T. Study on mechanical behavior
+effectively improve the display module bending times; when the              and effect of adhesive layers in foldable AMOLED display
+adhesive material and panel integrated flush design, to avoid the           by finite element analysis. SID Int. Symp. Dig. Tech. Pap.
+material bending process of the bending effect leads to improve             2019; 50(1):1060­3.
+the bending performance.
+                                                                      10. Qing Yang, Xin Wang. Application and characteristics of
+5. References                                                               optical transparent film in OLED screen of smart phone
+1. Su W , Cui J , Dong M ,et al.Influence of bending radius on              [J].China Adhesives, 2022, 31(1):4.
+
+      the properties of flexible AMOLED displays[J].Journal of the    11. Miao Li, Lingxin Kong, Dacheng Wang, et al.Review on
+      Society for Information Display, 2022, 30(3):224-                     manufacturing progress of glass for flexible display [J].
+      232.DOI:10.1002/jsid.1090.                                            Glass, 2022, 49(5):9.
+
+2. Lee CC, Ho JC, Chen G, Yeh MH, Chen J. Flexibility                 12. Salmon F , Everaerts A , Campbell C ,et al.Modeling the
+      improvement of foldable AMOLED with touch panel. SID                  Mechanical Performance of a Foldable Display Panel Bonded
+      Int. Symp. Dig. Tech. Pap. 2015;46(1):238­41.                         by 3M Optically Clear Adhesives[J].SID International
+                                                                            Symposium: Digest of Technology Papers,
+3. Lin L, Li YL, Yuan B, et al. Reliability and failure mode                2017(2):48.DOI:10.1002 /sdtp.11796.
+      analysis of foldable AMOLED display module. SID Int.
+      Symp. Dig. Tech. Pap. 2018;49(1):899­901.                       13. Qian S, Lu YM, Yang XQ, et al. The selection and parameter
+                                                                            determination of superelastic constitutive model of rubber
+4. Hsien-Chie C , Wei-Heng X , Wen-Hwa C ,et al.Bending                     material. Rubber Science and Technology. 2018;16(5):5­10.
+      Characteristics of Foldable Touch Display Panel with a
+      Protection Structure Design[J].Advances in Materials Science    14. Hamburgen R W . 58-2: Structurally Anisotropic Backing
+      and Engineering, 2015, 2015:1-                                        Sheets for Rollable-Foldable Display Modules[J]. SID
+      16.DOI:10.1155/2015/106424.                                           Symposium Digest of Technical Papers,2023,54(1).
+
+SID 2025 DIGEST · 2060
+

@@ -9,8 +9,8 @@
 #      命名错误的重名 .md、未完成的模型下载（*.part）
 #   3) 中间文件/lark-resources 下的中间产物（认证二维码、学员案例提取、群消息图片、近期爆款 dump）
 #   4) 中间文件/lark-im-resources 下的所有下载/转换中间文件（保留空目录）
-#   5) 全库范围内名为 _pdf_img 的 PDF 转图中间产物文件夹（page-*.png 逐页渲染图，
-#      可随时由源 PDF 重新生成；源文件/ 保留目录除外）
+#   5) 全库范围内以 _ 开头且以 img 结尾的图片中间产物文件夹（_pdf_img、_sany_img 等
+#      PDF 转图/材料图片下载提取产物，可随时由源文件重新生成；源文件/ 保留目录除外）
 # 保留对象：
 #   - 中间文件/lark-resources/数字人口播脚本发音处理.html （TTS 纠错工具，业务在用）
 #   - 根目录标记文件 .last-github-backup / .last-wiki-maintain / .last-maintenance-prompt
@@ -49,7 +49,7 @@ if [ -d "$VAULT/中间文件/lark-im-resources" ]; then
   rm -rf "$VAULT"/中间文件/lark-im-resources/* 2>/dev/null
 fi
 
-# ---- 5. 全库 PDF 转图中间产物文件夹 _pdf_img（源文件/ 保留目录除外，直接剪枝跳过整棵子树）----
-find "$VAULT" -path "$VAULT/源文件" -prune -o -type d -name "_pdf_img" -prune -exec rm -rf {} + 2>/dev/null
+# ---- 5. 全库图片中间产物文件夹（以 _ 开头且以 img 结尾：_pdf_img、_sany_img 等；源文件/ 保留目录除外，直接剪枝跳过整棵子树）----
+find "$VAULT" -path "$VAULT/源文件" -prune -o -type d -name "_*img" -prune -exec rm -rf {} + 2>/dev/null
 
 exit 0

@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-circuitjs",
+	"name": "CircuitJS",
+	"version": "1.2.2",
+	"minAppVersion": "0.15.0",
+	"description": "Embed interactive CircuitJS circuit simulations in your notes with offline support",
+	"author": "Steven Gann",
+	"authorUrl": "https://github.com/StevenGann",
+	"isDesktopOnly": true
+}

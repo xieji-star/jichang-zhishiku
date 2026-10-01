@@ -1,17 +1,6 @@
 ---
 name: feishu-manual-takeover
-description: |
-  飞书智能助手人工接管工作流。当用户通过飞书智能助手的"人工接管"模式发送课堂笔记、会议记录等文件时，本 skill 负责编排完整处理流程：从 中间文件/lark-resources/ 获取文件，调用 会议笔记整理 skill 进行内容整理，保存结构化笔记到 总结好的大纲以及笔记/ 目录，并建立双向链接。同时支持**多文件批处理**——当多个文件同时到达时，自动批量检测、批量命名映射、顺序处理、交叉链接和合并报告。
-
-  触发条件（只要满足任意一条就应触发）：
-  - 用户明确提到"人工接管"或"人工接管模式"且涉及飞书文件处理
-  - 用户要求处理飞书智能助手发来的课堂/会议/备忘录内容
-  - 用户说"使用飞书智能助手"且要求总结或整理文件
-  - 来自飞书智能助手的自动化任务（prompt 以 "🔴 自动化任务 — 来自飞书" 开头）
-  - 用户说"调用这个skill总结试试"或类似表达，且上下文涉及飞书文件
-  - 用户一次性发送多个文件并指定多个文件名（触发批处理模式）
-  
-  本 skill 是编排层，实际内容处理委托给 会议笔记整理 skill。请勿在不需要处理飞书文件时触发。
+description: "飞书智能助手人工接管工作流。当用户通过飞书智能助手的\"人工接管\"模式发送课堂笔记、会议记录等文件时，编排完整处理流程：从 中间文件/lark-resources/ 获取文件，调用 会议笔记整理 skill 整理内容，保存结构化笔记到 总结好的大纲以及笔记/ 并建立双向链接；支持多文件批处理（批量检测、命名映射、顺序处理、交叉链接、合并报告）。触发条件：用户提到\"人工接管\"且涉及飞书文件处理；要求处理飞书智能助手发来的课堂/会议/备忘录内容；说\"使用飞书智能助手\"并要求总结整理文件；收到 prompt 以\"🔴 自动化任务 — 来自飞书\"开头的自动化任务；一次发送多个文件并指定多个文件名（批处理模式）。本 skill 是编排层，实际内容处理委托给 会议笔记整理 skill，不需要处理飞书文件时请勿触发。"
 ---
 
 # 🤖 飞书人工接管工作流
@@ -333,7 +322,7 @@ lark-cli im +messages-search --query "文件名|路径|存到|整理" --page-siz
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
+doc = fitz.open('D:/积昌的知识库/中间文件/lark-resources/{{文件名}}')
 print(f'总页数: {doc.page_count}')
 for i in range(min(3, doc.page_count)):
     text = doc[i].get_text('text')
@@ -444,8 +433,8 @@ ls -la "总结好的大纲以及笔记/{{子目录}}/"
 ```markdown
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件名}}
-  存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
+  处理文件: D:\积昌的知识库\中间文件/lark-resources\{{文件名}}
+  存储位置: D:\积昌的知识库\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名}}
   内容来源: {{说明}}
 ```
@@ -478,16 +467,16 @@ Args:
 # 第 1 次调用
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件1}}
-  存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
+  处理文件: D:\积昌的知识库\中间文件/lark-resources\{{文件1}}
+  存储位置: D:\积昌的知识库\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名1}}
   内容来源: {{来源1}}
 
 # 完成后 → 第 2 次调用
 Skill: 会议笔记整理
 Args: 
-  处理文件: F:\积昌的知识库 - 副本\中间文件/lark-resources\{{文件2}}
-  存储位置: F:\积昌的知识库 - 副本\总结好的大纲以及笔记\{{子目录}}
+  处理文件: D:\积昌的知识库\中间文件/lark-resources\{{文件2}}
+  存储位置: D:\积昌的知识库\总结好的大纲以及笔记\{{子目录}}
   文件名称: {{文件名2}}
   内容来源: {{来源2}}
 ```
@@ -498,7 +487,7 @@ Args:
 #### 5.3 参数传递要点
 
 > [!WARNING] 🔴 **参数传递要点**
-> 1. **必须使用完整绝对路径**（如 `F:\积昌的知识库 - 副本\...`），不要用相对路径
+> 1. **必须使用完整绝对路径**（如 `D:\积昌的知识库\...`），不要用相对路径
 > 2. 路径中的反斜杠 `\` 会由系统自动处理，直接写 Windows 路径格式即可
 > 3. 调用后 会议笔记整理 会执行其 Step 0（前置询问三个问题），**你需要提前帮用户回答这三个问题**，让 会议笔记整理 跳过提问直接处理：
 >    - 存储位置 → 已在 Args 中提供
@@ -854,7 +843,7 @@ lark-cli im +messages-search --query "文件名|存到|整理|路径" --page-siz
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
+doc = fitz.open('D:/积昌的知识库/中间文件/lark-resources/{{文件名}}')
 print(f'总页数: {doc.page_count}')
 for i in range(min(3, doc.page_count)):
     text = doc[i].get_text('text')
@@ -868,7 +857,7 @@ doc.close()
 python3 -X utf8 -c "
 import fitz, sys
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-doc = fitz.open('F:/积昌的知识库 - 副本/中间文件/lark-resources/{{文件名}}')
+doc = fitz.open('D:/积昌的知识库/中间文件/lark-resources/{{文件名}}')
 for i in range(doc.page_count):
     text = doc[i].get_text('text')
     if text.strip():

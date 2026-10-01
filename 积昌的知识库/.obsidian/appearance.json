@@ -1,5 +1,8 @@
 {
   "accentColor": "",
   "theme": "obsidian",
-  "cssTheme": "Blue Topaz"
+  "cssTheme": "Blue Topaz",
+  "enabledCssSnippets": [
+    "circuitjs-size"
+  ]
 }

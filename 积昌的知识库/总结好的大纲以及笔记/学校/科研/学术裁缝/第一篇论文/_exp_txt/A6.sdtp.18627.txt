@@ -1,0 +1,144 @@
+P-155 / Y. Yang
+
+Research on Redundancy Absorption and Surface Deformation of OLED
+                                             Display
+
+Yefei Yang*, Liuyang Wang, Tongmin Liu, Xinquan Chen, Qi Wang, Heming Ding, Ying
+                                                       Shen**
+
+ *Hefei Visionox Technology Co., Ltd. Southwest cross of the Weiwu Road and New Bengbu Road,
+            Xinzhan District, Hefei, Anhui, 230000, P. R. China E-mail: yangyf04@visionox.com
+
+** Hefei Visionox Technology Co., Ltd. Southwest cross of the Weiwu Road and New Bengbu Road,
+            Xinzhan District, Hefei, Anhui, 230000, P. R. China E-mail: shenying@visionox.com
+
+Abstract                                                                                                                                   Wrinkle
+AMOLED (Active-matrix organic light-emitting diode) is
+supported by PI (Polyimide) flexible substrate, which can be made       Figure 1. Schematic diagram of wrinkles appearing in the
+into an arbitrary shape. It will cause area difference in hyperboloid   corner
+or spherical CG (Cover Glass) when it is laminated to the surface.
+In this case, the wrinkles will occur on the bending surface. In this   3. Research Methodology
+article, the influencing factors are analyzed by building a model in    1. The mechanical simulation software is used to establish a
+stress simulation software to compute the minimum principal
+stress. Besides, the design of experiment about avoiding wrinkles              curved surface simulation model. The influencing factors of
+are done.                                                                      minimum principal stress including integrated materials, CG
+                                                                               curvature, bending radius, etc. By studying the relationship
+Author Keywords                                                                between the minimum principal stress and wrinkles of the
+AMOLED; CG; wrinkle; bending radius; hyperboloid; redundancy                   screen module stack on the curved surface (reference
+absorption                                                                     principal stress criterion: the principal stress in the normal
+                                                                               direction is the minimum principal stress 1, the principal
+1. Background                                                                  stress in the tangential direction is the maximum principal
+In order to achieve full curved display, terminal products such as             stress 82, the tension state must meet 1>0; the wrinkle state
+mobile phones and tablets need to solve the problem of wrinkles at             must meet 1  0, 20, the relaxation state must meet 10,
+the four corners of the screen after lamination due to stress in the           20), this model meets the stress distribution in the wrinkle
+X/Y directions. The size of the wrinkles directly affects the display          state (as shown in Figure 2).
+effect of the screen. The factors that affect the size of the wrinkles
+include the R of the four corners of the screen, the slope of the                           Minimum principal stress
+curved surface of the CG, the bending radius of the CG, and the
+bending height of the CG. This solution uses the relationship
+between physical redundancy and simulated minimum principal
+stress as a criterion for judging the size of wrinkles, and achieves
+the ultimate display effect at the four corners by adjusting the
+module stacking design and CG design.
+
+2. Mechanism Analysis
+The main influencing factors of wrinkles are the physical
+redundancy of materials (area difference); the compressive stress
+of materials (bending depth, bending curvature and camber slope).
+The semi-finished product is attached to the hyperboloid position
+from the plane. Due to the redundancy, the compressive stress
+tangent to the R-angle bending arc will be generated at the
+hyperboloid position after the semi-finished product is combined.
+When the curvature and height of the CG increase, the compressive
+stress will increase accordingly. When it exceeds the limit of the
+semi-finished product's own compressive capacity, the semi-
+finished product will produce wavy folds (as shown in Figure 1).
+Under the condition of certain redundancy, the smaller the
+minimum principal stress of the material (the deformation
+resistance of the material), the more serious the wrinkle; When the
+minimum principal stress is fixed, the greater the redundancy, the
+more serious the wrinkles.
+
+                                                                        Figure 2. Simulation diagram of stress distribution in the
+                                                                        wrinkle state
+
+             SID 2025 DIGEST · 2037
+ISSN 0097-996X/25/5603-2037-$1.00 © 2025
+                                             P-155 / Y. Yang
+
+2. The 3D drawing software is used to divide the surface equally          Figure 6. Microscope photo of module slicing
+       and flatten it to calculate the area difference between the
+       plane and the curved surface (as shown in Figure 3). The                  The influence of material support on wrinkles was analyzed
+       quantitative value of the wrinkle size is not only related to the         by slicing (as shown in Figure 7). The shrinkage of the POL
+       minimum principal stress but also to the area difference                  (polarizer) and BPF (Back Plate Film) leads to the weakening
+       between the curved surface and the plane. By studying the                 of the strength at the edge of the screen, and the stress of the
+       relationship between redundancy and CG parameters                         screen edge resisting deformation is reduced during bonding,
+       (bending radius R, bending height H, bending angle, arc                   resulting in yield deformation and increased wrinkles at the
+       width W), Figure 4 and equation 1 shows the relationship                  edge; the shrinkage of the polarizer causes the OCA to
+       between the CG parameters and the redundancy. The                         exceed the polarizer and directly bond to the screen,
+       redundancy is proportional to H, inversely correlated with R,             increasing the Z-direction deformation of the screen and
+       and positively correlated with the bending angle. The                     increasing wrinkles.
+       redundancy can be quickly adjusted by adjusting the
+       parameters.
+
+Figure 3. Schematic diagram of calculating the area
+difference
+
+Figure 4. Relationship between W, R, H and                                Figure 7. Effect of POL & BPF retraction on wrinkle
+
+W = (1-)+                                    (1)                          4. Through DOE (Design of Experiment) comparison, the size
+                                                                                 of wrinkles are quantified, and the relationship between the
+                                                                                 two and the extreme position are analyzed. The lamination
+3. The effect of OCA (Optical adhesive) deformation on                           position corresponding to the extreme wrinkle position
+                                                                                 sample under a single condition is analyzed to calculate the
+wrinkles through slicing (as shown in Figure 5 and 6) is                         redundancy and stress simulation, and the extreme wrinkle
+                                                                                 relationship is built through fitting of multiple groups of
+analyzed. Due to the fluidity of OCA, when the curved                            DOE sample data. Our company has verified more than 100
+                                                                                 extreme positions to deduce the wrinkle relationship that can
+surface is bonded, the OCA overflows at the edge of the arc                      meet the surface redundant wrinkle threshold and guide the
+                                                                                 module stacking design.
+area, causing the edge of the screen to warp, the curvature of
+                                                                          4. Conclusion and Discussion
+the screen stress release is reduced (the bending radius is               Through the above method and DOE data fitting, a wrinkle
+increased), the actual height and redundancy are reduced, and             relationship is constructed (as shown in Figure 8). Through this
+                                                                          relationship, it is concluded that the range above the wrinkle OK
+the corresponding wrinkles are reduced. The greater the                   limit is a wrinkle-free area, the range below the wrinkle NG limit
+                                                                          is a wrinkle area, and the area between the two curves is a wrinkle
+inward shrinkage of the OCA edge, the more difficult it is for            & non-wrinkle mixed area, which can quantify the surface
+the edge of the screen to bond with the CG, the greater the               wrinkles. This paper combines simulation modeling, theoretical
+screen stress release, and the less likely wrinkles are to occur.         calculation, experimental verification, and slice analysis to realize
+                                                                          the absorption of redundant OLED surface display and the
+                                                                          compensation method of curved surface deformation.
+
+Figure 5. Effect of OCA retraction on wrinkle
+                                                          SID 2025 DIGEST · 2038
+                       P-155 / Y. Yang
+
+Wrinkle OK limitation
+
+                                                                     Wrinkle OK
+                                                                     Wrinkle NG
+
+Wrinkle NG limitation
+
+Figure 8. Scatter plot of wrinkle OK or NG judgment
+
+5. Impact of The Research                                            the content and strengthened my understanding of the subject
+The main impact of the research including: Redefine the rules of     matter.
+curved surface design, guide subsequent researchers in the design
+of curved surface lamination. Studying the laws of wrinkles can      7. References
+expand researchers' development ideas for wrinkles and guide the     1. Xu F, Yang Y F, Wang T. Curvature-affected instabilities in
+industry to explore deeper full-curved surface displays.
+                                                                           membranes and surfaces: A review. Advances in Mechanics,
+6. Acknowledgement                                                         2021, 51(2): 342-363 doi: 10.6052/1000-0992-20-038
+I would like to express my sincere gratitude to everyone who         2. Ni Y, Liu P L, et al. Nonlinear Buckling Mechanics of Film-
+contributed to the development of this article. First and foremost,        substrate Systems: Recent Progress. Chinese Journal of Solid
+my deepest appreciation goes to Tongmin Liu, whose guidance,               Mechanics, 2018, 39: 113-138 doi: 10.19636/j.cnki.cjsm42-
+expertise, and encouragement were invaluable throughout the                1250/o3.2018.008
+entire process.                                                      3. Du X W, Wang C G, Wan Z M. Advances of the Study on
+                                                                           Wrinkles of Space Membrane Structures. Advances in
+I would also like to thank my colleagues and peers who provided            Mechanics, 2006, 36(2): 187-199. doi: 10.6052/1000-0992-
+valuable perspectives and constructive criticism, which enriched           2006-2-J2005-028
+
+                       SID 2025 DIGEST · 2039
+

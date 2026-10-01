@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git clone --quiet https://github.com/xieji-star/jichang-zhishiku.git \"F:/jichang-backup\")",
-      "Bash(git -C \"F:/jichang-backup\" pull)",
-      "Bash(git -C \"F:/jichang-backup\" add -A)",
-      "Bash(git -C \"F:/jichang-backup\" commit -m \"知识库备份)",
-      "Bash(git -C \"F:/jichang-backup\" push)",
+      "Bash(git clone --quiet https://github.com/xieji-star/jichang-zhishiku.git \"D:/jichang-backup\")",
+      "Bash(git -C \"D:/jichang-backup\" pull)",
+      "Bash(git -C \"D:/jichang-backup\" add -A)",
+      "Bash(git -C \"D:/jichang-backup\" commit -m \"知识库备份)",
+      "Bash(git -C \"D:/jichang-backup\" push)",
       "Bash(bash .claude/hooks/kb-github-backup.sh)",
       "Bash(bash .claude/hooks/kb-temp-cleanup.sh)",
       "Bash(rm -rf \"F:/Programs/SimpleMindMap/\"*)",
@@ -14,7 +14,15 @@
       "Bash(xargs echo \"剩余条目数:\")",
       "Bash(rm -f \"中间文件/thoughts-0.20.0.tar.gz\")",
       "Bash(rm -f \"C:/Users/asus/AppData/Local/Temp/kb_shots/\"*)",
-      "Bash(rmdir \"C:/Users/asus/AppData/Local/Temp/kb_shots/\")"
+      "Bash(rmdir \"C:/Users/asus/AppData/Local/Temp/kb_shots/\")",
+      "Bash([ -d \"$V/$p\" ])",
+      "Bash(rm -rf \"F:/_cjs_test\")",
+      "Bash(mkdir -p \"F:/_cjs_test\")",
+      "Bash(cp -r \"D:/积昌的知识库/.obsidian/plugins/obsidian-circuitjs/circuitjs\" \"F:/_cjs_test/circuitjs\")",
+      "Bash(rm -f \"F:/_cjs_test/circuitjs/../circuitjs1\")",
+      "Read(//f/_cjs_test/**)",
+      "Bash(rm -rf \"F:/_kb_tmp\")",
+      "Read(//f/_kb_tmp/**)"
     ]
   },
   "hooks": {

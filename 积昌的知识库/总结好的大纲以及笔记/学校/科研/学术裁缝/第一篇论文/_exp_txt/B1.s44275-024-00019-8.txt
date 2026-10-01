@@ -1,0 +1,843 @@
+Moore and More (2025) 2:2
+https://doi.org/10.1007/s44275-024-00019-8
+
+ ORIGINAL ARTICLE
+
+Optimizing bendability of flexible electronic devices using a neutral
+layer strategy
+
+Majiaqi Wu1,2 · Maoliang Jian2 · Jianhua Zhang2 · Lianqiao Yang2
+
+Received: 2 September 2024 / Revised: 21 November 2024 / Accepted: 26 November 2024
+© The Author(s) 2025
+
+Abstract
+The neutral layer (NL) strategy is a key technique for improving the bendability of flexible electronic devices. In this study,
+by considering a three-layer structure as an example, the results obtained by finite element analysis (FEA) showed that the
+NL gradually moved to the top surface of the film as the film thickness and Young's modulus increased, which are similar
+to the results produced by theoretical calculations. Subsequently, we optimized the thickness of a single NL structure and
+the failure bending radius of an indium tin oxide (ITO) electrode was reduced by 50% after optimization. In order to address
+the problems that affect the design of a single NL, we used optical clear adhesive (OCA) to generate multiple NLs. The
+FEA method was again applied to the structure and the results showed that decreasing the elastic modulus of the OCA and
+film thickness could reduce the maximum strain in the film. Finally, the effects of the OCA parameters on the protection of
+a multiple-layer ITO electrode structure were verified in bending experiments, which showed that the strain on ITO could
+be reduced from 5.6% to almost 0 in the two-electrode structure. The proposed strategies for designing single and multiple
+NLs can provide some guidance to facilitate optimizing the electronic infrastructure of flexible devices.
+
+Keywords Flexible electronic devices · Thickness optimization design · Multiple neutral layers · Mechanical simulation
+
+1Introduction                                                   dual-injection light-emitting device [9] and compared with
+                                                                traditional liquid crystal displays [10, 11], flexible OLEDs
+Due to ongoing development and progress in science and          are characterized by their low weight and high flexibility
+technology, portable electronic devices such as smart           [12­15], although technical problems still affect their reli-
+phones and tablets are widely used in our daily activities      ability and durability.
+and lives, and these electronic display devices are gradually
+tending to become more lightweight and variable in shape.          Flexible OLED devices are generally produced by stack-
+The availability of a display that can be bent [1], folded [2,  ing multiple layers with specific functions, where the semi-
+3], curled [4­6], or even changed into any shape [7] allows     conductor functional layer plays an important role in flexible
+devices to have larger screens, as well as enhancing their      display devices [16­19]. When subjected to external loads,
+portability and adaptability [8], and thus many studies have    such as stretching, bending, and compression, the inorganic
+investigated the production of flexible electronic display      layer in the device is prone to cracking [20­23], delamina-
+devices. An organic light-emitting diode (OLED) is a type of    tion [24, 25], and buckling [23, 26, 27]. This failure caused
+                                                                by an external load severely detrimentally affects the electri-
+* Jianhua Zhang                                                 cal conductivity and structural integrity of flexible OLED
+     jhzhang@oa.shu.edu.cn                                      devices to greatly hinder their large-scale application. There-
+                                                                fore, identifying a design that can effectively prevent the
+* Lianqiao Yang                                                 structural failure of a device under an applied load is crucial
+     yanglianqiao@i.shu.edu.cn                                  for ensuring the safe and reliable operation of flexible OLED
+                                                                devices.
+1 School of Microelectronics, Shanghai University,
+     Shanghai 201800, China                                        Thin film encapsulation [8] is an important technique
+                                                                where inorganic films, such as silicon oxide (SiOx), silicon
+2 Key Laboratory of Advanced Display and System                 nitride (SiNx) film [28], or an organic/inorganic film com-
+     Applications, Ministry of Education, Shanghai University,  bined composite barrier layer [29], can effectively block the
+     Shanghai 200072, China
+
+                                                                Vol.:(0123456789)
+2  Page 2 of 18                                                 Moore and More (2025) 2:2
+
+infiltration of water and oxygen from the environment. How-     of the OCA, encapsulated film materials, and geometric
+ever, the inorganic film readily cracks when bending due to     parameters on the location and number of NLs. In addi-
+its inherent brittleness. In addition, transparent conductive   tion, the effect of interfacial shear was studied. Finally, the
+films, such as indium tin oxide (ITO) films [30, 31], provide   changes in the resistance of electrode structures containing
+the necessary high-quality transmission and good electri-       one or two ITO layers during bending were tested, which
+cal conductivity required for flexible electronic products,     verified the existence of multiple NLs in the structure that
+but they are usually brittle, and failure of the ITO film can   effectively protected multiple vulnerable locations.
+lead to equipment failure, and affect normal operation of the
+device in severe cases. In addition to the buffer layer design  2Description of the model
+that inhibits micro-crack propagation [32, 33], the neutral
+axis (NA) engineering [34] strategy can be adopted in order     2.1Mechanical model of multiple films
+to protect brittle materials in devices. If the important film
+is placed in the neutral layer (NL), deformation of the struc-  When a flexible OLED device is bent, one or more layers
+ture can be greatly reduced, thereby effectively protecting     with constant length before and after bending must appear
+the device.                                                     in the device, which are called the strain NLs. The inter-
+                                                                section line between the NL and cross section is the NA
+   Many studies have demonstrated that single NL position       [44]. At the NL, the strain of the device is 0 when bent.
+control can be achieved by adjusting the parameters of the
+film material in a device. For example, using a substrate with     Suo et al. [45] provided the strain distribution expres-
+a small elastic modulus can make the NL closer to ITO [35],     sion for double-layer stacked films, and Lee et al. [37] gave
+while the thickness of the planarized organic coating may       the strain distribution expression for three-layer stacked
+be adjusted to make the upper S iNx film closer to the OLED     films based on this expression. According to their struc-
+layer [36], and the thickness and elastic modulus of the cover  ture, we modeled a three-layer stacked film (see Fig. 1a)
+plate can be adjusted to reduce the critical bending radius     and built a rectangular coordinate system with the bottom
+[37]. The single NL can effectively protect the single layer    layer as the base. The thicknesses of the three-layer struc-
+in the device, which is a simple design structure that also     ture are denoted as hs, hc, and hf from the bottom to the
+reduces the costs of calculations and usage, so this design is  top, respectively, and the subscript s, c, and f represent the
+applied widely. However, several brittle layers in the device   substrate, conductive layer, and film. The top strain of the
+often need to be protected, and a single NL cannot meet the     film farthest from the bending center is top, and the bot-
+requirements described above; consequently, the multiple        tom strain of the substrate closest to the bending center is
+NLs strategy was developed. To address the multiple NLs          bot. The two bending modes are also shown in Fig. 1. The
+problem, a device can be artificially divided into multiple     tensile state of the film is convex-type bend (see Fig. 1b),
+single NL devices [38], where each has an independent NL        and concave-type bend when the film is compressed (see
+structure, and they are then superimposed together to form      Fig. 1c). Under concave-type bend, the bottom layer is
+an actual device with multiple NLs [39]. The introduction       defined on the film instead of the substrate.
+of multiple NLs can release the stress in each part of the
+device to a certain extent [40], which is generally achieved       In general, the dimension of the multilayer film com-
+by introducing multiple adhesive layers with a low elastic      posite structure is much larger in the plane direction than
+modulus [41­43]. Thus, multiple NLs and single NL strate-       the thickness direction, so the cylindrical bending condi-
+gies are equally important.                                     tion can be used, which is similar to the plane stress condi-
+                                                                tion applied in the thickness direction of the structure [35].
+   In the present study, we first used the finite element       In order to better establish the corresponding mathematical
+analysis (FEA) method to parameterize the geometric             model, it is necessary to make some assumptions. First, it
+structure and material properties of each film, before ana-     is assumed that each layer of materials has no defects and
+lyzing the effects of these parameters on the position of a     good adhesion between interfaces, and the materials in
+single NL and the overall structure. Multiple simulations       each layer are isotropic materials. Second, we assume that
+were conducted to obtain the optimal S iNx film thickness       the bending radius is much larger than the thickness of the
+for the structure containing the SiNx encapsulation layer       stacked layer. Finally, it is assumed that the film structure
+and ITO conductive layer. The practicability and reliability    is in a state of pure bending, so the bending strain exhibits
+of the FEA method were verified by measuring the change         a linear distribution along the thickness direction. Thus,
+in the resistance of ITO during bending, and the optimal        according to Lee et al. [37], the top and bottom strain can
+design method for the NL thickness was obtained. Second,        be expressed as:
+an optical clear adhesive (OCA) with a low elastic modu-
+lus was used to form a structure containing multiple NLs,
+and the FEA method was applied to explore the effects
+Moore and More (2025) 2:2                                                                                                   Page 3 of 18 2
+
+Fig.1a, d Flexural strain distributions for three-layer and multilayer stacked films and assumed entire thickness, respectively. b, c Stress states
+of three stacked films under convex-type and concave-type bend, respectively
+
+ top = h2s Es + hc2Ec + hf2Ef + 2hshcEs+2hchfEc+2hshfEs                  bot  =  -  1     n         Ei          -                           (3)
+                        2R hsEs+hcEc+hfEf                                           2R             1-v2i   z2i  -  zi2-1  
+                                                                                             i=1                          
+                                                                    (1)                              Ei    zi          
+                                                                                          n        1-v2i           zi-1
+ bot = - hs2Es + hc2Ec + h2f Ef + 2hshcEc+2hchfEf+2hshfEf
+                          2R hsEs+hcEc+hfEf                                                   i=1
+
+                                                                    (2)  2.2Constitutive model of OCA
+
+where Es=Es 1 - vs2 , Ec=Ec 1 - v2c , Ef=Ef 1 - vf2 , E                  In order to distribute multiple NLs in flexible OLED devices,
+and v represent the Young's modulus and Poisson's ratio for              OCA is generally used to bond each layer in the structure.
+the material, respectively, and R is the bending radius at the           OCA has high bonding properties [46] as well as strong
+bottom. Now, we consider the structure with more than three              weathering resistance and noncorrosive properties [47]. In
+layers in the actual device, and the multi-layer structure also          addition, OCA is a hyperelastic and viscoelastic material,
+satisfies the assumptions given above. For the composite                 which is widely used in flexible electronic devices due to its
+structure with a total of n layers, assume that the thickness            excellent properties.
+of each layer is hi(i = 0,1,2,...,n), the total thickness is h, the
+height from the bottom layer to the top of layer i is zi, and the           OCA is hyperelastic and a variety of material models,
+bending radius at the bottom is R (see Fig. 1d). According to            such as the Neo­Hookean [48], Mooney­Rivlin [49], and
+the force balance conditions, the expression for the bottom              Yeoh [50] models, can be used to describe the hyperelastic
+strain can be obtained as follows [35].                                  properties of materials. Each model defines the strain energy
+                                                                         density function U in different ways. Compared with the
+                                                                         first two models, the Yeoh model is better at describing the
+2  Page 4 of 18                                                       Moore and More (2025) 2:2
+
+stiffening effect [51] of materials, and the fitted strain range      the rigid plate rotated 90° at both ends, and the distance
+is larger. Therefore, the Yeoh model was used in this study           between the rigid plates was the bending diameter of the
+to describe the hyperelasticity of OCA. The model can be              flexible device (see Fig. 2a). Subsequently, the bending
+expressed as [3]:                                                     radius of the flexible device was controlled by manipulating
+                                                                      the inward movement of the rigid plate (see Fig. 2c). When
+      3        I1 - 3  i + 3 1     Jel - 1  2i                 (4)    the bottom strain is calculated by using Eq. (3), R is equal to
+U = Ci0                    i=1 Di                                     the difference between the spacing of the semi-rigid plates
+                                                                      and the total thickness of the device.
+         i=1
+                                                                         The simulation model was established according to the
+where Ci0 and Di are material constants, I1 is the first partial      actual bending process for the foldable flexible device. It was
+strain invariant, and Jel is the volume ratio. For a completely       assumed that the total length of the device was 60 mm and
+incompressible material, Di = 0, Jel = 1, and the initial shear       it was modeled as a symmetric device along the axis. When
+modulus of the material is G = 2C10.                                  bending and limiting the degree of freedom along the x-axis
+                                                                      of symmetry, the rigid plate was modeled as a rigid body
+   Assuming that the OCA used is isotropic and completely             and it rotated 90° clockwise around the reference point. The
+incompressible, the simple shear stress S can be expressed            reference point was on the contact surface between the rigid
+as the partial derivative of U with respect to the simple shear       plate and flexible device, and the distance from the axis of
+strain S during simple shear deformation:                             symmetry was the bending radius (see Fig. 2b). The grad-
+                                                                      ual radius reduction process (see Fig. 2d) was obtained by
+S=       U      3         2i-1                                 (5)    restart analysis. A tetrahedral mesh with a size of 0.04 mm
+            = 2 iCi0      S                                           was used, and each film was divided into three layers. The
+                                                                      grid element type adopted plane strain, hybridization, and
+         S        i=1                                                 reduced integration to avoid shear locking.
+
+   The viscoelastic behavior of materials can be described            3Experimental methods
+
+well by the generalized Maxwell model [52]. Therefore, both           The ITO layer in flexible OLED devices generally acts as a
+the time-dependent shear modulus G(t) and bulk modulus                transparent conductive electrode, which is damaged when
+K(t) can be expanded into Prony series [53]:                          subjected to stretching and bending, and the conductivity
+                                                                      of ITO is reduced. ITO is generally located at the top or
+G(t)                   n          1 - exp  -t                         bottom of the device's structure and its Young's modulus
+      = g(t) = 1 - gi                                                 is large, but the thickness is usually only tens of nanom-
+G0                                              G              (6)    eters, so the factors described above make the ITO layer
+                             i=1                i                     more prone to failure than other structural layers. When
+                                                                      the packaging layer, ITO layer, and substrate of the device
+K(t)  =  k(t)  =      n           1 - exp  -t                  (7)    are extracted separately to form a flexible electrode with a
+K0                1 - ki                                              simple structure, the conductivity and failure mode of the
+                                                K                     electrode under an external bending load can be readily stud-
+                         i=1                    i                     ied. Therefore, the structure of a flexible ITO electrode was
+                                                                      investigated in the present study. Polyimide (PI) was selected
+where G0 and K0 are the instantaneous shear modulus and               as the substrate, ITO as the conductive layer, and S iNx film
+                                                                      was used as the encapsulation layer in some structures, with
+bulk modulus, respectively, determined by the instantane-             OCA as the adhesive layer in order to obtain a stable flexible
+                                                                      electrode structure.
+ous elastic modulus E0; i is the relaxation time constant; gi
+
+and ki are the Prony constants; and gi = GiG0, ki = KiK0.
+
+OCA is also viscoelastic, so Prony series can be used to
+
+describe its stress relaxation process. The equilibrium Pois-
+
+son's ratio for the OCA is 0.499, which is very close to 0.5,
+                                                   G     K
+and thus it can hardly be compressed, and          i  =  i  =  i can
+
+be assumed at this time. The stress relaxation behavior is
+
+dominated by shear stress relaxation, so it is only necessary
+
+to conduct shear stress relaxation experiments. In general,
+
+the experimental data can be fitted better by intercepting
+
+3­5 Prony series.
+
+2.3FEA simulations                                                    3.1Preparation of flexible electrode
+
+The FEA simulations were conducted using ABAQUS 6.14.                 The ITO and S iNx/ITO composite films on self-supported PI
+The bending process of the flexible device was regarded as            were prepared as shown in Fig. S1 (available in the online
+a process where the device rotated around a central axis,             supplementary data). The self-supported PI adhered to the
+and the two ends of the device were supported by a rigid              glass substrate was placed in a magnetron sputtering instru-
+plate and rotated with it, forming a 90° bending state after          ment, and the target atoms were sputtered onto the surface
+Moore and More (2025) 2:2                                         Page 5 of 18 2
+
+Fig.2Actual bending and simulation process for flexible devices. a, b The device rotates with the rigid plate in real situations and simulations.
+c, d Devices in real situations and simulations (rigid plate hidden) move inward with the rigid plate
+
+of the PI substrate through Ar ion bombardment to form            sputtering method (Japan, ULVAC, SME-200E), and the
+ITO/PI composite films (see Figs. S1a, b). The PI substrate       thickness of the prepared film was 30 nm. The Young's
+and ITO film were cut together into a rectangle (10 mm            modulus was~120 GPa [55] for the ITO film and Poisson's
+width×60 mm length), and the PI substrate was stripped            ratio was 0.30.
+from the glass substrate to form a single-layer electrode
+structure (see Fig. S1c). In addition, a layer of S iNx film was     The thicknesses were measured for four PI substrates
+grown on the surface of ITO (see Fig. S1d) by cutting and         (11 m, 25 m, 50 m, and 100 m) by using a step meter
+stripping to prepare an S iNx/ITO/PI multilayer composite         (Germany, BRUKER, DEKTAK XT), and the stresses were
+film (see Fig. S1e).                                              determined for the PI substrates (10 mm width×50 mm
+                                                                  length) under different strains with an in situ tensile testing
+3.2Mechanical properties of film and substrate                    machine (USA, AMETEK, LS5). The Young's moduli were
+                                                                  obtained as 5.00 GPa, 1.49 GPa, 1.44 GPa, and 1.21 GPa
+SiNx films were deposited on the substrate via plasma             for the four PI substrates with thicknesses of 11 m, 25 m,
+enhanced chemical vapor deposition (PECVD; Japan,                 50 m, and 100 m, respectively. The Poisson's ratio was
+ULVAC, CME-200E). The Young's modulus was obtained                obtained for the substrate by using a video extensometer
+for the films (~249 GPa) using a nanoindenter (USA,               (UK, LLOYD, VE-7100), and the average value was about
+HYSTRON, TI 950 Tribolndenter) at a maximum load                  0.29.
+of 1.5 mN with a contact depth of~60 nm. The Poisson's
+ratio could not be obtained directly for the SiNx films, so a     3.3Mechanical properties of OCA
+value of 0.20 was applied, as described in a previous study
+[54]. The ITO film was prepared by using the magnetron            The hyperelasticity and viscoelasticity were measured
+                                                                  for the OCA (Mitsubishi) by using a rotating rheometer
+2  Page 6 of 18                                                                              Moore and More (2025) 2:2
+
+Fig.3a, b Nominal stress­strain and shear stress relaxation curves for OCA, respectively
+
+Table1Hyperelasticity and thickness parameters for five types of  be characterized in stress relaxation experiments. Figure 3b
+OCA                                                               also demonstrates that the stress does not relax to 0 for vis-
+                                                                  coelastic solids, such as OCA.
+OCA    C10(MPa) C20(MPa)          C30(MPa)     Thickness
+model                                          (m)                   According to the Yeoh model of simple shear
+                                                                  stress­strain, three material parameters were obtained for
+OCA1   2.99×1 0-2 -1.71×1 0-3 -3.12×10-4 300                      the five types of OCA by fitting the mean values in the shear
+OCA2   7.66×10-3 1.30×1 0-3 -1.13×10-4 125                        stress­strain curves, as shown in Table 1. Material param-
+OCA3   5.82×10-3 1.85×10-4 -2.81×1 0-6 125                        eters C20 and C30 had negative values, and thus the fitted
+OCA4   8.18×1 0-3 -2.99×1 0-4 2.67×1 0-5 125                      stress­strain curve was S-shaped and it captured the strain
+OCA5   6.69×10-3 -3.51×1 0-4 -3.51×1 0-4 25                       stiffening effect of the material [51]. Table 1 also shows that
+                                                                  the initial shear modulus was largest for OCA1. Among the
+(Austria, ANTON PAAR, MCR 302e). Each sample was                  three types of OCA with thicknesses of 125 m, the initial
+measured three times and the response curve was plotted           shear moduli were similar for OCA2 and OCA4, but the
+for the nominal stress and strain (see Fig. 3a). Figure 3a        former had a larger shear modulus at higher strains. The
+shows the nonlinear elastic behavior of the OCA during            initial shear modulus was lower for OCA3 than OCA4, but
+deformation, where the OCA appeared to exhibit stiffening         both were very similar at higher strains.
+behavior (the curve shifted upward) at large strains. The vis-
+coelasticity of OCA was also measured by using a rotating            According to the generalized Maxwell model, after
+rheometer. Each sample was kept under a small strain (10%)        importing a series of experimental data into ABAQUS, the
+and the stress relaxation experiment was conducted in the         program automatically fitted the curve to yield the third-
+shear mode (see Fig. 3b). The test was performed three times      order Prony and relaxation time constants gi and iG, respec-
+and the mean value was taken as the response of the mod-          tively, as shown in Table 2.
+ulus and time. The stress relaxation process entails stress
+decaying with time under constant strain. In general, stress      3.4Bending tests
+decays exponentially as time increases and this behavior can
+                                                                  During the bending process, ITO films may be subjected to
+                                                                  tensile or compressive stress. The accurate control of the
+
+Table2Viscoelastic parameters  i  OCA1         OCA2                  OCA3                    OCA4       OCA5
+for five types of OCA
+                                            G                     G                       G        G                    G
+                                  gi        i  gi                 i  gi                   i  gi    i    gi              i
+
+                               1 0.450 4.23 0.214 4.22 0.370 3.99 0.470 3.87 0.439 5.18
+
+                               2 0.220 33.5 0.131 35.4 0.152 32.7 0.135 31.0 0.258 36.2
+
+                               3 0.130 275     0.115 331             0.102 279               0.052 412  0.225 294
+Moore and More (2025) 2:2                                                Page 7 of 18 2
+
+bending radius and measuring its conductive properties in                explore the effect of the film thickness on the NL, the mate-
+a stable manner were then investigated in this study. The                rial parameters were kept unchanged for the ITO layer and
+bending test was carried out using a dynamic bending test                substrate. In order to simplify the calculations, the Young's
+device, which was manufactured in the laboratory, as shown               modulus and Poisson's ratio for the film were consistent with
+in Fig. S2.                                                              those for the substrate, and only the thickness of the film
+                                                                         changed. The material parameters for the film layer, ITO
+4Results and discussion                                                  layer, and substrate are listed in Table 3, and convex-type
+                                                                         bend simulations with an initial bending radius of 11 mm
+4.1Effect of packaging film on NL                                        were conducted for five films with different thicknesses.
+
+For the three-layer structure shown in Fig. S1e, S iNx films                After conducting the simulations, the nominal strains on
+with different thicknesses and Young's moduli were obtained              the nodes at the symmetric interface of the model along the
+by changing the deposition time and process parameters, and              x-axis direction were extracted to obtain the strain distri-
+then used as encapsulation layers in the structure. In order to          bution along the thickness direction of the structure (see
+                                                                         Fig. 4a). The linear fitting method was used to fit these data
+Table3Material properties and film thicknesses used in FEA for           and the linearity of the data was very high, which is consist-
+flexible encapsulation                                                   ent with the assumption that the strain exhibited a linear
+                                                                         distribution along the thickness direction in the theoretical
+Labels (from Material      E(GPa) v  h(m)                                method. The simulation results obtained for the concave-
+top to bottom)                                                           type bend are shown in Fig. 4d. Compared with the results
+                                                                         obtained for the convex-type bend, the nominal strains at
+Film       SiNx film 5          0.29 50/75/100/125/150                   the same thickness were the opposite under the two bend-
+ITO                             0.30 0.03                                ing modes.
+Substrate  ITO             120  0.29 100
+                                                                            As shown in Fig. 4b, a simulated strain cloud map for
+           PI substrate 5                                                the film was placed evenly in a bar chart representing the
+                                                                         total thickness of the structure, as well as the position of
+
+Fig.4Strain distribution in the thickness direction with different film  thickness direction, c distance from NL to the ITO film and difference
+thicknesses: a convex-type and d concave-type bends. Position of NL      between the half-thickness position and ITO film, e maximum stress
+and stress distribution in structure of ITO film: b position of NA in    in ITO film, and f ITO film stress under different bending radii
+2  Page 8 of 18                                                              Moore and More (2025) 2:2
+
+the NA. As the thickness of the S iNx film increased, NA          Table4Material properties and Young's moduli (E) of films used in
+moved toward ITO and the tensile strain of ITO decreased          FEA for flexible encapsulation
+gradually. NA was approximately coincident with ITO
+when the thickness was 100 m, but as the thickness of             Labels (from top Material  E(GPa)  v  h(m)
+the film continued to increase, ITO moved away from NA            to bottom)
+and the compressive stress increased. As shown in Fig. 4c,
+the distance from NL to ITO was defined as negative when          Film       SiNx film       5/10/15/20/25 0.29 50
+NL was below ITO. As the thickness of the film increased,         ITO        ITO
+NL expanded from the substrate region (-27.5 m) to the            Substrate                  120     0.30 0.03
+film region. When the film thickness was 100 m, ITO
+was only 0.2 m away from NL. The simulation results                          PI substrate 5          0.29 100
+were highly consistent with the theoretical calculations.
+The bar chart in Fig. 4c shows the difference between the            As the Young's modulus of the film increased, the posi-
+ITO and half-thickness position in the device. The simula-        tion of the NA also gradually increased from below ITO
+tion results showed that when the Young's moduli were the         at the beginning to near ITO at 20 GPa and higher than
+same for the film and the substrate, NL appeared at half          ITO at 25 GPa (see Fig. 5b). Only the Young's modulus
+of the total thickness. As the film thickness increased, the      of the film changed but the changes in the positions of
+stress in the ITO layer was characterized by an extreme           the NL were same as those when the thickness increased,
+stress of about-0.36 GPa (see Fig. 4e). According to these        thereby demonstrating that changing the Young's modulus
+results, we consider that the movement of the NL made the         could also make the NA move toward the ITO. In addition,
+ITO gradually lower than the NL and compressive stress            the NA was evidently not in the middle of the device but
+was generated.                                                    instead it became closer to the film as the Young's modu-
+                                                                  lus increased. As shown in Fig. 5c, the simulation results
+   According to the bending experiments described in              were still highly accurate. When the Young's modulus of
+Sect. 4.3, 1.9 GPa was defined as the failure stress for ITO      the film was 20 GPa, the NL was very close to the ITO and
+when damaged by stretching. As shown in Fig. 4f, the stress       the Young's modulus at this point was the critical modu-
+in the ITO layer gradually increased as the bending radius        lus. In the practice, the structure should be made close to
+decreased further. For the film with a thickness of 50 m,         the critical modulus of the design.
+when the bending radius was less than 2.2 mm, the stress in
+the ITO layer exceeded 1.9 GPa, and the bending radius at            Figure 5e shows that the differences between the simu-
+this time was defined as the critical radius when the stress      lation results and theoretical calculations were very small.
+was greater than 1.9 GPa, and ITO was in the failure region.      At the position where the ITO stress was 0, the theoretical
+The stress on ITO in the film with a thickness of 100 m was       and simulation values for the critical modulus of the film
+smallest at all bending radii because the NL in the structure     were both 20 GPa. The ITO was within the safe region
+was closest to the ITO. Thus, when designing the structure,       under the five Young's moduli tested. As shown in Fig. 5f,
+a reasonable film thickness should be selected to ensure that     the critical radii of the films were 2.2 mm and 1.0 mm
+the ITO is still under low stress at a smaller bending radius.    when the Young's moduli for the films were 5 GPa and 10
+                                                                  GPa, respectively, and failure did not occur in the devices
+   To explore the effect of the Young's modulus of the film       when the rest moduli were above the bending radius of
+on the NL, the thickness of the film was kept unchanged (50       1.0 mm. The stress distribution curve under each modulus
+m) and only the Young's modulus was changed (Table 4),            was not the same as that in Fig. 4f for the linear symmetric
+whereas the elastic parameters and thicknesses of the sub-        distribution when the stress was 0. Clearly, in order to
+strate and ITO layer were kept unchanged. A bending simu-         make the distribution of the curve symmetrical, a larger
+lation was also carried out for the structure with an initial     difference in the Young's modulus is required, which also
+bending radius of 11 mm.                                          means that it is much more difficult to achieve a large
+                                                                  shift in the position of the NA by changing the modulus
+   Clearly, for films with different Young's moduli, the strain   compared with changing the thickness.
+in the device also satisfied the assumption of a linear distri-
+bution in the thickness direction (see Fig. 5a). In addition, as     According to these results, it is feasible and effective
+the Young's modulus increased, the maximum compressive            to predict the location of a single NL based on the FEA
+strain increased whereas the tensile strain decreased. As the     method, especially for structures containing many mem-
+bending radius decreased, the maximum compressive stress          brane layers. Thus, in order to achieve the same protective
+and tensile stress increased, but the fitted curves intersected   effect, changing the thickness of the material is a better
+at a point where the strain was 0, and this intersection point    choice than modulating the Young's modulus, which is
+was the NL (see Fig. 5d), thereby indicating that the position    also known as NL thickness optimization design.
+of the NL did not change with the bending radius.
+Moore and More (2025) 2:2                                                                             Page 9 of 18 2
+
+Fig.5Nominal strain distribution in structure with different values  thickness direction, c distance from NL to ITO, e stress in ITO
+for: a Young's modulus of film, and d bending radius (hf=50 m).      (11 mm bending radius), and f stress in ITO under different bending
+Position of NL and stress on ITO in structure: b position of NA in
+                                                                     radii
+
+4.2Simulation of structures with multiple NLs                        established. The parameters for each material are shown
+                                                                     in Table 5. The properties of the OCA can be defined by
+As mentioned above, multiple NLs can appear in a device              parameters describing hyperelasticity and viscoelasticity.
+by introducing OCA. In general, the strain is not uniformly          The parameters for the OCA were first based on previously
+distributed along the thickness direction in a structure with        reported data [3]. All of the parameters for the film and sub-
+multiple NLs, so the theoretical calculation method is not           strate were kept unchanged, and only the thickness of the
+suitable for determining the position of each single NL.             OCA was changed. The initial bending radius was 11 mm.
+Several previous studies have confirmed the existence of
+multiple NLs in a device based on experiments [56], but                 Only one NL appeared when the structures were bonded
+it is undoubtedly very difficult to determine the numbers            through an adhesive layer with an elastic modulus (5 GPa)
+and locations of NLs in devices with more complex struc-             that was much higher than that for the OCA. However, after
+tures. However, compared with mathematical calculations,             the OCA was introduced, two NLs appeared in the device
+the FEA method can extract the stress and strain situation           beside the OCA, and they were located in the film and sub-
+for each layer in a device [57], and thus help us to more eas-       strate (see Fig. 6a). The decoupling effect of OCA [3] meant
+ily determine the locations and numbers of NLs. Therefore,           that the strain in the device was not completely distributed
+we then replaced the ITO with OCA based on a single NL               evenly along the thickness direction.
+structure to connect the film and substrate, and simulated the
+locations and numbers of multiple NLs as well as the impact          Table5Material properties and OCA thickness used in FEA
+of OCA on the overall structure of the device by using the
+FEA method.                                                          Labels (from Material  E(GPa) v  h(m)
+                                                                     top to bottom)
+4.2.1Influence of OCA thickness
+                                                                     Film       SiNx film   5   0.29 100
+In order to study the effect of the thickness of the OCA on          OCA                        0.50 25/50/75/100/125
+the NL, models of the film, OCA, and substrate were first            Substrate  OCA         /   0.29 100
+
+                                                                                PI substrate 5
+2  Page 10 of 18                                                        Moore and More (2025) 2:2
+
+Fig.6a Position of NL in structure containing an adhesive layer (top)   nesses, c attached to OCA with thicknesses of 125 m and 500 m,
+and OCA (bottom). d Strain distribution for different thicknesses in a  and e attached to OCA with a thickness of 25 m at different bending
+                                                                        radii. f Change in strain on top surface of the film with the bending
+device containing OCA with a thickness of 25 m. Strain distribution
+in thickness direction when: b attached to OCA with different thick-    radius
+
+   The strain in each film on the symmetric surface                        As the bending radius increased, the maximum tensile and
+changed almost uniformly along the thickness direction,                 compressive strains decreased in both the film and substrate,
+whereas it did not between the films (see Fig. 6d). For the             and the NLs of the two film layers gradually approached the
+convex-type bend, both tensile and compressive strains                  OCA (see Fig. 6e). As the bending radius approached infin-
+were found in the substrate, and thus there was an NL                   ity, the device approximated the unbending state, at which
+in the substrate. The maximum tensile and compressive                   point the maximum tensile and compressive strains in both
+strains were almost equal in the OCA, indicating that the               the film and substrate tended toward 0, thereby matching the
+NL for the OCA was in the middle thickness. Similarly, an               strain distribution in an unbent device. As the bending radius
+NL appeared in the film. In addition, the stress conditions             decreased, the strain on the top surface of the film increased
+were completely opposite for the film and substrate, which              continuously at the five different thicknesses, and decreased
+means that OCA can divide connected films and substrates                as the thickness of the film increased under the same bend-
+with the same material parameters into two identical and                ing radius (see Fig. 6f), indicating that the bending radius
+independent parts. Figure 6d also shows the strain distribu-            does not change the influence of OCA thickness on the top
+tion in the device under the concave-type bend, where the               surface strain of film.
+strain was also symmetrically distributed along a strain of
+0 under the two bending modes.                                          4.2.2Influence of OCA elastic modulus
+
+   As the thickness of the OCA increased, the maximum                   In order to explore the effect of the elastic modulus of the
+tensile strain on the top surface of the film decreased                 OCA on the NL, a bending simulation was conducted with
+and the range decreased gradually, where the strain was                 an initial bending radius of 11 mm for the device where
+almost equal with thicknesses of 100 m and 125 m (see                   the elastic modulus of the OCA was changed. The mate-
+Fig. 6b), before decreasing as the thickness of the OCA                 rial parameters for the film, OCA, and substrate are shown
+increased to 500 m (see Fig. 6c), and the strain distribu-              in Table 5, and the thickness of the OCA was 25 m. The
+tion when the thickness of the OCA was 125 m was also                   two viscoelastic parameters for the OCA (gi, i) were
+selected. Clearly, the maximum tensile strain on the top                kept unchanged and only the hyperelastic parameters
+surface of the film was almost the same under the two                   (C 10, C20, C30) changed to reflect the changes in the elastic
+thicknesses.
+Moore and More (2025) 2:2                                             Page 11 of 18 2
+
+modulus of the OCA. The simulation results were obtained              thickness, and the strain distribution in the OCA with 105E
+using one, two, three, four, and five times the original val-         was very close to that of the adhesive layer. In conclusion,
+ues of the parameters. The simulation results are shown in            when the elastic modulus of OCA was small, increasing the
+Fig. 7a, where E represents the initial elastic modulus for           elastic modulus of the OCA increased the maximum strain.
+the OCA (E = 6C10).                                                   To a certain extent, when the elastic modulus was large, the
+                                                                      strain began to exhibit a linear distribution along the thick-
+   As shown in Fig. 7a, as the elastic modulus of the OCA             ness and the strain was almost equal at the same thickness,
+increased, the maximum tensile and compressive strains on             and the multiple NLs in the structure evolved into a single
+the top surface of the film and the bottom surface of the             NL.
+substrate increased continuously, and the two NLs on the
+film and substrate were also constantly close to the OCA.                For OCA with 1­10 times the original modulus, when the
+According to these simulation results, increasing the elastic         modulus was larger, the strain on the surface of the film was
+modulus of the OCA increased the maximum strain. OCAs                 larger at the same bending radius (see Fig. 7c). The strain
+with original moduli of 10, 1 02, 103, 104, and 1 05E were            for the film with 1 03 times the original modulus was much
+used, and the OCA with a modulus of 105E had an initial               larger than those with 1­10 times. When the modulus was
+elastic modulus of~4 GPa, which was close to that for the             greater than 103E, the structure was approximately in a state
+adhesive layer (5 GPa).                                               with a single NL.
+
+   Figure 7b shows that when the modulus of the OCA was                  In the model of the original modulus, the shear strain was
+10 times the original value, the strains on the bottom surface        very large at close to 200%, which was much larger than the
+of the film and the top surface of the substrate were close           strain on the surface of the film (see Fig. 7d). As the modu-
+to 0. As the OCA modulus continued to increase, tensile               lus of the OCA continued to increase, the shear strain gradu-
+and compressive strains appeared in the film and substrate,           ally decreased, but the decrease was not large. From 1 02E
+respectively. The modulus increased at a rate almost an order         to 105E, the maximum shear strain decreased significantly,
+of magnitude higher, but the strain distribution was almost           and decreased to 1% (105E). The difference in the strain on
+the same from 1 02E OCA, although the structure containing            the surface of the film was not large but the difference in the
+an OCA with a higher modulus had greater strain at the same           shear strain was very large. Thus, the elastic modulus of the
+
+Fig.7Strain distribution in the thickness direction of the device: a  ing radius. d Maximum shear strain in OCA varied with the elastic
+using OCA with different moduli, and b using OCA with a higher
+modulus and adhesive layers. c Variations in strain on top surface    modulus (bending radius of 2 mm). Strain distribution in the thick-
+                                                                      ness direction for devices with different film parameters: e Young's
+of films containing OCA with different elastic moduli with bend-      modulus, and f thickness
+2  Page 12 of 18                                                   Moore and More (2025) 2:2
+
+OCA had a great influence on its shear strain, and the shear       then increasing rapidly after reaching a certain radius.
+strain was smaller when the modulus was higher. When the           When the normalized resistance was greater than 1.1, i.e.,
+elastic modulus was very low, the structure was prone to           the resistance was increased by 10% compared with the
+delamination. When the modulus of the OCA was high, the            original resistance, crack propagation on the ITO became
+maximum shear strain could be effectively reduced but the          unstable due to tensile action [55]. The radius at this point
+maximum strain in the device was also high, and the number         was defined as the failure radius.
+of NLs in the structure changed; thus, the modulus of the
+OCA should be selected in a reasonable manner to meet the             Under the convex-type bend, the failure radius was small-
+needs for safe device operation.                                   est for the sample with a substrate thickness of 25 m at
+                                                                   only 0.5 mm, and much larger (~4.2 mm) for the sample
+4.2.3Effects of film parameters on multiple NLs                    with a substrate thickness of 100 m. Analysis of the three
+                                                                   failure radii showed that the failure radius was larger when
+According to previous research, the position of a single NL        the substrate thickness was larger, which was as expected.
+in a device can be adjusted by changing the film parameters.       According to the simulation results presented above, the NL
+Therefore, in order to further explore the effects of the film     gradually moved away from ITO as the substrate thickness
+parameters on multiple NLs, simulations were conducted             increased, thereby increasing the ITO strain and making it
+in this study. The material parameters in Table 5 were used        fail at a larger radius. In addition, compared with the con-
+and the thickness of OCA was selected as 25 m. As the              vex-type bend, the conductivity of the concave-type bend
+Young's modulus of the thin film increased, the strain dis-        changed little for the samples with all three thicknesses,
+tribution on the film, OCA, and substrate changed little (see      indicating that the ITO exhibited greater resistance to com-
+Fig. 7e), thereby indicating that the modulus of the film did      pression than stretching. The sample was bent to the failure
+not affect the strain distribution, or influence the locations     radius in FEA simulations and the failure stress for the ITO
+and numbers of NLs. The effect of the Young's modulus of           was determined as~1.9 GPa.
+the film on the NL was clearly different from that in a single
+NL structure.                                                         According to the simulation results presented above, the
+                                                                   position of the NL could be changed by depositing a layer
+   As the film thickness increased, the maximum tensile            of SiNx film on the ITO film. As shown in Fig. 8a, after
+strain of the top surface of the film increased and the posi-      optimizing the thickness of the film, the NL could be made
+tion of the NL also increased gradually (see Fig. 7f), which       to appear in the ITO, thereby reducing the failure radius
+are consistent with the effects of the film thickness in the sin-  for the ITO. When the PECVD method was used to deposit
+gle NL device. For a single film, changing the modulus did         thicker films, the residual compressive stress was reduced,
+not change the position of the NL but it changed the thick-        and thus the film cracked more easily. The NL also moved
+ness, so the position of the NL moved upward. Thus, the thin       position as the modulus increased, so the S iNx film with a
+film was approximately independent due to the decoupling           larger modulus (E=249 GPa) was identified as preferable,
+effect of the OCA.                                                 and a substrate thickness of 50 m.
+
+4.3Thickness optimization design for a single NL                      The parameters defined above were substituted into the
+                                                                   simulation model and the thickness of the film was changed
+The flexible electrode structure described in Sect. 3.1 was        before conducting several simulations. The simulation
+tested by using a dynamic bending test device. First, ITO          results are shown in Fig. 8b. In the thickness optimization
+films with the same thickness (~30 nm) were prepared on            design process, the film thickness was varied at an interval
+PI substrates with thicknesses of 25 m, 50 m, and 100 m            of 1 m (3 m, 4 m, and 5 m). As the thickness increased,
+(see Fig. S3a). Each film was divided into three samples           the maximum tensile stress gradually decreased in the ITO
+and tested three times. The corresponding resistance was           and became compressive stress. In order to make the ITO
+recorded at different bending radii and the resistance was         reach the ideal stress of 0, the thickness of the film was
+divided by the resistance before stretching for normaliza-         between 4­5 m. The thickness was further optimized by
+tion. The bending forms were convex-type bend (ITO film            division to 4.5 m and then to 4.25 m, and the maximum
+tension) and concave-type bend (ITO film compression). The         stress in the ITO was reduced to 0.3 MPa, which was very
+bending resistances of samples with substrate thicknesses          close to the ideal stress, and thus the optimal thickness of
+of 25 m, 50 m, and 100 m are shown in Figs. S3b­d.                 the film was determined as 4.25 m. The composite film
+To simplify the presentation, the data in Figs. S3b­d are          with the optimized thickness was assessed in three bend-
+the averages based on the three tests. As the bending radius       ing experiments and the experimental results are shown in
+decreased, for the convex-type bend, the normalized resist-        Fig. 8c. The ITO failure radius was about 1.5 mm, which was
+ance of the three samples increased slowly initially before        about 50% smaller than that of 3.0 mm before optimization
+                                                                   (see Fig. S3c), thereby indicating that the thickness optimi-
+                                                                   zation design process for a single NL was highly effective.
+Moore and More (2025) 2:2                                       Page 13 of 18 2
+
+Fig.8a Structure of the film
+based on thickness optimization
+design. b Simulation results
+obtained by changing the maxi-
+mum stress in the ITO film with
+the thickness of the S iNx film.
+c Changes in normalized resist-
+ance of the structure with the
+bending radius after thickness
+optimization
+
+4.4Sandwich electrode structure bending test                       The thickness of the PI film was changed and OCA5 was
+                                                                used for the connection (see Fig. 9b). The failure radius
+By bonding the flexible electrode and PI substrate using        was largest for the sample with a substrate thickness of
+OCA, a sandwich electrode structure was obtained, as shown      100 m (~6.5 mm). The failure radius decreased further
+in Fig. 9a. The thickness of the bottom PI substrate was fixed  to~3.5 mm for the substrate thickness of 50 m and~3 mm
+at 100 m, before adhering a layer of OCA and then a flex-       for the substrate thickness of 25 m, which are consistent
+ible electrode. The thickness of the PI film was adjusted. The  with the simulation results presented in the previous section,
+changes in the resistance of the ITO were measured by using     where the strain on the film top surface increased with the
+a dynamic bending device.                                       thickness (see Fig. 7f). Figure 9c shows the results obtained
+
+Fig.9a Schematic diagram of
+composite electrode structure.
+Normalized resistance changes
+with the bending radius for: b
+PI films with different thick-
+nesses, c different OCA types,
+and d different OCA thicknesses
+(the arrows indicate the failure
+radius for each ITO film)
+2  Page 14 of 18                                                   Moore and More (2025) 2:2
+
+after changing the type of OCA but keeping the thickness           position I began to fail, the resistance increased sharply and
+the same and using PI films with a thickness of 100 m.             the brightness gradually declined for light bulb I, and it was
+OCA2 reached the failure standard when the bending radius          extinguished when the bending radius was~1 mm, whereas
+was~9 mm, and the failure radius for OCA3 (~7 mm) was              light bulb II remained lit but the brightness decreased sig-
+very close to the failure radius for OCA4 (~6 mm). Accord-         nificantly. As shown in Fig. 10f, the failure radii at positions
+ing to these simulation results, increasing the modulus of         I and II in structure II during the bending process were 2.5
+the OCA increased the maximum strain on the top film, and          mm and 3.0 mm, respectively, and thus significantly less
+thus the failure radii for OCA3 and OCA4 were close but            than 4.5 mm. Due to the introduction of OCA1, multiple
+clearly smaller than that for OCA2. According to Fig. 9d,          NLs were present in the structure, and the stress conditions
+when OCA5 was used with different thicknesses, the failure         for ITOs at the two positions were similar, so the failure
+radii were about 6.5 mm, 5.5 mm, and 7 mm at thicknesses           radii were also similar. The brightness was relatively high for
+of 25 m, 50 m, and 100 m, respectively, which are very             light bulbs I and II before bending, and the two bulbs were
+similar. The simulations presented in the previous section         still bright when the bending radius was~1 mm, although
+demonstrate that the thickness of the OCA had little influ-        the brightness was lower, but the brightness was still higher
+ence on the maximum strain on the top layer film. Therefore,       than that for the same light bulb in structure I at the same
+electrodes prepared using OCA with different thicknesses           bending radius.
+may fail at a similar bending radius.
+                                                                      The light and dark changes for the light bulbs at positions
+4.5Bending tests for electrode structures                          I and II were related to the strain in the ITO film. Bending
+                                                                   simulations were conducted for structures I and II with a
+     with multiple NLs                                             bending radius of 4.5 mm, and the strains were extracted at
+                                                                   different thicknesses. The simulation results are shown in
+In general, many conductive layers are used in practical           Fig. 11. Due to the large Young's modulus for the double-
+applications of flexible devices. Thus, in order to simulate       sided PI tape, an NL only appeared at the middle thickness
+a structure with multiple conductive layers, a double-layer        for the double-sided PI tape in structure I. The strains in
+flexible electrode was also designed containing two single-        ITO1 and ITO2 at positions I and II were larger, reaching
+layer flexible electrodes. The preparation process is shown        5.6% and-5.5%, respectively, and ITO1 was subjected to
+in Fig. 10. In the first step, a layer of single-sided PI tape     large tensile strain and failed, thereby increasing the resist-
+was adhered to the upper surface of the single-layer ITO           ance and the light bulb was extinguished. ITO2 was sub-
+electrode. The thickness of the tape was 100 m and the             jected to a large compressive strain because its ability to
+Young's modulus was~1.10 GPa, which was close to the               resist compressive stress was greater than that for tensile
+modulus of the PI substrate with a thickness of 100 m (see         stress, so the resistance increase was not as large as that for
+Fig. 10a). In the second step, a 300-m layer of double-sided       ITO1, and light bulb II was still lit after bending but the
+PI tape (E=475 MPa) or OCA1 was affixed to the surface             brightness was lower because the resistance increased. In
+of the single-sided PI tape (see Fig. 10b). In the third step,     structure II, due to the introduction of the low elastic modu-
+the structure shown in Fig. 10a was adhered to the double-         lus OCA1, two NLs were present in the structure, where the
+sided tape or OCA1 surface to form a double-layer electrode        NLs appeared near ITO1 and ITO2. The maximum strain
+structure. The electrodes were placed in the dynamic bend-         on the top layer of the single-sided PI tape also decreased
+ing test device to perform the bending experiment. In order        from 10.2% to 3.1%. The strains were close to 0 for ITO1
+to more directly detect the changes in electrical conductivity     and ITO2, but the increase in resistance was far less than
+in the two ITO layers, two bulbs were connected to the two         that for ITO1 in structure I, and light bulbs I and II were lit
+ITO layers in the structure and the changes in performance         after bending, and the brightness was higher. According to
+were characterized by observing the light and dark changes         the simulation results, ITO1 and ITO2 in structure II were
+in the bulbs, as shown in Figs. 10c and d.                         located in the NL and the strain was small, but there were
+                                                                   certain deviations in the actual construction of the devices
+   As shown in Figs. 10c and d, the electrode adhered by           and the testing process, so the brightness also decreased to
+double-sided PI tape was defined as structure I and the elec-      some extent for light bulbs I and II.
+trode adhered by OCA1 was defined as structure II. In the
+two structures, the positions of the upper ITO and lower           5Conclusion
+ITO were designated as positions I and II, respectively, and
+connected with light bulbs I and II. According to Fig. 10e,        In this study, we investigated the failure behavior of fragile
+when the bending radius reached 4.5 mm, the ITO at posi-           ITO films under bending in flexible electronic devices. In
+tion I started to fail, and the resistance at position II changed  order to determine the failures caused by the mechanical
+little at 4.5 mm. Before bending, the brightness was rela-
+tively high for light bulbs I and II, but when the ITO at
+Moore and More (2025) 2:2                                                Page 15 of 18 2
+
+Fig.10a Attachment of single-sided PI tape. b Attachment of dou-         Normalized resistances of the structures at positions I and II varying
+                                                                         with the bending radius
+ble-sided PI tape or OCA1. Double-layer flexible electrode structures
+I c and II d, as well as light bulbs I and II attached to the ITO. e, f
+
+properties of the layered materials, analytical solutions                single NL and a method for using multiple NLs to main-
+were derived for the stress distributions in multilayer com-             tain the ITO in a lower stress state.
+posite film structures under bending and nonlinear stress
+using the FEA method. The reliability of the proposed                       The results showed that the NL gradually moved to the
+method was verified based on comparisons with experi-                    top surface of the film as the film thickness and Young's
+mental bending data. In addition, based on the mechanical                modulus increased. The introduction of OCA could make
+model of OCA, the FEA method was used to analyze the                     multiple NLs appear in the model, and reducing the elas-
+numbers and locations of NLs in the multi-layer struc-                   tic modulus of the OCA and the film thickness reduced the
+ture. Due to the decoupling effect of OCA, multiple NLs                  maximum strain in the film. When the elastic modulus was
+appeared in the structure. The effects of several key geo-               small for the OCA, the shear strain could be large in the
+metric and material design parameters on the NLs and                     model but adjusting the number of NLs helped to reduce the
+device structures were also investigated. By measuring the               maximum shear strain.
+change in the resistance of the ITO in the flexible electrode
+structure, the optimal thickness design was obtained for a                  The optimal design for the thickness of the NL obtained
+                                                                         by using the simulation method could effectively reduce
+                                                                         the failure of ITO electrodes. When the thickness of the
+2  Page 16 of 18                                                               Moore and More (2025) 2:2
+
+Fig.11Strain distributions for different structures along the thickness direction: a structure I, and b structure II
+
+prepared SiNx film was 4.25 m, the maximum stress on                           Competing interests Jianhua Zhang is an Editorial Board Member. We
+the ITO was reduced to 0.3 MPa and the failure bending                         declare that we have no financial and personal relationships with other
+radius decreased to 1.5 mm, which was 50% lower than                           people or organizations that could have inappropriately influenced our
+that before optimization. The introduction of OCA into                         work, and there are no potential conflicts of interest.
+the double electrode structure could reduce the strain on
+the ITO from 5.6% to close to 0, and effectively protect the                   Open Access This article is licensed under a Creative Commons Attri-
+ITO. Thus, our practical verification and theoretical analy-                   bution 4.0 International License, which permits use, sharing, adapta-
+ses indicate that the optimal thickness design for a single                    tion, distribution and reproduction in any medium or format, as long
+NL and the multiple NL strategy have broad application                         as you give appropriate credit to the original author(s) and the source,
+prospects, and they may provide ideal structural design                        provide a link to the Creative Commons licence, and indicate if changes
+schemes for flexible electronic devices.                                       were made. The images or other third party material in this article are
+                                                                               included in the article's Creative Commons licence, unless indicated
+Supplementary Information The online version contains supplemen-               otherwise in a credit line to the material. If material is not included in
+tary material available at https://d oi.o rg/1 0.1 007/s 44275-0 24-0 0019-8.  the article's Creative Commons licence and your intended use is not
+                                                                               permitted by statutory regulation or exceeds the permitted use, you will
+Acknowledgements Experimental supplies were provided by the Key                need to obtain permission directly from the copyright holder. To view a
+Laboratory of Advanced Display and System Applications, Minis-                 copy of this licence, visit http://creativecommons.org/licenses/by/4.0/.
+try of Education, Shanghai University, where experiments were also
+conducted. We also thank the Natural Science Foundation, China and             References
+Huawei Technologies Co., Ltd for their technical and financial support.
+                                                                                1. Jin DU, Kim TW, Koo HW, Stryakhilev D, Kim HS, Seo SJ et al
+Authors' contributions Majiaqi Wu designed the study, conducted                      (2010) 47.1: Invited paper: Highly robust flexible AMOLED dis-
+experiments, collated the data, used different methods for experimen-                play on plastic substrate with new structure. SID Symp Dig Tec
+tal verification and analysis, and finally wrote the original manuscript.            Pap 41:703­705. https://doi.org/10.1889/1.3500565
+Maoliang Jian, Jianhua Zhang, and Lianqiao Yang participated in
+data analysis, provided the corresponding revision suggestions, and             2. Komatsu R, Nakazato R, Sasaki T, Suzuki A, Senda N, Kawata
+approved the final draft.                                                            T et al (2014) 25.2: Repeatedly foldable book-type AMOLED
+                                                                                     display. SID Symp Dig Tec Pap 45:326­329. https://doi.org/10.
+Funding This research was financially supported by the Natural Sci-                  1002/j.2168-0159.2014.tb00088.x
+ence Foundation, China (Grant No. 52175512) and Huawei Technolo-
+gies Co., Ltd.                                                                  3. Jia Y, Liu Z, Wu D, Chen J, Meng H (2019) Mechanical simula-
+                                                                                     tion of foldable AMOLED panel with a module structure. Org
+Data availability Data and information about the materials used in this              Electron 65:185­192. https://d oi.o rg/1 0.1 016/j.o rgel.2 018.1 1.0 26
+study are provided in the article.
+                                                                                4. Mativenga M, Geng D, Kim B, Jang J (2015) Fully transparent
+Declarations                                                                         and rollable electronics. ACS Appl Mater Interfaces 7:1578­1585.
+                                                                                     https://doi.org/10.1021/am506937s
+Ethics approval and consent to participate Not applicable.
+                                                                                5. Noda M, Kobayashi N, Katsuhara M, Yumoto A, Ushikura S,
+                                                                                     Yasuda R et al (2011) An OTFT-driven rollable OLED display. J
+                                                                                     Soc Inf Disp 19:316­322. https://doi.org/10.1889/jsid19.4.316
+Moore and More (2025) 2:2                                                     Page 17 of 18 2
+
+ 6. Gomes A, Priyadarshana LL, Visser A, Carrascal JP, Vertegaal R            22. Chen Z, Cotterell B, Wang W (2002) The fracture of brittle thin
+      (2018) Magicscroll: a rollable display device with flexible screen            films on compliant substrates in flexible displays. Eng Fract Mech
+      real estate and gestural input. 20th International Conference on              69:597­603. https://doi.org/10.1016/s0013-7944(01)00104-7
+      Human-Computer Interaction with Mobile Devices and Services
+      (MobileHCI 2018) 6:1­11. https://doi.org/10.1145/3229434.               23. Park YT, Kim S, Ham SB, Cho SM (2020) Folding-stability cri-
+      3229442                                                                       teria of thin-film encapsulation layers for foldable organic light-
+                                                                                    emitting diodes. Thin Solid Films 710:138277. https://d oi.o rg/1 0.
+ 7. Pang HQ, Rajan K, Silvernail J, Mandlik P, Ma RQ, Hack M et al                  1016/j.tsf.2020.138277
+      (2011) Recent progress of flexible AMOLED displays. Confer
+      Adv Display Technol E-Papers Flexible Displays 7956:79560J-             24. Van Der Sluis O, Abdallah AA, Bouten PCP, Timmermans PHM,
+      1­79610. https://doi.org/10.1117/12.880144                                    Den Toonder JMJ, De With G (2011) Effect of a hard coat layer
+                                                                                    on buckle delamination of thin ITO layers on a compliant elasto-
+ 8. Jeong EG, Kwon JH, Kang KS, Jeong SY, Choi KC (2020) A                          plastic substrate: An experimental­numerical approach. Eng Fract
+      review of highly reliable flexible encapsulation technologies                 Mech 78:877­889. https://doi.org/10.1016/j.engfracmech.2011.
+      towards rollable and foldable OLEDs. J Inform Display 21:19­32.               01.013
+      https://doi.org/10.1080/15980316.2019.1688694
+                                                                              25. Lee CC, Tsai CC, Chuang JC, Huang PC, Cheng SW, Liou YY
+ 9. Kappaun S, Slugovc C, List EJ (2008) Phosphorescent organic                     (2016) Adhesion investigation of stacked coatings in organic light-
+      light-emitting devices: working principle and iridium based emit-             emitting diode display architecture. Surf Coat Technol 303:226­
+      ter materials. Int J Mol Sci 9:1527­1547. https://doi.org/10.3390/            231. https://doi.org/10.1016/j.surfcoat.2016.03.041
+      ijms9081527
+                                                                              26. Auch MDJ, Soo OK, Ewald G, Soo-Jin C (2002) Ultrathin glass
+10. Suh S, Yi K, Choi C, Park D, Kim C (2012) Mobile LCD device                     for flexible OLED application. Thin Solid Films 417:47­50.
+      with transparent infrared image sensor panel for touch and hover              https://doi.org/10.1016/s0040-6090(02)00647-8
+      sensing. IEEE Int Confer Consum Electron (ICCE) 2012:213­
+      214. https://doi.org/10.1109/ICCE.2012.6161834                          27. Schwamb P, Reusch T, Brabec CJ (2013) Flexible top-emitting
+                                                                                    OLEDs for lighting: Bending limits. Confer Organic Light Emit
+11. Kim DS, Ko YJ, Park SM, Jung JH, Shestak S (2010) Stereoscopic                  Mater Devices XVII 8829:88291E-1­88310. https://doi.org/10.
+      display technologies for FHD 3D LCD TV. Three-Dimensional                     1117/12.2025011
+      Imaging, Visualization, and Display 2010 and Display Technolo-
+      gies and Applications for Defence, Security, and Avionics IV            28. Cho TY, Lee WJ, Lee SJ, Lee JH, Ryu J, Cho SK et al (2018)
+      7690:769008­1­8. https://doi.org/10.1117/12.850656                            Moisture barrier and bending properties of silicon nitride films
+                                                                                    prepared by roll-to-roll plasma enhanced chemical vapor deposi-
+12. Takasugi S, Shin HJ, Chang MK, Ko SM, Park HJ, Lee JP et al                     tion. Thin Solid Films 660:101­107. https://doi.org/10.1016/j.tsf.
+      (2016) Advanced compensation technologies for large-sized UHD                 2018.06.003
+      OLED TVs. J Soc Inf Disp 24:410­418. https://doi.org/10.1002/
+      jsid.442                                                                29. Han YC, Jeong EG, Kim H, Kwon S, Im HG, Bae BS et al (2016)
+                                                                                    Reliable thin-film encapsulation of flexible OLEDs and enhancing
+13. Han CW, Park JS, Choi HS, Kim TS, Shin YH, Shin HJ et al                        their bending characteristics through mechanical analysis. RSC
+      (2014) Advanced technologies for UHD curved OLED TV. J Soc                    Adv 6:40835­40843. https://doi.org/10.1039/c6ra06571f
+      Inf Disp 22:552­563. https://doi.org/10.1002/jsid.287
+                                                                              30. Choi GC, Kim DE, Park JW, Kim BS, Kwon YS (2009) Efficiency
+14. Chang YL, Lu ZH (2013) White organic light-emitting diodes for                  improvement of OLED by aquaregia and RCA treatment of ITO
+      solid-state lighting. J Disp Technol 9:459­468. https://doi.org/1 0.          substrate. Mol Cryst Liq Cryst 504:35­43. https://doi.org/10.
+      1109/JDT.2013.2248698                                                         1080/15421400902939041
+
+15. Liu YF, Feng J, Bi YG, Yin D, Sun HB (2019) Recent develop-               31. Katam NK, Singh C, Rawat M, Anand RS (2013) Effect of
+      ments in flexible organic light-emitting devices. Adv Mater Tech-             chemical treatments on ITO and OLED device. Adv Mater Res
+      nol 4:1800371. https://doi.org/10.1002/admt.201800371                         849:387­390. https://doi.org/10.4028/www.scientific.net/AMR.
+                                                                                    849.387
+16. Guo KP, Tang Z, Chou XX, Pan SH, Wan CC, Xue T et al (2023)
+      Printable organic light-emitting diodes for next-generation visible     32. Park SK, Han JI, Moon DG, Kim WK (2003) Mechanical sta-
+      light communications: a review. Adv Photonics Nexus 2:044001­                 bility of externally deformed indium-tin-oxide films on polymer
+      044014. https://doi.org/10.1117/1.apn.2.4.044001                              substrates. Jpn J Appl Phys 42:623­629. https://doi.org/10.1143/
+                                                                                    jjap.42.623
+17. Dai ZY, Lei M, Ding S, Zhou Q, Ji B, Wang MR et al (2024)
+      Durable superhydrophobic surface in wearable sensors: From              33. Chiang CJ, Winscom C, Bull S, Monkman A (2009) Mechanical
+      nature to application. Explor 4:20230046. https://d oi.o rg/1 0.1 002/        modeling of flexible OLED devices. Org Electron 10:1268­1274.
+      exp.20230046                                                                  https://doi.org/10.1016/j.orgel.2009.07.003
+
+18. Wang XM, Qi LQ, Yang HH, Rao Y, Chen HP (2023) Stretchable                34. Lee S, Kwon JY, Yoon D, Cho H, You J, Kang YT et al (2012)
+      synaptic transistors based on the field effect for flexible neuro-            Bendability optimization of flexible optical nanoelectronics via
+      morphic electronics. Soft Sci 3:1­20. https://doi.org/10.20517/               neutral axis engineering. Nanoscale Res Lett 7:7. https://doi.org/
+      ss.2023.06                                                                    10.1186/1556-276x-7-256
+
+19. Liu ZY, Wang DY, Gao H, Li MX, Zhou HX, Zhang C (2023)                    35. Lee CC, Liou YY (2018) Dependent analyses of multilayered
+      Metasurface-enabled augmented reality display: a review. Adv                  material/geometrical characteristics on the mechanical reliabil-
+      Photonics 5:034001­034029. https://doi.org/10.1117/1.ap.5.3.                  ity of flexible display devices. IEEE Trans Device Mater Reliab
+      034001                                                                        18:639­642. https://doi.org/10.1109/tdmr.2018.2878485
+
+20. Zhang YD, Miller DC, Bertrand JA, Jen SH, Yang R, Dunn ML                 36. Niu YF, Liu SF, Chiou JY, Huang CY, Chiu YW, Lai MH et al
+      et al (2008) 12.3: defect visualization of atomic layer deposition            (2016) Improving the flexibility of AMOLED display through
+      enabled polymer barriers using fluorescent tags. SID Symp Dig                 modulating thickness of layer stack structure. J Soc Inf Disp
+      Tech Pap 39:143­146. https://doi.org/10.1889/1.3069422                        24:293­298. https://doi.org/10.1002/jsid.443
+
+21. Park EK, Kim S, Heo J, Kim HJ (2016) Electrical evaluation of             37. Lee CC, Shih YS, Wu CS, Tsai CH, Yeh ST, Peng YH et al (2012)
+      crack generation in S iNx and SiOxNy thin-film encapsulation lay-             Development of robust flexible OLED encapsulations using simu-
+      ers for OLED displays. Appl Surf Sci 370:126­130. https://doi.                lated estimations and experimental validations. J Phys D: Appl
+      org/10.1016/j.apsusc.2016.02.142                                              Phys 45:275102. https://d oi.o rg/1 0.1 088/0 022-3 727/4 5/2 7/2 75102
+
+                                                                              38. Campbell CJ, Clapper J, Behling RE, Erdogan B, Beagi HZ, Abra-
+                                                                                    hamson JT et al (2017) P-198: Optically clear adhesives enabling
+2  Page 18 of 18                                                            Moore and More (2025) 2:2
+
+      foldable and flexible OLED displays. SID Symp Dig Tec Pap             54. Leterrier Y, Mottet A, Bouquet N, Gilliéron D, Dumont P, Pinyol
+      48:2009­2011. https://doi.org/10.1002/sdtp.12071                            A et al (2010) Mechanical integrity of thin inorganic coatings on
+39. Lin L, Li Y, Hu K, Yuan B, Huang G, Gao X et al (2018) 68­1:                  polymer substrates under quasi-static, thermal and fatigue load-
+      Invited paper: Reliability and failure mode analysis of foldable            ings. Thin Solid Films 519:1729­1737. https://doi.org/10.1016/j.
+      AMOLED display module. SID Symp Dig Tec Pap 49:899­901.                     tsf.2010.06.003
+      https://doi.org/10.1002/sdtp.12250
+40. Nam J, Lee S, Han M, Lee H (2021) Improved stack structure of           55. Alzoubi K, Hamasha MM, Lu S, Sammakia B (2011) Bending
+      rollable display to prevent delamination and permanent deforma-             fatigue study of sputtered ITO on flexible substrate. J Disp Tech-
+      tion. Int J Precis Eng Manuf 22:671­678. https://doi.org/10.1 007/          nol 7:593­600. https://doi.org/10.1109/JDT.2011.2151830
+      s12541-021-00481-6
+41. Wang WQ, Jia YZ, Li HQ, Jiang MY, Zhang Z (2021) Mechanical             56. Nishimura M, Takebayashi K, Hishinuma M, Yamaguchi H,
+      simulation of foldable organic light-emitting diode display sup-            Murayama A (2019) A 5.5-inch full HD foldable AMOLED
+      porting layer. J Soc Inf Disp 29:723­730. https://doi.o rg/10.1 002/        display based on neutral-plane splitting concept. J Soc Inf Disp
+      jsid.1028                                                                   27:480­486. https://doi.org/10.1002/jsid.796
+42. Shi S, Li Z, Dong L, Du S, Tsai PM, Wang W et al (2019) 18.3:
+      Invited paper: Research on 7.56-inch foldable AMOLED and rel-         57. Feng Q, Su K, Du G, Wang Z, Lyu G (2021) P-55: Analysis of
+      evant foldable technologies. SID Symp Dig Tec Pap 50:184­186.               bonding optically clear adhesive in dual-cell LCD. SID Symp Dig
+      https://doi.org/10.1002/sdtp.13433                                          Tec Pap 52:1275­1278. https://doi.org/10.1002/sdtp.14933
+43. Kim W, Lee I, Kim DY, Yu YY, Jung HY, Kwon S et al (2017)
+      Controlled multiple neutral planes by low elastic modulus adhe-       Publisher's NoteSpringer Nature remains neutral with regard to
+      sive for flexible organic photovoltaics. Nanotechnol 28:9. https://   jurisdictional claims in published maps and institutional affiliations.
+      doi.org/10.1088/1361-6528/aa6a44
+44. Walls R, Viljoen C, De Clercq H (2019) A nonlinear, beam finite                                  Majiaqi Wu (1996­), from Ningbo, Zhejiang
+      element with variable, eccentric neutral axis. Eng Struct 187:341­                             Province. Doctoral candidate. He received his
+      351. https://doi.org/10.1016/j.engstruct.2019.02.056                                           Master's degree from Shanghai University, China
+45. Suo Z, Ma EY, Gleskova H, Wagner S (1999) Mechanics of rolla-                                    in 2023. His main research interest is inorganic
+      ble and foldable film-on-foil electronics. Appl Phys Lett 74:1177­                             thin film materials.
+      1179. https://doi.org/10.1063/1.123478
+46. Kim YG, Park BM, Choi JK, Jang DH, Han KY (2021) Optimiza-                                       Maoliang Jian (1997­), from Xinyang, Henan
+      tion of the rework of bended OLED displays by surface-energy                                   Province. Doctoral candidate. He received his
+      control. Coatings 11:1523. https://doi.org/10.3390/coatings11                                  Bachelor's degree from Shanghai Maritime Uni-
+      121523                                                                                         versity, China in 2019. His main research interests
+47. Wang M, Chen DB, Feng W, Zhong AY (2015) Synthesis and                                           are thermal management and the reliability of
+      characterization of optically clear pressure-sensitive adhesive.                               power devices.
+      Mater Trans 56:895­898. https://doi.org/10.2320/matertrans.
+      M2014425                                                                                       Jianhua Zhang (1972­), from Hefeng, Hubei
+48. Kossa A, Valentine MT, Mcmeeking RM (2023) Analysis of the                                       Province. Professor, Doctoral supervisor. She
+      compressible, isotropic, Neo-Hookean hyperelastic model. Mec-                                  received her Ph.D. from Shanghai University,
+      canica 58:217­232. https://doi.org/10.1007/s11012-022-01633-2                                  China in 1999. Her research interests include new
+49. Peng X, Han L, Li L (2021) A consistently compressible Mooney-                                   AMOLED display, flexible display, and thin film
+      Rivlin model for the vulcanized rubber based on the Penn's exper-                              encapsulation, thin film transistor display, and
+      imental data. Polym Eng Sci 61:2287­2294. https://doi.org/10.                                  sensing.
+      1002/pen.25757
+50. Melly SK, Liu L, Liu Y, Leng J (2022) Modified Yeoh model with                                   Lianqiao Yang (1979­), from Baoding, Hebei
+      improved equibiaxial loading predictions. Acta Mech 233:437­                                   Province. Professor, Doctoral supervisor. She
+      453. https://doi.org/10.1007/s00707-021-03105-2                                                received her Ph.D. from Myongji University,
+51. Yu LD, Jin TF, Yin ZN, Xiao H (2015) Bounded multi-axial elas-                                   Korea in 2009. Her research interests include
+      tic potentials with strain-stiffening effects for rubbery materials                            thermal management and reliability of power
+      based on uniaxial data. Chin J Solid Mech 36:164­170. https://                                 semiconductor devices, advanced optoelectronic
+      doi.org/10.19636/j.cnki.cjsm42-1250/o3.2015.02.009                                             materials, and device fabrication.
+52. Wu D, Liao D, Shi J, Jia Y (2021) Structural optimization method
+      of foldable active-matrix organic light-emitting diode panel based
+      on mechanical theory. J Soc Inf Disp 29:923­929. https://doi.org/
+      10.1002/jsid.1015
+53. Slanik ML, Nemes JA, Potvin MJ, Piedboeuf JC (2000) Time
+      domain finite element simulations of damped multilayered beams
+      using a prony series representation. Mech Time-Depend Mater
+      4:211­230. https://doi.org/10.1023/a:1009826923983
+

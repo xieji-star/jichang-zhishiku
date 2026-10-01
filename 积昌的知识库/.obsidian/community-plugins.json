@@ -1,5 +1,10 @@
 [
   "realclaudian",
   "obsidian-excalidraw-plugin",
-  "wechat-obsync"
+  "wechat-obsync",
+  "hearth",
+  "obsidian-tikzjax",
+  "obsidian-circuitjs",
+  "drawio",
+  "obsidian-local-rest-api"
 ]

@@ -3,7 +3,7 @@ title: "Codex 桌面端反复重新连接（公寓环境）：代理出口、污
 type: "知识库 FAQ / 报错修复"
 date: 2026-08-04
 created: 2026-08-04
-updated: 2026-08-31
+updated: 2026-09-22
 environment: "🏠 公寓"
 tags:
   - Codex
@@ -19,16 +19,17 @@ source: "2026-08-04 用户现场反馈与本机 Codex / Rocket 日志"
 
 # 🔌 Codex 桌面端反复重新连接（🏠 公寓环境）
 
-> [!summary] 📊 报错统计速览（截至 2026-08-31）
-> 🔥 **本文档共记录 <span style="color:#e74c3c">23 次报错/复发事件</span>**（08-04 原始事件 1 次 + 复发/复查 22 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 22 次，以本文档为主发地）。
+> [!summary] 📊 报错统计速览（截至 2026-09-22）
+> 🔥 **本文档共记录 <span style="color:#e74c3c">25 次报错/复发事件</span>**（08-04 原始事件 1 次 + 复发/复查 24 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 24 次，以本文档为主发地）。
 >
 > | 根因 | 台账累计 | 主要发生地 |
 > |------|:---:|------|
-> | 🔴 订阅更新清 OpenAI 分流规则 | **22** | 04（为主）/ 05 / 06 |
+> | 🔴 订阅更新清 OpenAI 分流规则 | **24** | 04（为主）/ 05 / 06 / 24 |
 > | 🟠 配置被切 direct 模式 | **10** | 04 / 05 |
 > | 🔴 出口 IP 被 Cloudflare 风控 | **1** | 04 |
 > | 🔴 OpenAI 分流规则钉死到被 CF 风控的数据中心节点 | **1** | 04 |
-> | 🟠 节点质量波动 / 机场线路故障 | **6** | 04 / 05 |
+> | 🟠 节点质量波动 / 机场线路故障 | **7** | 04 / 05 / 24 |
+> | 🟠 青旅/宿舍公共网络抖动（Codex 长连接偶发重建） | **4** | 05 / 04 |
 > | 🟠 Codex 应用长连接卡死（网络全通，重启恢复） | **2** | 04 |
 > | 🟠 mihomo sniffing 关闭致 TUN 直连不按域名分流 | **3** | 11 / 04 |
 > | 🔴 Codex 主运行时更新失败（EPERM）/ 进程堆积致状态错乱 | **1** | 04 |
@@ -1161,6 +1162,88 @@ chatgpt_pubsub_reconnect_scheduled
 
 > [!NOTE] 📌 与「VPN 客户端迁移」小节的关系
 > 本复发是**对迁移节「遗留事项①」后续的深化**：迁移期选「台湾 03」依赖的判据（api.openai.com 401）经多 Agent 复核为**假阳性**，实际该节点被 CF 风控。本次为满足用户「排除港台澳节点」的硬性要求，并把 OpenAI 从被风控的数据中心节点迁到 ISP 品牌线路（新加坡 01 Singtel）。遗留事项①（订阅更新清规则）仍未根除——+ 新增「订死节点的 IP 若被风控需随节点切换复核」的认知。
+
+## 🔁 复发记录（2026-09-22 19:37）：宿舍网络下 Codex stream disconnected + remote compact 失败——第 24 次订阅清规则 + ipv6 回退 + URLTest 自动组切换抖断流
+
+> [!SUMMARY] 📌 复发摘要
+> 用户在学校宿舍（校园 WiFi）反馈 Codex 报 <span style="color:#ff0000">`stream disconnected before completion: Transport error: network error: error decoding response body`</span> + <span style="color:#ff0000">`Error running remote compact task`</span>（上下文自动压缩失败），界面卡「正在重新连接 2/2」。三层诊断：**环境层健康**（ProxyEnable=1 ✅、Vortex 服务在线 PID 44916、7897 在听、控制 API `39797`）；**代理配置层** 🔴 **OpenAI 5 条分流规则被清**（运行态 65 条出厂版，「订阅更新清规则」累计<span style="color:#ff0000">第 24 次</span>）+ 🟠 ipv6 回退 true + sniffing 缺失（磁盘 mode=rule ✅ 无 direct/global 回退）；**节点层**：兜底 `MATCH → 节点选择 → 「日本自动」（URLTest 自动测速组）`——<span style="color:#ff8c00">自动组周期性切换节点，切换瞬间掐断流式长连接，是 `error decoding response body`（流中途断）的直接诱因</span>；实测「日本自动」当前选中节点对 api.openai.com **19s 超时**。**节点体检新证据**：美国-IEPL 01 / 美国-进阶IEPL 02 / 美国-直连 **delay 全通但走代理实测全 000**（校园网环境该 3 线路实际不可用），再证「delay 通 ≠ 实测通」。处置：备份 → 恢复 5 条 OpenAI 规则钉死 <span style="color:#1e90ff">🇯🇵|日本-中转 02</span>（6 候选两轮实测最快最稳 0.4~0.75s，2/2 稳定）+ 补 `ipv6: false` + `sniffing: true` → 热加载 **204** → 重启 Codex → codex/models **401** ×3（0.5~0.6s）/ api.openai.com **401** ×3（修复前 19s 超时）/ OpenAI 连接全走日本-中转 02。恢复。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 环境层 | 系统代理 | `ProxyEnable=1`、`ProxyServer=127.0.0.1:7897` ✅（09-20 的 N18 主根因未复发） |
+| 环境层 | Vortex 进程 / 端口 | com.vortex.helper PID 44916 在线；53 / 7897 / **39797** 在听（控制 API 维持 09-20 的漂移位） |
+| 代理配置 | 运行态/磁盘 `mode` | `rule` ✅（两层一致，无 direct/global 回退） |
+| 代理配置 | OpenAI 分流规则（5 条） | <span style="color:#ff0000">被清空</span>（运行态 65 条出厂版，「订阅清规则」累计第 24 次）；chatgpt.com 掉进 `MATCH → 节点选择` |
+| 代理配置 | ipv6 / sniffing / tun | 🟠 ipv6 回退 `true` + sniffing 字段缺失 + tun=false（已按惯例补 ipv6:false、sniffing:true；tun 维持用户当前关闭形态，Codex 走显式代理不受影响） |
+| 网络层 | 走代理实测（修复前） | chatgpt.com 带 UA **200**、`codex/models` **401**（0.70s）、google 204——主链路通；但 <span style="color:#ff0000">api.openai.com **19s 超时**</span>（日本自动当前节点对该域不可达/切换抖动） |
+| 网络层 | 节点体检（74 个非港台澳候选） | 59 个 delay 通过；<span style="color:#ff8c00">美国-IEPL 01（250ms）/ 美国-进阶IEPL 02（250ms）/ 美国-直连（275ms）**delay 通但走代理实测全 000**</span>——校园网线路实际不可用 |
+| 网络层 | 候选两轮实测 | <span style="color:#1e90ff">🇯🇵|日本-中转 02：codex 401 / api 401 / chatgpt 403(CF 挑战弱信号)，0.4~0.75s，2/2 稳定（最快）</span>；美国-中转 01 / 02 亦 2/2 稳定（0.85~3.4s，备选） |
+| 应用层 | Codex 界面 | 「正在重新连接 2/2」+ remote compact 失败——流式长连接被断后未自愈，需重启重建 |
+
+### 修复过程
+
+1. **三层诊断**：ProxyEnable / 进程端口 → `/configs`（mode=rule、ipv6=True）→ `/rules`（OpenAI 规则 0）→ 走代理实测三端点 → `/proxies/节点选择`（now=日本自动，URLTest）。
+2. **节点体检 + 两轮实测定稿**：74 个非港台澳候选批量 delay → 6 个 delay 最优候选逐个切换「节点选择」走代理连测 2 轮 → 选定 🇯🇵|日本-中转 02。
+3. **备份**：`原始文件备份/vortex-config-20260922-1945-before-fix.yaml`（SHA256 `b262e708d0869cf2`，与源一致）。
+4. **改配置文件**（Python UTF-8 安全写入）：`GEOIP,CN` 行前插入 5 条 `DOMAIN-SUFFIX` 规则 → `🇯🇵|日本-中转 02`（2 空格缩进对齐）+ 顶层补 `ipv6: false`、`sniffing: true`；`yaml.safe_load` 自检通过（70 规则）。
+5. **热加载**：<span style="color:#ff8c00">空 body `{}` 返回 400</span>（本机 mihomo 1.10.0 @ 39797 不接受，修正 09-20 复发记录「空 body 最稳」的说法）→ 改 `PUT /configs?force=true` body `{"path":"C:/Users/asus/.config/com.vortex.helper/config.yaml"}`（正斜杠）→ **HTTP 204**。
+6. **重启 Codex**：PowerShell 全杀 ChatGPT/codex/node_repl（清掉 13 个 ChatGPT 堆积）→ `Start-Process 'shell:AppsFolder\OpenAI.Codex_2p2nqsd0c76g0!App'` 拉起 → 新 codex PID 45948。
+
+> [!warning] ⚠️ 关键认知（本次新坑/再验证）
+> **① 规则节点名漏国旗前缀必报 `proxy not found`（速查表已知坑第 2 次兑现）**：首次插入规则写成 `日本-中转 02`（漏 `🇯🇵|`），热加载报 `rules[63] error: proxy [日本-中转 02] not found`——mihomo 规则目标必须用**完整节点名（含国旗 emoji 前缀）**，与 proxies 段定义逐字符一致。
+> **② 热加载空 body `{}` 在本机不可用**：09-20 复发记录称「空 body 最稳」，本次实测 39797 端口 mihomo 1.10.0 对空 body 返 400；<span style="color:#1e90ff">带 path（正斜杠）的 body 才是通用写法</span>。
+> **③ URLTest 自动组 = 流式长连接杀手**：兜底指向自动测速组时，组内节点切换瞬间会掐断进行中的 SSE/流式请求，Codex 表现为 `stream disconnected ... error decoding response body`（remote compact 这类长任务首当其冲）。**OpenAI 流量务必钉死到具体节点**（规则优先命中，绕开自动组），普通流量走自动组无碍。
+> **④ 「delay 通 ≠ 实测通」再添实锤（N6 范畴）**：3 个美国节点 delay 250ms 级全通，走代理实测却全 000——校园网环境必须以「切换节点 → 走代理连测真实端点」为准，delay 体检只做初筛。
+> **⑤ 修复口诀（宿舍环境复用）**：ProxyEnable → 走 7897 实测隧道 → `/configs` mode → `/rules` OpenAI 规则数 → 节点两轮实测 → 恢复规则（带国旗前缀！）+ ipv6/sniffing → 热加载（带 path）→ 重启 Codex。
+
+### ✅ 验证结果
+
+| 检查项 | 修复前 | 修复后 |
+|---|---|---|
+| `/rules` | 65 条、OpenAI 规则 0 | **70 条**、5 条 → 🇯🇵\|日本-中转 02 ✅ |
+| ipv6（运行态） | true | **False** ✅ |
+| codex/models | 401（兜底链路） | **401** ×3（0.5~0.6s，钉死链路）✅ |
+| api.openai.com | **000/19s 超时** | **401** ×3（0.6s）✅ |
+| chatgpt.com 带 UA | 200 | 403/200（CF 挑战弱信号，TLS 通）✅ |
+| OpenAI 实时连接 | 走「日本自动」单链 | **3 条全走 🇯🇵\|日本-中转 02** ✅ |
+| Codex 应用 | 重新连接 2/2、compact 失败 | 重启后新进程（PID 45948）连接重建 ✅ |
+
+### 本次新增遗留事项
+
+1. <span style="color:#ff0000">**「订阅更新清规则」累计第 24 次**</span>（09-20 第 23 次后仅隔 2 天）。**再次强烈建议在 Vortex GUI 关闭"自动更新订阅"**；再遇 Codex 流断开，按上文修复口诀处理。
+2. <span style="color:#ff8c00">**fix_vortex_config.py 已不可直接使用**</span>（其 BASE 硬编码 39798，本机控制 API 已漂移至 39797；且其 OPENAI_NODE/MATCH_NODE 指向的 Vortex 节点名与本订阅可能不一致）——修复时以现场实测为准，手动改配置（缩进对齐 + 国旗前缀 + 带 path 热加载）。
+3. **监测项**：🇯🇵|日本-中转 02 若波动，备选美国-中转 01 / 美国-中转 02（本次 2/2 稳定）；美国-IEPL 01 / 进阶IEPL 02 / 直连在校园网下实测不可用，勿选。
+4. 配置备份：`原始文件备份/vortex-config-20260922-1945-before-fix.yaml`（修复前）。
+
+### 🔄 同日后续（2026-09-22 20：17）：10061 连接被拒 + compact 三度断流——长连接链路间歇抖动，已自愈（第 25 次事件，N5 +1）
+
+> [!SUMMARY] 📌 后续摘要
+> 第一轮修复（19:47 重启 Codex）约 30 分钟后，用户再报 <span style="color:#ff0000">`stream disconnected before completion: 由于目标计算机积极拒绝，无法连接。 (os error 10061)`</span>。核心日志库（`~/.codex/logs_2.sqlite`）还原完整时间线：<span style="color:#ff8c00">20:15 用户手动重启 Codex → 20:16:04-20:16:18 app-server 恢复会话（thread/resume）时对 `wss://chatgpt.com/backend-api/codex/responses` 的 WebSocket 连接连续 4 次被拒（10061 = TCP SYN 收到 RST）→ 插件目录请求 chatgpt.com 同窗口失败 → 20:16:27 起改走 SSE 通道的 remote compact 先后三次建立流、又于 30~70 秒内三次被中途掐断（`error decoding response body`，20:17:27 / 20:18:08 / 20:18:47）→ 20:18:47 该 turn 以失败结束</span>。**关键对照**：同窗口内 curl 走代理短请求全通（chatgpt.com 403 / codex 401 / api 401）、20:18:48 Codex 自身 analytics HTTP POST 也 **200 OK**——<span style="color:#1e90ff">抖动只打击长连接（WS connect / 流式 SSE / 大体积 compact 上传），短请求无感</span>。20:21:06 起日志零 ERROR/WARN，20:21 终验走代理三端点全通——**判定：宿舍校园网 + 代理链路对 Codex 长连接的间歇性抖动（N5 范畴），已自愈**，与 09-21 22:01 同款 10061（retries 3→5 后自愈）互为印证。
+
+#### 时间线（logs_2.sqlite，本地时间）
+
+| 时刻 | 级别 | 事件 |
+|---|---|---|
+| 20:15 | — | 用户手动重启 Codex（新桌面日志会话 PID 5964 启动；codex 进程 45948→27864） |
+| 20:16:04 | ERROR | `thread/resume` → `session_init:startup_prewarm` → **failed to connect to websocket: IO error: 10061**, url: `wss://chatgpt.com/backend-api/codex/responses` |
+| 20:16:11~20:16:18 | ERROR/WARN | prewarm 失败 + compact 重试 1/2、2/2 全部 10061（`remote compaction v2 stream failed`） |
+| 20:16:36 / 20:16:49 | WARN | 插件目录请求 `chatgpt.com/backend-api/ps/plugins/installed` error sending request（同窗口 chatgpt.com 整体不稳） |
+| 20:16:27 / 20:16:57 / 20:18:17 | DEBUG | `response.compaction.compacting`——compact 改走 SSE 通道，流三次成功建立 |
+| 20:17:27 / 20:18:08 / 20:18:47 | DEBUG/WARN | SSE 三度中途断流：`Transport error: network error: error decoding response body` |
+| 20:18:47 | ERROR | `codex_core::session::turn` 失败 + `turn/completed`——本轮以失败告终（用户看到 10061 报错） |
+| 20:18:48 | DEBUG | **analytics POST `chatgpt.com/backend-api/codex/analytics-events/events` → 200 OK**（HTTP 短请求通） |
+| 20:20:18~20:20:23 | WARN/ERROR | models 在线刷新 4 连败 + `timeout waiting for child process to exit`（最后一波抖动余震） |
+| 20:21:06 之后 | — | **日志零 ERROR/WARN**；20:21 终验 chatgpt.com 403/1.3s、codex 401/0.95s、api 401/1.2s 全通 |
+
+> [!warning] ⚠️ 关键认知
+> **① os error 10061 在本场景 = `wss://chatgpt.com/backend-api/codex/responses` 的 TCP connect 被拒**（SYN 收到 RST），集中出现在 <span style="color:#ff8c00">app-server 刚重启的恢复窗口（约 15 秒内 4 连败）</span>，属于链路瞬时不可用，非配置错误——配置层（规则/节点/mode）当时已全部健康。
+> **② 同一窗口「curl 通、长连接断」是链路抖动的典型指纹**：短请求（curl、analytics POST 200）不受影响，WS/SSE/大体积 compact 上传接连被掐——<span style="color:#1e90ff">判定校园网/代理链路抖动（N5）而非节点或配置故障，不必换节点、不必改配置</span>。
+> **③ 09-21 22:01-22:02 已有同款先例**（logs id 6983806~6983860：同 URL 同 10061，普通采样 retries 3→5 后自愈）——该形态在宿舍环境属**复发型瞬时故障**，再次出现时先查自愈（等 1~2 分钟重发消息），再考虑处置。
+> **④ remote compact 是链路抖动的最大受害任务**：需上传整个会话上下文（体积大、传输时间长），抖动窗口内三次建立三次被掐；compact 失败的会话（上下文超限）每次发消息都会先重跑 compact——<span style="color:#ff8c00">若重发仍失败，优先开新会话绕过 compact，而非反复重试</span>。
+
+**处置与用户建议**：本轮无需任何配置/节点变更（配置层健康 + 已自愈）。直接**重新发送消息**即可（compact 自动重跑）；若 compact 连续失败，新开会话把关键结论带过去。
 
 ## 🔄 VPN 客户端迁移（2026-08-18 15:45）：SakuraCat（Vortex/mihomo）→ 小火箭（Rocket/ClashR）
 

@@ -1,0 +1,246 @@
+80-1 / S. Zhang
+
+Enhanced Low-Temperature Mechanical Reliability of Foldable Screen
+
+Shuangbing Zhang*, Shuang Wang*, Chenzhe Li*, Ying Shen*
+
+               *Hefei Visionox Technology Co., Ltd, Hefei, China
+
+Abstract                                                                 results may provide some valuable guidance for enhancing the
+                                                                         low-temperature mechanical reliability of foldable screen.
+Foldable smartphones are becoming increasingly popular.
+Enhancing the mechanical performance of foldable phones at
+low temperatures is particularly important. In this study, finite
+element analysis (FEA) was used to examine the failure
+mechanisms and influencing factors of this issue. The results
+indicate that due to the viscous nature of the adhesive layer, the
+panel undergoes significant overall stretching during unfolding.
+By optimizing the design of the metal support layer and the
+stacking structure of the folding module, the mechanical
+reliability of foldable screens at low temperatures can be
+significantly enhanced.
+
+Author Keywords
+
+Foldable Screen; Mechanical Simulation; Low-temperature;
+Metal support sheet; Stacking Structure; Mechanical Reliability.
+
+1. Introduction                                                          Figure 1. The typical failure phenomenon that occurs when
+
+Nowadays, foldable mobile electric devices are becoming                  the foldable screen is rapidly opened in -20 environment
+increasingly common. How to improve the mechanical
+performance of foldable phones has become a major concern for            after being bent for several hours.
+both original equipment manufacturers and panel manufacturers.
+Products with inward-folding waterdrop-shaped displays have              2. Experiment and Simulation
+become the mainstream type because they are more compact than
+wedge-shaped ones, but at the same time, the waterdrop design            Through performing a series of fold-hold-unfold cyclic bending
+requires a more complex hinge design. Over the past three years,         tests, the initial failure shown in figure 1 was observed to occur
+with the rapid development of hinge technology, foldable phones          during the unfolding process of the screen, thus merely analyzing
+have become thinner and lighter. These extreme designs enhance           the stress in the bent state is insufficient. The folding and
+the user experience while also placing higher demands on the             unfolding procedure of foldable display is simulated by nonlinear
+mechanical reliability of foldable screens.                              finite element method to analyze bending stress. In order to obtain
+                                                                         more accurate results, a viscoelastic adhesive constitutive is
+To ensure the robustness of foldable screen, it is necessary to          adopted.
+maintain low folding stress through optimization of the stacking
+structure of the foldable display modules. The stress generated in       As shown in figure 2a, a typical foldable display module is a
+foldable displays can be analyzed through finite element                 composite stacking structure composed of cover window,
+simulations [1-3]. In recent years, this has prompted the                AMOLED panel (PNL), the backside film (BPF), and the metal
+development of various simulation models to gain structural              support layer (BKT). These multiple functional layers are bonded
+understanding and improve design.                                        by optical clear adhesive (OCA) to form a film stack. The
+                                                                         AMOLED PNL itself also consists of multiple components
+Thanks to the efforts of the engineers, we are very pleased to see       including a flexible substrate, thin film transducer (TFT), thin
+that through optimizing the stacking structure and materials,            film encapsulation (TFE), the touch sensor layer.
+foldable screens can even withstand one million folds in standard
+dynamic bending tests without failure. However, compared to              The metal support sheet is patterned in the bending area with
+traditional low-temperature dynamic bending test conditions,             through-hole to ensure bending performance. The single hole is
+foldable panel is still prone to malfunctions in complex user            elongated and all the holes are arranged with a staggered arrange,
+scenarios, especially when unfolded at extremely low                     which is shown in figure 3. Where a value represents the interval
+temperatures after being folded for a long time. Figure 1 shows          between adjacent holes in lengthwise direction of holes; b value
+the typical failure phenomena that occur when a foldable screen          represents the spacing between the centerlines of adjacent holes
+is rapidly unfolded in a -20캜 environment after several hours of        in width direction; c is the width of the single hole; d is the length
+bending. A very obvious crack can be observed near the centre of         of a single hole. To accurately reflect the influence of the metal
+the curved area of the screen. Detailed analysis indicates that the      support sheet, a three-dimensional model instead of the 2D plane
+encapsulation layer and the touch layer at the corresponding             strain model is considered in this work. Figure 2b shows the
+position have already fractured. Regrettably, there are no research      morphology after bending. It is clear that we are considering a
+reports on this issue in the existing literature. In this work, we will  water-drop shape inward folding design.
+explore for the first time the causes of this failure phenomenon
+and discussion some potential improvement measures. These
+
+             SID 2026 DIGEST � 1097
+ISSN 0097-996X/26/5701-1097-$1.00 � 2026
+80-1 / S. Zhang
+
+Figure 2. A schematic diagram of stack structure (left) and               it transitions from compressive strain in the folded state to
+water-drop shape (right) considered in this work.                         significant tensile strain. The tensile stress provides a sufficient
+                                                                          driving force, resulting in the fracture of the touch layer.
+                                                                          Furthermore, the strain distribution of the touch layer after the
+                                                                          screen is unfolded is uneven and exhibits a periodic pattern. This
+                                                                          periodic pattern corresponds to the design of the metal support
+                                                                          components, with local peaks in the strain distribution coinciding
+                                                                          with the holes in the metal support plate and near the short rib
+                                                                          structures of the metal support plate, as illustrated in Figure 4c.
+
+                                                                          Extract the strain results along the path indicated by the white
+                                                                          dashed line in Figure 4C and plot them in Figure 5. Clearly, the
+                                                                          strain in the touch layer has changed from compressive strain (-
+                                                                          2.4%) in the folded state to significant tensile strain (2%) in the
+                                                                          unfolded state. Furthermore, the strain distribution along this path
+                                                                          exhibits a sinusoidal pattern. This indicates that the surface of the
+                                                                          panel is not flat, whether in the bent or unfolded state, but rather
+                                                                          exhibits a wavy form.
+
+Figure 3. A schematic diagram of pattern structure of the                 Figure 4. (a) The strain of the touch layer in the folding area
+metal support sheet.                                                      of the foldable screen in the folded state. (b) The strain of
+                                                                          the touch layer in the bent area in the unfolded state after
+3. Result and Discussion                                                  being bent for a period of time. (c) The correspondence
+                                                                          between strain distribution and the pattern structure of
+Failure Mechanism Discussion:                                             metal support sheet.
+
+The crack shown in Figure 1 is related to the fracture of the touch       Figure 5. Strain results along the path indicated by the
+layer film within the panel, hence the stress in the touch layer of       white dotted line in figure 4C.
+the screen's bending area is the focus of analysis.
+
+The strain distribution of the touch layer within the foldable
+screen in the folded state is shown in Figure 4a. Due to the inward
+folding shape and the neutral layer of the screen being near the
+encapsulation layer, the touch layer experiences compressive
+strain. Generally, compressive stress may cause structural
+instability, leading to delamination, but it is unlikely to directly
+cause the formation of cracks. Furthermore, extreme bending tests
+were conducted on the module, and the results showed that even
+when the bending radius was far below the current design value,
+the screen did not fail. As the radius decreased further, cracks
+appeared in the array layer. These results are consistent with the
+fact that in actual experiments, failure did not occur during the
+folding process.
+
+When the foldable screen is kept in a folded state for a period of
+time and then rapidly unfolded, the strain distribution in the touch
+layer of the panel is shown in Figure 4b. The strain in the touch
+layer does not return to the stress-free state prior to folding; rather,
+
+SID 2026 DIGEST � 1098
+80-1 / S. Zhang
+
+                  the impact of different structural designs on stress when the
+                  screen is rapidly unfolded after prolonged bending is discussed,
+                  with the aim of providing an optimization method for the design
+                  of metal support structures. For detailed design information,
+                  please refer to Table 1. Evidently, the main design parameters that
+                  vary are the length d and width c of the holes.
+
+                                                                              Table 1. Pattern design DOE
+
+                                                                             a mm b mm c mm d mm Etch
+
+                                                                       Base  0.52  0.32  0.12  10   No
+
+                                                                       DOE1  0.52  0.32  0.07  10   No
+
+                                                                       DOE2  0.52  0.32  0.03  10   No
+
+Figure 6. (a) Shear slippage of each layer at the edge of              DOE3  0.52  0.32  0.07  2.3  No
+the screen. (b) d value at different state. (c) The morphology
+of the screen in folded and unfolded states.                           DOE4  0.52  0.32  0.12  10   Yes
+
+As shown in figure 2a, foldable module is a composite stacking         Figure 7. The normalized strain results of touch layer in the
+structure where the multiple functional layers are bonded by soft      unfolded state for different designs of metal support layer.
+OCA to form a film stack. The difference in Young's modulus
+between OCA and functional layers exceeds five to six orders of        Figure 7 shows the normalized strain results for different designs.
+magnitude. The shear deformation dominates in the soft adhesive        The screen bending stress increases as the width and length of the
+layers of the laminated structure of foldable display while the        holes decrease. When the width of the hole is reduced from 120
+normal strain-induced deformation is negligible [4]. The sliding       um to 30um, the stress increases by 80%; when the length of the
+distance d of the panel edge relative to the hinge is shown in         holes is reduced from 10mm to 2.3mm, the stress increases by
+Figure 6b. When the screen completes folding from the flat state,      78%. Reducing the length and width of the holes increases the
+the panel edge slides outward by 29.34um relative to the hinge.        stiffness of the metal support plate, resulting in greater panel
+During the period in which the screen remains curved, due to the       slippage relative to the hinge. Therefore, the screen will undergo
+viscoelastic characteristics of the adhesive layer, significant creep  greater overall tensile deformation during the unfolding process.
+deformation occurs in the adhesive layer, resulting in the overall     Further increasing the width and length of the holes in the support
+shear slip increasing from 29.34um to 86.32um. Increasing the          components compared to the base design would weaken the
+storage temperature or extending the storage time further              support for the panel, particularly when the back of the panel is
+exacerbates the overall slip. During the unfolding process,            subjected to external impact, and would fail to provide adequate
+especially in low-temperature environments or when the device is       protection for the panel.
+opened rapidly, the shear deformation of the OCA cannot recover
+promptly. When the foldable module is fully unfolded, a residual       To enhance the bending performance of the screen at low
+slip of 79um remains. Therefore, these data confirm that when a        temperatures, we designed an additional solution (DOE4).
+screen is bent for an extended period and then rapidly                 Considering that the short rib structure of the metal support plate
+straightened, it undergoes significant overall stretching due to the   exerts pressure on the panel in a bent state, the outermost material
+delayed deformation recovery caused by the creep of the adhesive       of this structure was etched away to reduce compressive stress.
+layer.                                                                 The final structure is shown in Figure 8. Simulation results
+                                                                       indicate that the optimized design can reduce stress by
+Furthermore, the mesh structure in the bending region of the           approximately 30%. To verify the effectiveness of this optimized
+metal support determines that during bending, the long ribs            design, we conducted physical sample tests on both the optimized
+coordinate deformation through twisting, while the short ribs          design and the basic design. To ensure the validity of the data,
+coordinate through bending. Due to the high stiffness                  five samples of each design were tested. The results showed that
+characteristic of the short rib structure of the metal support layer,  all five samples of the basic design experienced panel damage,
+the short ribs inevitably exert normal compressive stress on the
+screen, causing the adhesive layer to accumulate at the positions
+corresponding to the holes in the metal support plate. When the
+screen is unfolded, the adhesive layer cannot return to its original
+position, resulting in the screen exhibiting a wavy shape as shown
+in Figure 6c.
+
+Effect of Metal Support Layer:
+
+It is well known that the structural design of metal support
+components affects the folding performance of foldable screens.
+However, simulation analyses typically focus on evaluating the
+fracture risk of the metal components themselves [3], without
+analyzing the risk of panel failure at low temperatures resulting
+from the design of the metal support components. In this section,
+
+SID 2026 DIGEST � 1099
+80-1 / S. Zhang
+
+whereas all five samples of the optimized design successfully           with an OCA that has appropriate adhesive and cohesive strength.
+passed the tests without any damage.
+
+Figure 8. The local structure of the optimized design DOE4              Figure 10. The normalized strain results of touch layer in
+                                                                        the unfolded state for different stacking design.
+Effect of Stacking Structure:
+In this section, the impact of module stacking structure on             4. Conclusion
+bending stress is briefly discussed. The focus is on the structure
+beneath the AMOLED panel. The screen's ability to withstand             The foldable screen is prone to failure when the screen is rapidly
+external impacts is becoming increasingly important. To enhance         opened in low-temperature environment after prolonged folding.
+this performance, one possible solution is to add a layer of high       This work analyzes for the first time the failure mechanism and
+modulus material between the metal support plate and the                influencing factors of this issue. The results show that the panel
+backside film. This design change is considered as DOE1. After          undergoes significant overall stretching during unfold process
+prolonged use, the crease defect affects the user experience. One       due to the delayed recovery of creep deformation of adhesive
+of the factors influencing this performance is the plastic              layer. The short rib structure of the metal support layer inevitably
+deformation of the organic backside film. To address this issue,        exert pressure on the screen, resulting in a wavy appearance of
+one possible technical approach is to replace the original organic      the screen.
+backside film with high-modulus elastic materials such as ultra-
+thin glass. This design change is referred to as DOE2. In DOE3,         The effects of pattern designs of metal support layer was
+all technical changes have been taken into consideration.               discussed. Reducing the length and width of the holes increases
+                                                                        stress, implying a decline in the screen's low-temperature
+Figure 9. Stacking structure information for different DOE.             bending performance. An optimized pattern design was proposed
+                                                                        through etching the outermost material of the short rib structures,
+Figure 10 shows the normalized strain results of the touch panel        and its effectiveness was confirmed by experiments.
+layer under different stack designs when the screen is rapidly
+unfolded after a specified bending time. The simulation results         The effect of module stacking structure was analyzed. Replacing
+indicate that replacing the original organic back film with a           the original organic backside film with a layer of high modulus
+single-layer ultra-thin UTG can significantly reduce the stress on      material such as ultra-thin glass can significantly reduce the
+the touch panel layer, thereby improving the screen's low-              stress, thereby improving the screen's low-temperature bending
+temperature bending performance. It is worth noting that DOE3           performance.
+appears to effectively balance low-temperature bending
+performance and foreign object impact resistance. However,              5. References
+DOE3 is expected to significantly increase the stress on the
+adhesive layer near the ultra-thin steel sheet, so it should be paired  1. YZ Jia, ZZ Liu, D Wu, JF Chen, H. Meng Mechanical
+                                                                              simulation of foldable AMOLED panel with a module
+                                                                              structure. Organic Electronic. 65(2019)185-192.
+
+                                                                        2. J. Cao, A. Es'haghioskui, P. Dong, Z. Gong, HY Yuan
+                                                                              Mechanical simulation and debonding risk analysis of
+                                                                              OLED panels with optical clear adhesives. Displays
+                                                                              83(2024)102722.
+
+                                                                        3. WQ Wang, YZ Jia, HQ Li, MY Jiang, Z. Zhang Mechanical
+                                                                              simulation of foldable organic light-emitting diode display
+                                                                              supporting layer. J. Soc. Inf. Display. 29(2021)723-730.
+
+                                                                        4. S. Li, XL Liu, R. Li, Y. Su Shear deformation dominates in
+                                                                              the soft adhesive layers of laminated structure of flexible
+                                                                              electronics. Int.J.Solid.Struct. 110-111(2017)305-314
+
+SID 2026 DIGEST � 1100
+

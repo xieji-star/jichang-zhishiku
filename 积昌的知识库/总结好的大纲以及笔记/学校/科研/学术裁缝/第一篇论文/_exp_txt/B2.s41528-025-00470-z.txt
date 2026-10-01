@@ -1,0 +1,527 @@
+                       npj | flexible electronics                                                                                     Article
+
+                       Published in partnership with Nanjing Tech University
+
+                                                                                                                                                                https://doi.org/10.1038/s41528-025-00470-z
+
+                       Cracking in polymer substrates for flexible
+                       electronic devices and its mitigation
+
+                                                                                                                                      Check for updates
+
+                       Anush Ranka1, Madhuja Layek1, Sayaka Kochiyama1, Cristina López-Pernia1, Alicia M. Chandler1,
+                       Conrad A. Kocoj2,3, Erica Magliano4, Aldo Di Carlo4,5, Francesca Brunetti4, Peijun Guo2,3, Subra Suresh1,
+                       David C. Paine1, Haneesh Kesari1 & Nitin P. Padture1
+
+1234567890():,;        Mechanical reliability plays a critical role in determining the durability of flexible electronic devices
+      1234567890():,;  because of the significant mechanical stresses they experience during manufacturing and operation.
+                       Many such devices are built on sheets comprising stiff transparent-conducting oxide (TCO) electrode
+                       films on compliant polymer substrates, and it is generally assumed that the high-toughness polymer
+                       substrates do not crack. Contrary to this assumption, here we show extensive cracking in the polymer
+                       substrates during bending of a variety of TCO/polymer sheets, and a device example -- flexible
+                       perovskite solar cells. Such substrate cracking, which compromises the overall mechanical integrity of
+                       the entire device, is driven by the amplified stress-intensity factor caused by the elastic mismatch at
+                       the film/substrate interface. To mitigate this substrate cracking, an interlayer-engineering approach is
+                       designed and experimentally demonstrated. This approach is potentially applicable to myriad flexible
+                       electronic devices, with stiff films on compliant substrates, for improving their durability and reliability.
+
+                       There is growing interest in flexible electronic devices used in a wide range of   the PEN has a specific effective work of fracture or SEWF (we)14 of
+                       applications such as1,2: energy harvesting and storage; displays and lighting;     ~55,000 J·m-2 15, whereas the equivalent toughness, GC, of ITO is ~5 J·m-2 16.
+                       sensors and actuators; health-monitors and wearables; etc. By some esti-
+                       mates the global market for flexible electronics is expected to exceed 75          Results
+                       billon US dollars by 20323. The foundation of these devices is the flexible
+                       substrate, which is typically made of polymers such as4: polyethylene              Bending tests of TCO/polymer sheets
+
+                       naphthalate (PEN), polyethylene terephthalate (PET), polyimide (PI), and           Here, commercially available ITO/PEN sheets, which are commonly
+                                                                                                          used in flexible electronic devices, were subjected to bending tests.
+                       polydimethylsiloxane (PDMS). For many applications, such as organic                Figure 1b is a top-view optical micrograph of the ITO/PEN sheet in the
+                       photovoltaics (OPV)5, perovskite solar cells (PSCs)6, displays/lighting7,          bent state (r = 7 mm), where the externally applied uniaxial tensile
+                       touchscreens8, and electrochromics9, the polymer substrate is coated with          strain (A) at the convex surface and near-surface region is 0.0089, as
+                       transparent-conducting oxide (TCO) thin film, which is typically made of           calculated using the equation A = tS/2r (tS is the substrate thickness;
+                                                                                                          ~125 m for PEN)13,17. (Supplementary Fig. 1 plots the calculated
+                       indium-tin oxide (ITO), indium-zinc oxide (IZO), or aluminum-zinc                  applied uniaxial tensile universal strain (A), as a function of r, and the
+                       oxide (AZO)10.                                                                     corresponding stress (A) within the layers studied here. For analysis of
+                                                                                                          multiple layers, see Supplementary Note 113. Any tensile or compressive
+                            Since the mechanical reliability of flexible electronic devices built on      internal residual stresses within the individual layers would augment or
+                                                                                                          diminish, respectively, the overall stresses in the layers in the bent state.
+                       these TCO/polymer sheets is so important, several mechanical-testing               Supplementary Table 1 lists the thicknesses of the different layers used
+                       methods have been developed11,12. Among them, the bending test is the most         in this study and their relevant static mechanical properties15,18­26).
+                                                                                                          Under this applied stress, typical array of `channel' cracks running
+                       commonly used to study the mechanical behavior and failure mechanisms              parallel to the bending axis within the brittle ITO film are observed in
+                       in flexible electronic devices13. This test involves bending the device around a   Fig. 1b. Such observations have been reported in the flexible electronics
+                       cylindrical mandrel of radius, r, subjecting the entire active part of the device
+                       to uniaxial tension (Fig. 1a)13. Since the polymer substrates' toughness is
+                       several orders of magnitude higher than that of the ceramic TCO thin film,
+
+                       the substrates are generally not expected to crack in bending. For example,
+
+                       1School of Engineering, Brown University, Providence, RI, 02912, USA. 2Department of Chemical and Environmental Engineering, Yale University, New Haven, CT,
+                       06520, USA. 3Energy Sciences Institute, Yale University, West Haven, CT, 06516, USA. 4Centre for Hybrid and Organic Solar Energy, Department of Electronic
+                       Engineering, University of Rome Tor Vergata, Rome, 00133, Italy. 5Istituto di Struttura della Materia, National Research Council, Rome, 00133, Italy.
+
+                           e-mail: nitin_padture@brown.edu
+
+                       npj Flexible Electronics | (2025)9:92                                                                          1
+https://doi.org/10.1038/s41528-025-00470-z                                               Article
+
+Fig. 1 | Bending tests of ITO/PEN sheets. a Schematic illustration (not to scale) of     images of each of the FIB-cuts showing, in cross-sections, cracking of both ITO film
+the bending test of ITO/PEN sheets around a cylindrical mandrel of radius, r. b Top-     and PEN substrate (d) and no cracking in the bare PEN substrate (e). f Cross-
+view optical microscope image of an ITO/PEN sheet bent to r = 7 mm (A = 0.0089),         sectional SEM image of a different FIB-cut showing deep cracking in the PEN
+in the bent state (strained), showing `channel' cracks in the ITO film and no cracks in  substrate under ITO film. (All FIB-cut specimens were observed at a 52° forward tilt
+the bare PEN substrate (bottom region). c SEM image of the two FIB-cuts. (FIB-           angle, hence vertical micron bars (representing depth) are longer than the horizontal
+cutting was performed while in the bent state from regions similar to those indicated    ones, as indicated in (c-f).
+by the yellow rectangles in (b). d, e Corresponding higher-magnification SEM
+
+Fig. 2 | Bending tests of ITO/PEN and ITO/PI
+sheets. a, b SEM images of FIB-cut cross-sections of
+`channel' cracks in bent ITO/PET to r = 7 mm
+(A = 0.0089) (a) and ITO/PI to r = 5 mm
+(A = 0.0080) (b) in the bent state (strained), show-
+ing cracking of both ITO films and substrates. (FIB-
+cutting was performed while in the bent state. All
+FIB-cut specimens were observed at a 52° forward
+tilt angle, hence vertical micron bar (representing
+depth) is longer than the horizontal one, as
+indicated.
+
+literature on numerous occasions (see e.g. ref. 16). However, there have                 crack was FIB-cut, revealing deep cracks > 25 m (Fig. 1f), which is
+been no reports of substrate cracking in TCO/polymer sheets in the                       ~20% of the total substrate thickness. To confirm that the substrate
+literature. This may be because, as mentioned earlier, it is generally                   cracking was not due to the FIB-cutting process itself, part of the ITO in
+assumed that the polymer substrate does not crack due to its extremely                   a previously bent (r = 7 mm) ITO/PEN sheet was removed by etching.
+high toughness and substantial thickness relative to the TCO thin film                   Supplementary Fig. 2a, b present top-view SEM images of that specimen
+(e.g. ITO thickness is ~300 nm, compared to PEN substrate thickness of                   in the bent state, which clearly shows substrate cracking under the
+~125 m)16. This purported assumption is supported by the observa-                        etched-away ITO. This type of extensive substrate cracking is observed
+tions in Fig. 1b where the `channel' cracks in the ITO film do not appear                consistently in many `channel' cracks within the same ITO/PEN spe-
+to extend into the bare PEN substrate part without the ITO film (bottom                  cimen, and also in different ITO/PEN specimens. Similar substrate-
+region of Fig. 1b). However, this assumption is challenged by the                        cracking behavior is observed in ITO(~300 nm)/PET(~125 m)
+scanning electron microscopy (SEM) observations of cross-sections                        (Fig. 2a) and ITO( ~ 200 nm)/PI(~80 m) (Fig. 2b) sheets, which are
+created by focused ion beam (FIB) in Fig. 1c, d in the bent state                        also commonly used in flexible electronic devices. Furthermore, sub-
+(strained), which show cracking in the PEN substrate under the ITO                       strate cracking is observed in multilayer devices built upon ITO/PEN
+film. It appears that the `channel' cracks penetrate deep into the PEN                   sheets, e.g. flexible PSCs (Fig. 3), a promising new low-cost, lightweight
+substrate underneath. The cross-section SEM images in Fig. 1c,e con-                     PV technology6,27,28. It is important to note that no evidence for inter-
+firm that the bare PEN substrate is uncracked. To further investigate the                facial delamination was observed in Figs. 1d, 2a, b, and 3c. The key to the
+depth of the cracks in the PEN substrate, a longer `trench' along the                    above substrate-cracking observations in the cross-sections, which have
+
+npj Flexible Electronics | (2025)9:92                                                    2
+https://doi.org/10.1038/s41528-025-00470-z                                                                                           Article
+
+Fig. 3 | Substrate cracking in bent flexible PSCs.
+a Schematic illustration (not to scale) of the different
+layers in the flexible PSCs (exploded view). Here
+SnO2 and Spiro-OMeTAD serve as the electron-
+transport and hole-transport, respectively, layers.
+Metal halide perovskite (MHP) serves as the light
+absorber material, and Au is the top electrode.
+b, c SEM images of a working (19.7% efficiency)
+flexible PSC bent to r = 7 mm, in the bent state
+(strained), showing top-surface view of `channel'
+cracks (b), and FIB-cut cross-section from an area
+indicated by the yellow rectangle in (b) of a `channel'
+crack revealing cracking in all the layers in the
+flexible PSC and the PEN substrate (c). (FIB-cutting
+was performed while in the bent state from a region
+similar to that indicated by the yellow rectangle in
+(b). All FIB-cut specimens were observed at a 52°
+forward tilt angle, hence vertical micron bar
+(representing depth) is longer than the horizontal
+one, as indicated in (c).
+
+eluded past studies, is that we performed FIB-cutting and SEM imaging                  Here it is instructive to define the elastic mismatch between the film (F)
+in situ in the bent state.
+                                                                                  and the substrate (S) in terms of the Dundur's parameters,  and , which
+     This demonstration of substrate cracking in TCO/polymer sheets is
+significant because it raises serious questions about the prevailing notion       incorporate not only their respective Young's moduli (EF, ES) but also shear
+that high-toughness polymer substrates are immune to cracking. The                moduli (F, S) and Poisson's ratios (F, S)38:
+current design, manufacturing, and operation of flexible electronic
+devices are based on this notion. Since the substrate serves as the                    ¼  EF  À  ES                                  ð1Þ
+foundational `bedrock' of any flexible device, substrate cracking ser-                    EF  þ  ES
+iously undermines the mechanical integrity and reliability of the entire
+device, making it susceptible to cyclic fatigue and other time-dependent          À           Á
+failure mechanisms, such as creep and environment-assisted cracking or             ¼ 1 F 1À À 2SÁ À Sð1 À 2FÞ
+degradation.                                                                           2 F 1 À S þ Sð1 À FÞ                          ð2Þ
+
+Mechanics of substrate cracking                                                   where  = E/(1-2) is the plane-strain Young's modulus. Using the Gecit
+                                                                                  model34, we calculate the normalized stress intensity factor ^kn=Kh/Ko for a
+There have been a few studies reporting cracking in compliant, tough              putative mode I tensile crack of normalized length ^c=c/h in ITO/PEN, ITO/
+polymer substrates, such as PDMS, PET, and PI underneath either stiff,
+ductile metal films (Au/PDMS29, Al/PDMS30) or stiff, brittle ceramic films        PET, and ITO/PI film/substrate bilayer combinations specifically, whose
+(SiNx/PET, SiNx/PI31). (Note that while Kim et al.31 show visual evidence for
+substrate cracking in cross-sections of SiNx/PET, those cracks formed only        Dundur's parameters are listed in Supplementary Table 2 and plotted in
+after holding the specimens in tension for 5 days under ambient conditions).      Fig. 4b (see Supplementary Note 2 for modeling details34,39). An incipient
+Cracking has also been reported in compliant, tough brass substrates
+underneath stiff, brittle TiN films32. However, in all these cases the substrate  crack (small ^c) at the surface of the film loaded in uniaxial tension (as in the
+cracking is modest, and to the best of our knowledge there have been no
+published reports of substrate cracking in TCO/polymer sheets and related         bending test) will propagate when Kh  KIC condition is satisfied, where KIC
+flexible electronic devices.                                                      is the fracture toughness of the film. In such a loading situation, Ko  c0.5,
+                                                                                  and, thus, the crack is expected to propagate unstably40. The results in Fig. 4a
+     To understand the genesis of the substrate-cracking phenomenon,
+we look back at some previous mechanics studies where cracking of                 show that, due to the presence of the compliant substrate, Kh for a crack in
+compliant substrates underneath stiff films has been predicted and                the film increases with ^c, beyond the conventional c0.5-scaling increase
+modeled33­37. For example, analytical modeling by Gecit34 indicates that          represented by ^kn = 1. The ^kn then rises dramatically as the crack
+when a putative crack of depth, c, in a stiff film of thickness, h, (Al or        approaches the interface (^c  1), and induces a stress intensity factor in
+steel) under uniaxial tension approaches the interface with a compliant
+substrate (epoxy or Al), the crack-driving stress intensity factor, Kh,           the substrate at the interface that approaches infinity. The singularity
+increases dramatically relative to reference Ko for no elastic mismatch
+between the film and the substrate. This is the result of concentrated            implies that, in principle, the crack will continue to propagate into the
+shear stresses induced in the substrate at the crack-interface intersec-          substrate regardless of the substrate toughness, as hypothesized by Gecit34
+tion due to the elastic mismatch35, and it is depicted schematically in           and Beuth35,36. Fig. 4d-e schematically depict this substrate-cracking
+Supplementary Fig. 3a. It is implied that the substrate is expected to            behavior. By corollary, in the absence of the film, the substrate would
+crack, but experimental evidence for the same is not provided in those
+papers33­37. By corollary, when the elastic mismatch is reversed, i.e.            otherwise not crack due to its very high fracture toughness (Fig. 4c). Once
+compliant film (Al) on stiff substrate (steel), the Kh diminishes.                the crack enters the substrate (^c > 1), ^kn is expected to decrease as the crack
+                                                                                  propagates deeper into the substrate, an effect modeled by Thouless, et al.37.
+                                                                                  In the case of bending, the applied A experienced by the crack tip also
+                                                                                  decreases as it propagates deeper into the substrate, and the stress goes to
+                                                                                  zero at the neutral axis, before becoming compressive13. Thus, cracks in the
+                                                                                  substrate are limited to ~20% of its thickness, but are sufficiently deep to
+
+                                                                                  cause cracking-induced degradation of the device.
+
+npj Flexible Electronics | (2025)9:92                                                                                                3
+https://doi.org/10.1038/s41528-025-00470-z                                       Article
+
+Fig. 4 | Modeling and mechanisms. a Plot of ^kn
+(= Kh/Ko) as function of ^c (= c/h) for different film/
+substrate combinations relevant to this study. Inset:
+schematic illustration (not to scale) of the crack of
+depth, c, in the film of thickness, h. b Design map of
+the two Dundur's parameters ( and ) for film/
+substrate showing the boundary ( = -) between
+substrate-cracking ( > -) and crack-arrest ( < -)
+regions. The film/substrate combinations in (a) are
+indicated on the map in (b). c-f Schematic illus-
+trations (not to scale) of cracking behavior under
+uniaxial tensile loading depicting no substrate
+cracking (c), `channel' crack in film (d), extension of
+crack into the substrate (e), and substrate-cracking
+mitigation approach using an interlayer (f).
+
+Substrate-cracking mitigation                                                    combination. Thus, a putative crack in IZO film is expected to propagate
+                                                                                 into the PMMA interlayer underneath, as depicted schematically in Fig. 4f.
+Using the Gecit model34, we have constructed a design map in Fig. 4b, where      However, in the case of the PMMA/PEN combination, for the same putative
+for  > -, ^kn                                                                    crack in the PMMA layer, ^kn diminishes as the crack approaches the
+interface (^c  is expected to increase dramatically as the crack approaches the  PMMA/PEN interface. This is due to the reversal of the concentrated shear
+                1), resulting in substrate cracking. By corollary, ^kn will      stresses induced in the substrate due to the elastic mismatch (Supplementary
+                                                                                 Fig. 3b). Therefore, the crack is expected to be arrested, precluding any
+decrease with^c  1 for  < -, resulting in crack arrest at the interface. (Note   substrate cracking (Fig. 4f). While the approach of introducing interlayers
+                                                                                 between dissimilar materials for mitigating cracking has been discussed
+that this map can also be derived from Zak-Williams analyis33). As expected,     before (see e.g42,43), this approach has eluded application to TCO/polymer
+                                                                                 sheets and related flexible electronic devices. To test this hypothesis
+ITO/PEN, ITO/PET, and ITO/PI combinations lie in the substrate-cracking          experimentally, PMMA layers of different thicknesses ( ~ 250, ~300, ~400,
+                                                                                 and ~600 nm) were spin-coated onto PEN substrates. Unfortunately,
+region on the map in Fig. 4b. (IZO included in this map is another popular       PMMA is unable to withstand the processing conditions of the subsequent
+                                                                                 IZO deposition. Therefore, an ultrathin, transparent layer of amorphous
+TCO that is used in this study, and its elastic properties are very similar to   SiO2 (~5 nm) was e-beam evaporated on the PMMA surface to protect it.
+                                                                                 Considering the thinness of the SiO2, it is not expected to interfere with this
+those of ITO (see Supplementary Table 1).) Since the much stiffer ITO (or        mitigation approach. IZO ( ~ 250 nm thickness) was then sputter-deposited
+                                                                                 on top of the SiO2. In the case of no-PMMA, substrate cracking is observed
+IZO) film is key to the substrate-cracking problem, one can envision             in the FIB-cut cross-section in Fig. 5a, which is similar to that in the ITO/
+                                                                                 PEN case (Fig. 1d). Similarly, in the case of 250-nm PMMA interlayer,
+replacing the TCO with alternate, less stiff transparent-conducting elec-        cracking of the PEN substrate is observed in Fig. 5b. However, dramatic
+                                                                                 arrest of `channel' cracks at the PMMA/PEN interface is observed in Fig. 5c
+trodes made of polymers, metal meshes, or carbon-based nanomaterials41.          with a ~ 300 nm PMMA interlayer. The existence of an interlayer critical
+                                                                                 thickness for effective substrate-crack mitigation is related to the length scale
+However, those alternate electrodes are typically inferior to TCO in terms of    of the crack-tip stress field relative to the interlayer thickness. (This effect is
+                                                                                 not considered in the mechanics models discussed earlier.) Similar crack-
+the combination of high optical transparency and low sheet resistance they       arrest behavior is observed in Fig. 5d with a thicker PMMA interlayer
+                                                                                 ( ~ 600 nm). It is important to note that no evidence for interfacial
+can offer41.
+
+Using the design map in Fig. 4b, which provides general guidelines, we
+
+have designed a simple approach here for mitigating the substrate-cracking
+
+problem in generic TCO/polymer sheets for flexible electronic devices,
+
+without the need to eliminate the TCO. Our approach entails the use of a
+
+transparent, compliant interlayer between the TCO and polymer substrate,
+
+such that  < - for the interlayer/substrate combination. To demonstrate
+
+the proof-of-concept, a polymethyl methacrylate (PMMA) interlayer
+
+(E ~ 3 GPa19) is chosen for insertion between IZO film (E ~ 130 GPa22) and
+PEN substrate (E ~ 9 GPa15) (Supplementary Table 1). Figure 4a plots ^kn as a
+function of ^c for the IZO/PMMA and PMMA/PEN combinations, whose
+
+Dundur's parameters are listed in Supplementary Table 2 and plotted in Fig.
+4b. For the IZO/PMMA case, a very rapid rise in ^kn is observed as the crack
+approaches the interface, commensurate with the large  and  for that
+
+npj Flexible Electronics | (2025)9:92                                            4
+https://doi.org/10.1038/s41528-025-00470-z                                      Article
+
+Fig. 5 | Mitigation of substrate cracking. a-d SEM
+images of FIB-cut cross-sections of `channel' cracks
+in combinations: IZO/PEN (a), IZO/
+PMMA(250 nm)/PEN (b), IZO/PMMA(300 nm)/
+PEN (c), and IZO/PMMA(600 nm)/PEN (d), bent
+to r = 7 mm (A = 0.0089), in the bent state
+(strained). A thin SiO2 layer ( ~ 5 nm) was used on
+top of PMMA. (FIB cuts were made while in the bent
+state. All FIB-cut specimens observed at a 52° for-
+ward tilt angle, hence vertical micron bars (repre-
+senting depth) are longer than the horizontal ones,
+as indicated in (a-d).
+
+delamination was observed in Fig. 5a-d. (In related experiments, instead of     resistance in the bent state. However, when the ITO/PEN sheet is returned
+the SiO2 protective layer, Au layers ( ~10 nm) were deposited before and        to the flat state (i.e. one bending cycle), R/RO typically approaches zero.
+after PMMA deposition, which allowed better contrast delineation of the         This is because the mating walls of `channel' cracks in the ITO can make
+PMMA layer in the SEM; the same type of crack-arrest behavior is observed       good contact in the flat state, although the cracks are not healed.
+with a ~ 400 nm PMMA interlayer (Supplementary Fig. 4). This indicates
+that a relatively thin PMMA interlayer is sufficient for suppressing substrate       In light of the substrate-cracking behavior reported here, it is hypo-
+cracking. Thus, the design map in Fig. 4b, in conjunction with static elastic
+properties of the materials under consideration, can be used as a general       thesized that when the TCO/polymer sheet is subjected to cyclic bending
+guide for choosing a suitable transparent material for interlayer between the
+TCO film and the substrate to prevent substrate cracking in those devices.      (i.e. multiple cycles), the propensity for the substrate cracks to close properly
+Of course, the transparency requirement on the interlayer is relaxed for use    when returned to the flat state will decrease progressively. This is likely due
+in otherwise opaque flexible electronic devices. It is acknowledged that the
+incorporation of an additional layer (interlayer) between TCO/substrate can     to the accumulation of debris within the substrate cracks, worsening mis-
+make the multilayer stack more susceptible to interfacial delamination,
+which is highly undesirable from a device-reliability standpoint. Thus, to      alignment of the mating crack walls, and the fatigue-induced propagation of
+avoid any interfacial delamination, it is important to ensure that the inter-
+faces are sufficiently tough, as was done in this study.                        the crack deeper into the substrate, with increasing number of cycles. This,
+
+Electrical properties                                                           in turn, is likely to progressively prevent the TCO crack walls from making
+The relative change in the resistance (R/RO) of the ITO film on PEN             good contact, thereby resulting in increasing R/RO (flat state) with number
+substrate was measured at different bending radii, r, in the bent state         of cycles, n. It is also hypothesized that in the case where substrate cracking is
+(strained), where the resistance R is in the direction perpendicular to the     eliminated, e.g. in IZO/PMMA(300 nm)/PEN, the flat-state R/RO may not
+bending axis (Supplementary Fig. 5a), RO is the initial resistance in the flat  increase with increasing n. These hypotheses are illustrated schematically in
+state (unstrained), and R = R-RO. Beyond a critical bending radius              Supplementary Fig. 6. To verify these hypotheses, R/RO of IZO/PEN sheets
+(r = 10 mm), ITO's R/RO increases monotonically with decreasing r.              was measured in the flat state (Fig. 6) after subjecting them to bending cycles
+Supplementary Fig. 5b plots the corresponding measured density of               in the range n = 1 to 104, at bending radius r = 7 mm (A = 0.0089) using a
+`channel' cracks as a function of decreasing r, in the bent state, which also   testing method described elsewhere28. Fig. 6 plots these data, which clearly
+increases monotonically. It is assumed that the increase in the crack density   show progressive increase in flat-state R/RO with number of bending
+in the ITO film is responsible for the increase in the relative change in the   cycles, from ~0.1 to ~1,200 after 104 bending cycles. In contrast, no
+                                                                                appreciable change in R/RO could be measured in IZO/PMMA(~300 nm)/
+                                                                                PEN in the flat state, even after 104 cycles where R/RO ~ 0.5. These results
+                                                                                reinforce the critical importance of substrate cracking in the degradation of
+                                                                                TCO electrical properties. Since electrical continuity of the TCO film is key
+
+                                                                                to the proper functioning of any multilayer device built upon TCO/polymer
+
+                                                                                sheets, substrate cracking is highly detrimental for the durability and
+
+                                                                                reliability of such devices.
+
+npj Flexible Electronics | (2025)9:92                                           5
+https://doi.org/10.1038/s41528-025-00470-z                                            Article
+
+                                                                                      USA), at a rate of 1 Å·s-1. In related experiments, instead of SiO2 thin films,
+                                                                                      Au thin films (~10 nm) were deposited by e-beam evaporation
+
+                                                                                      (Ångstrom, USA).
+
+Fig. 6 | Cyclic bending and electrical properties. The relative increase in the DC    Deposition of ITO thin films
+electrical resistance of IZO film on PEN substrate, where the substrate cracks in     ITO thin films (~200 nm thickness) were deposited on PI substrates
+bending (r = 7 mm; A = 0.0089), in the flat state (unstrained) as a function of       (~80 m thickness) using a radio frequency (RF) linear sputtering system
+bending cycles, n. Corresponding measurements of IZO on PMMA(300 nm)/PEN              (Kenosistec, Italy). The chamber was first evacuated to 5 × 10-6Torr, fol-
+substrate, where the substrate does not crack in bending. Measurements from four      lowed by a pre-sputtering phase to cleanse the target and enhance the
+different specimens for each material system reported. The solid lines connect the    process reproducibility. Deposition occurred under 1.1 × 10-3Torr pressure
+averages. The schematic illustration (not to scale) on the right depicts one bending  with an Ar flow of 40 SCCM and a power density of 0.39 W·cm-2. During the
+cycle: flatbentflat.                                                                  deposition, the substrate was moved laterally to ensure uniform deposition.
+
+Discussion                                                                            Deposition of IZO thin films
+                                                                                      IZO thin films (~250 nm thickness) were deposited on the SiO2/PMMA/
+While the severity and extent of polymer-substrate cracking in TCO/                   PEN or Au/PMMA/Au/PEN sheets using DC-magnetron sputtering at
+polymer sheets will depend on the film/substrate materials, their relative            room temperature using an IZO ceramic target (90 wt.% In2O3-10 wt.%
+thicknesses, and applied tensile stresses, the substrate-cracking mitigation          ZnO). Specimens were attached to a metal mask and placed in the chamber,
+approach of introducing a more compliant interlayer above the substrate is            which was then evacuated until the pressure dropped below 5×10-6 Torr. Ar
+potentially applicable to myriad flexible electronic devices. It is imperative        gas was passed through the gas mass flow controller into the chamber at 8
+that consideration of polymer substrate cracking, and its mitigation, become          SCCM. The power supply for the plasma generator was then turned on and
+integral part of design, manufacturing, and operation of future flexible              the working pressure was varied such that the DC bias was 280-300 V. After
+electronic devices with improved durability and reliability.                          comparing different deposition times and measuring the respective film
+                                                                                      thickness, the deposition rate was determined to be ~0.25 Å·s-1.
+Methods
+                                                                                      Flexible PSCs fabrication
+Materials                                                                             Flexible PSCs were fabricated using a procedure described elsewhere44.
+All reagents/materials were used as-received commercially without further             Briefly, the ITO/PEN sheets were patterned using the Zn-HCl chemical-
+purification, which include: lead(II) iodide (PbI2; 99%, Sigma Aldrich,               etching method. They were then sonicated in a solution of IPA, acetone, and
+USA), formamidinium iodide (FAI; >99.99%, Greatcell Solar Materials,                  DI (1:1:1 v/v) for 20 min. The substrates were subsequently dried under
+Australia), lead(II) bromide (PbBr2; Materials, Australia), cesium iodide             flowing dry N2 and attached to an appropriately-sized microscope glass slide
+(CsI; 99.999%, Sigma Aldrich, USA), methylammonium bromide (MABr;                     using tape. The substrates were treated under ultraviolet ozone (UVO) for
+>99.99%, Greatcell Solar Materials, Australia), methylammonium chloride               30-35 min and transferred to a controlled-humidity (<10% RH) glovebox.
+(MACl; >99.99%, Greatcell Solar Materials, Australia), N,N-dimethylfor-               Immediately after this, an SnO2 solution (SnO2-CD in DI water; 1:3 v/v,
+mamide (DMF; 99.8%, anhydrous, Sigma Aldrich, USA), dimethyl sulf-                    filtered with a 0.22 mm PTFE filter) was spin-coated at 4,000 rpm with a
+oxide (DMSO; 99.9%, anhydrous, Sigma Aldrich, USA), ethanol (>99.5%;                  ramp of 1,000 rpm·s­1 for 30 s, followed by drying at 120 °C for 60 min on a
+Sigma Aldrich, USA), acetone (>99.5%, VWR, USA), SnO2 colloidal dis-                  hotplate. The metal-halide perovskite (MHP) precursor solution (1.61 M)
+persion (SnO2-CD; 15 wt % in H2O, Alfa Aesar, USA), isopropanol (IPA;                 was prepared by dissolving 742.2 mg of PbI2, 224.4 mg of FAI, 16.2 mg of
+99.5%, anhydrous, Sigma Aldrich, USA), bis(trifluoromethane)sulfonimide               MABr, 20.3 mg of MACl, and 19.8 mg of CsI in a mixture of 800 µL DMF
+lithium salt (Li-TFSI; 99.95%, Sigma Aldrich, USA), 4-tert-butylpyridine              and 200 µL DMSO. This results in thin films of final nominal composition of
+(tBP; 98%, Sigma Aldrich, USA), acetonitrile (AcN; 99.8%, anhydrous,                  Cs0.05MA0.13FA0.82Pb(I2.9Br0.01). This precursor solution was stirred for 2 h
+Sigma Aldrich, USA), chlorobenzene (CB; 99.8%, anhydrous, Sigma                       at room temperature and filtered before use. After treating the SnO2-coated
+Aldrich, USA), spiro-OMeTAD (>99.8%, Lumtec, Taiwan), poly-                           substrates under UVO for 15 min, the MHP layer was spin-coated on the
+methylmethacrylate solution (PMMA; Sigma Aldrich (182265), USA),                      prepared substrate at 1,000 rpm, with a ramp of 200 rpm·s­1 for 10 s fol-
+polyethylene naphthalate sheets (PEN; Goodfellow Corp., USA), polyimide               lowed by 5000 rpm, with a ramp of 1000 rpm·s­1, for 30 s. Anhydrous CB
+sheets (PI; Kapton, Kolon Industried, S. Korea), indium-tin-oxide-coated              (0.2 mL) was quickly dripped in a single stream onto the rotating substrate
+polyethylene terephthalate substrates (ITO/PET; Sigma Aldrich, USA), and              15 s before the end. Subsequently, the film was annealed for 30-40 min at
+ITO-coated PEN substrates (ITO/PEN; Peccell, Japan).                                  100 °C under ~17% RH on a hotplate. The humidity was then reduced to
+                                                                                      <10% RH. The Spiro-OMeTAD layer was then spin-coated at 4,000 rpm,
+                                                                                      with a ramp of 2,000 rpm·s­1, for 20 s using a solution of 90 mg Spiro-
+                                                                                      OMeTAD, 39.5 L of tBP, 23 L of Li-TFSI (520 mg dissolved in 1 mL of
+                                                                                      acetonitrile) in 1 mL CB (filtered with 0.22 m PTFE filter). All processing
+                                                                                      was performed in a humidity-controlled ambient-air glovebox. The flexible
+                                                                                      PSCs were then detached from the glass slide. Finally, 70-nm thick Au
+                                                                                      electrode was deposited by thermal evaporation. .
+
+Deposition of PMMA thin films                                                         Bending tests and FIB cutting
+Solution of PMMA in CB (5 wt%, heated at 70 °C overnight) was spin-
+coated on PEN substrates under ambient conditions at 6000, 4000, 2000, or             Focused ion beam (FIB) cutting of cross-sections was performed using a
+1000 rpm, each with a ramp of 500 rpm·s­1, for 30 s to achieve a thicknesses          Helios 600 instrument (ThermoFisher, USA) with all the specimens being in
+of ~250, ~300, ~400, or ~600 nm, respectively.                                        the bent state. The different flexible specimens were carefully wrapped
+                                                                                      around custom-made acrylic cylindrical mandrels with r ranging from 5 to
+Deposition of SiO2 and Au Thin Films                                                  10 mm. In each case, the length of the substrate was ~r. After sputtering a
+SiO2 thin films of ~5 nm thickness were deposited on top of the PMMA thin             thin layer of conductive carbon, the mandrels were carefully attached to the
+films at room temperature using an electron-beam evaporator (Ångstrom,                FIB stage using carbon tape. Additional copper tapes were used to hold the
+                                                                                      sample down, as well as to reduce any charging effects. A beam current of
+
+npj Flexible Electronics | (2025)9:92                                                 6
+https://doi.org/10.1038/s41528-025-00470-z                                        Article
+
+0.46­0.92 nA was used to make the FIB cuts, in cleaning cross-section mode,       5. Yan, Y. et al. Toward flexible and stretchable organic solar cells: a
+without any Pt deposition. It took ~3­5 min to make each FIB cut. In some               comprehensive review of transparent conductive electrodes,
+experiments, post-bending etching of the ITO film was performed using the               photoactive materials, and device performance. Adv. Energy Mater.
+Zn-HCl method.                                                                          15, 2404233 (2025).
+
+Characterization                                                                  6. Padture, N. P. The promise of metal-halide-perovskite solar
+All scanning electron microscope (SEM; Quattro S, ThermoFisher, USA)                    photovoltaics: a brief review. MRS Bull. 48, 983­998 (2023).
+observations, top view and cross-sectional view, were performed while the
+specimens were in the bent state. The same procedure as above was used to         7. Koden, M. OLED Displays and Lighting. (John Wiley & Sons, 2017).
+mount the bent specimens onto the SEM stage.                                      8. Ouyang, C., Liu, D., He, K. & Kang, J. Recent advances in touch
+
+     An optical microscope (Eclipse LV100, Nikon, USA) was used to make                 sensors for flexible displays. IEEE J. Nanotechnol. 4, 36­46 (2023).
+top-view observations, and also to measure the crack densities while the          9. Fang, H. J., Zhao, Z. T., Wu, W. T. & Wang, H. Progress in flexible
+specimens were in the bent state. The same procedure as above was used to
+mount the bent specimens onto the optical microscope stage. The number                  electrochromic devices. J. Inorg. Mater. 36, 140­151 (2021).
+of cracks in an image was divided by the corrected image length, to account       10. Morales-Masis, M., DeWolf, S., Woods-Robinson, R., Ager, J. W. &
+for the curvature, and this number is referred to as the crack density. For
+each r condition, a minimum of three specimens were used for this                       Ballif, C. Transparent electrodes for efficient optoelectronics. Adv.
+measurement.                                                                            Electron. Mater. 3, 1600529 (2017).
+                                                                                  11. Zhao, Z. et al. Failure mechanisms in flexible electronics. Int. J. Smart
+Electrical properties measurement                                                       Nano Mater. 14, 510­565 (2023).
+A multimeter (179, Fluke, USA) was used to measure the DC electrical              12. Zhu, Y. & Lu, N. Mechanics of Flexible and Stretchable Electronics.
+resistance of the ITO film in ITO/PEN. Copper tapes were attached to the                (Wiley-VCH, 2025).
+ends of the ITO film, and the initial resistance (RO) in the flat state was       13. Fukuda, K. et al. A bending test protocol for characterizing the
+carefully measured, which was found to be very close to a value calculated              mechanical performance of flexible photovoltaics. Nat. Energy 9,
+from its specified sheet resistance of the ITO film (13-15 /). The ITO/                 1335­1343 (2024).
+PEN specimens were manually bent on the acrylic cylindrical mandrels of           14. Bárány, T., Czigány, T. & Karger-Kocsis, J. Application of the essential
+different r (5, 7, or 10 mm). Copper tapes were attached to the flat part of the        work of fracture (EWF) concept for polymers, related blends and
+ITO film at either ends, and they were then connected to the multimeter to              composites: a review. Prog. Polym. Sci. 35, 1257­1287 (2010).
+measure the resistance (R) of the ITO film in the bent state. For each r          15. Arkhireyeva, A. & Hashemi, S. Fracture behavior of polyethylene
+condition, about four specimens were used for this measurement. All                     napthalate (PEN). Polymers 43, 289­300 (2002).
+bending and measurement procedures were performed in a dry-air glove-             16. Jung, H. S., Eun, K., Kim, Y. T., Lee, E. K. & Choa, S.-H. Experimental
+box (<5% RH).                                                                           and numerical investigation of flexibility of ITO electrode for
+                                                                                        application in flexible electronic devices. Microsys. Technol. 23,
+     Cyclic bending tests were performed on IZO/PEN and IZO/                            1961­1970 (2017).
+PMMA(300 nm)/PEN sheets in the dry-air glovebox (RH<5%) using an                  17. Dai, Z. & Padture, N. P. Challenges and opportunities for the
+automatic cyclic mechanical tester (PR-BDM-100, Puri, China), where the                 mechanical reliability of metal-halide perovskites and photovoltaics.
+acrylic cylindrical mandrel was of radius r = 7 mm; each bending cycle is:              Nat. Energy 8, 1319­1327 (2023).
+flatbentflat28. Testing was performed for 10,000 cycles, at the rate of ~1        18. Zhou, J. et al. Mechanical properties of tensile cracking in indium
+cycle·s-1. Testing was interrupted periodically, and the DC electrical resis-           tin oxide films on polycarbonate substrates. Coatings 12, 538
+tance of the IZO films in the flat state were measured using the method                 (2022).
+described above. The initial resistance (RO) values of the IZO films in the flat  19. Ishiyama, C. & Higo, Y. Effects of humidity on young's modulus in
+state were measured before the commencement of cyclic bending tests.                    poly(methyl methacrylate). J. Polym. Sci. Part B. Polym. Phys. 40,
+                                                                                        460­465 (2002).
+Data availability                                                                 20. Kono, R. Dynamic bulk viscocity of polystyrene and polymethyl
+                                                                                        methacrylate. J. Phys. Soc. Jpn. 15, 718­725 (1960).
+The data that support the findings of this study are available from the           21. Rittel, D. & Maigre, H. An investigation of dynamic crack initiation in
+corresponding author upon reasonable request.                                           PMMA. Mech. Mater. 23, 229­239 (1996).
+                                                                                  22. Zhou, J. et al. Effects of dielectric layer on ductility for dielectric/Au/
+Received: 15 June 2025; Accepted: 5 August 2025;                                        dielectric multilayers on polycarbonate substrate. J. Phys. D: Appl.
+                                                                                        Phys. 56, 435302 (2023).
+References                                                                        23. Lu, H. & Menary, G. Determination of young's modulus of PET sheets
+                                                                                        from lamb wave velocity measurement. Exptl. Mech. 64, 377­391
+1. Corzo, D., Tostado-Blázquez, G. & Baran, D. Flexible electronics:                    (2024).
+      status, challenges and opportunities. Front. Electron. 1, 594003            24. Chan, W. Y. F. & Williams, J. G. Determination of the fracture
+      (2020).                                                                           toughness of polymeric films by the essential work method. Polymers
+                                                                                        35, 1666­1672 (1994).
+2. Wang, Y., Xu, C., Yu, X., Zhang, H. & Han, M. Multilayer flexible              25. He, W. et al. Study on Young's modulus of thin films on Kapton by
+      electronics: manufacturing approaches and applications. Mater.                    microtensile testing combined with dual dic system. Surf. Coat.
+      Today Phys. 23, 100647 (2022).                                                    Technol. 308, 273­279 (2016).
+                                                                                  26. Bauer, C. L. & Farris, R. J. Determination of Poisson's ratio for
+3. Flexible Electronics Market. Flexible Electronics Market Size, Share,                polyimide films. Polym. Engr. Sci. 29, 1107­1110 (1989).
+      and Segmentation by Component (Displays, Batteries, Sensors,                27. Gao, Y. et al. Flexible perovskite solar cells: from materials and
+      Memory Devices, Others), by Application (Consumer Electronics                     device architectures to applications. ACS Energy Lett. 7, 1412­1445
+      (Television, Wearable Devices, Smartphones, Others), Automotive,                  (2022).
+      Healthcare, Industrial, Others). https://www.snsinsider.com/reports/        28. Dai, Z. et al. Dual-interface reinforced flexible perovskite solar cells for
+      flexible-electronics-market-4778 (2024).                                          enhanced performance and mechanical reliability. Adv. Mater. 34,
+                                                                                        2205301 (2022).
+4. Subudhi, P. & Punetha, D. Progress, challenges, and perspectives on            29. Douville, N. J., Liu, Z., Takayama, S. & Thouless, M. D. Fracture of
+      polymer substrates for emerging flexible solar cells: a holistic                  metal coated elastomers. Soft Matter 7, 6493­6500 (2011).
+      panoramic review. Prog. Photovolt. 31, 753­789 (2024).
+
+npj Flexible Electronics | (2025)9:92                                             7
+https://doi.org/10.1038/s41528-025-00470-z                                       Article
+
+30. Badrudin, S. I. et al. Eliminating surface cracks in metal film-polymer      NSF-GRFP (Award No. DGE-2139841). The work at University of Rome was
+      substrate for reliable flexible piezoelectric devices. Int. J. Engr. Sci.  supported by the JUMP INTO SPACE project, funded from the European
+      Technol. 50, 101617 (2024).                                                Innovation Council (EIC) under grant agreement No 101162377. This pub-
+                                                                                 lication reflects only the author's views and the European Union is not liable
+31. Kim, K., Luo, H., Zhu, T., Pierron, O. N. & Graham, S. Influence of          for any use that may be made of the information contained therein. E.M. and
+      polymer substrate damage on the time dependent cracking of SiNx            A.D.C. acknowledge the support of MASE (Ministero dell'Ambiente e della
+      barrier films. Sci. Rep. 8, 4560 (2018).                                   Sicurezza Energetica) in the framework of the Operating Agreement with
+                                                                                 ENEA for Research on the Electric System (RdS) 2025-2027.
+32. Gao, T., Qiao, L., Pang, X. & Volinsky, A. A. Brittle film-induced
+      cracking of ductile substrates. Acta Mater. 99, 273­280 (2015).            Author contributions
+
+33. Zak, A. R. & Williams, M. L. Crack point stress singularties at a bi-        N.P.P. conceived and supervised the research. N.P.P. and A.R. designed the
+      material interface. Trans. ASME J. Appl. Mech. 30, 142­143 (1963).         research. A.R. performed bulk of the experimental work, including synthesis,
+                                                                                 processing, fabrication, characterization, measurements and testing, with
+34. Gecit, M. R. Fracture of a surface layer bonded to a half space. Int. J.     contributions from M.L., C.L-P., A.C., C.K., E.M., A.D.C., F.B., P.G., and D.P.
+      Engr. Sci. 17, 287­295 (1979).                                             The mechanics modeling work and the interpretation of the results was
+                                                                                 performed by S.K. and H.K. The data were interpreted by N.P.P., A.R., H.K.,
+35. Beuth, J. L. Cracking of thin bonded films in residual tension. Int. J.      and S.S. The manuscript was written by N.P.P. and A.R., with contributions
+      Solids Struct. 28, 1657­1675 (1992).                                       from the other authors.
+
+36. Beuth, J. L. & Klingbell, N. W. Cracking of thin films bonded to elastic-    Competing interests
+      plastic substrates. J. Mech. Phys. Solids 44, 1411­1428 (1996).
+                                                                                 The authors declare no competing interests.
+37. Thouless, M. D., Li, Z., Douville, N. J. & Takayama, S. Periodic cracking
+      of films supported on compliant substrates. J. Mech. Phys. Solids 59,      Additional information
+      1927­1937 (2011).
+                                                                                 Supplementary information The online version contains
+38. Hutchinson, J. W. & Suo, Z. Mixed-mode cracking in layered                   supplementary material available at
+      structures. Adv. Appl. Mech. 29, 63­191 (1991).                            https://doi.org/10.1038/s41528-025-00470-z.
+
+39. Bower, A. F. Applied Mechanics of Solids 1st edn, Vol. 824 (CRC Press        Correspondence and requests for materials should be addressed to
+      Inc, 2025).                                                                Nitin P. Padture.
+
+40. Lawn, B. R. Fracture of Brittle Solids 2nd edn, Vol. 400 (Cambridge          Reprints and permissions information is available at
+      University Press, 1993).                                                   http://www.nature.com/reprints
+
+41. Xu, Y. et al. Recent progress of electrode materials for flexible            Publisher's note Springer Nature remains neutral with regard to
+      perovskite solar cells. Nano Micro Lett. 14, 117 (2024).                   jurisdictional claims in published maps and institutional affiliations.
+
+42. Suresh, S., Sugimura, Y. & Ogawa, T. Fatigue cracking in materials           Open Access This article is licensed under a Creative Commons
+      with brittle surface coatings. Scr. Mater. 29, 237­242 (1993).             Attribution-NonCommercial-NoDerivatives 4.0 International License,
+                                                                                 which permits any non-commercial use, sharing, distribution and
+43. Freund, L. B. & Suresh, S. Thin Film Materials: Stress, Defect               reproduction in any medium or format, as long as you give appropriate
+      Formation and Surface Evolution, Vol. 750 (Cambridge University            credit to the original author(s) and the source, provide a link to the Creative
+      Press, 2003).                                                              Commons licence, and indicate if you modified the licensed material. You
+                                                                                 do not have permission under this licence to share adapted material
+44. Ranka, A. et al. Bilayer electron transport layers for high-performance      derived from this article or parts of it. The images or other third party
+      rigid and flexible perovskite solar cells. Solar RRL 9, e2500130 (2025).   material in this article are included in the article's Creative Commons
+                                                                                 licence, unless indicated otherwise in a credit line to the material. If material
+Acknowledgements                                                                 is not included in the article's Creative Commons licence and your intended
+                                                                                 use is not permitted by statutory regulation or exceeds the permitted use,
+Experimental assistance from F. De Rosi, H.F. Garces, G. Koch, and M.            you will need to obtain permission directly from the copyright holder. To
+Poma is gratefully acknowledged. The work at Brown University was                view a copy of this licence, visit http://creativecommons.org/licenses/by-
+supported by the U.S. Department of Energy (DOE) Office of Energy                nc-nd/4.0/.
+Efficiency and Renewable Energy (EERE) under the Solar Energy
+Technology Office (SETO) (Award No. DE-EE0009511), DOE Basic Energy              © The Author(s) 2025
+Sciences (BES) (Award No. DE-SC0025180), and the U.S. National Science
+Foundation (NSF) (Award No. DMR-2102210). The views expressed in the
+article do not necessarily represent the views of the DOE or the U.S.
+Government. S.K. and H.K. gratefully acknowledge the support of the U.S.
+Office of Naval Research (ONR) (Award Nos. N00014-21-1-2851, N00014-
+24-1-2200, and N00014-21-1-2054). Additional support from ONR (Award
+Nos. N00014-21-1-2815 and N00014-23-1-2688) is gratefully acknowl-
+edged. S.K. is also grateful for the support she received through the James
+R. Rice Graduate Fellowship in Solid Mechanics and the Miss Abbott's
+School Alumnae Fellowship. S.S. acknowledges the support from Brown
+University as part of his Professor-at-Large appointment. The work at Yale
+University was supported by NSF (Award No. CBET-2315077) and
+
+npj Flexible Electronics | (2025)9:92                                            8
+

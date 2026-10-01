@@ -1,10 +1,55 @@
+---
+title: "全自动爬取短视频、推文爆款程序 交接文档（给 Codex 版）"
+date: 2026-08-17
+tags:
+  - 笔记整理
+  - 创业黑马
+  - 交接文档
+  - Codex
+  - 采集系统
+created: 2026-08-17
+updated: 2026-09-15
+aliases:
+  - Codex接力棒
+  - 爬虫程序交接文档（给Codex版）
+source: "上一任开发会话 → Codex 续作交接（2026-08-17）"
+---
+
 # 全自动爬取短视频、推文爆款程序 交接文档（给 Codex 版）
+
+> [!summary] 概要
+> 本文是「矩阵内容雷达」采集平台给 **Codex（L1 自治型续作智能体）** 的**接力交接文档**，用于把上一任开发会话的现场无损移交给下一任。项目本体是本地运行的**抖音达人数据采集平台**（后端 FastAPI + MediaCrawler 采集 fork + 本地前端），当前正执行**第 4 轮测试**：10 个对标达人 × 每人 15 条视频，评论 + 主页 + 口播稿全量采集。交接的核心是三件事——**做到了哪一步**（前 4 账号已采完、第 5 个采集中、三浏览器线路与口播稿下载修复已落地、全量 279 passed/2 skipped）、**A 没做完的 6 根接力棒**（剩余 6 账号采集、28 条失败口播稿补采、Chrome/Edge 线路实测、临时文件清理、vitest 修复）、以及**Codex 接手第一件事**（先验证后端在线 → 查任务状态 → 中断则 resume）。
 
 > [!note] 文档元信息
 > - **项目名**：全自动爬取短视频、推文爆款程序（抖音达人数据采集，用户简称"知识库自动化整理项目"）
 > - **交接对象**：Codex（L1 自治型续作智能体）
 > - **交接日期**：2026-08-17
-> - **数据保留声明**：⚠️ **平台内现有数据一律保留、不得清理**——视频/评论/口播稿/达人主页数据是第 4 轮测试的成果，Codex 需在此基础上继续完成本轮测试。
+> - **数据保留声明**：⚠️ **<span style="color:#e74c3c">平台内现有数据一律保留、不得清理</span>**——视频/评论/口播稿/达人主页数据是第 4 轮测试的成果，Codex 需在此基础上继续完成本轮测试。
+
+## 相关笔记
+
+- [[短视频爆款采集系统]] — 本项目所属系统全景（wiki 页）
+- [[0823交接文档-Codex-Codex]] — 8 月 23 日的续作交接文档（本文档的后续版）
+- [[风控接线技术方案-20260816]] — 同期采集系统的风控接线技术档案
+
+## 📑 索引
+
+- 🚀 [[#0. 交接摘要（启动包）]] — 项目做什么、做到哪、最关键三件事
+- 🎯 [[#1. 项目总览与验收标准]] — 一句话定位、第 4 轮验收标准与对标账号清单
+- 🗺️ [[#2. 文件地图（精确路径）]] — 24 个关键文件的路径、作用与状态
+- ✅ [[#3. 已完成工作（全量清单）]] — 九大模块的产出物与验证方式
+- 📍 [[#4. 当前精确进度]] — 第 4 轮任务快照与中断风险提示
+- 🏃 [[#5. A 没做完的事（接力棒，全量）]] — 6 项遗留任务的紧急度与验收信号
+- 📊 [[#6. A→B 接力总览表]] — 遗留项与下一步动作的对照表
+- ⚡ [[#7. 下一步行动计划（命令级）]] — 立即做与之后做的命令级步骤
+- ⚙️ [[#8. 环境与配置依赖]] — 服务端口、Python 环境、浏览器与环境变量
+- 💾 [[#9. 数据与状态快照]] — 数据库、登录态目录与残留进程
+- 🧠 [[#10. 关键决策与踩坑记录]] — 15 条决策/踩坑与规避方式
+- ⚠️ [[#11. 风险与待确认项]] — 5 项风险与待确认问题
+- 🔧 [[#12. 续作启动手册（从零恢复完整步骤）]] — 从零恢复的四步启动手册
+- 🤖 [[#13. 按 Codex 定制的附加内容]] — 模型/外网/迁移/代理说明
+- ❓ [[#遗留不确定项（❓）汇总]] — 5 项遗留不确定项汇总
+- 📋 [[#请用户核对的清单]] — 6 条请用户核对的清单
 
 ---
 
@@ -15,12 +60,12 @@
 **当前做到哪一步**：
 - ✅ 前 4 个账号已采完（投哥不请自来、秋芝2046、九筒电话亭、小Lin说，各 15 条视频）
 - 🔄 第 5 个账号「老师好我叫何同学」采集中，剩余 5 个（影视飓风、老方创业手册、心中之城、毒舌电影、疯狂小杨哥）排队
-- ✅ 三浏览器线路（Firefox 首选 → Edge → Chrome 兜底）+ 口播稿下载修复全部落地，全量测试 279 passed / 2 skipped
+- ✅ 三浏览器线路（Firefox 首选 → Edge → Chrome 兜底）+ 口播稿下载修复全部落地，全量测试 📊 **<span style="color:#e67e22">279 passed / 2 skipped</span>**
 
 **最关键三件事**：
 1. **已完成**：三浏览器线路、系统 Firefox 驱动、登录态同步、口播稿下载链路、图文跳过、前端线路显示修复。
 2. **A 没做完的接力棒**：①第 4 轮剩余 6 账号采集；②28 条失败口播稿补采；③Chrome 线路扫码实测；④Edge 线路恢复验证；⑤临时文件清理。
-3. **Codex 下一步第一件事**：**验证后端在线 → 查询第 4 轮任务（a57a3049…）状态 → 若中断则 resume 继续**。
+3. **Codex 下一步第一件事**：🔥 **<span style="color:#e74c3c">验证后端在线 → 查询第 4 轮任务（a57a3049…）状态 → 若中断则 resume 继续</span>**。
 
 **最省力入口**：任务已通过 resume 接口在跑（客户端脚本轮询中）。先跑进度查询脚本看任务是否还活着，再决定继续监控或重新 resume。
 
@@ -28,13 +73,13 @@
 
 ## 1. 项目总览与验收标准
 
-**一句话定位**：D:\全自动爬取短视频、推文爆款程序 是本地运行的抖音达人数据采集平台（后端 FastAPI + MediaCrawler 采集 fork + 本地前端）。
+**一句话定位**：💡 **<span style="color:#2980b9">D:\全自动爬取短视频、推文爆款程序</span>** 是本地运行的抖音达人数据采集平台（后端 FastAPI + MediaCrawler 采集 fork + 本地前端）。
 
 **最终目标（第 4 轮验收标准）**：
-- 10 个对标账号全部完成：每人 15 条视频 + 评论（每条≤20）+ 达人主页资料 + 口播稿
+- 📊 **<span style="color:#e67e22">10 个对标账号全部完成</span>**：每人 15 条视频 + 评论（每条≤20）+ 达人主页资料 + 口播稿
 - 视频/评论/主页入库 data\radar.sqlite3，前端面板可见
 - 口播稿成功率尽可能高（当前 33 成功 / 28 失败；失败为历史网络抖动，线路已恢复，需补采）
-- 全量 pytest 保持 279 passed / 2 skipped 零回归
+- 全量 pytest 保持 📊 **<span style="color:#e67e22">279 passed / 2 skipped</span>** 零回归
 
 **对标账号清单**（✅已采 / 🔄采集中 / ⏳排队）：
 | 账号 | 状态 |
@@ -170,7 +215,7 @@ if str(video.get("media_kind") or "") == "image_text":
 - 数据快照：videos≈61、comments≈1275、transcriptions=61（33 succeeded / 28 failed）、creators≥3
 - 各账号：投哥不请自来 16、秋芝2046 15、九筒电话亭 15、小Lin说 15
 
-**⚠️ 中断风险提示**：上一任对话结束时正在后台轮询。Codex 接手后**先跑进度查询**确认任务是否仍在运行。
+**⚠️ 中断风险提示**：上一任对话结束时正在后台轮询。Codex 接手后 🔥 **<span style="color:#e74c3c">先跑进度查询</span>** 确认任务是否仍在运行。
 
 ---
 
@@ -180,7 +225,7 @@ if str(video.get("media_kind") or "") == "image_text":
 - **还差什么**：老师好我叫何同学（进行中）、影视飓风、老方创业手册、心中之城、毒舌电影、疯狂小杨哥 的 15 条视频+评论+主页+口播稿。
 - **为什么没做完**：任务运行中被上一任重启后端打断过一次（已 resume 恢复）；每账号约 20-25 分钟，10 账号串行总时长数小时，尚未跑完。
 - **前置条件**：后端在线；三线路可用；Firefox 登录态有效。
-- **做到什么算完成**：10 账号全部 status=completed，videos 表每账号 ≥15 条。
+- **做到什么算完成**：📊 **<span style="color:#e67e22">10 账号全部 status=completed，videos 表每账号 ≥15 条</span>**。
 - **从哪开始**：查询任务 a57a3049… 状态；running 则继续等，paused/failed 则 POST resume。
 - **验证信号**：select author_name,count(*) from videos group by author_name 出现全部 10 个账号。
 
@@ -211,7 +256,7 @@ if str(video.get("media_kind") or "") == "image_text":
 ### 遗留 5：临时脚本与诊断日志清理 【一般】
 - **还差什么**：项目根与 MediaCrawler 下一批 _*.py 临时脚本（_round10.py、_resume_run.py、_p5.py、_p6.py、_diag*.py、_fix*.py、_patch*.py、_kill*.py、_probe*.py 等）以及 providers\mediacrawler.py 里的 [diag] MC child env 诊断日志待清理。
 - **为什么没做完**：测试还在进行，脚本正在使用；诊断日志用于排障暂未移除。
-- **前置条件**：⚠️ **删除任何文件前必须先向用户确认**（上一任曾误删 54 个 Edge 克隆 profile 造成事故——永久删除无法恢复）。
+- **前置条件**：⚠️ **<span style="color:#e74c3c">删除任何文件前必须先向用户确认</span>**（上一任曾误删 54 个 Edge 克隆 profile 造成事故——永久删除无法恢复）。
 - **做到什么算完成**：临时脚本清理完毕；[diag] 日志行移除后全量 pytest 仍 279/2。
 - **从哪开始**：先列清单给用户确认，再删。
 - **验证信号**：pytest 零回归。
@@ -237,7 +282,7 @@ if str(video.get("media_kind") or "") == "image_text":
 | 5 | 临时脚本+诊断日志待清理 | 列清单→用户确认→清理 | 清单：项目根/MediaCrawler 下 _*.py；providers\mediacrawler.py 的 [diag] MC child env 日志块 | 用户代跑：pytest 279/2 零回归 |
 | 6 | 前端 vitest spec 环境问题 | 修 vitest 配置跑通 spec | deployments\miaoda-matrix-radar 下 vitest 配置（globals 选项） | 用户代跑：npx vitest run spec 通过 |
 
-**接力开工第一步**：Codex 先执行
+**接力开工第一步**：💡 **<span style="color:#2980b9">Codex 先执行</span>**
 ```
 python -c "import json,urllib.request; r=json.loads(urllib.request.urlopen('http://127.0.0.1:8000/api/collections/a57a3049432441649211b27be6a909e0',timeout=15).read().decode()); print(r['status'], r['stage'], r.get('current_account'))"
 ```
@@ -318,9 +363,9 @@ MEDIACRAWLER_LOGIN_REDIRECT_SECONDS=2
 MEDIACRAWLER_SKIP_QRCODE_DISPLAY=1
 ```
 
-**⚠️ 启动后端时必须先加载 .env.local**（用 start.ps1 或手动 foreach 注入），否则 MC 子进程拿不到引擎配置。
+**⚠️ <span style="color:#e74c3c">启动后端时必须先加载 .env.local</span>**（用 start.ps1 或手动 foreach 注入），否则 MC 子进程拿不到引擎配置。
 
-**密钥/token**：SPIDERHUBS_API_KEY、SYNC_TOKEN、MIAODA_API_KEY 等存于 .env.local，值为 <已脱敏>，勿外传。
+**密钥/token**：SPIDERHUBS_API_KEY、SYNC_TOKEN、MIAODA_API_KEY 等存于 .env.local，值为 <已脱敏>，⚠️ **<span style="color:#e74c3c">勿外传</span>**。
 
 ---
 
@@ -329,7 +374,7 @@ MEDIACRAWLER_SKIP_QRCODE_DISPLAY=1
 - data\radar.sqlite3：业务数据（**保留，不清**）。当前 videos≈61、comments≈1275、transcriptions=61、creators≥3。
 - data\browser_data\：登录态目录（**保留**）。ff_dy（Firefox 采集用）、cdp_dy（Edge 共享源）、cdp_*×51（Edge 克隆备用）、ytdlp_cookies.txt。
 - MediaCrawler\database\：MC 各账号采集库（临时，MC 启动重建）。
-- 残留进程：⚠️ 重启后端后建议先清理残留（MC python 子进程/geckodriver/采集 Firefox），否则会争抢 profile 锁导致新任务卡死。清理脚本 _cleanup_all.py 只杀采集特征进程（用户日常 Firefox 的 -osint 特征进程绝不触碰）。
+- 残留进程：⚠️ **<span style="color:#e74c3c">重启后端后建议先清理残留</span>**（MC python 子进程/geckodriver/采集 Firefox），否则会争抢 profile 锁导致新任务卡死。清理脚本 _cleanup_all.py 只杀采集特征进程（用户日常 Firefox 的 -osint 特征进程绝不触碰）。
 
 **保留清单**：以上全部保留。临时脚本（_*.py）清理前必须问用户。
 

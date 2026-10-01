@@ -1,0 +1,348 @@
+Received: 26 February 2024  Revised: 20 March 2024  Accepted: 24 March 2024
+DOI: 10.1002/jsid.1305
+
+SPECIAL SECTION PAPER
+
+Flexible TFT backplane development for extremely small
+bending radius with organic ILD and novel TFT structures
+
+Taewoong Kim, SID Member 1 | Younggug Seol 2 | Sunhee Lee 4 |
+Jinhwan Choi 1 | Jinwoo Lee 3 | Jintaek Kim 3 | Pilsuk Lee 1 |
+Juchan Park 1 | Boik Park 4 | Nguyen Thanh Tien 4 | Kihyun Kim 5 |
+Cheol Jang 1,4 | Yong Jo Kim 4 | Changhee Lee, SID Member 4
+
+1Development Center, Samsung Display,   Abstract
+Yongin, South Korea                     A new flexible low-temperature polycrystalline silicon thin film transistors
+2IT Development Team, Samsung Display,  (LTPS TFTs) on PI substrate with organic ILD layer, island TFT, and TFT
+Yongin, South Korea                     channel perpendicular to stress direction was proposed. AMOLED display
+3M-Project, Samsung Display, Yongin,    panel manufactured with organic ILD did not show any visible degradation of
+South Korea                             panel image after outward rolling cycles of 200,000 at rolling radius of 4 mm
+4Display Research Center, Samsung       or inward folding cycles of 200,000 at folding radius of 1 mm. Another novel
+Display, Yongin, South Korea            structure of TFT with channel perpendicular to stress direction significantly
+5Mobile Display A Development Team,     reduced change of threshold voltage of À0.03 V compared with change of
+Samsung Display, Yongin, South Korea    threshold voltage of À0.6 V for TFT with channel parallel to stress direction
+                                        for reliability test of high drain current (HDC) after 100,000 outward-bending
+Correspondence                          cycles at bending radius of 3 mm. After inward-bending cycles of 200,000 at
+Taewoong Kim, Development Center,       bending radius of 1 mm, reliability test results for TFT device with organic
+Samsung Display, 1 Samsung-ro, Giheng-  ILD layer showed that change of on-current is 10.07% for hot carrier instability
+gu, Yongin-si, Gyeonggi-do, 17113,      (HCI) test, change of threshold voltage À0.31 V for negative bias thermal insta-
+South Korea.                            bility (NBTI) test, change of threshold voltage À0.24 V for hysteresis test, and
+Email: taewoong68.kim@samsung.com       breakdown voltage of gate insulator 7.73 MV/cm, respectively, and these per-
+                                        formances are similar to those of TFT device with inorganic ILD (SiNx).
+
+                                        KEYWORDS
+                                        flexible, island structure, organic ILD, TFT
+
+1 | INTRODUCTION                                                             radius.3­5 Many groups have been working on the strain
+                                                                             effect on amorphous silicon thin film transistors (TFTs)
+Nowadays, active matrix organic light-emitting diodes                        performance from the late 1990s.6,7 Suo et al. have
+(AMOLEDs) have received a lot of attention since they                        reported theoretical results of mechanical strain of TFT
+have many advantages such as self-emission, low power                        deposited on a flexible substrate and the concept of the
+consumption, wide color gamut, and fast response                             neutral surface with no strain applied.3­5 In order to
+time.1,2 In order to maximize these advantages of                            achieve a device with a small bending radius, flexible
+AMOLED, flexible AMOLED display can be the best can-                         materials with a small Young's modulus are required.
+didate and highly flexible materials with low modulus                        Metals and dielectric materials commonly used in TFTs
+needs to be developed for small bending and rolling                          such as ITO, Mo, MoW, SiOxNy, SiOx, and SiNx have a
+
+J Soc Inf Display. 2024;32:397­405.                 wileyonlinelibrary.com/journal/jsid  © 2024 Society for Information Display.  397
+398                                                          KIM ET AL.
+
+high modulus and are very brittle.7,8 Therefore, it is very  F I G U R E 1 Dimension change (dd') of plane away from
+difficult to achieve a small (in the range of a few mm)      neutral plane by distance of y during bending.
+bending radius for an inorganic TFT without any
+mechanical damage to inorganic layers, which causes
+electrical degradation on TFTs. For example, critical
+bending radii of 7 mm and 9 mm were reported for
+SiOxNy and ITO, respectively, on 125 m and 180 m
+thick PET plastic substrates.9­11 Someya et al. also
+reported the bending properties on organic thin film tran-
+sistors (OTFT) on 125 m thick PEN plastic substrate.12
+Recently several companies have reported the develop-
+ment of foldable display which is robust up to 4 mm of
+bending radius.3,4 In this paper, mechanical and electri-
+cal properties of low-temperature polycrystalline silicon
+(LTPS) thin film transistors (TFTs) were evaluated. Based
+on the simulation result of the stress distribution in TFT
+backplane, several new approaches were suggested for
+strain-release of thin-film electron devices on flexible
+substrate. The new panel structure was able to be robust
+at a small bending radius of 1 mm, thereby enabling
+manufacture of foldable and rollable displays. Finally, it
+was suggested that organic dielectric material could tre-
+mendously reduce the stress exerted on TFT.
+
+2 | EXPERIMENTS
+
+P-channel low-temperature polycrystalline silicon (LTPS)     F I G U R E 2 Stress distribution inside LTPS TFT device with
+thin film transistors (TFTs) on polyimide (PI) substrate     inorganic ILD layer (Sinx) layer.
+with top gate structure were fabricated on 10 m thick
+polyimide (PI) substrates. The OLED device is fabricated     layer (ILD) of SiNx as shown in Figure 2, which is
+after the process of LTPS backplane. A multilayer thin       usually applied in conventional LTPS TFT structure.
+film structure composed of inorganic and organic layers      The reason why maximum stress is applied to the inor-
+(called as thin film encapsulation) was used for flexible    ganic ILD layer of SiNx is because the inorganic ILD of
+encapsulation. For bending experiments, TFT backplane        SiNx is far from the neutral plane and its modulus is
+on polyimide (PI) substrate was laminated on protective      very large (300­400 GPa). This result suggested that
+film (adhesive-coated polymer film) or sandwiched            more robust TFT structure could be achieved by repla-
+between two protective, which can establish the neutral      cing this brittle inorganic ILD material such as SiNx
+plane close to TFT layer.13                                  with flexible materials of low modulus such as organic
+                                                             ILD materials.
+    To evaluate mechanical durability of a flexible LTPS
+TFT backplane, a cyclic bending test was also performed
+at a bending radius (R). When a TFT on PI substrate is
+bent, stress is distributed inside TFT backplane.
+Depending on the physical property of modulus for each
+layer, each layer experiences different stress, respec-
+tively. The position of neutral plane can be calculated
+according to Equation (1). Stress of plane away from
+neutral plane by distance of y is calculated through
+Equation (2). In Equations (1) and (2), F is force, 
+strain, E modulus, A area,  strain, y distance from
+neutral plane, and  distance from center of a circle to
+neutral plane in Figure 1. The simulation result showed
+that the biggest stress existed in interlayer dielectric
+KIM ET AL.                                                                                                                                                       399
+
+XZ                   Z              Ex    Z                  cyclic bending and rolling test and cyclic bending test
+    Fx ¼                                                     equipment are shown in Figure 3B. New material
+            dF x  ¼      x dAx   ¼           yxdAx ¼ 0  ð1Þ  approach to improve the flexibility of LTPS TFT back-
+                   X                                         plane is to replace inorganic inter-dielectric (ILD) layer
+                        ExyxAx ¼ 0                           of SiNx with organic dielectric material with low modulus
+                                                             as ILD layer (phenylene or polyimide). Organic ILD layer
+                  x  ¼  Ex x  ¼  Ex  y                       tremendously reduced the stress on ILD layer from
+                                                             5 Â 107 Pa to 1.8 Â 106 Pa as shown in Figure 3C and
+                                                             therefore significantly reduced the change of threshold
+                             dx ¼ d0                    ð2Þ  voltage from 0.75 V to 0.33 V after inward-bending cycles
+            dd, ¼ cd À cd0, ¼ ð þ yÞd À dx ¼ yd              of 400,000 at bending radius of 3 mm, and the change of
+                                                             capacity for organic ILD was smaller with bending cycle
+            x     ¼  dd0  ¼  y  d   ¼  y                     number in Figure 3D. As bending cycle number
+                     dx         dx                           increases, capacity of inorganic layer decreased, which
+                                                             caused threshold voltage to increase according to
+    When TFT device placed in outward bending, it            Equation (3).14
+receives tensile stress, and when TFT device is located in
+inward bending, it experiences compressive stress as
+shown in Figure 3A. The module stack-up structure for
+
+F I G U R E 3 (A) Type of inward bending or outward bending, (B) module structure for cyclic bending test instrument, (C) stress
+distribution inside LTPS TFT with inorganic ILD (Sinx) and organic layer (phenylene), and (D) electrical properties of LTPS TFT with
+inorganic ILD layer and organic ILD layer inward-bending cycles of 200,000 at bending radius of 3 mm.
+400                                                                                                  KIM ET AL.
+
+     V th  /  Qds  ¼ qNds   ð3Þ                            indicated that there was any noticeable TFT's degrada-
+              Cox      Cox
+                                                           tion after cyclic bending.
+    Large change of capacity for inorganic ILD layer
+creates large change of threshold voltage as shown in          Inorganic ILD layer, however, showed the large
+Equation (3), and large change of capacity is thought to   negative shift of threshold voltage (À0.87 V) and drop
+be caused by degradation of inorganic ILD layer (SiNx)     of on-current (À5.1 Â 10À6 A) after cyclic bending of
+coming from mechanical bending stress.14                   10,000. The drop of on-current is related to the rise of
+                                                           defect density (2.59 Â 1015/cm2) (Figure 4B) in accor-
+    The electrical property of LTPS TFT for inorganic ILD  dance to Equation (4). Q is charge, Qf fixed charge,
+layer (SiNx) and organic ILD layer (phenylene), respec-    Nds defect density, W channel width, and L channel
+tively, after inward-bending cycles of 20,000 and bending  length.
+radius of 1 mm was shown in Figure 4. With organic ILD
+layer, change of threshold voltage was immensely                    Qchannel  ¼  Ids   L2
+lessened from 1.56 V to 0.06 V after cyclic bending. The                         V ds
+change of mobility and subthreshold slope for organic
+ILD layer were 0.60 cm2/Vs and 0.001 V/decade, respec-              Qf ¼ ÀQchannel                   ð4Þ
+tively, after cyclic bending as shown in Figure 4A, which
+                                                           N ds  ¼  ÀQchannel  ¼     ÀL        I ds
+                                                                       qWL        qW V
+                                                                                           ds
+
+F I G U R E 4 (A) Transfer curve of LTPS TFT with inorganic ILD (SiNx) and organic ILD layer (phenylene) and (B) defect density and
+density of state at interfacial trap for LTPS TFT with inorganic ILD (SiNx) after inward-bending cycles of 200,000 at bending radius of 1 mm.
+KIM ET AL.                                                  401
+
+    After cyclic inward bending of 200,000, large positive  25C for 60 s after cyclic bending of 100,000 at 3 mm of
+                                                            bending radius because vertical TFT channel direction
+shift of threshold voltage (1.56 V) was thought to be       perpendicular to stress direction has crack propagation
+                                                            parallel to channel direction and therefore seems to
+generated by micro-crack (permanent physical damage)        experience by far low TFT damage compared with hori-
+                                                            zontal TFT structure with channel direction parallel to
+of gate insulator of SiOx and SiNx as shown in Figure 4A,   stress direction where cracks happen across channel as
+which led to leakage current and thus degradation of        shown in Figure 5A. When using vertical channel TFT
+                                                            structure as a basic structure, island TFT structure tren-
+electrical property of TFT. Large increment of density      ching GI and ILD did not meaningfully reduce change
+of state at interfacial trap (Dit) (2.73 Â 1012/cm2eV)      of threshold voltage (Vth = À0.045 V) compared with
+(Figure 4B) was calculated from change of subthreshold      change of threshold voltage (Vth = À0.084 V) of non-
+slope (SS) in accordance to Equation (5),15 where Cox is    island TFT stucture after cyclic bending of 200,000 at
+capacity of oxide layer (3.32 Â 10À4 F/m2), q electron      3 mm of bending radius due to stress release effect of
+charge (1.6 Â 10À19 C).                                     discontinuous structure of brittle GI and ILD layer in
+                                                            Figure 5B.
+                    Cox      jSj     
+                     q     2:3kT                                The photographs of 5.59-in. QHD full color top emis-
+            Dit  ¼                À  1  ð5Þ                 sion AMOLED display with organic ILD on a PI substrate
+                                                            are shown in Figure 6A. The panel with organic ILD did
+    To improve the flexibility of TFT further, TFT chan-    not have any visible defect image (line defect and point
+nel direction and island TFT structure were introduced.     defect) after cyclic rolling of 200,000 at a rolling radius of
+TFT structure with active channel direction perpendicu-     4 mm, also no pixel shrinkage at HTS (high temperature
+lar to stress direction showed much lower change of         stability) test of 85C, 380 h, and little luminescence
+threshold voltage (Vth = À0.03 V) than change
+of threshold voltage (Vth = À0.6 V) of TFT channel
+horizontal to stress direction for HDC (high drain
+current) stability test of Vgs = À15 V, Vds = À20 V at
+
+F I G U R E 5 (A) Transfer curve of LTPS TFT with organic ILD layer depending on channel direction perpendicular (vertical) or parallel
+(horizontal) to stress direction for HDC (high drain current) reliability test after inward-bending cycles of 100,000 at bending radius of 3 mm
+and (B) transfer curve of LTPS TFT with island-trenched structure of inorganic GI (SiOx) and ILD (SiNx) after inward-bending cycles of
+200,000 at bending radius of 3 mm.
+402                                                                      KIM ET AL.
+
+F I G U R E 6 (A) Picture and rolling test image of 5.59 in. AMOLED panel with organic ILD (rolling radius of 4 mm), (B) pixel image of
+panel with organic ILD after HTS test of 85C for 380 h, (C) luminescence change of panel with organic ILD after bending cycles of
+200,000 at bending radius of 1 mm, and (D) luminescence change of panel based on inorganic ILD (SiNx) with different TFT structures of
+vertical channel, horizontal channel, and island patterning of inorganic GI (SiOx) and ILD (SiNx) after bending cycles of 200,000 at bending
+radius of 3 mm.
+
+T A B L E 1 Electrical stability test results with organic ILD layer after inward-bending cycles of 200,000 at bending radius of 1 mm.
+
+Results  HCI           NBTI            Hysteresis      GIBV
+         10.07 ± 1.8%  À0.31 ± 0.21 V  À0.24 ± 0.05 V  7.73 ± 0.47MV/cm
+KIM ET AL.                                                      403
+
+change (L $ 1.05%) after cyclic bending (folding) of            ORCID
+200,000 at bending radius of 1 mm as presented in               Taewoong Kim https://orcid.org/0009-0008-1022-3810
+Figure 6B,C.
+                                                                REFERENCES
+    The 4.65-in. panel with vertical TFT channel and
+island TFT structure indicated very small change of lumi-        1. Jin DU, Lee JS, Kim TW, An, SG, Straykhilev, D, et al. Distin-
+nescence (L $ 1.6%), namely, significantly increase the              guished Paper: World-Largest (6.500) Flexible full color top
+stress release, compared to change of luminescence                   emission AMOLED display on plastic film and its bending
+(L $ 5%) of panel with conventional TFT structure after              properties. SID Symp Dig Tec Pap. 2009;40:983­5. https://doi.
+cyclic bending of 200,000 at bending radius of 3 mm as               org/10.1889/1.3256964
+indicated in Figure 6D. Effect of active channel direction
+seems to be greater than effect of island TFT structure          2. Jin, DU, Jeong, JK, Shin, HS, Kim, MK, Ahn, TK, Kwon, SY,
+regarding stress release effect because the change of                et al. 5.6-inch Flexible full color top emission AMOLED display
+luminescence (L $ 1.6%) for vertical TFT channel                     on stainless steel foil. SID Symp Dig Tech Pap. 2006;37:1855­7.
+structure plus island TFT structure is similar to that of            https://doi.org/10.1889/1.2433405
+vertical TFT structure. This result of change of lumines-
+cence is almost same as TFT test result of change of             3. Jimbo Y, Aoyama T, Ohno, N, Eguchi, S, Kawashima, S,
+threshold voltage.                                                   Ikeda, H, et al. Tri-fold flexible AMOLED with high barrier
+                                                                     passivation layers. SID Symp Dig Tech Pap. 2014;45:322.
+    Electrical stability tests such as HCI (hot carrier insta-       https://doi.org/10.1002/j.2168-0159.2014.tb00087.x
+bility) of Vgs = À12.2 V, Vds = À22.4 V at 25C for
+4000 s, NBTI (negative bias temperature instability) of          4. Komatsu R, Nakazato R, Sasaki, T, Suzuki, A, Senda, N,
+Vg = À14 V at temperature of 70C for 10 h, hysteresis                Kawata, T, et al. Repeatedly foldable book-type AMOLED dis-
+of Vg = 8 V$À13 V, and GIBV (gate insulator break-                   play. SID Symp Dig Tech Pap. 2014;45:326­9. https://doi.org/
+down voltage) after cyclic mechanical stress were previ-             10.1002/j.2168-0159.2014.tb00088.x
+ously performed in order to estimate the robustness of
+TFT with organic ILD layer against residual stress after         5. Chen J, Ho JC, Chen G, Yeh MH, Lee YZ, Lee CC. Invited
+200,000 inward-bending cycles at bending radius of                   paper: Foldable AMOLED integrated with on-cell touch and
+1 mm as shown in Table 1. All electrical stability test              edge sealing technologies. SID'16 Digest. 2016;47:1041­4.
+results of HCI, NBTI, hysteresis, and GIBV were with our             https://doi.org/10.1002/sdtp.10923
+specifications, and these results indicated that TFT with
+organic ILD layer is very robust even at bending cycles of       6. Suo Z, Ma EY, Gleskova H, Wagner S. Mechanics of rollable
+200,000 at bending radius of 1 mm.                                   and foldable film-on-foil electronics. Appl Phys Lett. 1999;
+                                                                     74(8):1177­9. https://doi.org/10.1063/1.123478
+3 | CONCLUSION
+                                                                 7. Gleskova H, Wagner S, Suo Z. Failure resistance of amorphous
+Several remarkable new improved flexible backplane                   silicon transistors under extreme in-plane strain. Appl Phys
+structures with flexible organic ILD layer, vertical chan-           Lett. 1999;75:3011­3.
+nel TFT structure, and island TFT structure approach
+have been proposed to effectively reduce mechanical              8. Gleskova H, Wagner S, Soboyejo W, Suo Z. Electrical response
+stress in LTPS TFT under bending and rolling deforma-                of amorphous silicon thin-film transistors under mechanical
+tion. With this new structure, TFT backplane and display             strain. J Appl Phys. 2002;92(10):6224­9. https://doi.org/10.
+panel are able to be bent up to an ultimate bending radius           1063/1.1513187
+of without any TFT degradation, panel characteristics deg-
+radation, and any mechanical damage 1 mm after inward-           9. Gleskova H, Cheng IC, Wagner S, Suo Z. Mechanics of thin-
+bending cycles of 200,000. The new strain-release structure          film transistors and solar cells on flexible substrates. Solar
+enables the manufacture of electronic devices demanding              Energy. 2006;80:687.
+ultimate mechanical flexibility and robustness. By combin-
+ing these several novel stress-release structures, we are       10. Grego S, Lewis J, Vick E, Temple D. A method to evaluate
+able to manufacture extremely flexible AMOLED display                mechanical performance of thin transparent films for flexible
+(including foldable and rollable display) based on LTPS              displays. Thin Solid Films. 2007;315:4745.
+TFT backplane even at small bending radius of 1 mm and
+rolling radius of 4 mm.                                         11. Menard E, Nuzzo RG, Rogers JA. Bendable single crystal sili-
+                                                                     con thin film transistors formed by printing on plastic sub-
+                                                                     strates. Appl Phys Lett. 2005;86(9):093507. https://doi.org/10.
+                                                                     1063/1.1866637
+
+                                                                12. Sekitani T, Kato Y, Iba S, Shinalka H, Someay T. Bending
+                                                                     experiment on pentacene field-effect transistors on plastic
+                                                                     films. Appl Phys Lett. 2005;86(7):073511. https://doi.org/10.
+                                                                     1063/1.1868868
+
+                                                                13. Kim, TW, Stryakhilev D, Jin, DU, Lee, JS, An, SG, Kim, HS,
+                                                                     et al. Highly robust bendable a-IGZO TFTs on polyimide sub-
+                                                                     strate with new structure. IMID'09. 2009;998.
+
+                                                                14. Schroder DK. Semiconductor Material and Device Characteri-
+                                                                     zation 2nd ed. A Wiley-International Publishers; 1998.
+
+                                                                15. Kuo Yue, Thin Film Transistors, Materials and Processes,
+                                                                     Vol.1, Amorphous Silicon Thin Film Transistors, Kluwer Aca-
+                                                                     demic Publishers, 2004. https://doi.org/10.1007/978-1-4615-
+                                                                     0397-2
+404                                                                                                                                                    KIM ET AL.
+
+AUTHOR BIOGRAPHIES                                                                  Pilsuk Lee received his MS degree
+                                                                                    in Electrical Engineering from
+                       Taewoong Kim received his PhD                                Hanyang University in 2012. Since
+                       degree from Department of Chemical                           then, he has been working on future
+                       Engineering in University of Florida                         displays at Samsung Display.
+                       (2005). Since 2005, he has been
+                       working on development of flexible                           Juchan Park received his MS degree
+                       display at Samsung Display. His cur-                         in Electrical Engineering from
+                       rent main research is rollable display                       Hongik University in 2012. Since
+                       development.                                                 then, he has been working on flexi-
+                                                                                    ble and future displays at Samsung
+                       Younggug Seol received his PhD                               Display.
+                       degree from Electronic Materials
+                       Engineering in Sungkyunkwan                                  Boik Park received his MS degree
+                       University in 2011. Currently, he has                        (2011) in Material Science and Engi-
+                       been working on panel development                            neering and PhD degree (2002) in
+                       at Samsung Display.                                          Electrical Engineering from Seoul
+                                                                                    National University. His main
+                       Sunhee Lee received his PhD degree                           research area is flexible and stretch-
+                       from Electronic Materials Engineer-                          able device and materials for soft
+                       ing at Kyunghee University in 2011.     electronics. Since then, he has working in the field of
+                       Since then, he has been conducting      flexible display in Samsung Display.
+                       research on flexible and future dis-
+                       plays. Currently, she is working in                          Nguyen Thanh Tien received his
+                       design research lab for new display                          PhD from School of Advanced
+                       device at Samsung Display.                                   Materials Science and Engineering,
+                                                                                    SungKyunKwan University, in 2012.
+                       Jinhwan Choi received his PhD                                He is a researcher at the Samsung
+                       degree in Electrical Engineering                             Display Research Center and has
+                       from the Korea University in 2012.                           been working there since the same
+                       Since then, he has been conducting      year. He has been involved in the development of low
+                       research in the field of flexible and   temperature polysilicon (LTPS) technology for flexible
+                       future displays at Samsung Display.     displays. His research interests include process inte-
+                                                               gration, device physics, and the reliability of LTPS
+                       Jinwoo Lee received his PhD degree      thin-film transistors.
+                       in Condensed Matter Physics from
+                       Korea University in 2012. Currently,                         Kihyun Kim received his PhD
+                       he has been working on panel devel-                          degree in Condensed Matter Physics
+                       opment at Samsung Display.                                   from Korea University in 2011. Cur-
+                                                                                    rently, he has been working on panel
+                       Jintaek Kim received his MS degree                           development at Samsung Display.
+                       in Electronics from Handong Global
+                       University in 2011. Since then, he                           Cheol Jang received his PhD degree
+                       was with the department for thin                             in Electrical Engineering from
+                       film process development for Flexible                        KAIST in 2012. Currently, he has
+                       and foldable display. Currently, he is                       been working on development of
+                       researching in the fields of aug-                            rollable displays at Samsung Display.
+  mented reality (AR) and virtual reality (VR) using Si-
+  based OLED panels on Samsung Display.
+KIM ET AL.                                                                                                                                                    405
+
+                       Yong Jo Kim received his PhD          Barbara. After working as a Senior Scientist in LG
+                       degree on Materials Science Engi-     Chem. (1994$1997), an assistant/associate professor
+                       neering at Seoul National University  of Physics in Inha University (1997$2004), and a pro-
+                       in 2004. Currently, he is working in  fessor of Electrical and Computer Engineering in
+                       Advanced Product Research Team of     Seoul National University (2004$2018), he joined
+                       Samsung Display Co. Ltd. His main     Samsung Display Co. in 2018. He is a Fellow of the
+                       research fields are focused on the    Society of Information Display (SID) and may be
+  new form factor and next generation display. And He        reached at chlee7@samsung.com.
+  is also experienced in smart design with simulation
+  and AI for display R&D.                                     How to cite this article: Kim T, Seol Y, Lee S,
+                                                              Choi J, Lee J, Kim J, et al. Flexible TFT backplane
+                       Changhee Lee is an Executive Vice      development for extremely small bending radius
+                       President of Samsung Display Co.       with organic ILD and novel TFT structures. J Soc
+                       where he works as a Head of Display    Inf Display. 2024;32(5):397­405. https://doi.org/10.
+                       Research Center. He received his BS    1002/jsid.1305
+                       (1987) and MS (1989) degrees in
+                       Physics from Seoul National Univer-
+                       sity and his PhD degree (1994) in
+  Physics from the University of California at Santa
+

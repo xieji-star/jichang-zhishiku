@@ -15,7 +15,12 @@ matplotlib.rcParams['font.family'] = 'sans-serif'
 # ============================================================
 FONT_PATH = r"C:\Windows\Fonts\msyh.ttc"
 FONT_BOLD_PATH = r"C:\Windows\Fonts\msyhbd.ttc"
-BG_PATH = r"F:\积昌的知识库 - 副本\总结好的大纲以及笔记\实习就业\工作文件\PDF资料集/bg_enhanced.jpg"
+_BG_CANDIDATES = [
+    r"D:\积昌的知识库\总结好的大纲以及笔记\实习就业\创业黑马——数智科技部门\工作文件\PDF资料集\bg_enhanced.jpg",
+    r"D:\积昌的知识库\总结好的大纲以及笔记\实习就业\工作文件\PDF资料集\bg_enhanced.jpg",
+    r"D:\积昌的知识库\总结好的大纲以及笔记\实习就业\创业黑马——数智科技部门\跳槽\下一任对接文档\下一任对接文档\PDF资料集\bg_enhanced.jpg",
+]
+BG_PATH = next((p for p in _BG_CANDIDATES if os.path.exists(p)), _BG_CANDIDATES[0])
 
 PAGE_W = 210
 PAGE_H = 297
@@ -109,8 +114,9 @@ def _render_multiline_math(formulas, fontsize=20, dpi=200):
 # PDF 生成器
 # ============================================================
 class FormattedPDF(FPDF):
-    def __init__(self):
+    def __init__(self, use_bg=True):
         super().__init__(unit='mm', format='A4')
+        self.use_bg = use_bg
         self.set_auto_page_break(True, MARGIN_B)
         self.set_margins(MARGIN_L, MARGIN_T, MARGIN_R)
         self.set_top_margin(MARGIN_T)
@@ -132,7 +138,7 @@ class FormattedPDF(FPDF):
         self.set_x(MARGIN_L)
 
     def header(self):
-        if os.path.exists(BG_PATH):
+        if self.use_bg and os.path.exists(BG_PATH):
             self.image(BG_PATH, x=0, y=0, w=PAGE_W, h=PAGE_H)
 
     def main_title(self, text, subtitle='', author=''):
@@ -504,8 +510,8 @@ def parse_markdown(filepath):
 # ============================================================
 # 构建 PDF
 # ============================================================
-def build_pdf_from_content(content, output_path):
-    pdf = FormattedPDF()
+def build_pdf_from_content(content, output_path, use_bg=True):
+    pdf = FormattedPDF(use_bg=use_bg)
     pdf.add_page()
 
     for item in content:
@@ -550,6 +556,8 @@ def main():
                         help='输入 Markdown 文件路径')
     parser.add_argument('--output', '-o', required=True,
                         help='输出 PDF 文件路径')
+    parser.add_argument('--no-bg', action='store_true',
+                        help='不绘制蓝色渐变背景（纯白底，适用于演讲稿等要求简洁无背景的文档）')
     args = parser.parse_args()
 
     if not os.path.exists(args.input):
@@ -558,7 +566,7 @@ def main():
 
     content = parse_markdown(args.input)
     content = clean_content(content)  # 去除内联 Markdown 语法符号
-    result = build_pdf_from_content(content, args.output)
+    result = build_pdf_from_content(content, args.output, use_bg=not args.no_bg)
     print(f'PDF 已生成：{result}')
 
 

@@ -1,0 +1,322 @@
+                              2025 International Conference on Display Technology (ICDT 2025)
+
+Failure behaviour of carbon fibre support layer in foldable OLED modules
+
+          Ying Zhou1, Dunming Liao1,*, Liting Huang1, Keyu Chen1, Wenqiang Wang1,
+
+                                      Zikang Feng2, Jiajun Jiang2, Yali Liu2
+
+1.State Key Laboratory of Materials Processing and Die & Mould Technology, School of Materials Science and
+
+          Engineering, Huazhong University of Science and Technology, Wuhan, China
+
+2.Wuhan China Star Optoelectronics Semiconductor Display Technology Co.,Ltd, Wuhan,430078,China
+                                   *Corresponding Author: liaodunming@hust.edu.cn
+
+Abstract                                                                     at the same time, it is necessary to pattern the bending area with
+
+The support layer of foldable OLED module is a key perforation design, and laser perforation will inevitably cut off the
+
+component that determines the thickness, weight and bending local fiber, which will reduce the mechanical properties of the
+
+performance of the screen, and lightweight and high-strength support plate to a certain extent[5-6].
+
+carbon fibre as the support layer material has become the
+
+mainstream trend. The design of periodically patterned apertures
+
+is the main means to improve the bendability of the substrate, but
+
+there is a risk of fracture failure in the apertures under actual
+
+working conditions. In order to investigate the failure mechanism
+
+of the carbon fibre support layer. In this paper, [90/0/90] fibre ply
+
+specimens are prepared for quasi-static tensile tests and a
+
+progressive damage model of the laminate is established using the
+
+Vumat subroutine. The failure mechanism of the backing layer is
+
+analysed by numerical simulation and experiment, and the
+
+fracture morphological characteristics and microscopic failure
+
+mode of the open hole region are observed by scanning electron               Fig.1. Flexible OLED foldable screen patterned support
+
+microscope (SEM). The results show that the damage extends                         plate structure
+
+from the region of maximum stress concentration around the hole              Therefore, in actual working conditions, the support plate is
+
+to the free edge, the initial damage is borne by the matrix in the prone to fiber breakage, matrix cracking and other damage failure.
+
+90° lay-up direction, and the final failure behaviour is dominated However, the existing studies on fatigue damage and life prediction
+
+by the fibre layer in the 0° lay-up direction. The simulation results of carbon fiber composites mainly focus on intact carbon fiber
+
+are in agreement with the experimental results and confirm the laminates or single-hole cases, and there is a lack of corresponding
+
+correctness of the progressive damage model.                                 theoretical and experimental studies on patterned processed porous
+
+Author Keywords                                                              carbon fiber laminates due to their complex structure and stress
+
+Foldable OLED Module; Carbon Fibre Support Layer; Damage distribution. Therefore, in this paper, ABAQUS combined with
+
+Evolution; Failure Analysis.                                                 subroutine development is used to simulate the fracture process of
+
+1. Introduction                                                              carbon fiber laminates, so as to understand the stress distribution
+                                                                             and fracture mechanism in the perforated region of the laminates.
+      The ideal support plate material should have the advantages of
+
+high specific strength and stiffness, good bending performance, etc., 2. Modeling
+
+which can well solve the problem of high reliable bending 2.1 Theoretical model
+
+stability[1-2], and lightweight high-strength carbon fiber as the                  The damage forms of carbon fiber composites include fiber
+support plate material has become the development trend of the next          fracture, interlaminar delamination, and matrix fiber stripping, etc.
+generation of OLED folding screen[3-4]. In order to ensure the               Therefore, the three-dimensional Hashin failure criterion is used as
+bending performance and support performance of the support plate
+
+                                                                       1752
+                                                   2025 International Conference on Display Technology (ICDT 2025)
+
+the damage initiation criterion. In ABAQUS, the two-dimensional                                            is introduced into the cohesion model, with a value of Dn of 0
+
+Hashin failure criterion and various damage evolution criteria are                                         indicating that the model produces no damage, 1 indicating that the
+
+integrated, but the three-dimensional intrinsic model of the                                               model is fully damaged, and values in between indicating that the
+
+composite material is missing, so it needs to be developed twice by                                        cohesion model is in varying degrees of damage. The damage
+
+using the VUMAT subroutine. In the VUMAT subroutine, the stress                                            variable can be expressed as:
+
+tensor needs to be updated based on the material's intrinsic                                               = Dn                         f  (  x   -     0  )          0          x             f
+                                                                                                                                       n      n         n             n          n            n
+
+relationship in conjunction with the current strain state. The solver                                                                  x   (   f  -     0  )
+                                                                                                                                       n      n         n
+
+calculates the nodal forces from the stress values and thus solves the                                     With the introduction of the damage variable, the damage stiffness
+
+mechanical response of the structure. Therefore, it is necessary to                                        matrix becomes:
+
+derive the intrinsic relationship of the material. Carbon fiber                                            d1Q11  d2Q12  d2Q13    0          0       0
+                                                                                                                  d2Q22  d2Q23    0          0
+                                                                                                                         d2Q33    0          0       0  
+                                                                                                                                d3Q44        0       0
+material is a transverse anisotropic material, and according to the                                                                        d3Q55     0         dd12=   1 - df    )(1  -  dm)
+                                                                                                                                                     0                = (1 - df
+                                                                                                                                                        which
+                                                                                                           
+classical laminate theory, the intrinsic relationship of the carbon                                                                                            d3 =(1 - df )(1 - smt  dmt)(1 - smc * dmc)
+                                                                                                                                                        
+
+                                                                                                                                                        
+                                                                                                                                                  d3Q66 
+fiber composite material when it is lossless is:
+
+1       Q11 Q12 Q13 0 0 0  1                       1      Q11 =          E1(1 - v23v32 )                   2.2 Subprogram Development Process
+                                                    2     Q22 =          E2 (1 - v13v31)
+        Q12 Q22 Q23 0     0  0                                           E3 (1 - v12v21)
+  2                                 2                   which= QQ1323 =  E1(v21 + v31v23 )
+                                                                         E1(v31 + v21v32 )
+=  43   = Q013 Q023 Q033 Q044 00 00  34   Q  el      3                   E2 (v32 + v12v31)                       User material subroutine secondary development interface is
+                                                     4                   G= 23 Q44 G= 31 Q44               provided in ABAQUS, in which UMAT subroutine is suitable for
+                                                          = Q13                                            implicit solving and VUMAT is suitable for explicit solving. In this
+  5       0  0  0  0   Q55   0      5                5                                                     paper, ABAQUS/EXPLICIT solver is used to write the VUMAT
+                                                                                                           subroutine with the following flowchart:
+ 6       0 0 0 0 0 Q55  6                           6     = QQ42=34
+                                                                                              G12
+
+ =              - v23v32  1            - 2v21v32v13       the            Poisson's  ratio
+ 1 - v12v21               - v31v13
+
+                relationship is defined as Ei = vij
+                                               E j v ji
+
+The progressive damage model is a theoretical model used to
+
+analyze and predict the internal damage from the incipient,
+
+expansion to the final failure of the material in the process of
+subjecting to complex loads[7]. The support plate is a gradual
+
+process from damage initiation to complete failure, so the bilinear
+
+model in the progressive damage model is used for the damage
+
+evolution, and the normal cohesion intrinsic model is taken as an
+
+example, and the stress-strain relationship is shown in Fig. 2 below:
+
+Fig. 2. Normal cohesion principal model stress-strain                                                                    Fig. 3. Flowchart of subroutine solution
+                                                                                                           2.3 Experimental and numerical simulation
+                             relationship
+                                                                                                                 According to GB/T1447-2005 standard for plywood sampling,
+When the separation displacement is greater than                           0  ,  the          model        the sample size of 160mm long×20mm wide×0.175mm thick
+                                                                           n                               (thickness direction of 0.05mm, 0.115mm, 0.05mm), the fiber layup
+                                                                                                           direction is [90/0/90]. The tensile experiment was carried out on an
+enters the damage evolution stage and the model produces damage.                                           electronic dynamic and static fatigue testing machine, the lower end
+
+As the separation displacement increases, the cohesion decreases
+
+until it drops to 0. A normalized monotonic damage variable Dn ,
+
+                                                                                                     1753
+                                                  2025 International Conference on Display Technology (ICDT 2025)
+
+of the specimen was fixed during the test, and the upper end was
+driven by the testing machine to stretch upward at a speed of
+1mm/min until the plywood was pulled off, the whole process to
+keep the specimen and the chuck always in a parallel state, and the
+specimen was loaded as shown in the following Fig. 4. At the same
+time, the plywood model was created in ABAQUS to give the
+simulation analysis.
+
+   Fig. 4. Loading diagram of laminated plywood specimen                                      Fig. 5. Stress-strain curve of plywood
+                                                                                     The numerical simulation results of tensile fracture failure of
+3. Results and Discussion                                                      carbon fiber plywood are shown in Fig. 6 below. From the figure, it
+                                                                               can be seen that the plastic deformation of the fiber ply under tensile
+3.1 Experimental and simulation analysis                                       loading occurs, and the cracks first appear at the edge of the pattern
+                                                                               holes, because these regions are prone to stress concentration,
+      Fig. 5 shows the force-displacement curves of carbon fiber               which makes the actual stresses on the fiber and the matrix much
+plywood under tensile load, and each curve has a good similarity in            higher than the average stresses, and thus it is more likely to reach
+trend. At the initial stage, the stress-strain of the plywood under            the strength limit of the material, which triggers the tensile failure
+tensile load is linear, and the elastic deformation occurs in the              of the fiber and the matrix. Subsequently, the cracks gradually
+pattern region of the plywood, which corresponds to the initial                expand towards the region of maximum stress concentration, but
+stiffness of the carbon fiber when it is undamaged; with the                   the crack expansion is not completely perpendicular to the tensile
+increasing load, it enters into the transition stage, and the 90°              direction, probably due to the inconsistent coordination of
+direction of the fiber layer undergoes the local plastic yielding and          deformation between different fiber layers and the lack of
+the delamination damage of the ply; when the load continues to                 constraints in the undeformed direction.
+increase, the slope of the curve decreases to arrive at the post-yield
+stage, and the 0° direction of the fiber layer bears the main load, and        Fig. 6. Damage process and stress distribution of specimen
+the tensile strength of the plywood gradually reaches the maximum.                                  under 1mm/min loading rate
+The fiber layer bears the main load, and the tensile strength of the
+plywood gradually reaches the maximum value; subsequently, the                       In terms of delamination, the fiber direction of 90° plywood
+specimen issues a fracture crunching sound at the hole                         layer is perpendicular to the loading direction, the bearing capacity
+circumference, and the stress decreases rapidly, and the plywood               is weak, and it mainly relies on the matrix to withstand the tensile
+then fails by fracture.                                                        damage. 90° layer firstly shows damage around the holes and
+
+                                                                         1754
+2025 International Conference on Display Technology (ICDT 2025)
+
+expands inward, the damage degree is seriousas shown in Fig. 7                  Micro-mechanism analysis
+below.
+                                                                                      In order to further understand the microstructural
+                                                                                characteristics such as fiber distribution, orientation, matrix state
+                                                                                and interfacial bonding within the carbon fiber laminates, and to
+                                                                                analyze the micro-morphology of the fractured specimens, the
+                                                                                fractured specimens were sampled by scanning electron microscope
+                                                                                (SEM) using sirion200, and their micro-morphology is shown in the
+                                                                                following Fig.9.
+
+  Fig.7. Matrix tensile damage results in 90° layup direction                                Fig. 9. Microcosmic section of specimen
+      Since the 0° ply is the main load-bearing ply, the 0° ply still                 From the microcosmic cross-section can be seen, under the
+                                                                                action of tensile load, 0° transverse fiber layer has been completely
+has load-bearing capacity after damage occurs to the 90° ply. 0° ply            fractured, most of the epoxy resin in the tensile fracture moment of
+damage first occurs at the free edge and around the hole, and then              the impact generated by the fragmentation and fall off, only a small
+expands in the direction of the width of the supporting plate                   amount of debris is still bonded to the fiber surface, some of the
+reinforcement, and ultimately the damage extends through the                    fibers are also pulled out; In addition to the fracture, there are a
+entire reinforcement, and the plywood loses its load-bearing                    small portion of the fibers in the internal fracture, probably due to
+capacity.                                                                       the reasons of the plywood lay-up method, so that some of the fibers
+                                                                                after the bonding of resin density. It may be due to the reason of
+   Fig.8. Fiber tensile damage results in 0° layup direction                    plywood layup, which makes the density of some fibers after resin
+      The reason why damage is more likely to occur in the 90°                  bonding uneven, and produces tension difference, which leads to
+                                                                                the fracture of internal fibers first. At the same time, it can also be
+paving direction is that the tensile and compressive strengths of the           seen that there is fiber delamination damage between the layers, on
+matrix resin are much smaller than those of the carbon fibers; at the           the one hand, due to the significant anisotropy of the carbon fiber
+same time, although the carbon fibers themselves have a high                    filaments themselves, in the direction of the fibers with high
+longitudinal strength, the strength of the fibers in the 90° paving             strength and stiffness, but in the direction perpendicular to the fibers,
+direction, i.e., in the transverse direction, is relatively low because         especially in the direction of the interlaminar direction, the
+the carbon fiber filaments in the longitudinal direction are                    mechanical properties of the relatively weak. When subjected to
+composed of chains of carbon atoms that are highly oriented and are             tensile load, the shear resistance of the interlayers is insufficient,
+able to withstand tensile stresses well, but in the transverse direction        leading to relative sliding and separation of the layers, which in turn
+the bonding force between atoms is relatively weak. The bonding                 triggers delamination; on the other hand, the unreasonable lay-up
+between atoms is relatively weak, and the ability to resist stretching          angle and sequence lead to uncoordinated deformation between the
+is limited. 0° layup direction, the carbon fiber filament has a large           layers of the plywood when subjected to force. The difference in
+tensile strength, only when the tensile stress of the support plate             lay-up angle between neighboring layers is too large, and the
+exceeds the tensile strength, the atomic bonds within the fiber                 deformation trend of each layer is different in the tensile process,
+filament break, which is manifested as the destruction of the                   resulting in the mismatch of the stiffness of each layer and thus
+crystalline structure of the fiber in the microcosm, and in the
+macrocosm as the failure of the fiber in tensile failure.
+
+                                                                          1755
+                                     2025 International Conference on Display Technology (ICDT 2025)
+
+generating a large interlayer shear force, and delamination occurs               Properties of High Strength Carbon Fiber Composites[J], High
+when the shear force exceeds the bonding strength of the interlayer.
+                                                                                 Performance Polymers, 33(3) 255-263(2021); https://doi.org/
+
+4. Conclusion                                                                    10.1177/0954008320957398.
+
+      This paper reveals the stress distribution and damage                      5. Feih S, Manatpon K, Mathys Z, Gibson A G. Strength
+mechanism in the pattern region of carbon fiber plywood during the
+fracture process. There is an obvious stress concentration                       Degradation of Glass Fibers at High Temperatures[J]. Journal of
+phenomenon in the patterning region under tensile load, which is
+manifested as the maximum stress at the hole edge perpendicular to               Materials Science, 44(2) 392-400(2009); https://doi.org/
+the tensile direction and the minimum stress at the hole edge along
+the tensile direction. During the tensile fracture process, the damage           10.1007/s10853-008-3140-x.
+and microcracks are first produced at the free edge and hole
+perimeter, and then the cracks keep expanding along the width of                 6. Muhammad B, Tariq J; Muhammad W, Inam U A. Impact of fiber
+the tendon, and the fracture location is located at the junction of the
+patterning hole and the plate, and the simulation results coincide               orientation and stacking sequence on the severity of drilling induced
+with the experimental results. In terms of delamination, the matrix
+tensile failure occurs first in 90° layer, and then fiber tensile failure        delamination in carbon fiber reinforced polymer (CFRP)
+occurs in 0° layer, and 0° layer is the main load-bearing layup; at
+the same time, there are fiber pullout and interface delamination                laminates[J], International Journal on Interactive Design and
+phenomenon in the fracture process.
+                                                                                 Manufacturing, 1-9(2025); https://doi.org/10.1007/S12008-025-
+
+                                                                                 02234-5.
+
+                                                                                 7. Hamzah A; Mohammed Y. Abdellah. Stress Analysis and
+
+                                                                                 Strength Prediction of Carbon Fiber Composite Laminates with
+
+                                                                                 Multiple Holes Using Cohesive Zone Models[J],
+
+                                                                                 Polymers,17(1):124(2025);   https://doi.org/
+
+                                                                                 10.3390/POLYM17010124.
+
+5. Acknowledgements
+
+      The authors are grateful to the Program for New Century
+Excellent Talents in University (Grant No. NCET-13-0229) and the
+Commissioned Development Project of Flexible Mechanics
+Simulation for financial support. The authors also acknowledge
+Wuhan China Star Optoelectronics Semiconductor Display
+Technology Co., Ltd. for its support of the Flexible Mechanical
+Simulation Commissioned Development Project.
+
+6. References
+
+1. Tasaki S, Nishimura K, Toyoshima H, et al. Realization of Ultra-
+
+high-efficient Fluorescent Blue OLED[J]. Journal of the Society for
+
+Information  Display,                30(5)  441-451(2022);
+
+https://doi.org/10.1002/JSID.1127.
+
+2. Park D, Park W, Song J. High-performance ITO Thin Films for
+
+On-cell Touch Sensor of Foldable OLED Displays[J], Journal of
+
+Information Display, 23(1) 77-85(2022); https://doi.org/
+
+10.1080/15980316.2021.1999867.
+
+3. Bae K S, Oh M, Kim G H, et al. Novel Optical Structure of OLED
+
+Panel for Immersive and Seamless VR[J]. SID International
+
+Symposium: Digest of Technology Papers, 53(1) 733-735(2022);
+
+https://doi.org/10.1002/sdtp.15594.
+
+4. Jiao Z, Yao Z, Zhou J. Reinforced Interface and Mechanical
+
+                                                                           1756
+

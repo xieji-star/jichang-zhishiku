@@ -73,7 +73,7 @@ if [ "$need_gh" -eq 1 ]; then
     gh_reason="距上次上传已 ${gh_days} 天（≥7 天）"
   fi
   [ -n "$TASKS" ] && TASKS="${TASKS}"$'\n'
-  TASKS="${TASKS}2. 【GitHub 增量上传】${gh_reason}。请执行增量备份脚本「bash .claude/hooks/kb-github-backup.sh」：在本地镜像仓库 F:/jichang-backup 内 git pull → 用 robocopy 将备份范围（.claude、.claudian、.obsidian、AGENTS.md、CLAUDE.md、总结好的大纲以及笔记、自动维护知识库）增量同步到单一目录「积昌的知识库/」→ git add -A + commit（提交信息含日期）+ push，仅提交变更与新增文件、不新建日期文件夹；无变更则跳过提交。完成后将标记文件「.last-github-backup」更新为 ${TODAY}。"
+  TASKS="${TASKS}2. 【GitHub 增量上传】${gh_reason}。请执行增量备份脚本「bash .claude/hooks/kb-github-backup.sh」：在本地镜像仓库 D:/jichang-backup 内 git pull → 用 robocopy 将备份范围（.claude、.claudian、.obsidian、AGENTS.md、CLAUDE.md、总结好的大纲以及笔记、自动维护知识库）增量同步到单一目录「积昌的知识库/」→ git add -A + commit（提交信息含日期）+ push，仅提交变更与新增文件、不新建日期文件夹；无变更则跳过提交。完成后将标记文件「.last-github-backup」更新为 ${TODAY}。"
 fi
 
 # 记录当天已提示

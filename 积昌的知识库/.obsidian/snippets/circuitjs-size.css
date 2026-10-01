@@ -1,0 +1,16 @@
+/* ==========================================================================
+   CircuitJS 仿真图 · 尺寸规范（永久默认）
+   目的：让 ```circuitjs 仿真图与 draw.io 图（回路电流法-双回路电路.drawio.svg，780×540）
+        保持一致的观感尺寸。
+   说明：Falstad 不会自动缩放电路；容器尺寸由本片段统一控制，
+        而「图的实际大小」由 netlist 坐标跨度决定（目标 x ≈ 768、y ≈ 384）。
+   ========================================================================== */
+
+.circuitjs-container .circuitjs-webview,
+.circuitjs-container .circuitjs-iframe,
+.circuitjs-webview,
+.circuitjs-iframe {
+  width: 780px !important;
+  max-width: 100% !important;
+  height: 540px !important;
+}

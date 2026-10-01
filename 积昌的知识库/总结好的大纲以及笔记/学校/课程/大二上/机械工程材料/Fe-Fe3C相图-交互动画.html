@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fe-Fe₃C 铁碳相图 · 交互动画</title>
+<style>
+  :root{--acc:#2c6fb1;--ink:#22303c;--mut:#6b7a8d;--line:#e3e9f0;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;background:#eef3f9;color:var(--ink);}
+  header{padding:12px 20px;background:linear-gradient(90deg,#1f5f9e,#3f8ed0);color:#fff;}
+  header h1{margin:0;font-size:17px;}
+  header p{margin:3px 0 0;font-size:12px;opacity:.92;line-height:1.6;}
+  .wrap{display:flex;gap:14px;padding:14px;align-items:flex-start;flex-wrap:wrap;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 2px 10px rgba(30,60,100,.06);}
+  #left{flex:1 1 720px;min-width:520px;padding:8px;}
+  #right{flex:0 0 386px;padding:12px 14px;}
+  canvas{display:block;width:100%;height:auto;}
+  .hint{font-size:12px;color:var(--mut);padding:6px 8px 2px;line-height:1.6;}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+  button{border:1px solid var(--acc);background:#fff;color:var(--acc);border-radius:7px;padding:6px 11px;font-size:13px;cursor:pointer;}
+  button:hover{background:#eaf3fb;}
+  button.pri{background:var(--acc);color:#fff;}
+  .row{font-size:13px;margin:7px 0;line-height:1.6;}
+  .row b{color:#0d3b66;}
+  .small{font-size:12px;color:var(--mut);}
+  input[type=range]{width:100%;}
+  hr{border:0;border-top:1px dashed var(--line);margin:10px 0;}
+  .chip{cursor:pointer;border:1px dashed #b9c9da;border-radius:6px;padding:3px 7px;font-size:12px;color:#3a4a5c;background:#f7fafd;margin:0 4px 4px 0;display:inline-block;}
+  .chip:hover{background:#eef5fc;}
+  .chip.on{background:#e8f2fd;border-style:solid;border-color:#2c6fb1;color:#0d3b66;font-weight:700;}
+  .ph{font-family:Consolas,monospace;font-size:12.5px;background:#f4f8fc;border-radius:6px;padding:6px 8px;display:inline-block;margin-top:4px;line-height:1.7;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Fe–Fe₃C 铁碳合金相图 · 交互动画</h1>
+  <p>课本图3-30 ｜ 7 种典型铁碳合金 ｜ 在图上单击/拖动即可添加“成分竖线”；红色动点沿竖线自高温降温，右侧实时显示相变过程、恒温反应与室温组织 ｜ 全图下方另有<b>「富铁端放大图」</b>，把钢的部分（0～2.11% C）单独放大，看清 α / α＋γ / γ / 珠光体</p>
+</header>
+<div class="wrap">
+  <div id="left" class="card">
+    <canvas id="cv" width="1560" height="1200"></canvas>
+    <div class="hint">🖱 单击空白处 = 新增一条成分竖线；拖动线 = 平移成分；右键点线 = 删除该线。（可同时保留多条竖线做成分对比）<br>相图横轴到 <b>6.69% C（Fe₃C）</b> 为止；图中 <b style="color:#c0392b">1148℃</b> 是共晶线、<b style="color:#c0392b">727℃</b> 是共析线。<b style="color:#2c6fb1">浅蓝色虚线框 = 下方放大图的范围</b>。</div>
+    <hr/>
+    <div class="row" style="padding:0 8px">🔍 <b>富铁端放大图</b>（钢的部分单独放大，看清 α / α＋γ / γ / 珠光体）：<br>
+      <span class="chip on" data-z="2.11">整钢区 0～2.11%（约 3.2 倍）</span><span class="chip" data-z="0.85">富铁端 0～0.85%（约 7.9 倍）</span>
+    </div>
+    <div class="small" style="padding:2px 8px 0"><b style="color:#2c6fb1">🔍 富铁端放大图</b>：横轴 0 ～ <b id="ztitle">2.11</b> % C（较全图放大约 <b id="zratio">3.2</b> 倍）</div>
+    <canvas id="cz" width="1560" height="1200"></canvas>
+    <div class="hint">🖱 与全图操作一致：单击 = 新增竖线、拖动 = 平移、右键 = 删除。<br>放大图只显示含碳量在上表所选范围内的部分；超出范围的竖线请在<b>上方全图</b>中查看。</div>
+  </div>
+  <div id="right" class="card">
+    <div class="btns">
+      <button id="play" class="pri">▶ 开始降温</button>
+      <button id="reset">↺ 复位</button>
+      <button id="clear">✕ 清空所有线</button>
+    </div>
+    <div class="row">预设合金（编号同课本图3-30，按成分从左到右排列）：<br>
+      <span class="chip" data-c="0.01">① 工业纯铁</span><span class="chip" data-c="0.40">③ 亚共析钢</span><span class="chip" data-c="0.77">② 共析钢</span><span class="chip" data-c="1.20">④ 过共析钢</span><span class="chip" data-c="3.00">⑥ 亚共晶白口铁</span><span class="chip" data-c="4.30">⑤ 共晶白口铁</span><span class="chip" data-c="5.00">⑦ 过共晶白口铁</span>
+    </div>
+    <div class="row">降温位置（当前温度）：<b id="tval">1550 ℃</b></div>
+    <input type="range" id="tslider" min="20" max="1600" value="1550" step="1"/>
+    <div class="row">动画速度：<input type="range" id="speed" min="1" max="10" value="5"/></div>
+    <hr/>
+    <div id="readout"></div>
+    <hr/>
+    <div class="small">冷却曲线（横轴 = 时间；<b style="color:#c0392b">白口铁在 1148℃ 有共晶平台、几乎所有铁碳合金在 727℃ 有共析平台</b>）：</div>
+    <canvas id="cc" width="720" height="300"></canvas>
+    <div class="small" style="margin-top:8px;">组织示意图（随降温实时变化；<b style="color:#8a3d1a">深色 = 渗碳体 / 珠光体</b>，浅色 = 铁素体 / 奥氏体）：</div>
+    <canvas id="mi" width="720" height="340"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+"use strict";
+/* ================= 画布与坐标系 ================= */
+const cv=document.getElementById('cv'), g=cv.getContext('2d');
+const cCv=document.getElementById('cc'), gc=cCv.getContext('2d');
+const mCv=document.getElementById('mi'), gm=mCv.getContext('2d');
+const zCv=document.getElementById('cz'), z=zCv.getContext('2d');
+const DPR=2;
+g.setTransform(DPR,0,0,DPR,0,0); gc.setTransform(DPR,0,0,DPR,0,0); gm.setTransform(DPR,0,0,DPR,0,0); z.setTransform(DPR,0,0,DPR,0,0);
+const LW=780, LH=600;
+const M={l:62,r:26,t:26,b:58};
+const PW=LW-M.l-M.r, PH=LH-M.t-M.b;
+const TMAX=1600, CMAX=6.69;
+const X=c=>M.l+c/CMAX*PW;
+const Y=T=>M.t+(TMAX-T)/TMAX*PH;
+/* —— 富铁端放大图（独立坐标系） —— */
+const LZW=780, LZH=600;
+const MZ={l:88,r:40,t:26,b:58};
+const PWZ=LZW-MZ.l-MZ.r, PHZ=LZH-MZ.t-MZ.b;
+let CZ=2.11;                                  /* 放大图横轴终点：2.11%（钢区）或 0.85%（富铁端） */
+const Xz=c=>MZ.l+c/CZ*PWZ;
+const Yz=T=>MZ.t+(TMAX-T)/TMAX*PHZ;
+
+/* ================= 相图关键点（Fe–Fe₃C 标准数值） ================= */
+const A={c:0,T:1538}, B={c:0.53,T:1495}, Hp={c:0.09,T:1495}, J={c:0.17,T:1495},
+      N={c:0,T:1394}, D={c:6.69,T:1227}, E={c:2.11,T:1148}, Cc={c:4.3,T:1148}, F={c:6.69,T:1148},
+      G={c:0,T:912}, S={c:0.77,T:727}, Pp={c:0.0218,T:727}, K={c:6.69,T:727}, Q={c:0.0008,T:20};
+const TP=1495, TE=1148, TY=727;              /* 包晶 / 共晶 / 共析 温度 */
+const C_E=2.11, C_C=4.3, C_S=0.77, C_P=0.0218;
+
+/* 边界曲线（原始控制点，用于数值求解） */
+const liqAB=[[0,1538],[0.26,1516],[0.53,1495]];                                     /* 液相线 A–B */
+const liqBC=[[0.53,1495],[1.0,1455],[1.5,1410],[2.0,1365],[2.5,1320],[3.0,1275],[3.5,1230],[4.0,1185],[4.3,1148]]; /* 液相线 B–C */
+const liqCD=[[4.3,1148],[4.9,1180],[5.6,1206],[6.2,1219],[6.69,1227]];                /* 液相线 C–D */
+const curAH=[[0,1538],[0.05,1519],[0.09,1495]];                                     /* δ 固相线 A–H */
+const curNH=[[0,1394],[0.05,1450],[0.09,1495]];                                     /* N–H（δ／δ+γ） */
+const curNJ=[[0,1394],[0.09,1447],[0.17,1495]];                                     /* N–J（γ／δ+γ） */
+const curJE=[[0.17,1495],[0.5,1466],[1.0,1412],[1.5,1322],[1.8,1242],[2.11,1148]];  /* γ 固相线 J–E */
+const curES=[[2.11,1148],[1.9,1078],[1.7,1006],[1.5,936],[1.3,870],[1.1,806],[0.95,758],[0.77,727]]; /* Acm E–S */
+const curGS=[[0,912],[0.2,872],[0.4,828],[0.6,780],[0.77,727]];                     /* A3 G–S */
+const curGP=[[0,912],[0.010,846],[0.0218,727]];                                     /* G–P */
+const curPQ=[[0.0218,727],[0.017,580],[0.013,430],[0.009,280],[0.004,130],[0.0008,20]]; /* α 固溶度线 P–Q */
+
+/* Catmull-Rom 平滑采样（仅用于绘图） */
+function cr(pts,n){
+  if(pts.length<3) return pts.slice();
+  const P=[pts[0]].concat(pts,[pts[pts.length-1]]), out=[];
+  for(let i=0;i<P.length-3;i++){
+    const p0=P[i],p1=P[i+1],p2=P[i+2],p3=P[i+3];
+    for(let j=0;j<n;j++){
+      const t=j/n,t2=t*t,t3=t2*t;
+      out.push([
+        0.5*(2*p1[0]+(-p0[0]+p2[0])*t+(2*p0[0]-5*p1[0]+4*p2[0]-p3[0])*t2+(-p0[0]+3*p1[0]-3*p2[0]+p3[0])*t3),
+        0.5*(2*p1[1]+(-p0[1]+p2[1])*t+(2*p0[1]-5*p1[1]+4*p2[1]-p3[1])*t2+(-p0[1]+3*p1[1]-3*p2[1]+p3[1])*t3)
+      ]);
+    }
+  }
+  out.push(P[P.length-2]);
+  return out;
+}
+const sAB=cr(liqAB,14), sBC=cr(liqBC,16), sCD=cr(liqCD,14);
+const sAH=cr(curAH,14), sNH=cr(curNH,14), sNJ=cr(curNJ,14), sJE=cr(curJE,16);
+const sES=cr(curES,18), sGS=cr(curGS,16), sGP=cr(curGP,12), sPQ=cr(curPQ,16);
+
+/* 曲线求值：给定 T 求边界上的 c */
+function interpC(bnd,T){
+  for(let i=0;i<bnd.length-1;i++){
+    const a=bnd[i],b=bnd[i+1];
+    if((T<=a[1]&&T>=b[1])||(T>=a[1]&&T<=b[1])){
+      const f=(T-a[1])/((b[1]-a[1])||1e-9); return a[0]+f*(b[0]-a[0]);
+    }
+  }
+  return bnd[T>bnd[0][1]?0:bnd.length-1][0];
+}
+/* 给定 c 求曲线上的 T */
+function interpT(bnd,c){
+  for(let i=0;i<bnd.length-1;i++){
+    const a=bnd[i],b=bnd[i+1];
+    if((c>=a[0]&&c<=b[0])||(c<=a[0]&&c>=b[0])){
+      const f=(c-a[0])/((b[0]-a[0])||1e-9); return a[1]+f*(b[1]-a[1]);
+    }
+  }
+  return bnd[0][1];
+}
+/* 液相线温度 */
+function liquidusT(c0){
+  if(c0<=B.c) return interpT(liqAB,c0);
+  if(c0<=C_C) return interpT(liqBC,c0);
+  return interpT(liqCD,c0);
+}
+
+/* 相区判定（11 个相区） */
+function regionOf(c0,T){
+  if(T>=liquidusT(c0)) return 'L';
+  /* —— 含 δ 的高温区（仅 c0 ≤ 0.53 且 T ≥ 1394） —— */
+  if(c0<=B.c && T>=N.T){
+    if(c0<=Hp.c){
+      if(T>=interpT(curAH,c0)) return 'L+δ';
+      if(T>=interpT(curNH,c0)) return 'δ';
+      if(T>=interpT(curNJ,c0)) return 'δ+γ';
+      return 'γ';
+    } else if(c0<=J.c){
+      if(T>=TP) return 'L+δ';
+      if(T>=interpT(curNJ,c0)) return 'δ+γ';
+      return 'γ';
+    } else {
+      if(T>=TP) return 'L+δ';
+      if(T>=interpT(curJE,c0)) return 'L+γ';
+      return 'γ';
+    }
+  }
+  /* —— 液相／奥氏体两相区（0.53 < c0 ≤ 2.11） —— */
+  if(c0>B.c && c0<=C_E && T>=interpT(curJE,c0)) return 'L+γ';
+  /* —— 白口铁（c0 > 2.11） —— */
+  if(c0>C_E){
+    if(T>=TE) return c0<=C_C ? 'L+γ' : 'L+Fe₃C';
+    if(T>=TY) return 'γ+Fe₃C';
+    return 'α+Fe₃C';
+  }
+  /* —— 过共析钢（0.77 < c0 ≤ 2.11） —— */
+  if(c0>C_S){
+    if(T>=interpT(curES,c0)) return 'γ';
+    if(T>=TY) return 'γ+Fe₃C';
+    return 'α+Fe₃C';
+  }
+  /* —— 亚共析钢 / 共析钢（0.0218 < c0 ≤ 0.77） —— */
+  if(c0>C_P){
+    if(T>=interpT(curGS,c0)) return 'γ';
+    if(T>=TY) return 'α+γ';
+    return 'α+Fe₃C';
+  }
+  /* —— 工业纯铁（c0 ≤ 0.0218） —— */
+  if(T>=interpT(curGS,c0)) return 'γ';
+  if(T>=interpT(curGP,c0)) return 'α+γ';
+  if(T>=interpT(curPQ,c0)) return 'α';
+  return 'α+Fe₃C';
+}
+
+/* 杠杆定律 */
+function analysis(c0,T){
+  const reg=regionOf(c0,T), out={reg,phases:[]};
+  if(reg==='L+δ'){ const cl=interpC(liqAB,T), cd=interpC(curAH,T);
+    out.phases=[['L',cl,(cd-c0)/((cd-cl)||1e-9)],['δ',cd,(c0-cl)/((cd-cl)||1e-9)]]; }
+  else if(reg==='δ+γ'){ const cd=interpC(curNH,T), cg=interpC(curNJ,T);
+    out.phases=[['δ',cd,(cg-c0)/((cg-cd)||1e-9)],['γ',cg,(c0-cd)/((cg-cd)||1e-9)]]; }
+  else if(reg==='L+γ'){ const cl=interpC(liqBC,T), cg=interpC(curJE,T);
+    out.phases=[['L',cl,(cg-c0)/((cg-cl)||1e-9)],['γ',cg,(c0-cl)/((cg-cl)||1e-9)]]; }
+  else if(reg==='L+Fe₃C'){ const cl=interpC(liqCD,T), cc=CMAX;
+    out.phases=[['L',cl,(cc-c0)/((cc-cl)||1e-9)],['Fe₃C',cc,(c0-cl)/((cc-cl)||1e-9)]]; }
+  else if(reg==='α+γ'){ const ca=interpC(curGP,T), cg=interpC(curGS,T);
+    out.phases=[['α',ca,(cg-c0)/((cg-ca)||1e-9)],['γ',cg,(c0-ca)/((cg-ca)||1e-9)]]; }
+  else if(reg==='γ+Fe₃C'){ const cg=interpC(curES,T), cc=CMAX;
+    out.phases=[['γ',cg,(cc-c0)/((cc-cg)||1e-9)],['Fe₃C',cc,(c0-cg)/((cc-cg)||1e-9)]]; }
+  else if(reg==='α+Fe₃C'){ const ca=interpC(curPQ,T), cc=CMAX;
+    out.phases=[['α',ca,(cc-c0)/((cc-ca)||1e-9)],['Fe₃C',cc,(c0-ca)/((cc-ca)||1e-9)]]; }
+  else if(reg==='δ'){ out.phases=[['δ',c0,1]]; }
+  else if(reg==='γ'){ out.phases=[['γ',c0,1]]; }
+  else if(reg==='α'){ out.phases=[['α',c0,1]]; }
+  else { out.phases=[['L',c0,1]]; }
+  return out;
+}
+
+/* 合金分类（七类） */
+function alloyKind(c0){
+  if(c0<=C_P)      return '工业纯铁';
+  if(c0<C_S-0.02)  return '亚共析钢';
+  if(c0<=C_S+0.02) return '共析钢';
+  if(c0<=C_E)      return '过共析钢';
+  if(c0<C_C-0.06)  return '亚共晶白口铁';
+  if(c0<=C_C+0.06) return '共晶白口铁';
+  return '过共晶白口铁';
+}
+/* 恒温反应判定 */
+function hasPeritectic(c0){ return c0>Hp.c && c0<B.c; }   /* 包晶 L+δ→γ @1495℃ */
+function hasEutectic(c0){ return c0>C_E; }                 /* 共晶 L→γ+Fe₃C @1148℃ */
+function hasEutectoid(c0){ return c0>C_P; }                /* 共析 γ→α+Fe₃C @727℃ */
+
+/* 组织组成物（室温缓冷后） */
+function organization(c0){
+  if(c0<=C_P)      return '铁素体 α（＋极少量三次渗碳体 Fe₃C_Ⅲ）';
+  if(c0<C_S-0.02)  return '铁素体 α ＋ 珠光体 P';
+  if(c0<=C_S+0.02) return '珠光体 P（单一组织）';
+  if(c0<=C_E)      return '珠光体 P ＋ 二次渗碳体 Fe₃C_Ⅱ（网状）';
+  if(c0<C_C-0.06)  return '珠光体 P ＋ 二次渗碳体 Fe₃C_Ⅱ ＋ 变态莱氏体 Ld′';
+  if(c0<=C_C+0.06) return '变态莱氏体 Ld′（＝珠光体 P ＋ 共晶渗碳体 Fe₃C）';
+  return '变态莱氏体 Ld′ ＋ 一次渗碳体 Fe₃C_Ⅰ（粗大条状）';
+}
+/* 此时此刻的组织组成物（随温度实时变化） */
+function organizationNow(c0,T){
+  const reg=regionOf(c0,T);
+  const wrap=(list,note)=>({list,note});
+  if(reg==='L')      return wrap('液相 L','整块仍是液体，尚未开始结晶——组织组成物＝单一液相');
+  if(reg==='L+δ')    return wrap('初生 δ（高温铁素体）＋ 剩余液相 L','结晶进行中：δ 从液体里析出，与剩余液体共存');
+  if(reg==='δ')      return wrap('单相 δ（高温铁素体）','整块都是 δ，尚未进入 δ+γ 两相区');
+  if(reg==='δ+γ')    return wrap('δ 相 ＋ 奥氏体 γ','δ 与 γ 两相共存，冷却时 δ 不断转变为 γ');
+  if(reg==='L+γ')    return wrap('初生奥氏体 γ ＋ 剩余液相 L','结晶进行中：γ 从液体里析出，与剩余液体共存');
+  if(reg==='L+Fe₃C') return wrap('一次渗碳体 Fe₃C_Ⅰ ＋ 剩余液相 L','过共晶白口铁：粗大的 Fe₃C_Ⅰ 从液体里直接长出');
+  if(reg==='γ')      return wrap('单相奥氏体 γ','整块都是奥氏体，尚未越出 Acm / A3 线');
+  if(reg==='α')      return wrap('单相铁素体 α','整块都是铁素体，尚未越过 PQ 固溶度线');
+  if(reg==='α+γ')    return wrap('铁素体 α ＋ 奥氏体 γ','两相共存：A3 线以下 α 与 γ 并存，冷却时 α 增多');
+  if(reg==='γ+Fe₃C'){
+    if(c0<=C_E) return wrap('奥氏体 γ ＋ 二次渗碳体 Fe₃C_Ⅱ（网状）','过共析钢：Acm 线以下，γ 沿着晶界析出网状 Fe₃C_Ⅱ');
+    if(c0<C_C-0.06) return wrap('奥氏体 γ（初生）＋ 莱氏体 Ld ＋ 二次渗碳体 Fe₃C_Ⅱ','亚共晶白口铁：1148℃ 共晶生成 Ld，初生 γ 中再析出 Fe₃C_Ⅱ');
+    return wrap('莱氏体 Ld ＋ 一次渗碳体 Fe₃C_Ⅰ','过共晶白口铁：粗大 Fe₃C_Ⅰ 与共晶莱氏体共存');
+  }
+  /* —— α+Fe₃C（727℃ 以下，即室温组织） —— */
+  if(c0<=C_P)      return wrap('铁素体 α ＋ 三次渗碳体 Fe₃C_Ⅲ','工业纯铁：铁素体基体上沿晶界析出极少量三次渗碳体');
+  if(c0<C_S-0.02)  return wrap('铁素体 α ＋ 珠光体 P','亚共析钢：先共析铁素体 ＋ 珠光体（温度越低 P 越多，727℃ 时一次性生成）');
+  if(c0<=C_S+0.02) return wrap('珠光体 P（层片状）','共析钢：727℃ 共析反应一次性生成全部珠光体');
+  if(c0<=C_E)      return wrap('珠光体 P ＋ 二次渗碳体 Fe₃C_Ⅱ（网状）','过共析钢：珠光体 ＋ 沿原奥氏体晶界分布的网状二次渗碳体');
+  if(c0<C_C-0.06)  return wrap('珠光体 P ＋ 二次渗碳体 Fe₃C_Ⅱ ＋ 变态莱氏体 Ld′','亚共晶白口铁：珠光体 ＋ 网状 Fe₃C_Ⅱ ＋ 变态莱氏体');
+  if(c0<=C_C+0.06) return wrap('变态莱氏体 Ld′（P ＋ 共晶 Fe₃C）','共晶白口铁：全部为变态莱氏体（蜂窝状）');
+  return wrap('变态莱氏体 Ld′ ＋ 一次渗碳体 Fe₃C_Ⅰ（粗大条状）','过共晶白口铁：粗大条状 Fe₃C_Ⅰ ＋ 变态莱氏体');
+}
+
+/* ================= 状态 ================= */
+const state={lines:[{c:0.77}], active:0, T:1550, running:false, speed:5, last:0, pause:0, curve:[]};
+
+/* ================= 画主图 ================= */
+function fillPath(pts,color,cx,fx,fy){ cx=cx||g; fx=fx||X; fy=fy||Y;
+  cx.beginPath(); pts.forEach((p,i)=>i?cx.lineTo(fx(p[0]),fy(p[1])):cx.moveTo(fx(p[0]),fy(p[1]))); cx.closePath(); cx.fillStyle=color; cx.fill(); }
+function strokePath(pts,color,w,dash,cx,fx,fy){ cx=cx||g; fx=fx||X; fy=fy||Y;
+  cx.beginPath(); pts.forEach((p,i)=>i?cx.lineTo(fx(p[0]),fy(p[1])):cx.moveTo(fx(p[0]),fy(p[1]))); cx.setLineDash(dash||[]); cx.strokeStyle=color; cx.lineWidth=w; cx.stroke(); cx.setLineDash([]); }
+
+function drawMain(){
+  g.clearRect(0,0,LW,LH);
+  const rev=a=>a.slice().reverse();
+  /* —— 区域填充 —— */
+  fillPath([[0,TMAX]].concat(sAB,sBC,sCD,[[CMAX,TMAX]]),'rgba(255,205,150,.30)');                       /* L */
+  fillPath([A].concat(sAB,[B,Hp]).concat(rev(sAH)),'rgba(190,205,235,.45)');                            /* L+δ */
+  fillPath([A].concat(sAH,[Hp]).concat(rev(sNH),[N]),'rgba(150,170,215,.45)');                          /* δ */
+  fillPath([N].concat(sNH,[Hp,J]).concat(rev(sNJ)),'rgba(205,190,230,.45)');                            /* δ+γ */
+  fillPath([B].concat(sBC,[Cc,E]).concat(rev(sJE),[J]),'rgba(120,175,235,.32)');                        /* L+γ */
+  fillPath([Cc].concat(sCD,[D,F]),'rgba(235,150,110,.36)');                                             /* L+Fe₃C */
+  fillPath([N].concat(sNJ,[J]).concat(sJE,[E]).concat(sES,[S]).concat(rev(sGS),[G]),'rgba(175,205,240,.42)'); /* γ */
+  fillPath([G].concat(sGS,[S,Pp]).concat(rev(sGP)),'rgba(145,195,235,.42)');                            /* α+γ */
+  fillPath([G].concat(sGP,[Pp]).concat(sPQ,[Q,[0,20]]),'rgba(90,150,220,.34)');                         /* α */
+  fillPath([E].concat(sES,[S,K,F]),'rgba(220,165,120,.36)');                                            /* γ+Fe₃C */
+  fillPath([Pp,[CMAX,TY],[CMAX,0],[0,0]].concat(rev(sPQ)),'rgba(170,150,225,.32)');                     /* α+Fe₃C */
+
+  /* —— 下方放大图对应的范围高亮 —— */
+  g.save();
+  g.fillStyle='rgba(44,111,177,.11)'; g.fillRect(X(0),M.t,X(CZ)-X(0),PH);
+  g.strokeStyle='#2c6fb1'; g.lineWidth=1.6; g.setLineDash([6,4]);
+  g.strokeRect(X(0),M.t,X(CZ)-X(0),PH); g.setLineDash([]);
+  g.fillStyle='#2c6fb1'; g.font='bold 11.5px "Microsoft YaHei"'; g.textAlign='left';
+  g.fillText('↓ 下方放大区',X(0)+6,M.t+14);
+  g.restore();
+
+  /* —— 网格 —— */
+  g.strokeStyle='#eef2f7'; g.lineWidth=1;
+  for(let c=0;c<=CMAX+1e-6;c+=0.5){ g.beginPath(); g.moveTo(X(c),M.t); g.lineTo(X(c),Y(0)); g.stroke(); }
+  for(let T=0;T<=TMAX;T+=100){ g.beginPath(); g.moveTo(X(0),Y(T)); g.lineTo(X(CMAX),Y(T)); g.stroke(); }
+  /* —— 轴线 —— */
+  g.strokeStyle='#41586e'; g.lineWidth=2;
+  g.beginPath(); g.moveTo(X(0),M.t); g.lineTo(X(0),Y(0)); g.lineTo(X(CMAX),Y(0)); g.stroke();
+  /* —— 刻度 —— */
+  g.fillStyle='#41586e'; g.font='12px "Microsoft YaHei"'; g.textAlign='center';
+  for(let c=0;c<=6+1e-6;c+=1){ g.fillText(c.toFixed(0),X(c),Y(0)+17); }
+  g.textAlign='right';
+  for(let T=0;T<=TMAX;T+=200){ g.fillText(T+'',X(0)-7,Y(T)+4); }
+  g.font='bold 14px "Microsoft YaHei"'; g.fillStyle='#22303c';
+  g.textAlign='center'; g.fillText('ω(C) / %',X(CMAX/2),Y(0)+40);
+  g.save(); g.translate(16,Y(TMAX/2)); g.rotate(-Math.PI/2); g.fillText('温度 / ℃',0,0); g.restore();
+  g.font='13px "Microsoft YaHei"'; g.fillStyle='#41586e';
+  g.fillText('Fe',X(0),Y(0)+40); g.fillText('Fe₃C',X(CMAX),Y(0)+40);
+
+  /* —— 边界曲线 —— */
+  strokePath(sAB,'#1f5f9e',2.4); strokePath(sBC,'#1f5f9e',2.4); strokePath(sCD,'#1f5f9e',2.4);
+  strokePath(sAH,'#24608f',2); strokePath(sNH,'#24608f',2); strokePath(sNJ,'#24608f',2);
+  strokePath(sJE,'#24608f',2); strokePath(sES,'#24608f',2); strokePath(sGS,'#24608f',2);
+  strokePath(sGP,'#24608f',2); strokePath(sPQ,'#24608f',2);
+  /* 三条水平恒温线 */
+  strokePath([[Hp.c,TP],[B.c,TP]],'#8e44ad',2.2,[7,5]);      /* 包晶线 1495℃ */
+  strokePath([[E.c,TE],[CMAX,TE]],'#c0392b',2.4,[7,5]);       /* 共晶线 1148℃ */
+  strokePath([[Pp.c,TY],[CMAX,TY]],'#c0392b',2.4,[7,5]);      /* 共析线 727℃ */
+  /* 含碳 2.11% 分界线（钢／白口铁） */
+  strokePath([[C_E,0],[C_E,TE]],'#95a5a6',1.4,[3,4]);
+
+  /* —— 关键点 —— */
+  const pts=[[A,'A',-14,-6],[B,'B',0,16],[Hp,'H',-6,-9],[J,'J',9,-6],[N,'N',-13,4],[D,'D',-10,-8],
+             [E,'E',-4,18],[Cc,'C',0,20],[F,'F',14,0],[G,'G',-13,4],[S,'S',-6,19],[Pp,'P',-9,-8],[K,'K',14,0],[Q,'Q',-6,-8]];
+  pts.forEach(([p,n,dx,dy])=>{ g.beginPath(); g.arc(X(p.c),Y(p.T),4,0,7); g.fillStyle='#c0392b'; g.fill();
+    g.fillStyle='#0d3b66'; g.font='bold 13px "Microsoft YaHei"'; g.textAlign='center';
+    g.fillText(n,X(p.c)+dx,Y(p.T)+dy); });
+
+  /* —— 相区文字 —— */
+  g.textAlign='center';
+  g.fillStyle='#5a4a1f'; g.font='bold 15px "Microsoft YaHei"'; g.fillText('L',X(3.4),Y(1420));
+  g.fillStyle='#3a4a7a'; g.font='bold 12px "Microsoft YaHei"'; g.fillText('L+δ',X(0.34),Y(1508));
+  g.fillText('δ',X(0.035),Y(1455));
+  g.fillText('δ+γ',X(0.115),Y(1458));
+  g.fillStyle='#1b4b7a'; g.font='bold 14px "Microsoft YaHei"'; g.fillText('L + γ',X(1.55),Y(1330));
+  g.fillStyle='#8a3d1a'; g.fillText('L + Fe₃C',X(5.6),Y(1182));
+  g.fillStyle='#123a63'; g.fillText('γ（奥氏体）',X(1.25),Y(1000));
+  g.fillStyle='#8a3d1a'; g.font='bold 12px "Microsoft YaHei"'; g.fillText('γ ＋ Fe₃C',X(1.55),Y(830));
+  g.fillText('莱氏体 Ld',X(4.4),Y(900));
+  g.fillStyle='#123a63'; g.font='bold 13px "Microsoft YaHei"'; g.fillText('α＋γ',X(0.30),Y(800));
+  g.fillText('α',X(0.035),Y(500));
+  g.fillStyle='#4a3a7a'; g.font='bold 13px "Microsoft YaHei"'; g.fillText('α ＋ Fe₃C（P）',X(2.2),Y(380));
+  g.font='11px "Microsoft YaHei"'; g.fillStyle='#8a3d1a';
+  g.fillText('钢（≤2.11%C）',X(1.05),Y(90)); g.fillText('白口铁（2.11%~6.69%C）',X(4.5),Y(90));
+
+  /* —— 用户成分竖线 —— */
+  state.lines.forEach((Ln,i)=>{
+    const x=X(Ln.c), on=(i===state.active);
+    g.beginPath(); g.moveTo(x,M.t); g.lineTo(x,Y(0));
+    g.strokeStyle=on?'#e67e22':'#b7c6d6'; g.lineWidth=on?2.4:1.6; g.setLineDash(on?[]:[5,4]); g.stroke(); g.setLineDash([]);
+    g.fillStyle=on?'#e67e22':'#8fa3b8'; g.font='bold 12px "Microsoft YaHei"'; g.textAlign='center';
+    g.fillText(Ln.c.toFixed(2)+'%',x,M.t-9);
+  });
+
+  /* —— 动点 + 杠杆臂 —— */
+  const La=state.lines[state.active]; if(La){
+    const x=X(La.c), y=Y(state.T), an=analysis(La.c,state.T);
+    if(an.phases.length===2){
+      const c1=an.phases[0][1], c2=an.phases[1][1];
+      g.beginPath(); g.moveTo(X(c1),y); g.lineTo(X(c2),y);
+      g.strokeStyle='#e74c3c'; g.lineWidth=1.6; g.setLineDash([4,4]); g.stroke(); g.setLineDash([]);
+      g.fillStyle='#e74c3c'; [c1,c2].forEach(c=>{ g.beginPath(); g.arc(X(c),y,3.4,0,7); g.fill(); });
+    }
+    g.beginPath(); g.arc(x,y,8,0,7); g.fillStyle='#e74c3c'; g.fill();
+    g.lineWidth=3; g.strokeStyle='#fff'; g.stroke();
+    g.fillStyle='#e74c3c'; g.font='bold 13px "Microsoft YaHei"'; g.textAlign='left';
+    g.fillText(state.T.toFixed(0)+'℃',x+12,y-10);
+  }
+}
+
+/* ================= 画放大图（富铁端 0 ～ CZ % C） ================= */
+function drawZoom(){
+  const rev=a=>a.slice().reverse();
+  const CX=z, FX=Xz, FY=Yz;
+  z.clearRect(0,0,LZW,LZH);
+
+  /* —— 区域填充（裁剪在绘图区内） —— */
+  z.save(); z.beginPath(); z.rect(MZ.l,MZ.t,PWZ,PHZ); z.clip();
+  fillPath([[0,TMAX]].concat(sAB,sBC,sCD,[[CMAX,TMAX]]),'rgba(255,205,150,.30)',CX,FX,FY);      /* L */
+  fillPath([A].concat(sAB,[B,Hp]).concat(rev(sAH)),'rgba(190,205,235,.70)',CX,FX,FY);           /* L+δ */
+  fillPath([A].concat(sAH,[Hp]).concat(rev(sNH),[N]),'rgba(150,170,215,.70)',CX,FX,FY);         /* δ */
+  fillPath([N].concat(sNH,[Hp,J]).concat(rev(sNJ)),'rgba(205,190,230,.70)',CX,FX,FY);           /* δ+γ */
+  fillPath([B].concat(sBC,[Cc,E]).concat(rev(sJE),[J]),'rgba(120,175,235,.45)',CX,FX,FY);       /* L+γ */
+  fillPath([Cc].concat(sCD,[D,F]),'rgba(235,150,110,.36)',CX,FX,FY);                            /* L+Fe₃C */
+  fillPath([N].concat(sNJ,[J]).concat(sJE,[E]).concat(sES,[S]).concat(rev(sGS),[G]),'rgba(175,205,240,.55)',CX,FX,FY); /* γ */
+  fillPath([G].concat(sGS,[S,Pp]).concat(rev(sGP)),'rgba(135,188,235,.90)',CX,FX,FY);           /* α+γ（加浓） */
+  fillPath([G].concat(sGP,[Pp]).concat(sPQ,[Q,[0,20]]),'rgba(55,120,205,.90)',CX,FX,FY);        /* α（加浓） */
+  fillPath([E].concat(sES,[S,K,F]),'rgba(220,165,120,.45)',CX,FX,FY);                           /* γ+Fe₃C */
+  fillPath([Pp,[CMAX,TY],[CMAX,0],[0,0]].concat(rev(sPQ)),'rgba(170,150,225,.45)',CX,FX,FY);    /* α+Fe₃C */
+  /* 边界曲线 */
+  [[sAB,'#1f5f9e',2.6,0],[sBC,'#1f5f9e',2.6,0],[sCD,'#1f5f9e',2.0,0],
+   [sAH,'#24608f',2.2,0],[sNH,'#24608f',2.2,0],[sNJ,'#24608f',2.2,0],[sJE,'#24608f',2.2,0],
+   [sES,'#24608f',2.2,0],[sGS,'#24608f',2.6,0],[sGP,'#24608f',2.6,0],[sPQ,'#24608f',2.2,0]]
+    .forEach(q=>strokePath(q[0],q[1],q[2],q[3],CX,FX,FY));
+  /* 三条恒温线 + 2.11% 分界线 */
+  strokePath([[Hp.c,TP],[B.c,TP]],'#8e44ad',2.2,[7,5],CX,FX,FY);
+  strokePath([[E.c,TE],[CMAX,TE]],'#c0392b',2.4,[7,5],CX,FX,FY);
+  strokePath([[Pp.c,TY],[CMAX,TY]],'#c0392b',2.4,[7,5],CX,FX,FY);
+  strokePath([[C_E,0],[C_E,TE]],'#95a5a6',1.4,[3,4],CX,FX,FY);
+  z.restore();
+
+  /* —— 网格 / 坐标轴 / 刻度 —— */
+  const xs = CZ>1 ? 0.2 : 0.1;
+  z.strokeStyle='#eef2f7'; z.lineWidth=1;
+  for(let c=0;c<=CZ+1e-6;c+=xs){ z.beginPath(); z.moveTo(Xz(c),MZ.t); z.lineTo(Xz(c),Yz(0)); z.stroke(); }
+  for(let T=0;T<=TMAX;T+=100){ z.beginPath(); z.moveTo(Xz(0),Yz(T)); z.lineTo(Xz(CZ),Yz(T)); z.stroke(); }
+  z.strokeStyle='#41586e'; z.lineWidth=2;
+  z.beginPath(); z.moveTo(Xz(0),MZ.t); z.lineTo(Xz(0),Yz(0)); z.lineTo(Xz(CZ),Yz(0)); z.stroke();
+  z.fillStyle='#41586e'; z.font='12px "Microsoft YaHei"'; z.textAlign='center';
+  for(let c=0;c<=CZ+1e-6;c+=xs){
+    z.strokeStyle='#41586e'; z.lineWidth=1.4;
+    z.beginPath(); z.moveTo(Xz(c),Yz(0)); z.lineTo(Xz(c),Yz(0)+5); z.stroke();
+    z.fillText(Math.abs(c%1)<1e-6?c.toFixed(0):c.toFixed(1),Xz(c),Yz(0)+18);
+  }
+  if(CZ===C_E){ z.strokeStyle='#c0392b'; z.lineWidth=1.6; z.beginPath(); z.moveTo(Xz(CZ),Yz(0)); z.lineTo(Xz(CZ),Yz(0)+6); z.stroke();
+    z.fillStyle='#c0392b'; z.fillText('2.11 E',Xz(CZ),Yz(0)+33); }
+  z.fillStyle='#41586e'; z.textAlign='right';
+  for(let T=0;T<=TMAX;T+=200) z.fillText(T+'',Xz(0)-7,Yz(T)+4);
+  z.font='bold 14px "Microsoft YaHei"'; z.fillStyle='#22303c';
+  z.textAlign='center'; z.fillText('ω(C) / %',Xz(CZ/2),Yz(0)+40);
+  z.save(); z.translate(18,Yz(TMAX/2)); z.rotate(-Math.PI/2); z.fillText('温度 / ℃',0,0); z.restore();
+  z.font='13px "Microsoft YaHei"'; z.fillStyle='#41586e';
+  z.fillText('Fe',Xz(0),Yz(0)+40);
+
+  /* —— 相区文字 —— */
+  z.textAlign='center';
+  z.fillStyle='#5a4a1f'; z.font='bold 16px "Microsoft YaHei"'; z.fillText('L',Xz(CZ*0.52),Yz(1425));
+  z.fillStyle='#3a4a7a'; z.font='bold 12.5px "Microsoft YaHei"';
+  z.fillText('L＋δ',Xz(0.235),Yz(1512));
+  z.fillText('δ',Xz(0.030),Yz(1450));
+  z.fillText('δ＋γ',Xz(0.108),Yz(1456));
+  z.fillStyle='#1b4b7a'; z.font='bold 15px "Microsoft YaHei"'; z.fillText('L ＋ γ',Xz(CZ*0.62),Yz(1285));
+  z.fillStyle='#123a63'; z.font='bold 15px "Microsoft YaHei"'; z.fillText('γ（奥氏体）',Xz(CZ*0.50),Yz(985));
+  z.font='bold 14px "Microsoft YaHei"'; z.fillText('α ＋ γ',Xz(CZ*0.24),Yz(812));
+  if(CZ>=1.5){ z.fillStyle='#8a3d1a'; z.font='bold 13px "Microsoft YaHei"'; z.fillText('γ ＋ Fe₃C',Xz(CZ*0.80),Yz(830)); }
+  z.fillStyle='#4a3a7a'; z.font='bold 14px "Microsoft YaHei"'; z.fillText('α ＋ Fe₃C（P）',Xz(CZ*0.55),Yz(360));
+  z.font='11.5px "Microsoft YaHei"'; z.fillStyle='#8a3d1a'; z.fillText('钢（≤2.11%C）',Xz(CZ*0.5),Yz(80));
+
+  /* α 单相区太窄，用引线指出 */
+  const aly=Yz(470);
+  z.strokeStyle='#123a63'; z.lineWidth=1.2; z.setLineDash([4,3]);
+  z.beginPath(); z.moveTo(Xz(0.006),aly); z.lineTo(Xz(CZ*0.13),aly); z.stroke(); z.setLineDash([]);
+  z.beginPath(); z.arc(Xz(0.006),aly,3.4,0,7); z.fillStyle='#123a63'; z.fill();
+  z.textAlign='left'; z.fillStyle='#123a63'; z.font='bold 12.5px "Microsoft YaHei"';
+  z.fillText('α（铁素体）单相区',Xz(CZ*0.13)+6,aly+4);
+
+  /* —— 关键点 —— */
+  const zpts=[[A,'A',-14,7],[B,'B',0,17],[Hp,'H',-4,-10],[J,'J',10,-6],[N,'N',-13,7],
+              [G,'G',-14,4],[S,'S',-4,19],[Pp,'P',11,-4],[Q,'Q',11,-4]];
+  if(CZ===C_E) zpts.push([E,'E',-8,-10]);
+  zpts.forEach(p0=>{ const p=p0[0];
+    z.beginPath(); z.arc(Xz(p.c),Yz(p.T),4.4,0,7); z.fillStyle='#c0392b'; z.fill();
+    z.fillStyle='#0d3b66'; z.font='bold 13.5px "Microsoft YaHei"'; z.textAlign='center';
+    z.fillText(p0[1],Xz(p.c)+p0[2],Yz(p.T)+p0[3]); });
+
+  /* —— 用户成分竖线 —— */
+  let outCount=0;
+  state.lines.forEach((Ln,i)=>{
+    if(Ln.c>CZ+1e-9){ outCount++; return; }
+    const x=Xz(Ln.c), on=(i===state.active);
+    z.beginPath(); z.moveTo(x,MZ.t); z.lineTo(x,Yz(0));
+    z.strokeStyle=on?'#e67e22':'#b7c6d6'; z.lineWidth=on?2.4:1.6; z.setLineDash(on?[]:[5,4]); z.stroke(); z.setLineDash([]);
+    z.fillStyle=on?'#e67e22':'#8fa3b8'; z.font='bold 12px "Microsoft YaHei"'; z.textAlign='center';
+    z.fillText(Ln.c.toFixed(2)+'%',x,MZ.t-6);
+  });
+  if(outCount){ z.textAlign='right'; z.fillStyle='#e67e22'; z.font='bold 12px "Microsoft YaHei"';
+    z.fillText('另有 '+outCount+' 条竖线在放大范围之外 → 见上方全图',MZ.l+PWZ,Yz(0)+40); }
+
+  /* —— 动点 + 杠杆臂 —— */
+  const La=state.lines[state.active];
+  if(La && La.c<=CZ+1e-9){
+    const x=Xz(La.c), y=Yz(state.T), an=analysis(La.c,state.T);
+    if(an.phases.length===2){
+      const c1=an.phases[0][1], c2=Math.min(an.phases[1][1],CZ);
+      z.beginPath(); z.moveTo(Xz(c1),y); z.lineTo(Xz(c2),y);
+      z.strokeStyle='#e74c3c'; z.lineWidth=1.6; z.setLineDash([4,4]); z.stroke(); z.setLineDash([]);
+      z.fillStyle='#e74c3c'; [c1,c2].forEach(c=>{ z.beginPath(); z.arc(Xz(c),y,3.4,0,7); z.fill(); });
+    }
+    z.beginPath(); z.arc(x,y,8,0,7); z.fillStyle='#e74c3c'; z.fill();
+    z.lineWidth=3; z.strokeStyle='#fff'; z.stroke();
+    z.fillStyle='#e74c3c'; z.font='bold 13px "Microsoft YaHei"'; z.textAlign='left';
+    z.fillText(state.T.toFixed(0)+'℃',x+12,y<70?14:-10);
+  }
+}
+
+/* ================= 冷却曲线 ================= */
+function drawCurve(){
+  const w=360,h=150; gc.clearRect(0,0,w,h);
+  gc.fillStyle='#fbfdff'; gc.fillRect(0,0,w,h);
+  gc.strokeStyle='#e3e9f0'; gc.strokeRect(.5,.5,w-1,h-1);
+  const L=38,R=8,T0=10,B=22, pw=w-L-R, ph=h-T0-B;
+  gc.strokeStyle='#41586e'; gc.lineWidth=1.4;
+  gc.beginPath(); gc.moveTo(L,T0); gc.lineTo(L,h-B); gc.lineTo(w-R,h-B); gc.stroke();
+  gc.fillStyle='#6b7a8d'; gc.font='10px "Microsoft YaHei"'; gc.textAlign='right';
+  gc.fillText('1600',L-4,T0+8); gc.fillText('0',L-4,h-B); gc.textAlign='center'; gc.fillText('时间 t',(L+w)/2,h-6);
+  const pts=state.curve; if(pts.length<2) return;
+  const tmax=Math.max(pts[pts.length-1][0],1);
+  const Xt=t=>L+t/tmax*pw, Yt=T=>T0+(TMAX-T)/TMAX*ph;
+  gc.beginPath(); pts.forEach((p,i)=>i?gc.lineTo(Xt(p[0]),Yt(p[1])):gc.moveTo(Xt(p[0]),Yt(p[1])));
+  gc.strokeStyle='#2c6fb1'; gc.lineWidth=2; gc.stroke();
+  const cur=state.lines[state.active];
+  if(cur){
+    const marks=[{T:liquidusT(cur.c),c:'#7f8c8d'}];
+    if(hasPeritectic(cur.c)) marks.push({T:TP,c:'#8e44ad'});
+    if(hasEutectic(cur.c))   marks.push({T:TE,c:'#c0392b'});
+    if(hasEutectoid(cur.c))  marks.push({T:TY,c:'#c0392b'});
+    marks.forEach(m=>{ gc.beginPath(); gc.moveTo(L,Yt(m.T)); gc.lineTo(w-R,Yt(m.T));
+      gc.setLineDash([4,4]); gc.strokeStyle=m.c; gc.lineWidth=1; gc.stroke(); gc.setLineDash([]);
+      gc.fillStyle=m.c; gc.font='9px "Microsoft YaHei"'; gc.textAlign='left'; gc.fillText(m.T.toFixed(0),L+2,Yt(m.T)-2); });
+  }
+  gc.beginPath(); gc.arc(Xt(pts[pts.length-1][0]),Yt(pts[pts.length-1][1]),3.5,0,7); gc.fillStyle='#e74c3c'; gc.fill();
+}
+
+/* ================= 组织示意图 ================= */
+function drawMicro(){
+  const w=360,h=170; gm.clearRect(0,0,w,h);
+  gm.fillStyle='#fbfdff'; gm.fillRect(0,0,w,h); gm.strokeStyle='#e3e9f0'; gm.strokeRect(.5,.5,w-1,h-1);
+  const Ln=state.lines[state.active]; if(!Ln) return;
+  const c0=Ln.c, T=state.T, reg=regionOf(c0,T);
+  const x0=10,y0=26,ww=w-20,hh=h-38;
+  const clip=()=>{ gm.save(); gm.beginPath(); gm.rect(x0,y0,ww,hh); gm.clip(); };
+  const unclip=()=>gm.restore();
+  function liquid(){ gm.fillStyle='#fff3dc'; gm.fillRect(x0,y0,ww,hh);
+    gm.fillStyle='rgba(240,180,90,.35)'; for(let i=0;i<26;i++){ gm.beginPath(); gm.arc(x0+((i*67)%ww),y0+((i*113)%hh),3.4,0,7); gm.fill(); } }
+  function grains(n,small,color){
+    gm.fillStyle=color; gm.strokeStyle='#5a7ea8'; gm.lineWidth=1.4;
+    for(let i=0;i<n;i++){
+      const cx=x0+((i*137+40)%ww), cy=y0+((i*97+26)%hh), r=small?7:15;
+      gm.beginPath();
+      for(let k=0;k<7;k++){ const a=k/7*Math.PI*2, rr=r*(0.72+((i*13+k*7)%9)/16);
+        const px=cx+Math.cos(a)*rr, py=cy+Math.sin(a)*rr*0.82; k?gm.lineTo(px,py):gm.moveTo(px,py); }
+      gm.closePath(); gm.fill(); gm.stroke();
+    }
+  }
+  function ferriteBase(){
+    gm.fillStyle='#dbeafb'; gm.fillRect(x0,y0,ww,hh);
+    gm.strokeStyle='#b9cbe0'; gm.lineWidth=1.2;
+    for(let i=1;i<5;i++){ gm.beginPath(); gm.moveTo(x0+ww*i/5,y0+((i%2)*6)); gm.lineTo(x0+ww*i/5,y0+hh); gm.stroke(); }
+    gm.beginPath(); gm.moveTo(x0,y0+hh/2); gm.lineTo(x0+ww,y0+hh/2); gm.stroke();
+  }
+  function pearlite(rx,ry,rw,rh,vert){
+    gm.save(); gm.beginPath(); gm.rect(rx,ry,rw,rh); gm.clip();
+    const bands=vert?rw:rh, n=Math.max(5,Math.round(bands/3.2));
+    for(let i=0;i<n;i++){
+      gm.fillStyle = i%2 ? '#4c4c54' : '#e7edf5';
+      if(vert) gm.fillRect(rx+i*rw/n, ry, rw/n+0.8, rh);
+      else     gm.fillRect(rx, ry+i*rh/n, rw, rh/n+0.8);
+    }
+    gm.restore();
+  }
+  function netFe3C(){
+    gm.strokeStyle='#7a3b1a'; gm.lineWidth=2.4;
+    for(let i=1;i<5;i++){ gm.beginPath(); gm.moveTo(x0+ww*i/5,y0); gm.lineTo(x0+ww*i/5,y0+hh); gm.stroke(); }
+    gm.beginPath(); gm.moveTo(x0,y0+hh/2); gm.lineTo(x0+ww,y0+hh/2); gm.stroke();
+  }
+  function tertiary(){ gm.fillStyle='rgba(60,40,25,.85)';
+    for(let i=1;i<5;i++) for(let j=0;j<7;j++){ gm.beginPath();
+      gm.arc(x0+ww*i/5, y0+hh*(j+0.5)/7, 1.5,0,7); gm.fill(); }
+    for(let j=1;j<3;j++) for(let i=0;i<11;i++){ gm.beginPath();
+      gm.arc(x0+ww*i/11, y0+hh*j/3, 1.5,0,7); gm.fill(); } }
+  function ledeburite(rx,ry,rw,rh){
+    gm.save(); gm.beginPath(); gm.rect(rx,ry,rw,rh); gm.clip();
+    gm.fillStyle='#4b4b52'; gm.fillRect(rx,ry,rw,rh);
+    const cols=9, rows=4, cw=rw/cols, ch=rh/rows;
+    for(let i=0;i<cols;i++) for(let j=0;j<rows;j++){
+      const px=rx+i*cw, py=ry+j*ch;
+      pearlite(px+1.5,py+1.5,cw-3,ch-3,false);
+      gm.strokeStyle='#33333a'; gm.lineWidth=1; gm.strokeRect(px+1.5,py+1.5,cw-3,ch-3);
+    }
+    gm.restore();
+  }
+  function rodFe3C(n){
+    gm.fillStyle='#f2f2f2'; gm.strokeStyle='#5a5a5a'; gm.lineWidth=1.4;
+    for(let i=0;i<n;i++){ const rx=x0+ww*(0.12+0.29*i), rw=ww*0.055;
+      gm.fillRect(rx,y0+3,rw,hh-6); gm.strokeRect(rx,y0+3,rw,hh-6); }
+  }
+  function tag(txt,color){ gm.font='11px "Microsoft YaHei"'; const wd=Math.min(ww-4,gm.measureText(txt).width+12);
+    gm.fillStyle='rgba(255,255,255,.88)'; gm.fillRect(x0+2,y0+2,wd,16);
+    gm.fillStyle=color; gm.textAlign='left'; gm.fillText(txt,x0+7,y0+14); }
+
+  clip();
+  if(reg==='L'){ liquid(); tag('液相 L（尚未开始结晶）','#8a5a1a'); }
+  else if(reg==='L+δ'){ liquid(); grains(6,true,'#cfdcf0'); tag('初生 δ 从液相中析出','#3a4a7a'); }
+  else if(reg==='δ'){ grains(10,false,'#cfdcf0'); tag('单相 δ（高温铁素体）','#3a4a7a'); }
+  else if(reg==='δ+γ'){ grains(10,false,'#d3ddf2'); tag('δ 相 ＋ 奥氏体 γ','#3a4a7a'); }
+  else if(reg==='L+γ'){ liquid();
+    const f=clamp((liquidusT(c0)-T)/((liquidusT(c0)-(interpT(curJE,c0)||T+1))||1),0,1);
+    grains(Math.round(3+f*8),true,'#dfe9f7'); tag('初生奥氏体 γ 从液相中析出','#2a5b8f'); }
+  else if(reg==='L+Fe₃C'){ liquid(); rodFe3C(3); tag('一次渗碳体 Fe₃C_Ⅰ 析出中','#8a3d1a'); }
+  else if(reg==='γ'){ grains(11,false,'#dfe9f7'); tag('单相奥氏体 γ','#2a5b8f'); }
+  else if(reg==='α'){ ferriteBase(); tag('单相铁素体 α','#123a63'); }
+  else if(reg==='α+γ'){ ferriteBase();
+    const f=clamp((interpT(curGS,c0)-T)/((interpT(curGS,c0)-TY)||1),0,1);
+    grains(Math.round(3+f*8),false,'#dfe9f7'); tag('铁素体 α ＋ 奥氏体 γ','#123a63'); }
+  else if(reg==='γ+Fe₃C'){
+    if(c0<=C_E){ grains(10,false,'#dfe9f7'); netFe3C(); tag('奥氏体 γ ＋ 网状二次渗碳体 Fe₃C_Ⅱ','#8a3d1a'); }
+    else if(c0<C_C-0.06){ grains(6,false,'#dfe9f7'); ledeburite(x0+ww*0.30,y0,ww*0.70,hh); netFe3C();
+      tag('初生 γ ＋ 莱氏体 Ld ＋ Fe₃C_Ⅱ','#8a3d1a'); }
+    else { ledeburite(x0,y0,ww,hh); rodFe3C(3); tag('莱氏体 Ld ＋ 一次渗碳体 Fe₃C_Ⅰ','#8a3d1a'); }
+  }
+  else { /* α+Fe₃C —— 727℃ 以下的室温组织 */
+    if(c0<=C_P){ ferriteBase(); tertiary(); tag('铁素体 α ＋ 三次渗碳体 Fe₃C_Ⅲ','#123a63'); }
+    else if(c0<C_S-0.02){ ferriteBase();
+      pearlite(x0+ww*0.06,y0+hh*0.10,ww*0.36,hh*0.36,false);
+      pearlite(x0+ww*0.54,y0+hh*0.54,ww*0.38,hh*0.34,false);
+      tag('铁素体 α ＋ 珠光体 P（层片状）','#123a63'); }
+    else if(c0<=C_S+0.02){ pearlite(x0,y0,ww,hh,false); tag('全珠光体 P（层片状）','#3a4a5c'); }
+    else if(c0<=C_E){ pearlite(x0,y0,ww,hh,false); netFe3C(); tag('珠光体 P ＋ 网状二次渗碳体 Fe₃C_Ⅱ','#8a3d1a'); }
+    else if(c0<C_C-0.06){ pearlite(x0,y0,ww*0.26,hh,false); ledeburite(x0+ww*0.28,y0,ww*0.72,hh); netFe3C();
+      tag('P ＋ Fe₃C_Ⅱ ＋ 变态莱氏体 Ld′','#8a3d1a'); }
+    else if(c0<=C_C+0.06){ ledeburite(x0,y0,ww,hh); tag('变态莱氏体 Ld′（P ＋ 共晶 Fe₃C）','#3a4a5c'); }
+    else { ledeburite(x0,y0,ww,hh); rodFe3C(3); tag('Ld′ ＋ 一次渗碳体 Fe₃C_Ⅰ（粗大条状）','#8a3d1a'); }
+  }
+  unclip();
+  gm.fillStyle='#33465a'; gm.font='bold 12px "Microsoft YaHei"'; gm.textAlign='left';
+  gm.fillText('相区：'+reg+'   T = '+T.toFixed(0)+'℃   ω(C) = '+c0.toFixed(2)+'%',x0+4,y0-12);
+}
+function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+
+/* ================= 读数面板 ================= */
+const readout=document.getElementById('readout');
+function bar(v,color){ const p=Math.round(clamp(v,0,1)*100); return '<span style="display:inline-block;width:110px;height:8px;background:#eef2f7;border-radius:4px;vertical-align:middle;overflow:hidden"><span style="display:block;height:100%;width:'+p+'%;background:'+color+'"></span></span>'; }
+function drawReadout(){
+  const Ln=state.lines[state.active]; if(!Ln){ readout.innerHTML='<div class="row">请先在左侧相图上单击，添加一条成分竖线。</div>'; return; }
+  const c0=Ln.c, an=analysis(c0,state.T), kind=alloyKind(c0);
+  let s='';
+  s+='<div class="row">合金成分：<b>ω(C) = '+c0.toFixed(2)+' %</b>　<span style="color:#e67e22">（'+kind+'）</span></div>';
+  s+='<div class="row">当前温度：<b>'+state.T.toFixed(0)+' ℃</b>　｜　所在相区：<b style="color:#c0392b">'+an.reg+'</b></div>';
+  if(an.phases.length===2){
+    const p1=an.phases[0], p2=an.phases[1];
+    s+='<div class="row">两相成分（由水平线读出）：<br>&nbsp;&nbsp;'+p1[0]+' 相含 C = <b>'+p1[1].toFixed(2)+'%</b>　｜　'+p2[0]+' 相含 C = <b>'+p2[1].toFixed(2)+'%</b></div>';
+    s+='<div class="row">两相相对量（杠杆定律）：<br>&nbsp;&nbsp;'+p1[0]+' : <b>'+(p1[2]*100).toFixed(1)+'%</b>　'+bar(p1[2],'#2c6fb1')+'<br>&nbsp;&nbsp;'+p2[0]+' : <b>'+(p2[2]*100).toFixed(1)+'%</b>　'+bar(p2[2],'#e67e22')+'</div>';
+    s+='<div class="ph">'+p1[0]+'% = (ω'+p2[0]+' − ω₀) / (ω'+p2[0]+' − ω'+p1[0]+') ✕ 100%<br>'+p2[0]+'% = (ω₀ − ω'+p1[0]+') / (ω'+p2[0]+' − ω'+p1[0]+') ✕ 100%</div>';
+  } else {
+    s+='<div class="row">单相区，整块都是 <b>'+an.phases[0][0]+'</b> 相。</div>';
+  }
+  const regDesc={'L':'液相（合金已全部熔化）','δ':'单相 δ 高温铁素体','L+δ':'液相 L 与 δ 相两相共存','δ+γ':'δ 相与奥氏体 γ 两相共存',
+    'L+γ':'液相 L 与奥氏体 γ 两相共存（结晶进行中）','L+Fe₃C':'液相 L 与一次渗碳体 Fe₃C_Ⅰ 共存',
+    'γ':'单相奥氏体 γ','α':'单相铁素体 α','α+γ':'铁素体 α 与奥氏体 γ 两相共存','γ+Fe₃C':'奥氏体 γ 与渗碳体 Fe₃C 两相共存','α+Fe₃C':'铁素体 α 与渗碳体 Fe₃C 两相共存（均已凝固）'}[an.reg]||'';
+  let ph;
+  if(an.phases.length===2){
+    const p1=an.phases[0], p2=an.phases[1];
+    ph='<b>'+p1[0]+'</b>（含 C '+p1[1].toFixed(2)+'%，占 '+(p1[2]*100).toFixed(1)+'%）　+　<b>'+p2[0]+'</b>（含 C '+p2[1].toFixed(2)+'%，占 '+(p2[2]*100).toFixed(1)+'%）　→　共 <b>2</b> 个相';
+  } else {
+    ph='<b>'+an.phases[0][0]+'</b>（单一相，占 100%）　→　共 <b>1</b> 个相';
+  }
+  s+='<div class="row" style="margin-top:8px;background:#eef6ff;border-left:3px solid #2c6fb1;padding:6px 8px;border-radius:0 6px 6px 0">🔷 <b>此时的相</b>（当前温度下实际存在的相）<br>'+ph+'<br><span style="color:#2c6fb1">'+an.reg+'　＝　'+regDesc+'</span></div>';
+  const now=organizationNow(c0,state.T);
+  s+='<div class="row" style="margin-top:8px;background:#eefaf1;border-left:3px solid #27ae60;padding:6px 8px;border-radius:0 6px 6px 0">🧱 <b>此时此刻的组织组成物</b>（'+state.T.toFixed(0)+'℃ 时显微镜下能看到的组成部分）<br><b style="color:#1e8449">'+now.list+'</b><br><span style="color:#1e8449">'+now.note+'</span></div>';
+  /* 恒温反应 */
+  const rx=[];
+  if(hasPeritectic(c0)) rx.push('<b style="color:#8e44ad">包晶反应</b> L<sub>0.53</sub> + δ<sub>0.09</sub> → γ<sub>0.17</sub>（<b>1495℃</b>，产物＝奥氏体 γ）');
+  if(hasEutectic(c0))   rx.push('<b style="color:#c0392b">共晶反应</b> L<sub>4.3</sub> → γ<sub>2.11</sub> + Fe₃C（<b>1148℃</b>，产物＝莱氏体 Ld）');
+  if(hasEutectoid(c0))  rx.push('<b style="color:#c0392b">共析反应</b> γ<sub>0.77</sub> → α<sub>0.0218</sub> + Fe₃C（<b>727℃</b>，产物＝珠光体 P）');
+  s+='<div class="row small" style="margin-top:8px;background:#fff8ee;border-left:3px solid #e67e22;padding:6px 8px;border-radius:0 6px 6px 0">🔻 <b>本合金会发生的恒温反应：</b><br>'+(rx.length?rx.join('<br>'):'无（工业纯铁在加热/冷却中不发生上述三种三相恒温反应）')+'</div>';
+  s+='<div class="row" style="margin-top:8px">🏁 组织组成物（<b>室温缓冷后的最终产物</b>）：<br><b style="color:#1b4b7a">'+organization(c0)+'</b></div>';
+  readout.innerHTML=s;
+}
+
+/* ================= 交互 ================= */
+const VIEWS={
+  c:{el:cv,  L:LW,  M:M,  PW:PW,  CM:CMAX, X:X},
+  z:{el:zCv, L:LZW, M:MZ, PW:PWZ, CM:()=>CZ, X:Xz}     /* 放大图量程随 CZ 变化 */
+};
+function viewXY(v,e){ const o=VIEWS[v], r=o.el.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width*o.L, cm=(typeof o.CM==='function'?o.CM():o.CM);
+  return {x, c:clamp((x-o.M.l)/o.PW*cm,0,cm), cm};
+}
+let drag=-1, dragView='c';
+function wire(dom,v){
+  dom.addEventListener('mousedown',e=>{
+    const {x,c}=viewXY(v,e); let hit=-1,best=1e9;
+    state.lines.forEach((Ln,i)=>{ const d=Math.abs(VIEWS[v].X(Ln.c)-x); if(d<best){best=d;hit=i;} });
+    if(e.button===2){ if(best<10){ state.lines.splice(hit,1); state.active=Math.max(0,Math.min(state.active,state.lines.length-1)); } return; }
+    if(best<10){ state.active=hit; drag=hit; } else { state.lines.push({c}); state.active=state.lines.length-1; drag=state.active; }
+    dragView=v; update();
+  });
+  dom.addEventListener('contextmenu',e=>e.preventDefault());
+}
+wire(cv,'c'); wire(zCv,'z');
+window.addEventListener('mousemove',e=>{ if(drag<0) return; state.lines[drag].c=viewXY(dragView,e).c; update(); });
+window.addEventListener('mouseup',()=>{ drag=-1; });
+
+document.getElementById('tslider').addEventListener('input',e=>{ state.T=+e.target.value; state.running=false; setPlayLabel(); update(); });
+document.getElementById('speed').addEventListener('input',e=>{ state.speed=+e.target.value; });
+document.querySelectorAll('.chip[data-c]').forEach(ch=>ch.addEventListener('click',()=>{
+  state.lines.push({c:+ch.dataset.c}); state.active=state.lines.length-1; state.T=1550; state.curve=[]; update();
+}));
+const zTitle=document.getElementById('ztitle'), zRatio=document.getElementById('zratio');
+function syncZoomTitle(){ zTitle.textContent=(CZ===C_E?'2.11':CZ.toFixed(2)); zRatio.textContent=(CMAX/CZ).toFixed(1); }
+document.querySelectorAll('.chip[data-z]').forEach(ch=>ch.addEventListener('click',()=>{
+  document.querySelectorAll('.chip[data-z]').forEach(o=>o.classList.remove('on'));
+  ch.classList.add('on'); CZ=parseFloat(ch.dataset.z); syncZoomTitle(); update();
+}));
+syncZoomTitle();
+document.getElementById('clear').addEventListener('click',()=>{ state.lines=[{c:0.77}]; state.active=0; state.curve=[]; state.T=1550; state.running=false; setPlayLabel(); update(); });
+document.getElementById('reset').addEventListener('click',()=>{ state.T=1550; state.curve=[]; state.running=false; setPlayLabel(); update(); });
+const playBtn=document.getElementById('play');
+playBtn.addEventListener('click',()=>{ if(state.T<=20) state.T=1550; state.running=!state.running; setPlayLabel(); });
+function setPlayLabel(){ playBtn.textContent=state.running?'⏸ 暂停':'▶ 开始降温'; }
+
+/* ================= 主循环 ================= */
+let acc=0;
+function loop(ts){
+  const dt=Math.min(0.05,(ts-state.last)/1000||0); state.last=ts;
+  const Ln=state.lines[state.active];
+  if(state.running&&Ln){
+    if(state.pause>0){ state.pause-=dt; }
+    else{
+      const before=state.T;
+      state.T-=dt*state.speed*22;
+      if(state.T<20){ state.T=20; state.running=false; setPlayLabel(); }
+      const keys=[liquidusT(Ln.c)];
+      if(hasPeritectic(Ln.c)) keys.push(TP);
+      if(hasEutectic(Ln.c))   keys.push(TE);
+      if(hasEutectoid(Ln.c))  keys.push(TY);
+      const hit=keys.filter(k=>before>=k&&state.T<=k&&k>20).sort((a,b)=>b-a);
+      if(hit.length){ const k=hit[0]; state.T=k;
+        state.pause=(Math.abs(k-TE)<0.5||Math.abs(k-TY)<0.5)?0.9:(Math.abs(k-TP)<0.5?0.5:0.28); }
+      acc+=dt;
+    }
+    state.curve.push([acc,state.T]);
+    if(state.curve.length>4000) state.curve.shift();
+  }
+  document.getElementById('tslider').value=state.T.toFixed(0);
+  document.getElementById('tval').textContent=state.T.toFixed(0)+' ℃';
+  drawMain(); drawZoom(); drawCurve(); drawMicro(); drawReadout();
+  requestAnimationFrame(loop);
+}
+function update(){ document.getElementById('tslider').value=state.T.toFixed(0); document.getElementById('tval').textContent=state.T.toFixed(0)+' ℃'; drawMain(); drawZoom(); drawCurve(); drawMicro(); drawReadout(); }
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

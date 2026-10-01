@@ -1,0 +1,697 @@
+Article
+
+Sequential Aging Tests of Cyclic Bending for the Reliability
+Assessment of Laminated Oxide/Silver/Oxide Flexible
+Transparent Conductors
+
+Jung-Yen Chang, Yu-Han Kao, Hung-Shuo Chang and Chiao-Chi Lin *
+
+                                                 Department of Materials Science and Engineering, Feng Chia University, Taichung 40724, Taiwan
+                                                 * Correspondence: chiaochi@fcu.edu.tw; Tel.: +886-4-2451-7250 (ext. 5311)
+
+                                       Abstract
+
+                                       Flexible transparent conductors (FTCs) are key materials that determine the scalability
+                                       and performance of flexible optoelectronic devices. This study explores the reliability
+                                       of FTCs with laminated multilayer structures, specifically oxide/metal/oxide (OMO)
+                                       films, through sequential testing composed of accelerated weathering and cyclic bending.
+                                       Commercially available ZTO/Ag/ZTO-based FTCs were selected as a model system to
+                                       study, and Weibull analysis was employed to assess their failure behaviors. Results illustrate
+                                       that weathered aged samples exhibit significantly impaired bending lifespan compared to
+                                       unaged samples due to substrate embrittlement. Hence, the surface cracking mechanism
+                                       alters as the weathering time is prolonged. Not only the weathering time, but also the
+                                       thickness of the conductive metal layer plays an important role in influencing the bending
+                                       reliability behaviors of the OMO FTCs. A sequential aging test that combines two-step UV
+                                       weathering and an interim manual bending demonstrates that surface cracks can induce the
+                                       degradation of both optical and electrical properties. Intricately complex bending modes
+                                       would accelerate the deterioration. This study highlights the critical and synergistic roles
+                                       of weathering aging and cyclic bending on the reliability of OMO FTCs, offering insights
+                                       for future design and durability assessments of flexible optoelectronic devices. Research
+                                       results also provide fundamental information for establishing application-specific reliability
+                                       testing protocols for FTCs.
+
+                                       Keywords: flexible transparent conductors; laminated multilayer; reliability; Weibull
+                                       analysis; cyclic bending; accelerated weathering; sequential aging test
+
+Academic Editor: Je Moon Yun            1. Introduction
+
+Received: 26 February 2026                    The light-weight and compact-size traits of flexible electronics have promoted emerg-
+Revised: 31 March 2026                  ing technologies such as electrochromic, organic photovoltaic, light-emitting, wearable
+Accepted: 3 April 2026                  sensors, sensory, and energy harvesting devices to a new era in terms of portability and
+Published: 5 April 2026                 mobility. Flexible transparent conductors (FTCs) are essential materials in the applications
+Copyright: © 2026 by the authors.       of flexible electronics [1­4]. However, stability and reliability issues of FTC materials remain
+Licensee MDPI, Basel, Switzerland.      a huge obstacle to the broadened deployment and applications of flexible optoelectronic
+This article is an open access article  devices. Typical FTC materials are nanostructured metals and conductive polymers. These
+distributed under the terms and         materials are intrinsically vulnerable to environmental stressors such as ultraviolet (UV)
+conditions of the Creative Commons      irradiation, high heat, humidity, and bending. Laminated multilayer structures through
+Attribution (CC BY) license.            depositing conductive and protective coatings of noble metals and oxide-based ceramics are
+                                        commonly adopted to enhance the stability and durability of FTC materials [1­7]. Typical
+
+Coatings 2026, 16, 439                  https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                              2 of 16
+
+                        material processes include ultrathin-metal-film by conventional physical vapor deposition,
+                        metal nanowires by solution processes, and carbon-based nanomaterials by chemical va-
+                        por deposition for conductive functionality, and conductive metal oxide ultrathin-film by
+                        sputtering and evaporation for protective coatings [8].
+
+                              To address reliability issues, bending tests of laminated FTCs have been widely studied
+                        in the literature [1,7­10]. It is known that the deformation mode of mechanical loading
+                        has a significant effect on the failure behaviors of FTCs [11,12]. Moreover, cyclic bending
+                        test of FTCs can be combined with aging tests to investigate not only mechanical integrity
+                        but also the mechano-chemo-coupled effects on chemical stability [13,14]. However, the
+                        combined aging tests with cyclic bending usually involve high complexity and high cost
+                        for the testing apparatus. On the other side, sequential aging tests that sequentially expose
+                        testing samples to key stressors for emulating in-operation conditions in the fields are facile
+                        and cost-friendly for reliability assessment [15­17].
+
+                              Traditional weathering and aging tests adopt a one-step test of single or multiple
+                        environmental stressors to assess the reliability of materials, components, and devices.
+                        However, one-step tests result in discrepancies in failure behaviors when encountering
+                        complex outdoor environmental stressors. Sequential testing can therefore effectively
+                        identify degradation pathways that cannot be easily produced by traditional aging methods.
+                        On the other hand, testing results of cyclic bending tests require a statistical perspective
+                        for a comprehensive understanding of testing parameters and results [18]. The Weibull
+                        distribution is a typical method that represents the weakest-type-link nature of the bending-
+                        caused cracking behaviors of materials. However, there is only a limited study showing
+                        statistical analysis of cyclic bending testing results for FTCs [19], let alone sequential testing
+                        consisting of aging and bending. Novel test methodologies beyond test-to-failure protocols
+                        have to be investigated for unambiguously revealing the reliability behaviors of FTC
+                        materials and components.
+
+                              In this study, a commercially available oxide/metal/oxide (OMO) free-standing FTC
+                        was selected as a model sample due to its low cost for large-scale fabrication compared to
+                        other FTCs. The laminated structure of OMO samples, with the protection of oxide layers
+                        to prevent corrosion and degradation for the conductive metal layer (silver in this study)
+                        during the weathering test, is very stable against environmental factors. Previous studies
+                        have demonstrated that the optoelectrical properties of OMO coatings remain unchanged
+                        after traditional one-step weathering tests [20]. However, the polymeric substrate expe-
+                        rienced significant degradation after UVA irradiation [21,22]. The degraded polymeric
+                        substrates can alter stress statuses in the multilayered system of OMO samples during
+                        bending deformation. To the best of our knowledge, only a few papers have performed
+                        sequential aging tests and statistical analysis for assessing the cyclic bending reliability
+                        of OMO FTCs after weathering. Moreover, although multi-step UV exposure has been
+                        suggested in some general testing standards, such as ASTM D7869, for protective coatings
+                        in outdoor applications [23], the combination of mechanical bending and UV exposure at
+                        elevated temperature for sequential testing has not been thoroughly studied for FTCs.
+
+                              This study demonstrates the reliability evolution behaviors of Ag-based OMO FTCs
+                        through cyclic bending tests before and after aging, illustrating a fundamental sequential
+                        test consisting of a one-step UVA weathering followed by a cyclic bending test. Reliability
+                        assessment is realized by the Weibull model through analyzing the results of in situ resis-
+                        tance measurement under cyclic bending for OMO FTCs that have experienced various
+                        accelerated weathering times and have different thicknesses of Ag layers. Furthermore, a
+                        sequential aging protocol composed of two-step UVA weathering and an interim manual
+                        bending step for provoking surface cracks has been conducted to illustrate the propensity
+                        of progressive degradation due to bending-caused cracks. The effect of the bending de-
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                              3 of 16
+
+                        formation modes on the reliability and cracking behaviors of OMO FTCs has also been
+                        investigated. Materials characterization of failure analysis has been performed on the failed
+                        samples to compare the degradation of material properties with the unaged samples.
+
+                        2. Materials and Methods
+
+                        2.1. OMO Samples and Weathering Tests
+
+                              Commercial OMO samples with two different sheet resistance values, 2.5 /sq and
+                        16.0 /sq, were obtained from ConvergEver Inc., Ltd. (New Taipei City, Taiwan). The
+                        OMO samples were composed of nano-laminated zinc tin oxide (ZTO)/Ag/ZTO coatings
+                        on polyethylene terephthalate (PET) substrates having a thickness of 125 µm.
+
+                              Rectangular strips with a size of 10.0 cm × 1.0 cm were cut out from the OMO sheets
+                        as received. All sample-cutting procedures adopted a rotary trimmer (KW-trio 13060,
+                        Changhua County, Taiwan) to avoid edge defects on the test samples [20,24]. Pre-aging at
+                        150 C for 30 min, which does not significantly affect the material properties, was carried
+                        out to stabilize the initial geometric dimensions of the OMO samples before proceeding
+                        with the subsequent testing steps.
+
+                              During the aging test of accelerated weathering, the substrate side (i.e., PET side) of
+                        the OMO samples was facing towards the UVA light source (UD-403S, JobHo Technology
+                        Co. Ltd., Taichung, Taiwan). For a generalized purpose of outdoor uses, referring to ASTM
+                        D7869 Standard Document for coatings, UVA irradiance ranging in 0.4~0.8 W/m2·nm (at
+                        340 nm wavelength) and temperature ranging in 40~75 C have been taken into consid-
+                        eration [23]. The parameter of the aging test was UVA irradiance 0.5 W/m2·nm at 75 C
+                        for 6 to 18 days (d) for the studies of weathering time, metal layer thickness, and bending
+                        mode effects. For the two-step weathering sequential aging test, the 18 d aged samples
+                        (i.e., samples after 1st aging step) were manually bent and then subsequently exposed
+                        to UV light for a 2nd aging step. The weathering conditions of the 2nd aging were UVA
+                        irradiance 0.77 W/m2·nm at 40 C. The reduced temperature is intended to provoke the
+                        photo-induced corrosion and degradation of silver, as illustrated in our previous work [25].
+                        Material characterization was conducted with failed samples when necessary.
+
+                        2.2. Cyclic and Manual Bending
+
+                              Real-time resistance measurements during the cyclic bending tests were achieved by
+                        employing a digital multimeter (LRS4-TG1, KeithLink Technology Co., Ltd., New Taipei
+                        City, Taiwan) in conjunction with a servo-controlled universal testing machine (Chun Yen
+                        Testing Machines Co., Ltd., CY-6102, Taichung, Taiwan). This integrated setup, along with
+                        custom software (KeithLink Technology Co., Ltd., New Taipei City, Taiwan) for logging data,
+                        facilitated continuous monitoring for resistance changes between the two terminal ends of
+                        OMO samples throughout the cyclic bending process. Custom-made acrylic fixtures were
+                        employed to realize three types of bending deformation modes, as shown in Figure 1 [26].
+                        All the cyclic bending tests were performed through displacement control methods.
+
+                        https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  4 of 16
+
+                        Figure 1. Setups of the three bending deformation modes: (a) moving end with fixed fixture while
+                        stationary end with free fixture (fixed-free mode); (b) both moving and stationary ends with fixed
+                        fixtures (fixed-fixed mode); (c) both moving and stationary ends with free fixtures (free-free mode).
+                        The yellow dashed lines and arrows in (a­c) indicate the closest position of the moving fixture to the
+                        stationary fixture and the direction of reciprocating movement. The schematic diagrams (side-view)
+                        below illustrate the three different bending deformation modes.
+
+                              By one end of the fixture being reciprocating movement and another end being sta-
+                        tionary, the OMO sample was subjected to bending, and the minimum radius of curvature
+                        of the bent OMO samples was kept not smaller than 1.0 cm. The traveling speed of the
+                        cyclically reciprocating movement of the moving fixture was 300 mm/min, which in turn
+                        was 40 s per cycle because of pauses at both ends. To make a criterion of electrical fail-
+                        ure, the OMO samples were deemed to fail as the real-time resistance value (R) reached
+                        2.5 times the original resistance value (R0). To investigate the failure behaviors of the OMO
+                        samples under different bending deformation modes, the sample was subjected to cyclic
+                        bending in the following configurations: one end with a fixed fixture while the other end
+                        with a free fixture (Figure 1a); both ends with fixed fixtures (Figure 1b); and both ends with
+                        free fixtures (Figure 1c). The free-free mode was realized through a servo-motor-controlled
+                        uniaxial translation platform.
+
+                              For the reliability study of aging time effect, OMO samples aged for 0, 6, 9, and
+                        15 d were tested by cyclic bending in fixed-free mode, with each testing population having
+                        10 samples for Weibull analysis. For the studies of Ag layer thickness and bending mode
+                        effects, 6 d aged specimens were tested in fixed-free mode. For the sequential aging
+                        tests, the 18-day-aged OMO samples were manually bent using an auxiliary mold with a
+                        diameter of 2.4 mm, prior to the 2nd aging step. The manual bending procedure was to
+                        generate immediate surface cracks, and hence, the influence of the surface cracks on the
+                        weatherability of OMO samples will be investigated.
+
+                        2.3. Materials Characterization
+
+                              For optical properties, we used a Hitachi UV­visible (UV­Vis) spectrophotometer
+                        (U-5100, Hitachi, Tokyo, Japan) to measure the transmittance of the OMO samples in a
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                              5 of 16
+
+                        wavelength range of 350 nm to 800 nm. We adopted a four-point probe along with the
+                        LRS4-TG1 KeithLink multimeter to measure the sheet resistance (Rsq) of the OMO samples.
+                        For mechanical properties, the universal testing machine was utilized to conduct tensile
+                        testing with a gauge length of 8 cm for the OMO samples. The crosshead speed of the
+                        universal testing machine was 5 mm/min during the tensile testing.
+
+                              We used a scanning electron microscope (SEM, S-4800, Hitachi, Tokyo, Japan) to
+                        observe the morphological and cross-sectional images of the OMO samples. Cross-sections
+                        of the OMO structure on the PET substrate were obtained through cutting the samples using
+                        a razor blade after soaking the OMO samples in liquid nitrogen for 10 min. Backscattered
+                        electron (BSE) images were analyzed to investigate the aging effects of the 2nd aging
+                        step after the two-step sequential aging test. The SEM operated at voltages ranging from
+                        4 to 10 kV. Qualitative chemical composition analysis of the OMO surface was conducted
+                        on the unaged and the two-step sequentially aged samples using X-ray photoelectron
+                        spectroscopy (XPS, ULVAC-PHI, PHI 5000 VersaProbe, Kanagawa, Japan). The XPS utilized
+                        the K line at 1486.6 eV emitted from an aluminum target, with a working voltage of 15 kV.
+
+                        3. Results and Discussion
+
+                        3.1. Baseline Information of the Unaged OMO Samples
+
+                              As revealed by SEM cross-sectional images, the OMO coating has a nano-laminated
+                        structure (Figure 2a,b). As the nano-laminated structure is thinner, the sheet resistance value
+                        increases, resulting in higher optical transmittance (Figures 2c,d and 3). The nano-laminated
+                        structure of the 16.0 /sq samples is thinner, resulting in a higher transmittance of 85% at
+                        a wavelength of 550 nm in the UV-Vis spectrum. It is worth noting that the commercially
+                        available OMO samples possess proprietary interlayers through interfacial engineering,
+                        such as atomic layer deposition (ALD) and silane self-assembled monolayers [27,28]. In the
+                        present study, the two clearly distinguishable transmittance spectra in Figure 3, along with
+                        the corresponding sheet resistance values, support the proof for the thickness difference of
+                        Ag layers. Based on the characterization results, the OMO samples exhibit excellent initial
+                        optoelectrical properties, including the electrical conductivity and the optical transmittance,
+                        along with a dense and robust nano-laminated oxide/Ag/oxide structure.
+
+                              Figure 3 also depicts the evolution of plasmon resonance modes due to OMO Ag
+                        nano-layer thicknesses. The Ag nano-layer is in the format of a mesh having nano-troughs
+                        instead of a continuous film. When the thickness of the Ag mesh layer exceeds a critical
+                        thickness, the sheet resistance value decreases, but the optical transmittance in the vis-
+                        ible range reaches a plateau due to the photon resonance confinement effect generated
+                        by the nanostructures of the silver mesh and metal oxide layers [29]. Additionally, due
+                        to the confinement effect of cohesive forces in the nano-laminates, the residual compres-
+                        sive stress increases as the nano-layer thickness decreases, thereby affecting the lattice
+                        constant and the valence band energy levels [6]. The degradation of the PET substrate
+                        alters the surface/interface plasmon resonance modes induced by the silver mesh nanos-
+                        tructure [20]. The transmittance at different wavelengths exhibits distinct characteristic
+                        charge distributions [29]. The conductive performance of the OMO multilayer relies on the
+                        structural integrity, while the optical transmittance largely depends on the microstructure
+                        and morphology.
+
+                        https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  6 of 16
+
+                        Figure 2. SEM cross-sectional images of ZTO/Ag/ZTO free-standing films: (a) 2.5 /sq sample,
+                        (b) 16.0 /sq sample. Tilting view (30) SEM images showing the OMO structure and PET substrate
+                        of (c) 2.5 /sq sample and (d) 16.0 /sq sample. Note that in (c,d), the short yellow dashed lines
+                        indicate the top surface edge of the OMO structure, while the long yellow dashed lines indicate the
+                        interfaces between the OMO and the PET.
+
+                        Figure 3. UV-Vis spectra of the OMO samples (as received) having sheet resistance values of
+                        16.0 /sq and 2.5 /sq.
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                              7 of 16
+
+                        3.2. Weathering Effect on the Cyclic Bending Reliability of OMO Samples
+                              Figure 4 shows the normalized resistance change (i.e., (R - R0)/R0) plotted against
+
+                        the number of bending cycles. With increasing bending cycles, the resistance values of both
+                        unaged and aged OMO samples exhibit exponential soaring. It is evident that the failure
+                        rate of aged OMO samples is higher than that of unaged samples. This can be explained by
+                        the embrittlement of PET substrates after aging, as shown later in this paper. Moreover, the
+                        failure rate increases monotonically while prolonging the aging time.
+
+                        Figure 4. Normalized resistance changes as a function of cyclic bending cycles under fixed-free mode
+                        for 16.0 /sq samples before and after various aging times of accelerated weathering. The electrical
+                        failure is defined as (R - R0)/R0 = 1.5 (threshold indicated by the dashed line), where R0 is the
+                        original resistance value before bending, and R is the real-time resistance value during bending.
+
+                              Figure 5 reveals the presence of quasi-periodic channel cracks on the OMO coatings of
+                        the failed samples. Note that the crack direction is perpendicular to the length direction of
+                        the rectangular strip samples. The inspection area is the location where the minimum radius
+                        of curvature occurs during bending. The crack density increases with the extension of the
+                        weathering time. The rise in resistance during cyclic bending is primarily caused by such
+                        fatigue stress-induced cracking on the conductive OMO coating [1]. Note that the bending
+                        cycles experienced for the samples in Figure 5 are different due to different weathering times
+                        exposed, while the same real-time resistance has been achieved. Abundant literature has
+                        performed focused ion beam (FIB) cross-sectional analysis, demonstrating the microscopic
+                        insights of the existence of bridges and necking at the crack damage centers for discovering
+                        the relationship between conductive pathways and mechanical damage evolution [30­34].
+                        In the present study, the data from cyclic bending tests were statistically analyzed using
+                        the Weibull distribution to acquire the characteristic lifespan of the OMO sample under
+                        cyclic bending and to investigate the evolution in failure behaviors caused by various
+                        aging times.
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                        8 of 16
+
+                        Figure 5. SEM images showing surface morphologies of the crack regions of electrically failed OMO
+                        samples (16.0 /sq) before (a), and after accelerated weathering for (b) 6 d, (c) 9 d, and (d) 15 d.
+
+                              The Weibull distribution is a continuous distribution function used to analyze material
+                        lifespan data, extract failure times, and conduct reliability analysis. It is particularly suitable
+                        for cracking issues because such scenarios possess the nature that localized damage to
+                        materials results in the overall failure of the component, device, or system. The probability
+                        density function (PDF), f (t), in the Weibull distribution is defined as follows:
+
+                        f (t) =     (  t  )-1e-(     t  )  ,  (1)
+                                                     
+
+                        where  is the shape parameter, and  is the scale parameter representing the failure time
+                        (t) at which 63.2% of the tested samples have failed. The cumulative distribution function
+                        (CDF), F(t), is derived by integrating Equation (1), so that
+
+                        F(t)     =  1  -  e-(  t  )  .        (2)
+                                               
+
+                              By analyzing the parameters of the Weibull distribution, the impact of accelerated
+                        weathering on the bending-damaged OMO samples can be studied.
+
+                              The Weibull distribution diagram of the cyclic bending test results before and after
+                        one-step environmental testing is displayed in Figure 6, and the summary of Weibull
+                        parameters is presented in Table 1. Both  and  values show significant evolution with
+                        increasing weathering time. For unaged (0 d) samples, the  = 2.2 indicates a right-skewed
+                        distribution. After 6 d to 15 d weathering times, the  value increases from 3.8 to 10.0,
+                        illustrating that the distribution becomes more left-skewed after a longer weathering time.
+                        On the other hand, as the weathering time increases from 0 d to 15 d, the scale parameter,
+                        which represents the characteristic lifespan of the OMO sample under cyclic bending, drops
+                        sharply from 49,522 cycles to 1804 cycles. This suggests that longer UV exposure leads
+                        to a reduction in the bending lifespan in terms of electrical failure. The UVA exposure at
+                        elevated temperature leads to chain scission and oxidation of the PET substrate, and alters
+                        its mechanical behaviors [20]. Therefore, the apparent monotonic evolution of the  and 
+                        values reveals a gradual change in the failure mechanism.
+
+                                                        https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                9 of 16
+
+                        Figure 6. The Weibull plot displaying the results obtained from cyclic bending tests under fixed-free
+                        mode. Experimental data points are represented by symbols, while solid lines depict the CDF curves.
+
+                        Table 1. The shape and scale parameters from the Weibull analysis of 16.0 /sq samples before aging
+                        and after various aging times.
+
+                        Aging Time        Weibull Parameters
+                           (Days)
+                                    Shape Parameter,   Shape Parameter, 
+                               0                              (Cycles)
+                               6
+                               9    2.2                       49,522
+                              15
+                                    3.8                       12,012
+
+                                    4.9                       7460
+
+                                    10.0                      1804
+
+                              The tensile test results shown in Figure 7 demonstrate the progressive change of the
+                        mechanical behaviors of OMO samples before and after weathering. The area under the
+                        stress­strain curves, measured in Joules per unit volume, implicates the tendency towards
+                        ductility or brittleness during mechanical deformation. Unaged samples exhibit high
+                        ductility, characterized by a very high ultimate strength and a significantly large strain at
+                        break. Upon UV exposure, the chemical bonds within PET, particularly the ester bonds,
+                        are disrupted, leading to the breakage of molecular chains and a subsequent reduction in
+                        molecular weight [21,22]. These structural changes directly affect the mechanical properties
+                        of PET, significantly impairing its strength and toughness, and hence making the OMO
+                        multilayer prone to cracking upon bending [35]. As aging time increases, the  gradually
+                        shifts to a higher value, indicating more damage to the internal integrity of the materials,
+                        and meanwhile,  decreases to 1804 cycles. The embrittlement increases the stress that
+                        is experienced by the OMO nano-layers during cyclic bending, which in turn accelerates
+                        defect formation and accumulation [13], leading to more pronounced channel cracks on
+                        the OMO multilayers as observed in Figure 5. It is known that stiffness and toughness of
+                        substrates are critical to the strain constraint/transfer effect on the deformation-induced
+                        cracking of flexible conductors [33,34,36]. Therefore, the electromechanical performance
+                        of OMO FCTs heavily relies on the weatherability of substrate materials. Additionally,
+                        as the bending cycle number increases, delamination and peeling may occur at the inter-
+                        faces, which further deteriorate the electrical properties and speed up the overall failure
+                        process [37].
+
+                                                       https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  10 of 16
+
+                        Figure 7. Stress­strain curves of 16.0 /sq OMO samples before and after accelerated weathering
+                        tests. The inset shows the details in a low scale of strain.
+                        3.3. Effect of Ag Layer Thickness on the Bending Reliability Behavior
+
+                              The performance under cyclical bending varies with different Ag layer thicknesses.
+                        Here, the aging time has been fixed at 6 d, and the cyclic bending caused electrical fail-
+                        ure was recorded for Weibull analysis. The Weibull distribution of the testing results is
+                        presented in Figure 8. As the thickness of the Ag mesh increases, the bending lifespan
+                        increases from 12,012 to 22,851, and the  value rises from 3.8 to 5.5, indicating a shift
+                        toward a more left-skewed distribution along with a slower failure rate. This suggests that
+                        although weathering-caused damage exists, the stress to propagate microcracks within
+                        the materials has been delayed due to the increased Ag layer thickness. Thicker Ag layers
+                        redistribute mechanical stress more evenly, reducing localized stress concentrations that
+                        would accelerate crack initiation, formation, and growth, which is critical for improving
+                        durability under repeated mechanical loading [28,38,39]. The enhanced resistance to crack-
+                        ing allows the OMO multilayer to withstand a greater number of cyclic bending, effectively
+                        delaying electrical failure and improving fatigue life.
+
+                        Figure 8. The Weibull plot displaying the results obtained from cyclic bending tests with different Ag
+                        layer thickness (i.e., different initial sheet resistance values) after accelerated weathering for 6 d.
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                             11 of 16
+
+                        3.4. Sequential Aging Test by Two-Step UVA Weathering
+
+                              Although the OMO FTC film retains good electrical properties after being weathered, it
+                        is very likely that the sequentially subsequent bending caused surface cracks will influence
+                        its opto-electrical properties and chemical stability. Therefore, a two-step sequential aging
+                        test is necessary to investigate the degradation behaviors of cracked OMO FTCs.
+
+                              The first step of aging majorly degraded the PET substrate, provoking PET substrate
+                        embrittlement. The bending step would proliferate surface cracks because of the increased
+                        brittleness of the PET substrate. Figure 9 shows the progressive degradation of optical
+                        properties as sequential aging tests proceeded. Bending generated surface cracking and
+                        UVA exposure at 40 C (i.e., the second aging) causes a significant drop in transmittance
+                        and evolution of the surface plasmon resonance modes in the nanostructured OMO multi-
+                        layers. The optical transmittance has been significantly impaired after the second aging
+                        step. The transmittance at different wavelengths exhibits distinct characteristic charge
+                        distributions [25,29]. Because the degraded PET substrate alters the surface/interface mor-
+                        phologies, subsequent bending can hence modify the plasmon resonance modes induced by
+                        the Ag mesh nanostructures. Furthermore, the second aging step results in photo-assisted
+                        corrosion and interfacial aging degradation on Ag around the crack areas, affecting the
+                        ZTO/Ag/ZTO nano-laminate's photoelectrical and optical properties. Figure 9b illustrates
+                        the visible evolution of the OMO samples after different stages of tests, highlighting the
+                        cracking, haze formation, localized defects, and surface nonuniformity of the two-step
+                        aged sample.
+
+                        Figure 9. (a) UV-vis spectra showing the evolution behaviors of optical transmittance (16.0 /sq
+                        samples) throughout the two-step sequential aging test. (b) Photograph showing the samples after
+                        the different stages of the sequential aging tests.
+
+                              SEM BSE images show that the bending caused surface cracks, facilitating the direct
+                        exposure of Ag, and hence corrosion products of silver could be observed in the vicinity of
+                        the cracks as the crack areas become lighter after second aging (Figure 10). In the second
+                        aging step, the occurrence of photo-assisted corrosion and interfacial aging degradation
+                        near cracks can be attributed to the direct exposure of silver to the environmental factors.
+                        Silver is particularly sensitive to photo-assisted oxidation when exposed to light in the
+                        presence of moisture and oxygen. This leads to the formation of reactive species such as
+                        hydroxyl radicals, which accelerate corrosion around the cracks [40­42].
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  12 of 16
+
+                        Figure 10. SEM BSE images showing the details around the bending caused surface cracks before (a)
+                        and after (b) the second aging step. Corrosion products can be observed in the vicinity of the cracks
+                        as lighter spots appeared (red circles in (b)) after the second aging step.
+
+                              Furthermore, the OMO cracks provide pathways for these reactive species to infiltrate,
+                        exacerbating the degradation process at the interfaces of the multilayer. After the second
+                        aging, because the Ag layer is exposed directly due to cracking, the relative amount of Ag
+                        becomes traceable (Figure 11a). Silver will undergo a photodegradation reaction, forming
+                        AgCl after the second aging (Figure 11b). UVA irradiation activates the deterioration of
+                        silver, enhancing its chemical reactivity with sulfur-containing compounds. This activation
+                        process promotes the interaction between silver and sulfides, resulting in increased sulfur
+                        deposition on the exposed silver surface (Figure 11c) [43]. Such chemical degradation
+                        findings also explain the evolution of optical behaviors shown in the UV-vis spectra in
+                        Figure 9.
+
+                        Figure 11. XPS compositional analysis of 16.0 /sq samples before and after the two-step sequential
+                        aging tests: (a) Ag 3d5/2 and 3d3/2, (b) Cl 2p3/2, and (c) S-O bond.
+                        3.5. Study of the Bending Modes
+
+                              Cyclic bending tests were conducted under three different modes, demonstrating the
+                        diversity of electrical failure behaviors for OMO samples by various bending modes [12].
+                        The detailed explanation of the three bending modes can be seen in Section 2.2 (Figure 1).
+                        Figure 12 shows the relationship between the normalized resistance change, (R - R0)/R0,
+                        and the number of bending cycles from the three bending modes studied. All three bending
+                        modes exhibit an exponential increase in resistance at different rates of failure. In the
+                        fixed-fixed mode, the samples present a monotonic rising trend with a clear sawtooth
+                        trait of resistance jumping during each bending, and eventually reach electrical failure
+                        after only 633 cycles. This is because the samples under fixed-fixed mode are subject to
+                        multiple compressive stress files, which accelerate defect formation and accumulation for
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439                                                                                                                                             13 of 16
+
+                        fatigue and cracking [19]. The resistance in this mode has illustrated the most pronounced
+                        cycle-dependent change.
+
+                        Figure 12. Normalized resistance changes as a function of cyclic bending cycles by three different
+                        bending deformation modes. The tested samples are 16.0 /sq after 6 d of one-step accelerated
+                        weathering aging.
+
+                              In contrast, samples in the free-free mode fail after 69,720 cycles. With compressive
+                        stress being relatively less influential, slower cracking behavior and therefore a more
+                        gradual but discontinuous increase in resistance throughout the cyclic bending procedure
+                        can be observed. On the other hand, it is known that the bending frequency has very
+                        little influence on the cyclic bending failure behaviors of FTCs [19]. The primary factor
+                        affecting electrical failure under cyclic bending is the formation and propagation of cracks
+                        under compressive stress [13]. The free-free mode renders the least defect formation and
+                        accumulation rate towards OMO samples, leading to a prolonged bending lifespan.
+
+                        4. Conclusions
+
+                              This study systematically investigates the reliability behaviors of Ag-based ox-
+                        ide/metal/oxide (OMO) flexible transparent conductors (FTCs) through sequentially con-
+                        ducting accelerated weathering and cyclic bending tests. The results demonstrate that the
+                        deterioration of PET substrates significantly influences the mechano-electrical properties
+                        of the OMO multilayered nanostructures. Weibull analysis reveals a notable reduction
+                        in the bending lifespan of the OMO FTCs as the aging time increases. The evolution
+                        of the shape parameter, from  = 2.2 to  = 10.0, indicates accumulating microstructure
+                        damage of OMO samples upon weathering. Stiffness and toughness evolution due to
+                        substrate degradation by weathering must be taken into consideration for the reliability
+                        performance of FTCs. On the other hand, thicker Ag layers improve fatigue resistance by
+                        redistributing mechanical stress when bent, resulting in prolonged bending lifespan. Fur-
+                        thermore, bending deformation modes play a key role in the bending failure behaviors of
+                        OMO samples.
+
+                              The two-step sequential aging test illustrates that surface cracks promote the ingress
+                        of reactive species, and hence provoke the degradation of OMO nano-Ag-layers. Therefore,
+                        impaired FTCs will be detrimental to optical performance due to the bending-caused
+                        cracks. This has been verified through the observed photo-assisted corrosion near the
+
+                                                                                                                   https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  14 of 16
+
+                                       cracks after the second aging of UVA exposure. This study provides insights into the
+                                       complex interplay between weathering, mechanical deformation, and material degradation
+                                       in OMO FTCs. Traditional one-step testing may be limited for assessing the reliability
+                                       of FTCs. The multi-step sequential aging as well as bending deformation modes play
+                                       critical roles in establishing the application-specific testing protocols for FTCs in outdoor
+                                       applications. The findings in the present study are fundamental for the future development
+                                       of standardized reliability testing, which is key to advancing durable FTCs for flexible
+                                       optoelectronics applications.
+
+                                            Author Contributions: Conceptualization, C.-C.L. and J.-Y.C.; methodology, J.-Y.C. and H.-S.C.;
+                                            software, Y.-H.K. and H.-S.C.; validation, J.-Y.C. and Y.-H.K.; formal analysis, J.-Y.C. and Y.-H.K.;
+                                            investigation, J.-Y.C., Y.-H.K. and H.-S.C.; resources, C.-C.L.; data curation, J.-Y.C. and Y.-H.K.;
+                                            writing--original draft preparation, C.-C.L. and J.-Y.C.; writing--review and editing, C.-C.L.; visual-
+                                            ization, C.-C.L. and J.-Y.C.; supervision, C.-C.L.; project administration, C.-C.L.; funding acquisition,
+                                            C.-C.L. All authors have read and agreed to the published version of the manuscript.
+
+                                            Funding: This research was funded by the National Science and Technology Council (NSTC), Taiwan,
+                                            grant numbers MOST 109-2221-E-035-039 and NSTC 114-2221-E-035-055.
+
+                                            Institutional Review Board Statement: Not applicable.
+
+                                            Informed Consent Statement: Not applicable.
+
+                                            Data Availability Statement: The original contributions presented in this study are included in the
+                                            article. Further inquiries can be directed to the corresponding author.
+
+                                            Acknowledgments: The authors thank the Precision Instrument Support Center at Feng Chia Univer-
+                                            sity for the SEM imaging (grant number NSTC 113-2740-M-035-001). The authors also acknowledge
+                                            the Msscorps Co., Ltd. for the prompt service of high-resolution SEM and the MSDL 2026 staff at
+                                            Feng Chia University for the preparation of cross-section samples.
+
+                                            Conflicts of Interest: The authors declare no conflicts of interest.
+
+References
+
+1. Cordill, M.J.; Kreiml, P.; Köstenbauer, H.; Mitterer, C. A comparison of 90 bending for foldable electronics. Coatings 2024, 14, 98.
+       [CrossRef]
+
+2. Yaseen, M.; Khattak, M.A.K.; Khan, A.; Bibi, S.; Bououdina, M.; Usman, M.; Khan, N.A.; Pirzado, A.A.A.; Abumousa, R.A.;
+       Humayun, M. State-of-the-art electrochromic thin films devices, fabrication techniques and applications: A review. Nanocomposites
+       2024, 10, 1­40. [CrossRef]
+
+3. Kim, T.H.; Park, S.H.; Kim, D.H.; Nah, Y.C.; Kim, H.K. Roll-to-roll sputtered ITO/Ag/ITO multilayers for highly transparent and
+       flexible electrochromic applications. Sol. Energy Mater. Sol. Cells 2017, 160, 203­210. [CrossRef]
+
+4. Maji, A.; Kuila, C.; Murmu, N.C.; Kuila, T. Interface-engineered hybrid networks to resolve the trade-off between sensitivity and
+       detection range in flexible strain sensors. IEEE Sens. Lett. 2026, 10, 2500204. [CrossRef]
+
+5. Wang, H.; Tang, C.; Shi, Q.; Wei, M.; Su, Y.; Lin, S.; Dai, M. Influence of Ag incorporation on the structural, optical and electrical
+       properties of ITO/Ag/ITO multilayers for inorganic all-solid-state electrochromic devices. Ceram. Int. 2021, 47, 7666­7673.
+       [CrossRef]
+
+6. Sarma, B.; Sarma, B.K. Role of residual stress and texture of ZnO nanocrystals on electro-optical properties of ZnO/Ag/ZnO
+       multilayer transparent conductors. J. Alloys Compd. 2018, 734, 210­219. [CrossRef]
+
+7. Omiyale, B.O.; Ogbeyemi, A.; Ashraf, M.A.; Song, K.-Y.; Zhang, W.C. Towards robust flexible electronics: Fabrication approaches
+       and ongoing research challenges. Sens. Actuators A Phys. 2025, 395, 117053. [CrossRef]
+
+8. Won, D.; Bang, J.; Choi, S.H.; Pyun, K.R.; Jeong, S.; Lee, Y.; Ko, S.H. Transparent electronics for wearable electronics application.
+       Chem. Rev. 2023, 123, 9982­10078. [CrossRef]
+
+9. Ohsawa, M.; Hashimoto, N.; Takeda, N.; Tsuneyasu, S.; Satoh, T. Bending reliability of transparent electrode of printed invisible
+       silver-grid/PEDOT: PSS on flexible epoxy film substrate for powder electroluminescent device. Microelectron. Reliab. 2020,
+       109, 113673. [CrossRef]
+
+10. Maeda, K.; Kashiwagi, Y.; Uno, M. Electrical and cyclic bending properties of screen-printed conductive patterns containing
+       different ratios of silver microparticles and silver microflakes. Microelectron. Reliab. 2021, 123, 114243. [CrossRef]
+
+                        https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  15 of 16
+
+11. Glushko, O.; Cordill, M.J.; Klug, A.; List-Kratochvil, E.J. The effect of bending loading conditions on the reliability of inkjet
+       printed and evaporated silver metallization on polymer substrates. Microelectron. Reliab. 2016, 56, 109­113. [CrossRef]
+
+12. Mohammed, D.W.; Ameen, R.B.; Sierros, K.A.; Bowen, J.; Kukureka, S.N. Twisting fatigue in multilayer films of Ag-alloy with
+       indium tin oxide on polyethylene terephthalate for flexible electronics devices. Thin Solid Films 2018, 645, 241­252. [CrossRef]
+
+13. Seo, Y.; Ha, H.; Matteini, P.; Hwang, B. A review on the deformation behavior of silver nanowire networks under many bending
+       cycles. Appl. Sci. 2021, 11, 4515. [CrossRef]
+
+14. Mohammed, D.; Ameen, R.; Street, S.; Sierros, K.; Bowen, J.; Kukureka, S. The effects of corrosion, fatigue, and corrosion-fatigue
+       of multilayer coated polyesters for flexible electronics applications. e-J. Surf. Sci. Nanotechnol. 2021, 19, 61­68. [CrossRef]
+
+15. Chapel, A.; Fortineau, J.; Porcher, N.; Malandain, S.; Boucaud-Gauchet, S. Effect of thermo-mechanical ageing on materials and
+       interface properties in flexible microelectronic devices. Microelectron. Reliab. 2021, 122, 114162. [CrossRef]
+
+16. Aghaei, M.; Fairbrother, A.; Gok, A.; Ahmad, S.; Kazim, S.; Lobato, K.; Oreski, G.; Reinders, A.; Schmitz, J.; Theelen, M.; et al.
+       Review of degradation and failure phenomena in photovoltaic modules. Renew. Sust. Energy Rev. 2022, 159, 112160. [CrossRef]
+
+17. Lyu, Y.; Kim, J.H.; Fairbrother, A.; Gu, X. Degradation and cracking behavior of polyamide-based backsheet subjected to sequential
+       fragmentation test. IEEE J. Photovolt. 2018, 8, 1748­1753. [CrossRef]
+
+18. Saarinen, K.; Frisk, L. Reliability analysis of UHF RFID tags under a combination of environmental stresses. IEEE Trans. Device
+       Mater. Reliab. 2013, 13, 119­125. [CrossRef]
+
+19. Hamasha, M.M.; Alzoubi, K.; Obeidat, M.S.; HMasha, E.; Alkhazali, A. Effects of cyclic bending parameters on aluminum-doped
+       zinc oxide thin films for flexible device applications. IEEE Trans. Compon. Packag. Manuf. Technol. 2023, 13, 1750­1756. [CrossRef]
+
+20. Kao, Y.-H.; Chang, H.-S.; Wang, C.-C.; Lin, C.-C. Weathering and material characterization of ZTO/Ag/ZTO coatings on
+       polyethylene terephthalate substrates for the application of flexible transparent conductors. Coatings 2022, 12, 1249. [CrossRef]
+
+21. Horne, F.J.; Liggat, J.J.; MacDonald, W.A.; Sankey, S.W. Photo-oxidation of poly(ethylene terephthalate) films intended for
+       photovoltaic backsheet. J. Appl. Polym. Sci. 2020, 137, 48623. [CrossRef]
+
+22. Gok, A.; Gordon, D.A.; Burns, D.M.; Fowler, S.P.; French, R.H.; Bruckman, L.S. Reciprocity and spectral effects of the degradation
+       of poly(ethylene terephthalate) under accelerated weathering exposures. J. Appl. Polym. Sci. 2019, 136, 47589. [CrossRef]
+
+23. ASTM D7869-17; Standard Practice for Xenon Arc Exposure Test with Enhanced Light and Water Exposure for Transportation
+       Coatings. ASTM: West Conshohocken, PA, USA, 2017.
+
+24. Xia, J.; Liu, Y.; Hu, H.; Zhu, X.; Lv, H.; Phillips, N.H.; Choudhury, K.R.; Gambogi, W.J.; Rodriguez, M.; Simon, E.S.; et al. Impact of
+       specimen preparation method on photovoltaic backsheet degradation during accelerated aging test. Energy Sci. Eng. 2022, 10,
+       1961­1971. [CrossRef]
+
+25. Chang, H.-S.; Feng, P.; Lyu, Y.; Lin, C.-C. Accelerated and outdoor weathering of silver nanowire transparent conductors under
+       electrical stress in pseudo-modules. Nanotechnology 2022, 33, 15LT01. [CrossRef]
+
+26. Kim, C.; Kim, C.H. Universal testing apparatus implementing various repetitive mechanical deformations to evaluate the
+       reliability of flexible electronic devices. Micromachines 2018, 9, 492. [CrossRef]
+
+27. Bylöff, J.; Devulapalli, V.; Casari, D.; Edwards, T.E.J.; Trost, C.O.W.; Cordill, M.J.; Husain, S.A.; Renault, P.O.; Faurie, D.; Putz,
+       B. From mechanics to electronics: Influence of ALD interlayers on the multiaxial electro-mechanical behavior of metal­oxide
+       bilayers. Adv. Funct. Mater. 2025, 35, e26343. [CrossRef]
+
+28. Chen, H.J.; Luo, X.M.; Wang, D.; Schaaf, P.; Zhu, X.F.; Zhang, G.P. Fatigue damage behavior of Au films under very high cycle
+       fatigue loading: Effects of film thickness and interlayer. J. Mater. Sci. Technol. 2026, 242, 115­127. [CrossRef]
+
+29. Bauch, M.; Dimopoulos, T.; Trassl, S. Nanostructured, ultrathin silver-based transparent electrode with broadband near-infrared
+       plasmonic resonance. Nanotechnology 2019, 30, 265201. [CrossRef]
+
+30. Kreiml, P.; Rausch, M.; Terziyska, V.L.; Köstenbauer, H.; Winkler, J.; Mitterer, C.; Cordill, M.J. Correlation of mechanical damage
+       and electrical behavior of Al/Mo bilayers subjected to bending. Thin Solid Films 2019, 687, 137480. [CrossRef]
+
+31. Gebhart, D.D.; Krapf, A.; Gammer, C.; Merle, B.; Cordill, M.J. Linking through-thickness cracks in metallic thin films to in-situ
+       electrical resistance peak broadening. Scr. Mater. 2022, 212, 114550. [CrossRef]
+
+32. Gebhart, D.D.; Krapf, A.; Merle, B.; Gammer, C.; Cordill, M.J. Describing mechanical damage evolution through in situ electrical
+       resistance measurements. J. Vac. Sci. Technol. A 2023, 41, 023408. [CrossRef]
+
+33. Li, Q.; Antoniou, A.; Pierron, O.N. In situ scanning electron microscopy crack characterization and resistance evolution in
+       cyclically-strained Ag nanoflake-based inks. ACS Appl. Nano Mater. 2024, 7, 27173­27184. [CrossRef]
+
+34. Liemann, S.; Boda, U.; Mohammadi, M.; Zhou, T.; Petsagkourakis, I.; Kim, N.; Tybrandt, K. Exploring the elastomer influence
+       on the electromechanical performance of stretchable conductors. ACS Appl. Mater. Interfaces 2024, 16, 38365­38376. [CrossRef]
+       [PubMed]
+
+35. Zakaria, Z.; Osman, H.; Rahim, N.A.A.; Munusamy, Y.; Ismail, H. Recycled polyethylene terephthalate blends and composites:
+       Impact of PET waste, engineering design, and their applications. In Recycled Polymer Blends and Composites; Jawaid, M., Sapuan,
+       S.M., Eds.; Springer Science and Business Media LLC: Cham, Switzerland, 2023; pp. 417­435.
+
+                        https://doi.org/10.3390/coatings16040439
+Coatings 2026, 16, 439  16 of 16
+
+36. Ryan, E.A.; Raia, N.E.; Reynolds, J.R.; Shofner, M.L. Origins of electromechanical behavior in surface-localized nanocomposites:
+       Insights into crack network dynamics and particle network rearrangements. ACS Appl. Polym. Mater. 2025, 7, 9211­9223.
+       [CrossRef] [PubMed]
+
+37. Ni, J.L.; Zhu, X.F.; Pei, Z.L.; Gong, J.; Sun, C.; Zhang, G.P. Comparative investigation of fracture behaviour of aluminium-doped
+       ZnO films on a flexible substrate. J. Phys. D Appl. Phys. 2009, 42, 175404. [CrossRef]
+
+38. Barraza-Contreras, J.M.; Piña-Monarrez, M.R.; Molina, A. Fatigue-life prediction of mechanical element by using the Weibull
+       distribution. Appl. Sci. 2020, 10, 6384. [CrossRef]
+
+39. Li, Q.; Antoniou, A.; Pierron, O. Understanding resistance increase in composite inks under monotonic and cyclic stretching. Flex.
+       Print. Electron. 2022, 7, 045010. [CrossRef]
+
+40. Tian, Y.; Jian, X.; Zhao, M.; Liu, J.; Dai, X.; Zhou, B.; Yang, X. Effect of thermal aging on the reliability of interconnected nano-silver
+       solder joints. Crystals 2023, 13, 1630. [CrossRef]
+
+41. Liang, D.; Allen, H.C.; Frankel, G.S.; Chen, Z.Y.; Kelly, R.G.; Wu, Y.; Wyslouzil, B.E. Effects of sodium chloride particles, ozone,
+       UV, and relative humidity on atmospheric corrosion of silver. J. Electrochem. Soc. 2010, 157, C146. [CrossRef]
+
+42. Yoon, Y.; Angel, J.D.; Hansen, D.C. Atmospheric corrosion of silver in outdoor environments and modified accelerated corrosion
+       chambers. Corrosion 2016, 72, 1424­1432. [CrossRef]
+
+43. Folgner, K.A.; Chu, C.T.; Sitzman, S.D.; Stuart, S.C.; Lingley, Z.R.; Barrie, J.D. Development and growth of corrosion features on
+       protected silver mirrors during accelerated environmental exposure. Appl. Opt. 2020, 59, A187. [CrossRef]
+
+Disclaimer/Publisher's Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+                        https://doi.org/10.3390/coatings16040439
+

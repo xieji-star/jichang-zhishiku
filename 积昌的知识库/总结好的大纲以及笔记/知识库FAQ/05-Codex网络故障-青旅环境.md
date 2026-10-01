@@ -19,15 +19,15 @@ source: "2026-08-06 晚间青旅现场实测 + Vortex 控制 API 诊断"
 
 # 🏨 Codex 网络故障：青旅环境（Vortex direct 模式）
 
-> [!summary] 📊 报错统计速览（截至 2026-08-29）
-> 🔥 **本文档共记录 <span style="color:#e74c3c">11 次报错/复发事件</span>**（2026-08-06 原始事件 1 次 + 复发 10 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 20 次，以 04 为主发地；本文档 08-14 20:56 / 08-15 12:31 复发，08-29 再复发）与 **「Vortex 被切 mode 异常（direct/global）」**（台账累计 11 次，本文档/04 各多次）。
+> [!summary] 📊 报错统计速览（截至 2026-09-20）
+> 🔥 **本文档共记录 <span style="color:#e74c3c">12 次报错/复发事件</span>**（2026-08-06 原始事件 1 次 + 复发 11 次）。高频根因为 **「订阅更新清 OpenAI 分流规则」**（台账累计 23 次，以 04 为主发地）与 **「Vortex 被切 mode 异常（direct/global）」**（台账累计 12 次，本文档/04/24 各多次）。
 >
 > | 根因 | 台账累计 | 主要发生地 |
 > |------|:---:|------|
 > | 🟠 青旅公共网络抖动（长连接偶发重建） | **3** | 05 |
-> | 🔴 订阅更新清 OpenAI 分流规则 | **20** | 04（为主）/ 05 / 06 |
-> | 🔴 Vortex 被切 mode 异常（direct/global，隧道未建立） | **11** | 05 / 04 |
-> | 🟠 节点质量波动 / 机场线路故障 | **6** | 04 / 05 |
+> | 🔴 订阅更新清 OpenAI 分流规则 | **23** | 04（为主）/ 05 / 06 / 24 |
+> | 🔴 Vortex 被切 mode 异常（direct/global，隧道未建立） | **12** | 05 / 04 / 24 |
+> | 🟠 节点质量波动 / 机场线路故障 | **7** | 04 / 05 / 24 |
 > | 🔴 Codex 应用未运行 / AppsFolder 启动命令坑 | **4** | 05 |
 >
 > 📊 完整统计口径见 [[00-报错统计台账]]。
@@ -489,6 +489,35 @@ Vortex 控制 API（`http://127.0.0.1:39798`）查询结果：
 > **① `mode: global` 是 05 已知 `direct` 之外的又一"mode 异常"变体**：global 模式强制所有流量走 GLOBAL 策略组、忽略分流规则，若 GLOBAL 指向的节点挂掉即全站超时——**排查时看 `/configs.mode`，凡非 `rule` 都按"隧道失效"处理**，处置=把运行态/配置切回 rule（本次配置文件本就是 rule，直接热加载即可纠正运行态）。
 > **② 代理进程在 ≠ 隧道通**：7897 在监听、Vortex 进程在线，但连接全 FIN_WAIT_2、外部全超时——说明流量被锁死在已挂的 GLOBAL 节点上，**以实际走代理探测为准，不要因"进程在"就排除代理故障**。
 > **③ fix_vortex_config.py 的 BASE 硬编码 `39798` 已过时**：本次控制 API 实际在 `39797`（与配置 external-controller 一致），直接跑原脚本热加载必失败——**改配置前先 `curl /configs` 探明真实控制端口**，脚本需按环境修正 BASE。
+
+## 🔁 复发记录（2026-09-20 22:11）：宿舍环境下"开了梯子连不上外网"——运行态 mode 被切 global（第 12 次）+ OpenAI 规则被清（第 23 次）+ 主根因为系统代理总开关关闭（新类型 N18）
+
+> [!summary] 📌 复发摘要
+> 用户在学校宿舍（校园 WiFi）反馈"使用了梯子，但无法连接外网"。三层诊断：**Vortex 服务进程在线、7897 在听、走 7897 实测 google 302——代理隧道本身是通的**；但 <span style="color:#ff0000">Windows 系统代理总开关 `ProxyEnable=0`</span>（Vortex GUI 未运行，无人设置系统代理），应用流量全部直连被校园网拦死（主根因，<span style="color:#ff0000">新类型 N18</span>）。叠加三重已知坑：① 运行态 <span style="color:#ff0000">`mode: global`</span>（GLOBAL → 🇸🇬新加坡-中转 02，国内也绕境外，第 12 次 mode 异常）；② <span style="color:#ff8c00">OpenAI 5 条分流规则被清</span>（65 条出厂版，第 23 次订阅清规则）；③ 补回规则后初指的 🇺🇸美国-中转 01 对 api.openai.com **Timeout**（gstatic 229ms 正常——"delay 通 ≠ 实测通"，节点质量类第 7 次）。处置：`ProxyEnable=1` + PATCH mode=rule + 配置文件恢复 5 条 OpenAI 规则（→🇺🇸美国-中转 02，233ms 实测最优）+ 补 `ipv6: false` + 热加载 204。终验：api.openai.com **401 放行** / chatgpt.com 带 UA **200** / google·youtube·github·baidu 全 200。
+
+### 诊断数据
+
+| 层级 | 检查项 | 结果 |
+|---|---|---|
+| 环境层 | 直连 | baidu 200（0.22s）/ google 000 超时（校园网封锁境外特征） |
+| 环境层 | 系统代理 | <span style="color:#ff0000">`ProxyEnable=0`</span>（主根因）；ProxyServer=127.0.0.1:7897 残留但开关关闭无效 |
+| 环境层 | Vortex 进程 | com.vortex.helper（PID 19320）在线；端口 53/7897/**39797** 在听（控制 API 已从 39798 漂移到 39797） |
+| 代理配置 | 运行态 mode | <span style="color:#ff0000">`global`</span>（磁盘配置是 rule，运行态被切） |
+| 代理配置 | OpenAI 规则 | <span style="color:#ff0000">被清空</span>（65 条出厂版，第 23 次） |
+| 代理配置 | ipv6 | true（回退，已知坑，本次补 false） |
+| 网络层 | 节点体检 | 56 节点全绿（订阅已续费）；美国-中转 02 对 api.openai.com **233ms** 最优；美国-中转 01 **Timeout** |
+| 网络层 | 走 7897（修复后） | api.openai.com **401**（1.1s 放行）/ chatgpt.com 带 UA **200** / google·youtube·github·baidu 全 200 ✅ |
+| 环境层 | 处置后系统代理 | `ProxyEnable=1`，GetSystemWebProxy 验证 google/baidu → 127.0.0.1:7897 ✅ |
+
+### 修复与关键坑
+
+1. 修复顺序：备份 → 改配置文件（OpenAI 规则 + ipv6）→ PATCH rule → 热加载 → 开系统代理 → 节点复测切美国-中转 02 → 终验。
+2. **本次新坑 ①（YAML 缩进）**：插入规则 0 缩进 vs 出厂规则 2 缩进，mihomo 解析畸形报 `proxy [美国-中转 01 - DOMAIN] not found`——**插规则必须对齐既有缩进，改完 `yaml.safe_load` 自检**。
+3. **本次新坑 ②（节点重名）**：全局替换"美国-中转 01→02"导致 proxies 清单双 02 报 `duplicate name`——**切规则指向只改 rules 段最后一列，严禁全局替换节点名**；本次从备份恢复后一次性重做。
+4. **本次新坑 ③（热加载转义）**：bash 单引号内 path 双层转义致 400，<span style="color:#1e90ff">空 body `{}` 重载当前配置最稳</span>。
+
+> [!warning] ⚠️ 关键认知（本次新增）
+> **「梯子开着」= 进程在跑 ≠ 流量在走代理**：Vortex 为"服务进程（Session 0）+ GUI"分离架构，GUI 不开则没人写 `ProxyEnable`——系统代理开关一关，Edge/Chrome/Firefox(type=5) 全部直连，校园网环境下等于没开梯子。<span style="color:#ff8c00">排查口诀：先查 ProxyEnable → 再走 7897 实测隧道 → 再查 mode/rules → 最后节点体检</span>。完整案例见 [[24-系统代理总开关关闭导致梯子开着也连不上外网（ProxyEnable=0）]]。
 
 ## 🔗 相关笔记与附件
 

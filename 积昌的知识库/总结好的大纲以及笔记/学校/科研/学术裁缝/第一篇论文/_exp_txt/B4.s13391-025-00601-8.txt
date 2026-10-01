@@ -1,0 +1,490 @@
+Electronic Materials Letters (2025) 21:843­853
+https://doi.org/10.1007/s13391-025-00601-8
+
+ ORIGINAL ARTICLE - THEORY, CHARACTERIZATION AND MODELING
+
+Analysis of Crack Parameters and Electrical Property in Flexible
+Devices Under Bending State
+
+Dong-Hyeon Kim1,2 · Ji-Youn Kwak3 · Ju-Young Kim2,3 · Eun-chae Jeon1
+
+Received: 14 August 2025 / Accepted: 13 September 2025 / Published online: 29 September 2025
+© The Author(s) under exclusive licence to The Korean Institute of Metals and Materials 2025
+
+Abstract
+Repeated or sustained bending in flexible displays induces mechanical stress on all components, particularly affecting
+narrow and thin electronic circuits. There is a lack of research that maintains the bending state during observation of
+cracks and analyzes electrical properties based on crack parameters. This study aims to observe crack parameters under
+the bending state and analyze the relationship between crack parameters and electrical properties. The results showed that
+a smaller bending radius induced greater tensile stress on the specimen surface, which in turn increased both crack den-
+sity and crack width. Measurement of resistance under bending state also revealed that smaller bending radius resulted in
+larger crack width and corresponding increases in resistance. We also demonstrated that analyzing cracks in the flat state
+(after bending state) significantly underestimated the effects of crack width in electrical properties because crack width
+was almost recovered indicating reversible deformation while crack density remained unchanged, representing irreversible
+damage after bending state. Therefore, crack analysis under actual bending state is essential for accurately evaluating the
+mechanical and electrical reliability of flexible electronic components.
+Graphical Abstract
+
+Keywords Bending · Crack width · Crack density · Resistance · Flexible device
+
+ Ju-Young Kim            1 School of Materials Science and Engineering, University of
+     juyoung@unist.ac.kr       Ulsan, Ulsan 44776, Republic of Korea
+
+ Eun-chae Jeon           2 Graduate School of Semiconductor Materials and Devices
+     jeonec@ulsan.ac.kr        Engineering, UNIST, Ulsan 44919, Republic of Korea
+
+                          3 Department of Materials Science and Engineering, UNIST,
+                               Ulsan 44919, Republic of Korea
+
+                                                                 13
+844                                                                                Electronic Materials Letters (2025) 21:843­853
+
+1Introduction                                                    variations in bending conditions affect both crack behavior
+                                                                 and electrical performance.
+The trend to adapt displays into curved or deformable forms
+is growing in various fields. Commercialized products            2 Theoretical Analysis
+such as rollable TVs and foldable smartphones exemplify
+this trend, offering the advantage of compact storage and        Direct observation of cracks under bending state requires that
+large-area expansion during use. These types of displays are     the flexible device be positioned within the SEM(Scanning
+subjected to repeated bending deformation throughout their       Electron Microscope) while maintaining its bent form. Pre-
+operation. On the other hand, curved displays used in auto-      vious studies have employed large and complex equipment
+motive systems or architectural installations typically retain   to control the bending radius of flexible devices [21­23].
+a fixed shape once installed, and experience sustained bend-     The limited specimen space inside the SEM makes it chal-
+ing deformation over time during use. In both cases, whether     lenging to use these existing devices. This study proposes a
+they exhibit repeated or sustained bending deformation, not      simple and compact jig suitable for use within the SEM, as
+only the external form but also all internal components of       shown in Fig. 1a. The jig is designed in the form of a cylinder
+the display are subjected to bending deformation. To ensure      with a groove and allows the flexible device to be inserted
+reliable functionality under such conditions, each internal      and retained in the desired bending state, as depicted in Fig.
+component must possess adequate flexibility to withstand         1b. Based on the geometric relationship illustrated in Fig.
+the imposed bending deformation.                                 1c, the bending radius (r) can be determined by the gap of a
+                                                                 jig (g) and the specimen length (l). Equation (1) was derived
+   Flexible displays typically consist of highly conductive      based on the arc length expression and a trigonometric func-
+metal for electrical interconnection and flexible polymer        tion. This equation indicates that, with a fixed gap of a jig,
+substrates for mechanical support. Mechanical bending            the bending radius can be controlled by varying the speci-
+deformation primarily induces damage, particularly crack-        men length.
+ing, in the electronic circuits rather than in the substrates.
+It is attributed to the circuits being relatively thin and less  l  =  ( ) rsin-1g (1)
+flexible compared to the thicker and more compliant poly-                  2r
+mer substrates. Many researchers investigated to under-
+stand the damage mechanisms of electronic circuits under               90
+bending deformation. The previous studies can be broadly
+categorized into repeated(or cyclic) bending and sustained       Though the bending radius increases as the specimen length
+bending. In repeated bending studies, researchers have ana-      decreases in Eq. (1), the change in specimen length becomes
+lyzed variations in performance such as resistance [1­4],        negligible to the extent when the bending radius exceeds
+power efficiency [5­7], voltage [8, 9], and current [10]. In     about 90% of the gap of a jig as shown in Fig. 1d­g. For
+sustained bending studies, resistance [11­14], stress [15],      instance, when the gap of a jig is 10 mm, increasing the
+surface strain [16], frequency [17], current [18, 19], and       bending radius from 5 to 10 mm results in an approximately
+power efficiency [20] have been investigated. They mostly        33.33% reduction in specimen length, whereas increasing
+focused on performance changes derived from variations in        it from 10 to 20 mm leads to only a 3.48% decrease. This
+electrical properties [1­14, 18­20]. These studies also have     means that the maximum bending radius is about 90% of
+generally focused on identifying the causes of damage by         the gap of a jig. The bending radius can't be smaller than
+measuring changes in electrical properties under repeated or     the half gap of a jig where the specimen becomes flat, which
+sustained bending deformation. Many studies have observed        means the minimum bending radius is 50% of the gap of a
+cracks after bending state [2, 4­8, 10, 11], with only limited   jig. The limited applicable bending radius range for a single
+studies [3] directly analyzing cracks while maintaining the      jig requires the use of multiple gap of a jigs to implement
+bending state due to methodological challenges. As a result,     a wider range of bending conditions. In this study, gap of a
+irreversible damage between under bending state and after        jigs of 10, 15, and 20 mm were selected to conduct experi-
+bending state has been identified, however, reversible dam-      ments across a broader set of bending radii.
+age has not fully characterized. This limitation has restricted
+the quantitative analysis of electrical property changes using      Under the set bending conditions, the application of
+parameters directly related to cracks, which are the main        deformation causes the top surface of the specimen (outer
+cause of damage. In this study, we propose a novel method        bending deformation) to experience tensile stress and the
+to observe cracks under bending state and investigate the        bottom surface (inner bending deformation) to experience
+correlation between crack parameters and electrical proper-      compressive stress. Stress applied to the thin film deposited
+ties at various bending radii. It allows us to analyze how       on the substrate exceeds a critical threshold, initiating crack
+                                                                 formation. Greater bending deformation leads to increases
+
+13
+Electronic Materials Letters (2025) 21:843­853              845
+
+Fig. 1 a A proposed jig to maintain
+bending conditions for observing the
+specimen inside the SEM., b An image
+of the actual specimen mounted on the
+proposed jig. c A schematic diagram of
+the geometric relationship of the bending
+radius and sizes of the proposed jig and
+the specimen. Bending radius-specimen
+length graph showing the limited range
+of bending radii for each gap of a jig. d
+g=10 mm, e g=15 mm, f g=20 mm, g
+g=25 mm
+
+in both width and number of cracks. Crack propagation       smaller resistance for narrower ones. Previous studies [2­8,
+reduces the internal mechanical contact area, resulting in  10, 11, 24­26] have reported an increase in resistance in
+greater resistance being measured for wider cracks and      the flat state after bending deformation, associated to the
+
+                                                            13
+846                                                               Electronic Materials Letters (2025) 21:843­853
+
+Table 1 Experimental conditions for bending radius (r), specimen     The surface of each specimen was observed by SEM
+length (l), and gap of the jigs (g) for crack observation         (Jeol Ltd.) for analyze crack parameters before, under
+                                                                  and after bending states. The surface before bending state
+Bending radius (r)  Length (l) (mm) Gap (g) (mm)  Spec-           was observed for confirming that there was no crack and
+(mm)                                              imen            all cracks under bending state were generated by bending
+                                                  width           deformation. We selected eight areas (6.4 m × 4.8 m) ran-
+                                                  (mm)            domly on the central region of the specimens, where sur-
+                                                                  face was clear and distortion-free, and the size of the area
+5                   15.7  10                      15              was set to contain only one or two cracks for measuring
+                                                                  the crack width accurately. Crack width was measured twice
+7.5                 23.5  15                      15              at the center of each crack in each area, and totally eight
+                                                                  crack widths were measured per a specimen, and the aver-
+10                  31.4  20                      15              age value was calculated. Crack density was calculated by
+                                                                  drawing eight random lines, each 100 m in length, on an
+12                  23.5  20                      15              area (128 m × 96 m) and dividing the number of cracks
+                                                                  intersecting each line by the length of the line. The size of
+number of cracks. The number of cracks obviously increases        the area was determined to have enough cracks for com-
+resistance, however, it is necessary to normalize the number      paring the crack density of all specimen to each other. We
+by length or area to fairly compare the number of cracks of       selected eight areas for measuring the crack density and the
+different specimen, converting it into crack density. Higher      average value was calculated in each specimen.
+crack density restricts electron movement, suggesting a pro-
+portional relationship between crack density and resistance.         Resistance measurement with a multimeter became dif-
+Flexible devices are often used under bending state, so the       ficult when the specimen was too short in a jig designed for
+correlation between cracks and resistance under bending           crack observation. To address this issue, another measure-
+state should be analyzed. Therefore, this study focuses on        ment setup was customized, as shown in Fig. 2a. This setup
+the analysis of width and density of cracks under bending         included a dedicated grip section to secure the specimen
+state, which is expected to significantly affect resistance       during bending. Considering the length occupied by the grip
+changes.                                                          section, an additional 20 mm was added to the original spec-
+                                                                  imen length to ensure that the target bending radius could be
+3Experiments                                                      accurately applied as shown in Fig. 2b. The bending radius
+                                                                  for resistance measurement was set by adding 8 mm instead
+We selected a 1 mm thick thermoplastic polyurethane               of 5 mm, which exceeded the measurable resistance range.
+(TPU) as a substrate of a flexible device, commonly used          We reset the bending radii 7.5, 8, 10, and 12 mm. Among
+in the fabrication of flexible devices [27­29]. A 26 nm thick     them, 8 mm was selected to impose the most severe bend-
+Au coating was applied to the top surface using the sputter-      ing condition, since bending deformation tended to increase
+ing method. The previously described jig is used, and the         exponentially as the radius decreases. Specimen width of
+bending radii have a range from 5 mm to 12 mm with about
+2.5 mm space by varying the gap of a jig. The specimen
+width was set to 15 mm. Detailed experimental conditions
+are shown in Table 1.
+
+Fig. 2 a An image of the fixed specimen for resistance measurement under bending states, b A schematic diagram of the resistance measurement
+points
+
+13
+Electronic Materials Letters (2025) 21:843­853                        847
+
+Table 2 Experimental conditions for bending radius, specimen length,  for each bending radius: before, under and after bending
+and gap of the jigs for resistance measurement                        states.
+
+Bending radius (r)  Length (l) (mm) Gap (g) (mm)  Spec-               4 Results and Discussion
+(mm)                                              imen
+                                                  width               SEM analysis revealed that no cracks were present before
+                                                  (mm)                bending, as shown in Fig. 3, while cracks appeared under
+                                                                      bending state across all bending radii. In general, when
+7.5                 43.5  15                      30                  an external force is applied to a material, deformation
+                                                                      progresses in the sequence of elastic deformation, plastic
+8                   45.1  16                      30                  deformation, and fracture. The yield strength indicates the
+                                                                      boundary between elastic and plastic deformation, while
+10                  51.4  20                      30                  the tensile strength corresponds to the maximum stress a
+                                                                      material can withstand within the plastic regime. In most
+12                  43.5  20                      30
+
+30 mm was selected to provide sufficient contact area for
+reliable resistance measurement. Detailed specimen dimen-
+sions are summarized in Table 2. Resistance was measured
+at the center of the specimen where the multimeter probes
+made contact. Measurements were conducted at three stages
+
+Fig. 3 SEM photos of crack density and crack width before, under and after bending states with varying bending radii. a­cr=5 mm d­fr=7.5 mm
+g-­ir=10 mm j-­lr=12 mm
+
+                                                                                           13
+848                                                                  Electronic Materials Letters (2025) 21:843­853
+
+conventional materials, plastic deformation initiates once           Using this equation, the calculated strain values were 0.1,
+applied stress exceeds the yield strength, and fracture occurs       0.067, 0.05, and 0.042 for bending radii of 5, 7.5, 10, and
+when it surpasses the tensile strength. According to previous        12 mm, respectively. Comparison with the yield strain
+studies [30], a 500 nm thick Au thin film exhibits a yield           showed that all bending conditions induce strains exceeding
+strength of 148 MPa and a tensile strength of 250 MPa. The           the yield strain by at least a factor of four. Even though the
+yield strength for 200 nm thick films is 315 MPa, and the            yield strength was not the threshold for the onset of frac-
+tensile strength is 383 MPa. These results demonstrate that          ture, the factor of four was enough for the bending strain to
+as film thickness decreases, yield strength increases while          exceed the threshold. The applied stress under bending state
+the difference between yield and tensile strengths becomes           significantly surpasses the yield strength and the threshold,
+smaller. This phenomenon is primarily attributed to the              resulting in crack formation across all radii, which predomi-
+Hall-Petch effect, where thinner films exhibit smaller grain         nantly occurs on the outer bending side.
+sizes that hinder dislocation motion and enhance strength.
+In addition to grain refinement, the increased influence of             As shown in Fig. 3, crack density increased as the bend-
+substrate constraint in thinner films further restricts dis-         ing radius decreased. Bending radius of 5 mm showed an
+location mobility. As a result, plastic deformation is more          average of about 10 cracks per 100 m, while a radius of
+limited, and fracture tends to occur shortly after the yield         12 mm resulted in about 6 cracks per 100 m, which was
+point. For example, in a 200 nm thick Au film, the difference        approximately a 40% reduction. Under the most severe
+between yield and tensile strengths is only 68 MPa. The 26           deformation condition, with a bending radius of 5 mm, the
+nm thick Au film used in this study is expected to show an           crack densities measured 10.63 cracks per 100 m under
+even smaller difference, due to further enhancement in yield         bending state and 10.25 cracks per 100 m after bending
+strength and a possible reduction in tensile strength at this        state. This behavior was interpreted as evidence of irrevers-
+scale. Based on this understanding, we assumed the yield             ible damage. Figure 3 also showed that crack width, like
+strength could be similar to the threshold for the onset of          crack density, increased as the bending radius decreased
+fracture. The corresponding yield strain (  y) was calcu-            under bending state. The average crack width at 5 mm
+lated using Hooke's law, as shown in Eq. (2).                        was approximately 1,800 nm, while at 12 mm it was about
+                                                                     760 nm, corresponding to a reduction of approximately
+y    =  E   (2)                                                      60%. However, after returning to the flat state, crack width
+        y                                                            nearly recovered and remained consistent across all bending
+                                                                     radii, ranging from approximately 55 to 60 nm. This recov-
+Here, E represents the Young's modulus, and  y repre-                ery behavior indicated that crack width is reversible damage.
+sents the yield strength. Based on the values presented in           These observations suggested that a smaller bending radius
+previous literature [30], we calculated the yield strain to be       increased strain, which in turn induced higher tensile stress
+smaller than 0.01. Equation (3) defines the bending strain of        on the specimen surface, and this stress increase resulted in
+a thin plate, where r is the bending radius and t is the speci-      greater crack density and wider crack widths. Notably, crack
+men thickness.                                                       density exhibited irreversible behavior, while crack width
+                                                                     showed reversible characteristics upon flattening. The mea-
+   =     t  (3)                                                      sured values of crack density and crack width for each bend-
+        2r                                                           ing radius and deformation state are summarized in Table 3.
+
+Table 3 Average values of crack density and crack width under bend-     To quantify the relationship between crack characteristics
+ing state and after bending state                                    and bending radius, we conducted regression analysis on the
+                                                                     measured crack width and crack density. As shown in Fig. 4,
+                                Bending radius (mm)                  both parameters exhibited non-linear trends with respect to
+                                                                     bending radius. A logarithmic transformation was applied to
+                                5  7.5         10    12              the data to linearize the relationships, and correlation equa-
+                                                                     tions were subsequently derived. The analysis revealed that
+Crack density Under                10.63 7.94        5.17 6.09       crack density scaled with the bending radius raised to the
+(number/100µm) bending                                               power of -0.78, while crack width scaled with the bending
+                                                                     radius raised to the power of -0.91. These results indicate
+                       state                                         that crack width was a little more sensitive to changes in
+                                                                     bending radius than crack density. Some deviations from
+            After                  10.25 8.70        5.66 6.25       the overall trend were observed. For example, in Fig. 4a,
+            bending                                                  the crack density at a bending radius of 10 mm was lower
+            state                                                    than that at 12 mm. Similarly, in Fig. 4b, the crack width at
+
+Crack width (nm) Under          1795.2 1093.16 1076.26 761.37
+                       bending
+                       state
+
+            After                  58.55 59.46 53.70 55.10
+            bending
+            state
+
+13
+Electronic Materials Letters (2025) 21:843­853                   849
+
+Fig. 4 a A graph of the correlation
+between crack density and bending
+radius, b A graph of the correlation
+between crack width and bending
+radius. c A graph of the comparison
+of theoretical and experimen-
+tal strain from Eqs. (3) and (5),
+respectively
+
+10 mm was comparable to that at 7.5 mm. These differences        experimental values rose more quickly, resulting in a wid-
+may be attributed to the interaction between crack width and     ening gap between theory and experiment. This discrepancy
+crack density. When cracks formed due to bending deforma-        can be explained by the mechanical constraints acting on the
+tion, the tensile stress on the material surface was partially   cracks. In the early stages of crack growth, when the cracks
+relieved through localized stretching around the cracks.         had not yet penetrated the substrate, they were constrained
+Both crack width and crack density contributed to this stress    by both the thin film and the underlying substrate. As the
+relief. A Larger crack width reduced the number of cracks        bending radius decreased and the strain increased, the cracks
+required to relieve the stress, resulting in a lower crack den-  propagated deeper and eventually reached the substrate,
+sity. Conversely, a smaller crack width required a greater       removing the constraint from the thin film. This allowed the
+number of cracks to relieve the same amount of stress, lead-     cracks to widen more significantly, thereby increasing the
+ing to a higher crack density. This inverse relationship sup-    measured crack width at a faster rate. This behavior was
+ported the hypothesis that crack width and crack density         consistent with the trend observed in Fig. 4b and c. Addi-
+were correlated. Assuming that the total opening displace-       tionally, Eq. (4) assumes that all cracks are oriented per-
+ment of all cracks formed during bending was equal to the        fectly perpendicular to the bending direction. In practice,
+surface elongation of the specimen in Eq. (4), a mathemati-      however, cracks were often slightly tilted. As a result, more
+cal relationship between crack width and crack density was       cracks are needed to relieve the applied stress than the the-
+established as Eq. (5), where l0represents the initial length    oretically predicted values. These findings indicate that at
+of the specimen.                                                 smaller bending radii, both crack width and crack density
+                                                                 increase beyond theoretical expectations. This deviation is
+l = Crack width × N umber of crack                               attributed to reduced mechanical constraints and geometric
+    = Crack width × Crack density × l0 (4)                       deviations in crack orientation.
+
+l   =  = Crack width × Crack density            (5)                 We quantitatively analyzed how crack parameters
+l0                                                               affected electrical properties by measuring resistance
+                                                                 under various bending conditions, as shown in Fig. 5a, b.
+The experimentally calculated strain from Eq. (5) was            At a bending radius of 5 mm, the resistance under bend-
+compared with theoretical predictions based on the bend-         ing state exceeded the measurable range and was therefore
+ing theory of a plate from Eq. (3) in Fig. 4c. As the bend-      excluded from the measurement. Instead, a radius of 8 mm
+ing radius decreased, both values increased. However, the        was included to enable meaningful comparison. Figure 5a
+
+                                                                 13
+850                                                            Electronic Materials Letters (2025) 21:843­853
+
+Fig. 5 a Resistance changes before,
+under and after bending states for
+various bending radius condi-
+tions. b Resistance increase rate
+for each bending radius under
+bending states. c The influence
+of crack parameters on total
+resistance change at a bending
+radius of 7.5 mm. d Contribution
+of resistance change as a function
+of bending radius with crack width,
+e Contribution of resistance change
+as a function of bending radius
+with crack density. f Schematic
+diagrams showing the relationship
+between crack depth, conductive
+layer thickness, and the amount of
+recovery
+
+showed the resistance changes before, under and after          trend was consistent with earlier crack observations, where
+bending states. As the bending radius decreased, resistance    smaller bending radii led to increased crack width and den-
+under bending state increased more significantly, while the    sity, resulting in a larger resistance increase.
+resistance of after bending state remained relatively stable
+at all bending radii. Initial resistance varied depending on      To further analyze the contributions of each crack param-
+bending radius, thus we calculated the normalized resis-       eter, we divided the total resistance change into two com-
+tance increase for fair comparison, as shown in Fig. 5b. This  ponents (reversible and irreversible) and quantified them
+                                                               as shown in Fig. 5c. The recovered resistance between
+
+13
+Electronic Materials Letters (2025) 21:843­853                   851
+
+under and after bending states was defined as Rrev, and the      5Conclusions
+unrecovered portion as Rirr. Their respective contributions
+were calculated as ratios, Rrev/R and Rirr/R, as shown           This study analyzed crack parameters and electrical prop-
+in Fig. 5d and e. This reversible component Rrev is primar-      erty changes before, under and after bending states similar
+ily influenced by crack width, as previously discussed. In       to those experienced by flexible devices. Au with 26 nm
+contrast, Rirr reflected the unrecovered resistance and was      thickness was deposited on a 1 mm TPU substrate to apply
+associated with crack density. As shown in Fig. 5d and e, the    bending deformation, and analysis under bending state
+contribution from crack width was consistently greater than      from 5 mm to 10 mm bending radii led to the following
+that from crack density across all bending radii. At a bend-     conclusions:
+ing radius of 7.5 mm, crack width accounted for about 95%
+of the total resistance change, while crack density contrib-     (1) Crack formation at all tested bending radii was analyzed
+uted only about 5%. As bending radius increased, the con-            based on yield strength assuming that it was similar to
+tribution of crack width slightly decreased, however, even at        the threshold for the onset of fracture. Yield strain was
+12 mm, it remained dominant at approximately 90%. These              calculated using previously reported values and com-
+results indicated that the resistance increase in the flexible       pared with the applied strain. In all cases, the applied
+specimen under bending state in this study was mainly gov-           strain exceeded the yield strain by at least a factor of
+erned by crack width, rather than crack density.                     four, indicating that applied stress at all bending radii
+                                                                     could occur fracture and formed cracks.
+   Previous studies have mainly focused on analyzing
+cracks in the flat state (after bending state), often neglect-   (2) As the bending radius decreased, tensile stress on the
+ing the critical influence of crack width on electrical resis-       specimen surface increased, leading to growth in both
+tance under bending state. Our results showed that crack             crack width and crack density. Crack width showed
+width increased resistance variation much more than crack            substantial recovery indicating reversible deformation
+density did. Furthermore, the extent of crack width recov-           while crack density remained unchanged, representing
+ery had a significant effect on changes in electrical proper-        irreversible damage after bending state. Among the two
+ties under and after bending states. The recovery of crack           parameters, crack width showed a little greater sensitiv-
+width induces mechanical contact in the thickness direction,         ity to changes in bending radius.
+which consequently leads to a decrease in crack depth. To
+quantify this recovery behavior of crack width, we intro-        (3) Both crack width and crack density showed negative
+duced a new parameter based on the ratio of crack depth to           exponential relationships with the bending radius, and
+total film thickness in Eq. (6) and visually illustrated in the      crack width was a little more sensitive to changes in the
+schematic diagram in Fig. 5f.                                        bending radius. During crack formation, the two vari-
+                                                                     ables influence each other, and a mathematical relation-
+Amount of recovery =  h1 -h2  (6)                                    ship can be derived under the assumption that the sum
+                          t                                          of all crack widths equals the tensile strain. In practice,
+                                                                     cracks are not perfectly vertical, necessitating the for-
+The variable t represents the total thickness of the thin            mation of additional cracks to relieve stress. As a result,
+film, h1 denotes the crack depth under bending state, and            at smaller curvature radii, both crack width and density
+h2 indicates the crack depth after bending state. Two key            are observed to be greater than theoretical predictions.
+factors contribute to increased crack width recovery. First,
+greater strain leads to a larger change in crack depth. As the   (4) Resistance measurements at various bending radii
+bending radius decreases and strain increases, both crack            revealed that resistance increased as the bending radius
+width and crack depth grow, resulting in enhanced recovery.          decreased. The resistance increased under the bending
+Second, a thinner film increases the ratio of crack depth to         state and then significantly decreased after the bending
+total thickness, which makes the recovery effect more pro-           state due to the recovery of crack width. Therefore, if
+nounced. In summary, smaller bending radii and thinner               the resistance increase is measured after bending state,
+conductive layers amplify the effects of crack width recov-          the increase may be underestimated compared to that
+ery. Smaller bending radii and thinner layers are consistent         under bending state, which corresponds to the actual in-
+with current trends in flexible displays, where high flexibil-       use condition, thereby potentially leading to an overes-
+ity and reduced thickness are essential. Therefore, account-         timation of the reliability. Such underestimation of the
+ing for crack width behavior is increasingly important in the        resistance increase becomes more pronounced when
+design of such devices.                                              the bending radius is smaller or the conductive layer is
+                                                                     thinner.
+
+                                                                 Author Contributions Dong-Hyeon Kim: Conceptualization, Inves-
+                                                                 tigation, Data analysis, Visualization, Writing-original draft. Ji-Youn
+
+                                                                 13
+852                                                                                     Electronic Materials Letters (2025) 21:843­853
+
+Kwak: Methodology, Writing-review & editing. Ju-Young Kim: Su-                                on polymer substrate. ACS Appl. Mater. Interfaces. 14(35),
+pervision, Funding acquisition., Methodology. Eun-chae Jeon: Super-                           40145­40157 (2022). https://d oi.o r g/10.1 0 21/a csami.2 c0 8 502
+vision, Funding acquisition, Conceptualization, Methodology, Valida-                    11. Hu, H., Guo, X., Zhang, Y., Chen, Z., Wang, L., Gao, Y., Wang,
+tion, Writing-review & editing.                                                               Z., Zhang, Y., Wang, W., Rong, M., Liu, G., Huang, Q., Zhu, Y.,
+                                                                                              Zheng, Z.: Elasto-plastic design of ultrathin interlayer for enhanc-
+Funding This work was supported by the National Research Founda-                              ing strain tolerance of flexible electronics. Acs Nano. 17(4),
+tion of Korea (NRF) grant funded by the government (Ministry of Sci-                          3921­3930 (2023). h t t ps: / /d oi .org/1 0 . 1 02 1/a c s na no .2 c12 269
+ence and ICT) (No. NRF-RS-2023-00217968) and also supported by                          12. Lin, C.M.: Electrical resistance effects of anisotropic conductive
+the Nano & Material Technology Development Program through the                                film-assembled flex-on-flex packages under static bending loads.
+National Research Foundation of Korea (NRF) funded by Ministry of                             Microsyst. Technol. 24(6), 2577­2584 (2018). ht tp s: / /doi.org/1 0 . 
+Science and ICT(RS-2024-00408180).                                                            10 07 / s 00 542 -017- 3 663-7
+                                                                                        13. Tran, D.P., Lu, H.I., Lin, C.K.: Conductive characteristics of
+Declarations                                                                                  indium Tin oxide thin film on polymeric substrate under long-
+                                                                                              term static deformation. Coatings. 8(6), 212 (2018). h t tps:// d oi.or 
+Conflict of interest The authors declare that they have no known com-                         g/ 1 0 . 3 39 0/ co ating s 8 06 0 2 12
+peting financial interests or personal relationships that could have ap-                14. Aslanidis, E., Skotadis, E., Tsoukalas, D.: Resistive crack-based
+peared to influence the work reported in this paper.                                          nanoparticle strain sensors with extreme sensitivity and adjust-
+                                                                                              able gauge factor, made on flexible substrates. Nanoscale. 13(5),
+References                                                                                    3263­3274 (2021). https:// d oi . or g /1 0.1 0 39/D 0N R0 700 2E
+                                                                                        15. Kim, H., Xu, D., John, C., Wu, Y.: Modeling thermo-mechanical
+1. Lall, P., Narangaparambil, J., Leever, B., Miller, S.: Effect of sin-                      stress of flexible CIGS solar cells. IEEE J. Photovoltaics. 9(2),
+      tering temperature on the fatigue life of additively printed elec-                      499­505 (2019). https ://d oi.o rg/1 0.1 1 0 9 /JPH O TO V .2019 .28 9 25 
+      tronics during cyclic bending. Proc. ITherm 2019 (2019). h tt p s: //                   31
+      doi.org /1 0.1 1 09 /ITH ERM.20 1 9.8 75 7 3 4 2                                  16. Zhang, B.C., Shi, Y.H., Mao, J., Huang, S.Y., Shao, Z.B., Zheng,
+                                                                                              C.J., Jie, J.S., Zhang, X.H.: Single-crystalline silicon frame-
+2. Yi, S.M., Choi, L.S., Kim, B.J., Joo, Y.C.: Reliability issues and                         works: a new platform for transparent flexible optoelectronics.
+      solutions in flexible electronics under mechanical fatigue. Elec-                       Adv. Mater. (2021). h t t ps: / / d oi. or g/ 10 . 1 00 2/adma. 20 20 0 81 71
+      tron. Mater. Lett. 14, 387­404 (2018). ht t p s :/ /d oi. o rg/1 0 . 10 0 7/s 1   17. Shadid, R., Haerinia, M., Noghanian, S.: Study of rotation and
+      33 91-018 - 0 043 -0                                                                    bending effects on a flexible hybrid implanted power transfer and
+                                                                                              wireless antenna system. Sensors. 20(5), 1368 (2020). h t t p s: / /doi 
+3. Kwon, K.Y., Shin, Y.J., Shin, J.H., Jeong, C., Jung, Y.H., Park, B.,                       .o r g /10 .339 0 /s2 00 51 3 68
+      Kim, T.I.: Stretchable, patch-type calorie-expenditure measure-                   18. Teloeken, A.C., Lamb, D.A., Dunlop, T.O., Irvine, S.J.C.: Effect
+      ment device based on pop-up shaped nanoscale crack-based sen-                           of bending test on the performance of CdTe solar cells on flex-
+      sor. Adv. Healthc. Mater. 8(19), 1801593 (2019). https:/ / d oi . o r g /1              ible ultra-thin glass produced by MOCVD. Sol Energy Mater. Sol
+      0.1 0 0 2 / a d h m .2 01 8 01 59 3                                                     Cells. 211, 110552 (2020). ht t ps :// doi.org/10 .1 016/ j.sol m at .2020. 
+                                                                                              1105 5 2
+4. Lee, J.S., Lee, Y.J., Seol, J., Joo, Y.C., Kim, B.J.: Vertical pattern               19. Fu, B., Yang, F., Sun, L., Zhao, Q., Ji, D., Sun, Y., Zhang, X., Hu,
+      of interconnects to bypass high strain near a hard die on a flexible                    W.: Challenging bendable organic single crystal and transistor
+      substrate under mechanical bending. Electron. Mater. Lett. 20(2),                       arrays with high mobility and durability toward flexible electron-
+      122­130 (2024). h ttps:/ /do i . o rg / 1 0 .1 00 7 / s 1 33 91 - 0 23-004 44 -1        ics. Adv. Mater. 34(39), 2203330 (2022). h ttp s :// doi .o rg/ 10 . 1 0 02/
+                                                                                              ad ma . 2 0 2 2 0 3 330
+5. Sun, Y., Meng, L., Wan, X., Guo, Z., Ke, X., Sun, Z., Zhao, K.,                      20. Li, K., Li, F., Chen, C., Jiang, P., Lu, S., Wang, S., Lu, Y., Tu, G.,
+      Zhang, H., Li, C., Chen, Y.: Flexible high-performance and solu-                        Guo, J., Shui, L., Liu, Z., Song, B., Tang, J.: One-dimensional
+      tion-processed organic photovoltaics with robust mechanical sta-                        Sb2Se3 enabling ultra-flexible solar cells and mini-modules for
+      bility. Adv. Funct. Mater. (2021). h tt p s ://d oi .org / 10 .1 002/a dfm.2 0          IoT applications. Nano Energy. 86, 106101 (2021). https:/ /do i. o r
+      20100 0 0                                                                               g/1 0 . 1016/j . n an o e n . 20 2 1 . 1 061 0 1
+                                                                                        21. Palavesam, N., Hell, W., Drost, A., Landesberger, C., Kutter,
+6. Xie, C., Jiang, X., Zhu, Q., Wang, D., Xiao, C., Liu, C., Ma, W.,                          C., Bock, K.: Influence of flexibility of the interconnects on the
+      Chen, Q., Li, W.: Mechanical robust flexible single-component                           dynamic bending reliability of flexible hybrid electronics. Elec-
+      organic solar cells. Small Methods (2021). h t tps : / / do i.org/1 0. 10 0             tronics. 9(2), 238 (2020). https:/ / d o i.or g/10. 3390/e l e c t ro nic s9 0 2 0 
+      2/smtd.202 10 0481                                                                      238
+                                                                                        22. Peng, C.Y., Dhakal, T.P., Garner, S., Cimo, P., Lu, S., Westgate,
+7. Zheng, Z., Li, F., Gong, J., Ma, Y., Gu, J., Liu, X., Chen, S., Liu,                       C.R.: Fabrication of Cu2ZnSnS4 solar cell on a flexible glass sub-
+      M.: Pre-buried additive for cross-layer modification in flexible                        strate. Thin Solid Films. 562, 574­577 (2014). htt ps : //d o i .or g/ 10. 
+      perovskite solar cells with efficiency exceeding 22%. Adv. Mater.                       101 6/j . tsf. 2 01 4 . 03 .05 4
+      34(21), 2109879 (2022). h t t ps: //doi.or g/ 1 0 . 1002/ a d m a.2 0 2 1 09 87   23. Saleh, R., Barth, M., Eberhardt, W., Zimmermann, A.: Bending
+      9                                                                                       setups for reliability investigation of flexible electronics. Micro-
+                                                                                              machines. 12(1), 78 (2021). h tt ps :/ / d o i .or g/ 10. 339 0/m i 120 1 0078
+8. Munzenrieder, N., Zysset, C., Kinkeldei, T., Troster, G.: Design                     24. Norton, E., Farrell, L., Zhussupbekova, A., Mullarkey, D., Caf-
+      rules for IGZO logic gates on plastic foil enabling operation at                        frey, D., Papanastasiou, D.T., Fleischer, K.: Bending stability of
+      bending radii of 3.5 mm. IEEE Trans. Electron. Devices. 59(8),                          Cu0.4CrO2--A transparent p-type conducting oxide for large area
+      2153­2159 (2012). h tt p s: / /d oi . or g/ 1 0 . 1 10 9/TED. 20 12 . 2 198 4 80        flexible electronics. AIP Advances (2018). https :// do i. o rg/ 1 0. 1 06
+                                                                                              3/1.5 02 70 3 8
+9. Yang, C., Lv, P., Qian, J., Han, Y., Ouyang, J., Lin, X., Huang,                     25. Cairns, D.R.: G.P. Crawford Electromechanical properties of
+      S., Cheng, Z.: Fatigue-free and bending-endurable flexible Mn-                          transparent conducting substrates for flexible electronic displays.
+      doped Na0. 5Bi0. 5TiO3-BaTiO3-BiFeO3 film capacitor with an
+      ultrahigh energy storage performance. Adv. Energy Mater 9(18),
+      1803949 (2019). h t t p s://d o i.o r g /10. 10 02/ aenm .20 1 8 0 3 9 4 9
+
+10. Fu, Z., Hannula, M., Jauho, A., Väisänen, K.L., Välimäki, M.,
+      Keskinen, J., Mäntysalo, M.: Cyclic bending reliability and fail-
+      ure mechanism of printed biodegradable flexible supercapacitor
+
+13
+Electronic Materials Letters (2025) 21:843­853                                             853
+
+      Proc. IEEE 93 8 1451­1458 h tt ps:/ / d oi .org /10 .110 9/JP ROC. 2005                    films with excellent stretchability for self-powered flexible sens-
+      .8 5 1 5 15 (2005)                                                                         ing. Nano Energy. 129, 109999 (2024). https: //d o i. org /1 0 .1 0 16/ j.
+26. Zardetto, V., Brown, T.M., Reale, A., Di Carlo, A.: Substrates for                           nano e n .2 0 2 4 .109999
+      flexible electronics: A practical investigation on the electrical,                   30. Baek, C.W., Kim, J.M., Kim, Y.K., Kim, J.H., Lee, H.J., Han,
+      film flexibility, optical, temperature, and solvent resistance prop-                       S.W.: Mechanical characterization of gold thin films based on
+      erties. J. Polym. Sci. Part. B: Polym. Phys 49(9), 638­648 (2011).                         strip bending and nanoindentation test for MEMS/NEMS appli-
+      ht tp s: // doi . o rg / 10 .1 0 02 /po l b. 2 222 7                                       cations. Sens. Mater. 17(5), 277­288 (2005)
+27. Zhang, Z., Weng, L., Guo, K., Guan, L., Wang, X., Wu, Z.: Dura-
+      ble and highly sensitive flexible sensors for wearable electronic                    Publisher's Note Springer Nature remains neutral with regard to juris-
+      devices with PDMS-MXene/TPU composite films. Ceram. Int.                             dictional claims in published maps and institutional affiliations.
+      48(4), 4977­4985 (2022). h tt ps ://doi .org /1 0 . 1 01 6 / j .ce r a min t .2 02 
+      1. 1 1. 0 3 5                                                                        Springer Nature or its licensor (e.g. a society or other partner) holds
+28. Li, B., Zhang, S., Zhang, L., Gao, Y., Xuan, F.: Strain sensing                        exclusive rights to this article under a publishing agreement with the
+      behavior of FDM 3D printed carbon black filled TPU with peri-                        author(s) or other rightsholder(s); author self-archiving of the accepted
+      odic configurations and flexible substrates. J. Manuf. Process. 74,                  manuscript version of this article is solely governed by the terms of
+      283­295 (2022). ht t ps://d o i .o r g/1 0 . 10 16/ j .jmapr o . 20 21. 1 2.0 2 0    such publishing agreement and applicable law.
+29. Fan, J., Yang, R., Du, Y., Wang, F., Wang, L., Yang, J., Zhou, A.:
+      A triboelectric nanogenerator based on MXene/TPU composite
+
+                                                                                           13
+

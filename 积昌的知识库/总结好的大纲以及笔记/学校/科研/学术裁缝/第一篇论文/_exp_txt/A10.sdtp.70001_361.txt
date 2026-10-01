@@ -1,0 +1,274 @@
+                                                           96-1 / K. Park
+
+Agent-Analytics Framework for Physics-Informed Crease Modeling in
+                          Multilayer Flexible Cover Stacks
+
+                                               Kyongtae Park
+
+     AI TF of Mobile Business Samsung Display Co., Ltd., E-mail: ktman.park@samsung.com
+
+Abstract                                                              (PSAs). Traditionally, Finite Element Analysis (FEA) has been
+                                                                      the gold standard for predicting such deformations. However,
+Crease formation in foldable displays is a critical quality issue     accurate FEA requires precise nonlinear visco-hyperelastic
+governed by the complex interplay of viscoelastic relaxation,         constitutive models, which are often unavailable for novel
+structural asymmetry, and bending mechanics. As folding radii         developmental materials. Furthermore, simulating thousands of
+decrease, the residual stress manifests as a visible surface          stacking combinations to explore the high-dimensional design
+deformation, degrading both perceived image quality and               space involves significant computational cost and time [3]. On the
+mechanical reliability. While Finite Element Analysis (FEA)           other hand, conventional Machine Learning (ML) can predict
+provides mechanistic insights, it is computationally prohibitive for  outcomes rapidly but typically treats the multilayer stack as a
+exploring high-dimensional design spaces and depends heavily          "black box." It often relies on raw geometric parameters (e.g.,
+on complex constitutive models. Conversely, data-driven Machine       individual layer thicknesses) without capturing the underlying
+Learning (ML) lacks physical interpretability. This paper             mechanics, thus failing to explain why a specific stack performs
+introduces a Physics-Informed Agent-Analytics Framework that          well or offering actionable guidance for engineering design.
+combines human domain expertise, rigorous physics-based
+feature engineering, and ensemble Explainable AI (XAI).               To bridge this gap, we propose a Physics-Informed Agent-
+Moving beyond a passive assistant role, the AI agent served as a      Analytics Framework (Fig. 1). This novel approach leverages a
+core mediator for knowledge translation, converting qualitative       collaborative workflow where human domain experts and Large
+engineering hypotheses into rigorous mathematical descriptors         Language Model (LLM) agents co-design mechanical
+using the Parallel Axis Theorem (PAT) to accurately account for       descriptors. Recent studies have demonstrated the potential of
+the neutral axis shift and the "lever-arm" effect of effective        agents in autonomous reasoning and tool integration [4], yet
+stiffness. To ensure practical validity, we constructed a dataset of  applying them to complex mechanics requires domain-specific
+50 distinct stack configurations, which were not merely simulated     grounding. The core innovation lies in the Agent's role as a
+but physically fabricated and experimentally tested. To ensure        "Knowledge Translator": it effectively bridged the gap between
+robustness, we employed an ensemble of 11 ML algorithms               abstract engineering intuition and formal mathematical modeling.
+(including Random Forest, Gradient Boosting, and SVM) and             Furthermore, unlike studies relying solely on virtual simulations,
+computed SHAP values with confidence intervals. Our analysis          our framework is validated against a dataset of 50 physically
+reveals that crease severity is primarily driven by Viscoelastic      fabricated multilayer stacks, ensuring that the insights are
+Accumulation and Stiffness Symmetry, followed by Elastic Strain       grounded in real-world phenomenology. Through this
+Energy. Counter-intuitively, lower stored elastic energy correlates   collaboration, we moved beyond simple geometric
+with reduced crease, suggesting that stress relief in high-modulus    approximations to apply the Parallel Axis Theorem (PAT),
+layers is critical. Finally, a comparative case study demonstrates    defining high-level features such as Stiffness Symmetry Index
+that a "Balanced Design" strategy--optimizing structural              and Elastic Strain Energy. These physics-informed descriptors are
+symmetry alongside material properties--yields superior and           then analyzed using a robust ensemble ML model to provide
+more practical crease mitigation than extreme material reduction      statistically reliable and mechanically interpretable design
+alone.                                                                guidelines.
+
+Author Keywords                                                          2. Methodology
+Physics-Informed Machine Learning, Agent-Analytics, Crease
+Modeling, SHAP Explainability, Stiffness Symmetry Index                  2.1. The Agent-Analytics Workflow: Bridging Intuition
+                                                                      and Math
+    1. Introduction
+                                                                      The core innovation of this framework is the utilization of an
+As the form factor of mobile devices evolves toward foldable and      LLM agent not merely as a tool, but as a pivotal "Knowledge
+rollable designs, the mechanical durability and optical quality of    Mediator" to bridge the gap between qualitative engineering
+the multilayer cover stack have become paramount. A persistent        intuition and quantitative ML features. In traditional workflows,
+challenge in this domain is the "crease"--a residual surface          domain experts often struggle to translate abstract concepts (e.g.,
+deformation at the folding area caused by the interplay of long-      "The stack needs to be balanced") into executable code for high-
+term viscoelastic creep, plastic deformation of adhesive layers,      dimensional datasets. Conversely, data scientists often lack the
+and localized stress concentration [1], [2]. This phenomenon is       mechanical context to select appropriate features. Our Agent-
+particularly exacerbated in heterogeneous stacks comprising           Analytics workflow addresses this "Translation Gap" through
+materials with vastly different moduli, such as Ultra-Thin Glass      three specific roles:
+(UTG), optical polymers, and Pressure Sensitive Adhesives
+                                                                      Knowledge Formalization: The human expert provided high-
+                                                                      level mechanical hypotheses (e.g., "Crease is driven by the lever-
+
+             SID 2026 DIGEST · 1332
+ISSN 0097-996X/26/5701-1332-$1.00 © 2026
+                                           96-1 / K. Park
+
+arm effect of outer layers"). The Agent successfully executed this     backplate), this term dominates the local stiffness (t3/12) ,
+translation, specifically proposing the application of the Parallel    creating a "lever-arm" effect that is crucial for accurate
+Axis Theorem (PAT) to quantify the effective stiffness relative to     mechanical modeling (Fig. 2).
+the neutral axis.
+                                                                          Key Physics-Informed Descriptors:
+Automated Logic Synthesis: The Agent generated robust
+Python algorithms to automate the calculation of complex                  Based on the computed Di , we formulated four critical
+features--such as the Stiffness Symmetry Index and Weighted            descriptors to capture the dominant mechanisms:
+Viscoelastic Accumulation--while implementing safety checks
+for missing material properties (e.g., handling layers with zero          1) Stiffness Symmetry Index (): This index quantifies the
+thickness or missing relaxation data).                                 structural balance of the stack.
+
+Iterative Refinement: Through a feedback loop, the Agent and                                  =      min( , )                   (3)
+human refined the descriptors. For instance, when initial simple                                     max( , )
+stiffness models (Et3) showed low correlation with crease data,
+the Agent suggested incorporating the Steiner term ( td2 ) to               A value approaching 1.0 indicates a mechanically symmetric
+account for the laminate structure, which significantly improved       structure. In a symmetric bend, the tensile and compressive
+the model's explanatory power. This collaborative process              stresses largely cancel out at the neutral plane, minimizing the net
+transforms the LLM from a passive tool into an active participant      residual moment that drives crease formation.
+in the feature engineering process, accelerating the discovery of
+physics-informed descriptors.                                             2) Elastic Strain Energy Capacity (): This represents
+                                                                       the potential energy stored in purely elastic layers (  >
+
+                                                                       10      0) during bending.
+
+                                                                                              =                                 (4)
+
+                                                                            While often associated with recovery force, high stored
+
+                                                                       energy also implies high internal stress, which can force adjacent
+
+                                                                       viscoelastic layers into plastic flow. Since all configurations are
+
+                                                                       evaluated at a constant folding radius (i.e., identical curvature ),
+
+                                                                       the  bending  strain  energy    =  1   2  is  directly  proportional  to
+                                                                                                          2
+
+                                                                       , which we thus adopt as a curvature-independent proxy.
+
+Fig. 1. Agent-Analytics workflow integrating domain reasoning,            3) Viscoelastic Accumulation (): A weighted metric for
+LLM descriptor formulation, physics-aware feature extraction,          creep susceptibility, defined as  (/). This formulation
+ML modeling, and SHAP interpretation.                                  highlights that creep is most severe in thick, low-modulus layers
+
+2.2. Physics-Informed Feature Formulation                              with high relaxation ratios (e.g., soft PSAs). The ratio
+                                                                       /represents the compliance-thickness product of each layer,
+   A critical limitation of previous data-driven studies was the       quantifying its deformability per unit width. Weighting by the
+oversimplification of layer stiffness (often approximated as  t3).
+In this work, we apply the Parallel Axis Theorem (PAT) to              relaxation ratio  selectively amplifies layers prone to time-
+rigorously define the effective stiffness. This method accounts for    dependent flow, making an effective proxy for the total creep
+the distance of each layer from the neutral axis (NA), which           susceptibility of the stack.
+significantly amplifies the contribution of outer layers to the total
+bending moment.                                                           4) Total Geometric Thickness ( Ttotal ): The baseline
+                                                                       constraint defined as the simple sum of all layer thicknesses.
+
+Neutral Axis and Effective Stiffness:
+
+   First, the global neutral axis position () is calculated as the
+modulus-weighted centroid of the stack:
+
+  =  =1                                    (1)
+      =1 
+
+   where Ei, ti and zi denote the elastic modulus, thickness, and      Fig. 2. Physics-informed structural mapping. (Left) Elastic
+centroid coordinate of the i-th layer, respectively.                   Restoring Energy is accumulated in high-modulus layers
+                                                                       (depicted as blue springs), amplified by their distance from the
+   Using zNA , the effective bending stiffness (Di) of each            Neutral Axis (NA) due to the Parallel Axis Theorem. (Right) The
+individual layer is derived as:                                        Stiffness Symmetry Index quantifies the bending balance
+                                                                       between the top (Dtop) and bottom (Dbot) stacks.
+ =  (132 + ( - )2)                         (2)
+                                                                          2.3. Robust Ensemble Modeling Strategy
+   The term ( - )2 represents the Steiner term. For thin                  To ensure the reliability of our analysis and eliminate model-
+layers positioned far from the NA (e.g., the cover window or
+
+                                           SID 2026 DIGEST · 1333
+                                                                  96-1 / K. Park
+
+specific biases, we employed an ensemble of 11 diverse
+regression algorithms, including Random Forest, Gradient
+Boosting (GBM), Support Vector Machines (SVM), CatBoost,
+and Gaussian Processes.
+
+   Instead of selecting a single "best" model, we aggregated the
+predictions and explanations. We computed SHAP (SHapley
+Additive exPlanations) values across all models to generate
+importance scores with confidence intervals (error bars). This
+rigorous approach confirms that the identified key factors are
+universal physical drivers, not artifacts of a specific algorithm.
+
+    3. Results and Discussion                                            Fig. 4. Partial SHAP importance ranking. The values represent
+                                                                      the weighted average from the 11-model ensemble, illustrating
+   3.1. Statistical Validation of Descriptors                         the consensus on the dominant drivers: Viscoelastic
+   To validate the discriminative power of the proposed               Accumulation and Stiffness Symmetry.
+descriptors, we categorized the dataset into "Good" (lowest 25%
+crease) and "Bad" (highest 25% crease) groups (Fig. 3). The              As shown in the summary plot (Fig. 4), the hierarchy of crease
+boxplot analysis reveals clear separation between the groups.         drivers is consistent:
+Specifically, the "Good" group consistently exhibits significantly
+lower Vacc, higher Ssym, and lower Uelastic. This strong statistical     Viscoelastic Accumulation (): Ranked as the paramount
+distinction confirms that our physics-informed features               factor with a strictly monotonic trend. Minimizing the volume and
+effectively capture the mechanical boundaries between superior        relaxation ratio of soft layers is the primary defense against
+and inferior stack designs.                                           crease, as it directly reduces the source of time-dependent
+                                                                      deformation.
+Fig. 3. Statistical validation of descriptors. Boxplot comparison
+between Good (low crease) and Bad (high crease) groups. The              Stiffness Symmetry Index (): Identified as the second
+"Good" group shows distinct distributions with higher symmetry        most critical factor. The analysis shows that higher symmetry
+and lower viscoelastic accumulation, demonstrating the                significantly reduces predicted crease depth. This implies that
+discriminative power of the proposed features.                        even with identical materials, optimizing the stacking order to
+                                                                      balance the stiffness above and below the NA can yield
+   3.2. Global Interpretability via Robust Ensemble                   substantial performance gains.
+   To ensure that the mechanical insights are physically intrinsic
+and not artifacts of a specific algorithm, we utilized an ensemble       Elastic Strain Energy ( ): Interestingly, our analysis
+of 11 heterogeneous ML models, including Random Forest,               reveals that lower elastic energy correlates with better crease
+Gradient Boosting, SVM, and CatBoost. The final importance            performance. While high modulus is often associated with a
+scores were derived by computing the weighted average of SHAP         strong "snap-back" force, excessive stiffness in the wrong
+values across all algorithms based on their predictive accuracy.      position accumulates high internal stress. This stress can exceed
+   Figure 4 presents this consolidated SHAP importance,               the yield limit of adjacent soft layers, inducing permanent set.
+representing the consensus of the multi-model system. The             Thus, a "Soft-Elastic" design strategy--minimizing stored energy
+statistical robustness of these predictions is visually confirmed in  while maintaining necessary rigidity--is preferable to a "Hard-
+the detailed case study (Fig. 5), where error bars explicitly         Elastic" one.
+indicate the low variance among the ensemble members,
+validating the stability of our findings.                             From Material Dependence to Geometric Compensation
+                                                                      Historically, crease mitigation has heavily relied on improving
+                                                                      the physicochemical properties of PSAs (e.g., stress relaxation or
+                                                                      recovery rates). However, material development is inherently
+                                                                      time-consuming and prone to reaching asymptotic
+                                                                      physicochemical limits. Our findings regarding () propose a
+                                                                      fundamental paradigm shift from a "material-dependent"
+                                                                      approach to "geometric compensation." The analysis confirms
+                                                                      that by optimizing structural symmetry, the shear load transferred
+                                                                      to the PSA layers can be intrinsically reduced. This implies that
+                                                                      structural balance can effectively compensate for material
+                                                                      limitations. Consequently, this "Geometric Compensation"
+                                                                      strategy empowers engineers to bypass material development
+                                                                      bottlenecks and achieve superior mechanical reliability using
+                                                                      currently available materials.
+
+SID 2026 DIGEST · 1334
+96-1 / K. Park
+
+   3.3. Case Study: The "Balanced Design" Strategy                  LLM agent as a core "Knowledge Translator," we converted
+   We further analyzed specific design cases using a combined       qualitative engineering intuition into high-level mathematical
+PCA projection and SHAP waterfall plot (Fig. 5).                    descriptors using the Parallel Axis Theorem (PAT). The
+   Crucially, the error bars in the waterfall plots represent the   framework's validity was rigorously confirmed against a dataset
+standard deviation of SHAP values across the 11 models. The         of 50 physically fabricated and experimentally tested foldable
+narrow error bars observed for the dominant features () and         stacks, ensuring that our insights reflect real-world
+(  ) confirm that the models unanimously agree on their             phenomenology rather than mere simulation artifacts.
+contribution, irrespective of the algorithmic architecture.
+   - Best Case (Balanced Design): This stack achieves the optimal   Our comprehensive analysis leads to three pivotal conclusions
+crease performance. The waterfall plot shows synergistic            that redefine the design strategy for next-generation foldable
+contributions from all factors: moderate material reduction, high   stacks:
+stiffness symmetry (Ssym  0.9), and controlled elastic energy.
+   - Second-Best (Extreme Material Optimization): This design       Paradigm Shift to "Geometric Compensation": Historically,
+relies heavily on extreme thinning of layers and minimization of    crease mitigation has relied on material advancements (e.g.,
+viscoelasticity but suffers from poor symmetry. While effective,    improved PSA relaxation). However, our discovery of the
+it approaches the physical limits of manufacturing and reliability  Stiffness Symmetry () factor compels a fundamental shift
+(e.g., impact resistance).                                          from "material-dependent" optimization to "geometric
+   - Worst Case: Characterized by high viscoelastic accumulation    compensation." We demonstrated that optimizing the stacking
+and severe asymmetry, leading to maximum residual                   order to neutralize the bending moment can intrinsically reduce
+deformation.                                                        the shear load on viscoelastic layers. This proves that structural
+                                                                    balance can effectively compensate for material limitations,
+Fig. 5. Comparative Case Study. (Left) PCA projection of the        empowering engineers to achieve superior reliability without
+design space showing the clustering of low-crease designs.          waiting for novel material breakthroughs.
+(Right) SHAP waterfall plots comparing the Best (Balanced) vs.
+Second-Best (Extreme) designs.                                      "Soft-Elastic" Design Strategy: We challenged the
+                                                                    conventional intuition that maximizing stiffness aids recovery.
+   This comparison highlights a crucial engineering insight.        Our analysis of Elastic Strain Energy reveals that excessive
+While minimizing thickness (as seen in the Second-Best case) is     stiffness in outer layers accumulates high internal stress, driving
+a valid strategy, it often compromises other product attributes.    plastic deformation in adjacent soft layers. Consequently, we
+The Best Case demonstrates that structural symmetry can             propose a "Soft-Elastic" paradigm--minimizing stored strain
+compensate for material limitations. By adopting a "Balanced        energy while maintaining essential rigidity--as a superior strategy
+Design" that prioritizes  , engineers can achieve superior          for reducing permanent deformation.
+crease performance without solely relying on extreme material
+reduction, resulting in a more robust and practical solution for    Robustness via Balanced Optimization: The comparative
+mass production.                                                    analysis of "Balanced" versus "Extreme" designs confirms that a
+                                                                    synergistic approach yields the optimal outcome. The "Balanced
+    4. Conclusions                                                  Design" leverages geometric symmetry to offset material
+This study presents a transformative approach to mechanical         constraints, offering a wider process window and greater
+design in flexible electronics by establishing a Physics-Informed   mechanical stability than designs relying solely on extreme
+Agent-Analytics Framework. Moving beyond traditional trial-         thickness reduction.
+and-error FEA and opaque black-box ML, we successfully
+integrated domain knowledge with data science through a             In conclusion, this work demonstrates that a physics-grounded,
+rigorous human-AI collaborative workflow. By positioning the        agent-mediated approach can uncover deep mechanical insights--
+                                                                    such as the principle of geometric compensation--that are often
+                                                                    missed by purely data-driven methods. This framework paves the
+                                                                    way for scalable, AI-accelerated hardware design in the era of
+                                                                    complex flexible electronics.
+
+                                                                        REFERENCES
+                                                                     [1] Y. Jia, H. Liang, K. Wang, and S. Chen, "Mechanical
+
+                                                                           simulation of foldable AMOLED panel with a module
+                                                                           structure," Organic Electronics, vol. 65, pp. 185­192, 2019.
+                                                                           DOI: 10.1016/j.orgel.2018.11.026.
+                                                                     [2] D. W. Kim et al., "Fabrication of practical deformable
+                                                                           displays: advances and challenges," Light: Science &
+                                                                           Applications, vol. 12, no. 1, 2023.
+                                                                     [3] Y. Zhang, S. Wang, F. Dong, et al., "Mechanical Behavior
+                                                                           and Constitutive Model Characterization of Optically Clear
+                                                                           Adhesive in Flexible Devices," Micromachines, vol. 13, no.
+                                                                           2, p. 301, 2022. (DOI: 10.3390/mi13020301).
+                                                                     [4] P. Xia et al., "Agent0: Unleashing Self-Evolving Agents
+                                                                           from Zero Data via Tool-Integrated Reasoning," arXiv
+                                                                           preprint arXiv:2511.16043, 2025.
+
+SID 2026 DIGEST · 1335
+

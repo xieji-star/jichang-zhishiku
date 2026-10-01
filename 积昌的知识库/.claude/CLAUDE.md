@@ -4,8 +4,8 @@
 
 - "积昌的知识库" 以后简称为"知识库"。
   ("积昌的知识库" is hereafter abbreviated as "知识库".)
-- 每当用户说到"知识库"时，默认指 `E:\积昌的知识库 - 副本`（即本 vault 根目录）。
-  (Whenever the user says "知识库", it refers to `E:\积昌的知识库 - 副本`, the vault root, by default.)
+- 每当用户说到"知识库"时，默认指 `D:\积昌的知识库`（即本 vault 根目录）。
+  (Whenever the user says "知识库", it refers to `D:\积昌的知识库`, the vault root, by default.)
 - 除非用户特别强调在其他地方，否则一律默认此位置。
   (Unless the user explicitly specifies a different location, always default to this path.)
 
@@ -55,8 +55,8 @@
 
 ## Skill 默认安装位置规则 / Skill Default Installation Location Rule
 
-- 以后安装（下载）skill 的默认位置固定为：`E:\积昌的知识库 - 副本\.claude\skills`
-  (The default location for installing (downloading) skills is fixed as: `E:\积昌的知识库 - 副本\.claude\skills`)
+- 以后安装（下载）skill 的默认位置固定为：`D:\积昌的知识库\.claude\skills`
+  (The default location for installing (downloading) skills is fixed as: `D:\积昌的知识库\.claude\skills`)
 - 在没有特别要求的情况下，所有 skill 一律安装到这个文件夹中，而不是安装到全局（如 `~/.claude/skills`）。
   (Unless there is a specific request, all skills are always installed into this folder, not installed globally (e.g., `~/.claude/skills`).)
 - 只有当用户明确强调安装到其他位置（例如全局或其他目录）时，才安装到指定位置。
@@ -72,13 +72,33 @@
   (Never default to the C drive (system drive); unless the user explicitly asks for C or another drive, always choose F.)
 - 若下载的是无需安装的解压即用工具（绿色版），也统一解压/放置到 `F:\Programs` 对应子目录，不留在下载目录或 C 盘。
   (For portable/extracted tools, extract them to `F:\Programs\<AppName>` as well, not into the download folder or C drive.)
-- 本规则与「Skill 默认安装位置规则」不冲突：skill 仍装到 `E:\积昌的知识库 - 副本\.claude\skills`（知识库既有规则），其余软件/工具一律装 F 盘。
+- 本规则与「Skill 默认安装位置规则」不冲突：skill 仍装到 `D:\积昌的知识库\.claude\skills`（知识库既有规则），其余软件/工具一律装 F 盘。
   (This rule does not conflict with the Skill Default Installation Location Rule: skills still go to the knowledge base `.claude\skills` folder; other software/tools go to F drive.)
 
 ## 指令确认规则 / Instruction Clarification Rule
 
 - 每当用户下达指令时，如果我对指令有任何不明白或不理解的地方（例如不知道该如何执行），必须立即停止任务，并立即向用户询问相关内容，直到完全明白之后才能开始任务。
   (Whenever the user gives an instruction, if I have any confusion or do not fully understand the instruction (e.g., I don't know how to proceed), I must stop the task immediately and ask the user for clarification right away. I may only start the task after I fully understand it.)
+
+## 任务前置问询规则（2026-09-09 新增）/ Pre-task Clarification Rule (Added 2026-09-09)
+
+- **每一次开始任务之前，一定要先向用户询问清楚任务的内容与细节（做什么、怎么做、输出到哪里、格式与边界），当全部明白后再开始任务。**
+  (Before starting ANY task, first clarify the task's content and details — what, how, output location, format and boundaries; start ONLY after everything is fully understood.)
+- **分情况触发 / Conditional trigger**：指令清晰具体无歧义（如"把文件存到 XX"）→ 直接执行，不强制问询；指令模糊、信息缺失、有多种理解、或涉及覆盖/删除等不可逆操作 → 必须先逐条问清再动手。本规则只问"做什么/怎么做"，不改变「权限询问禁令」。
+  (Clear, unambiguous instructions → execute directly; vague / missing-info / multi-interpretable / irreversible-risk instructions → ask first. This rule concerns WHAT/HOW only and does not override the Permission-Asking Prohibition.)
+- **问询方法：苏格拉底式问诊 / Inquiry method: Socratic questioning**（诉求模糊或混杂"事实/解释/价值判断/目标"时启用；一次只问一个，最多 6 问 / one question at a time, max 6）：
+  1. 每次只问一个问题，根据回答决定下一问，不提前抛出整套问卷；
+     (Ask one question per turn; decide the next from the answer; never hand out a full questionnaire.)
+  2. 优先区分：可验证的事实 / 对事实的解释 / 价值判断 / 希望实现的目标；
+     (Distinguish: verifiable facts / interpretations / value judgments / desired goals.)
+  3. 检查关键词是否含糊、默认了哪些前提、证据来自哪里、有无相反解释，以及结论成立或不成立各意味着什么；
+     (Check vague keywords, assumed premises, evidence sources, alternative explanations, and what the conclusion's truth or falsity would imply.)
+  4. 每次提问前，用一句话说明上一条回答更新了什么判断；
+     (Before each question, state in one sentence what the previous answer updated in your judgment.)
+  5. 只问可能改变结论的问题；信息足够时立刻停止，不必凑满 6 问。
+     (Only ask questions that could change the conclusion; stop as soon as there is enough information.)
+- **问诊结束后输出六项整理 / Post-diagnosis 6-item summary**：① 用户最开始问的问题；② 真正想解决的问题；③ 已确认的事实；④ 仍未验证的假设；⑤ 最可能改变结论的关键变量；⑥ 一个准确、具体、可以继续行动的新问题。第 ⑥ 项必须先经用户确认，之后才给出判断、理由和下一步行动。
+  (① the original question; ② the real problem to solve; ③ confirmed facts; ④ unverified assumptions; ⑤ the key variable most likely to change the conclusion; ⑥ one precise, actionable new question — ⑥ needs user confirmation before giving judgment, reasons and next steps.)
 
 ## 默认权限模式规则 / Default Permission Mode Rule
 
@@ -151,8 +171,8 @@
   (Security: the backup script auto-excludes paths containing real API keys or runtime data — `.claudian/sessions/`, the video-analysis note containing DeepSeek/APIZERO keys, and the infio-copilot plugin config. Add new secret-bearing files to the script's ROBO_EXTRA/CLEANUP exclusion table.)
 - **仓库单一目录存储**：GitHub 仓库内**只保留一个固定目录 `积昌的知识库`**，不再按日期新建文件夹、不做多版本快照、不保留最近 10 版。每次上传在现有 `积昌的知识库` 目录内**增量更新**：已修改的文件覆盖、新增的文件上传、未改动的文件跳过。
   (Single-directory storage: the repo keeps ONLY one fixed directory `积昌的知识库`; no per-date folders, no multi-version snapshots. Each upload incrementally updates within that directory.)
-- **上传方式（增量）**：直接执行增量备份脚本 `bash .claude/hooks/kb-github-backup.sh`。脚本在本地备份镜像仓库 `F:\jichang-backup`（git 仓库，remote 指向上述仓库）内执行：`git pull` → 用 `robocopy` 将备份范围从知识库**增量同步**到镜像仓库的 `积昌的知识库/` 目录（只复制变更与新增，未改动文件跳过）→ `git add -A` + `git commit`（提交信息含日期）+ `git push`。无变更时自动跳过提交与推送。
-  (Method (incremental): run the incremental backup script `bash .claude/hooks/kb-github-backup.sh`. Inside the local mirror repo `F:\jichang-backup`, it runs `git pull` → incrementally syncs the backup scope into `积昌的知识库/` via robocopy → `git add -A` + `git commit` + `git push`. Skips commit/push when nothing changed.)
+- **上传方式（增量）**：直接执行增量备份脚本 `bash .claude/hooks/kb-github-backup.sh`。脚本在本地备份镜像仓库 `D:\jichang-backup`（git 仓库，remote 指向上述仓库）内执行：`git pull` → 用 `robocopy` 将备份范围从知识库**增量同步**到镜像仓库的 `积昌的知识库/` 目录（只复制变更与新增，未改动文件跳过）→ `git add -A` + `git commit`（提交信息含日期）+ `git push`。无变更时自动跳过提交与推送。
+  (Method (incremental): run the incremental backup script `bash .claude/hooks/kb-github-backup.sh`. Inside the local mirror repo `D:\jichang-backup`, it runs `git pull` → incrementally syncs the backup scope into `积昌的知识库/` via robocopy → `git add -A` + `git commit` + `git push`. Skips commit/push when nothing changed.)
 - 上传完成后将标记文件 `.last-github-backup` 更新为当天日期。
   (After uploading, update the marker file `.last-github-backup` to the current date.)
 - 除非用户明确说不上传，否则到期自动执行。
@@ -160,8 +180,8 @@
 
 ## "知识库的规则"指代规则 / "知识库的规则" Reference Rule
 
-- 每当用户说到"知识库的规则"时，一律默认指的是知识库的 `.claude` 文件夹（即 `E:\积昌的知识库 - 副本\.claude`）。
-  (Whenever the user says "知识库的规则" (the knowledge base rules), it always refers to the `.claude` folder of the knowledge base (i.e., `E:\积昌的知识库 - 副本\.claude`) by default.)
+- 每当用户说到"知识库的规则"时，一律默认指的是知识库的 `.claude` 文件夹（即 `D:\积昌的知识库\.claude`）。
+  (Whenever the user says "知识库的规则" (the knowledge base rules), it always refers to the `.claude` folder of the knowledge base (i.e., `D:\积昌的知识库\.claude`) by default.)
 - 除非用户明确说明指的是其他位置，否则都是指这个文件夹。
   (Unless the user explicitly specifies a different location, this folder is always the one being referred to.)
 
@@ -282,8 +302,8 @@
   2. **根目录损坏/重复/临时文件**：`F:积昌的知识库`（损坏路径文件）、`积昌的知识库 - 副本_update_doc_*.py`（临时脚本）、`积昌的知识库 - 副本总结好的大纲*`（命名错误的重名 .md）、`.yolov8m-seg.pt.*.part`（未完成的模型下载）；
   3. **`中间文件/lark-resources` 中间产物**：`_*.png`（认证/配置二维码）、`学员案例提取/`、`学员案例打包文件/`、`群消息图片/`、`近期爆款-3人小组.txt`、`近期爆款-可读版.txt`；
   4. **`中间文件/lark-im-resources` 下载/转换中间文件**：目录下所有文件（`*_converted.jpg` 转换产物、下载的原始图片等），**保留空目录**；
-  5. **PDF 转图中间产物文件夹（全库范围）**：任何位置名为 `_pdf_img` 的文件夹（读取/处理 PDF 时生成的逐页转图 `page-*.png`）——纯中间产物，无笔记引用，可随时由源 PDF 重新生成，会话结束后一律自动删除（`源文件/` 保留目录除外）；
-     (5. PDF-to-image intermediate folders (vault-wide): any folder named `_pdf_img` anywhere (per-page PNG renders `page-*.png` generated when reading/processing a PDF) — pure intermediate artifacts with no note references, always regenerable from the source PDF; auto-deleted at session end (except inside the `源文件/` keep directory).)
+  5. **图片中间产物文件夹（全库范围，`_*img` 模式）**：任何位置以 `_` 开头且以 `img` 结尾的文件夹——如 `_pdf_img`（读取/处理 PDF 时生成的逐页转图 `page-*.png`）、`_sany_img`（处理三一等材料时下载/提取的图片 `img_*.png`）——纯中间产物，无笔记引用，可随时由源文件重新生成，会话结束后一律自动删除（`源文件/` 保留目录除外）；
+     (5. Image intermediate folders (vault-wide, `_*img` pattern): any folder starting with `_` and ending with `img` anywhere — e.g. `_pdf_img` (per-page PNG renders `page-*.png` generated when reading/processing a PDF) and `_sany_img` (images `img_*.png` downloaded/extracted while processing Sany materials) — pure intermediate artifacts with no note references, always regenerable from source files; auto-deleted at session end (except inside the `源文件/` keep directory).)
 - **保留对象（禁止删除）**：
   (Keep list — never delete:)
   - `中间文件/lark-resources/数字人口播脚本发音处理.html`（TTS 纠错工具，SOP/业务文档在用）；
@@ -291,3 +311,14 @@
   - 所有已整理笔记、技能、配置、`收件箱`、`已整理好的文件`、`自动维护知识库`、`源文件/`（用户原始资料目录）。
 - **政策说明**：本规则**取代**此前「飞书/IM 资源文件处理完成后不清理」的默认策略——`中间文件/lark-resources` 与 `中间文件/lark-im-resources` 视为**中间/暂存目录**，其中出现的下载/转换中间产物在会话结束后一律自动清理；但仅清理上列已知中间文件模式，**不**对 `中间文件/lark-resources` 做全量清空，未列入清理范围的文件（如新上传待用的业务文件）仍会保留。
   (Policy note: this rule supersedes the previous "do not clean Feishu/IM resource files after processing" default — `lark-resources` and `lark-im-resources` are treated as staging directories whose intermediate artifacts are auto-cleaned at session end; only the listed intermediate patterns are cleaned, the directory is NOT wiped wholesale, and unlisted files (e.g. newly uploaded business files still in use) are kept.)
+
+## Obsidian 仿真图尺寸规范（永久默认）/ Obsidian Simulation-Figure Size Standard (Permanent Default)
+
+- 凡在知识库中用 ` ```circuitjs ` 代码块绘制**电路仿真图**，画布尺寸一律按 **≈ 780 × 540 px** 标准制作（与参考图 `回路电流法-双回路电路.drawio.svg` 观感一致），不得出现"图很小"的情况。
+  (Whenever a circuit simulation figure is drawn with a ` ```circuitjs ` code block in the knowledge base, the canvas size must follow the **≈780×540 px** standard — matching the reference figure `回路电流法-双回路电路.drawio.svg` — never produce a tiny figure.)
+- **实现要点**：Falstad CircuitJS **不会自动缩放**，改容器 CSS 无效；唯一有效手段是**放大 netlist 坐标**——把每条元件行前 4 个数字（`x1 y1 x2 y2`）乘以倍数 k，使 x 最大跨度 ≈ **768**（y ≈ 384），坐标取 **16 的整数倍**；**只放大坐标，不动参数值**。
+  (Key: Falstad does not auto-scale and container CSS is ineffective; the only effective lever is scaling netlist coordinates — multiply the first 4 numbers of each element line by k so the x span ≈768 (y ≈384), snapped to multiples of 16; scale coordinates only, never parameter values.)
+- **容器尺寸**由 CSS 片段 `circuitjs-size`（`.obsidian/snippets/circuitjs-size.css`）统一控制，须保持在 `.obsidian/appearance.json` 的 `enabledCssSnippets` 中启用。
+  (The container size is controlled by the CSS snippet `circuitjs-size` at `.obsidian/snippets/circuitjs-size.css`, which must stay enabled in `enabledCssSnippets`.)
+- 详细制作方法见 `总结好的大纲以及笔记/学校/课程/大二上/电工学/Obsidian仿真图-制作规范.md`。
+  (Detailed method: see the SOP note at that path.)

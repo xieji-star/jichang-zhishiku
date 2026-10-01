@@ -1,0 +1,188 @@
+2025 International Conference on Display Technology (ICDT 2025)
+
+Mechanical simulation analysis of the failure risks and influence factor of
+                                        foldable module
+
+  Zhang shuangbing*, Zhang fang*
+
+*Hefei Visionox Technology Co., Ltd, China
+
+Abstract                                                                     effectively evaluate the risk of adhesive failure [5]. Under the
+                                                                             guidance of these simulation models, an optimized folding
+In order to ensure the foldability of the foldable screen, it has to         module stackup can even withstand up to 1 million bending cycles
+maintain a low fold stress through optimization of the foldable              under laboratory testing conditions. Despite this, foldable screens
+modulus stacking structure and materials. Nonlinear mechanical               remain susceptible to failure during operation, especially when
+simulation can be an effective tool to provide insights into folding         the folding radius is very small. Some failure phenomena, such as
+behavior. Previous simulation only focused on analyzing the                  OCA (Optical clear adhesive) bubbles and black lines (figure1)
+stress of foldable module in the folded state. In this work, the             occurring at the bending center still have no reasonable
+stress of the module was analyzed not only in the folded state but           explanation and is still a need for more in-depth study. Under
+also during the unfolding process by simulation. Different folding           laboratory testing conditions, the display module is usually folded
+programs considering the creep of the adhesive layer in a bending            and opened continuously at a constant speed. However, in actual
+state were simulated. From these results, we confirm that the load           consumer usage scenarios, foldable phones undergo more
+history may have a significant impact on the stress of the foldable          complex folding conditions.
+module. Long term retention in a folded state significantly                  In this work, the stress of the module was analyzed not only in the
+increases the risk of failure during the unfolding process. It is            folded state but also during the unfolding process by simulation.
+necessary to consider the influence of the folded state                      Different folding programs considering the creep of the adhesive
+maintenance process when designing experimental schemes to                   layer in a bending state and the unfolding speed of the foldable
+test the folding ability of foldable module. Furthermore, we                 module were simulated. From these results, we confirm that the
+confirm that these risks are related to creep&recovery                       load history has a significant impact on the stress of the module.
+performance of the adhesive layer, and a material with low creep             Long term retention in a folded state significantly increases the
+or high instantaneous creep recovery rate is required to increase            risk of failure during the unfolding process. Furthermore, we
+the foldability.                                                             attribute these risks to the viscoelasticity of the adhesive layer,
+                                                                             and a material with low creep or high instantaneous creep
+Author Keywords                                                              recovery rate is required to increase the foldability.
+
+Foldable display; Mechanical Simulation; Foldability; Optical                       Figure 1. Failure phenomena of foldable phone.
+Clear Adhesive; Creep&Recovery.
+                                                                             2. Simulation
+1. Introduction
+                                                                             The folding and unfolding procedure of foldable module is
+The foldable display market has been significantly growing since             simulated by using nonlinear finite element software to analyze
+Samaung released the first foldable mobile phone Galaxy fold in              the bending stress. In order to obtain more accurate results, a
+2019. The water-drop shape inward foldable display products are              visco-hyperelastic OCA constitutive is adopted. It is worth noting
+a mainstream type due to its compactness than wedge shape, but               that selecting a constitutive model capable of accurately depicting
+at the same time, the water-drop shape require a much more                   the hyperelastic and viscoelastic characteristics of OCA during
+complicated hinge design. In the past two years, with the rapid              large deformation in simulation is crucial.
+development of hinge technology, foldable mobiles have become                A typical foldable stack structure is considered in this work. The
+thinner and lighter. For example, the thickness of honor MagicV2             typical film stack includes: cover film, AMOLED panel, the back
+has been reduced to below 10mm when folded. On the one hand,                 film, the metal support sheet. The AMOLED panel itself also
+these extreme designs improve the user's experience, and on the              consists of multiple components including a flexible substrate,
+other hand, these designs put forward higher mechanical                      thin film transducer (TFT), thin film encapsulation (TFE), the
+reliability requirements for foldable module.
+
+In order to ensure the foldability of the foldable screen, it has to
+maintain a low fold stress through optimization of the foldable
+module stackup and materials. The stress and strain distribution
+generated in each layer can be analyzed using finite element
+method [1]. In recent years, this lead to the development of
+various simulation models to predict the reliability of
+multilayered structures, to gain structural understanding, and to
+improve design.
+
+Existing simulation only focused on analyzing the stress of
+foldable module in the folded state [2,3]. Based on these analysis,
+the adhesive failure that occurs in the outward folding area of the
+water-drop shape structure can be well understood. Adhesive
+failure is usually related to micro defects such as cavities [4]. The
+hydrostatic tension stress plays an important driving role in the
+growth of voids, therefore, the debonding index based on pressure
+instead of the maximum stress parameter can be used to
+
+                                                                       1539
+                   2025 International Conference on Display Technology (ICDT 2025)
+
+touch sensor layer. A schematic diagram of stack structure is                 keeping the folded state for a period of time before unfolding
+shown in figure2a. A water-drop shape structure with radius of                significantly increases the OCA pressure stress during the
+~1.5mm as shown in figure2b is considered in this work.                       unfolding process. It should be noted that the peak stress of OCA
+                                                                              during the unfolding process is significantly higher than that in
+                                                                              the folded state. Furthermore, the location where the maximum
+                                                                              pressure stress of OCA occurs also shifts from the outward
+                                                                              folding area to the bending center. Simulation predicts that OCA
+                                                                              failure may also occur in the center of the bending region
+                                                                              corresponding to the OCA bubble location shown in figure1b.
+                                                                              Increasing the unfolding speed will further increase OCA stress
+                                                                              as can be seen from the result for Case C.
+
+Figure 2. A schematic diagram of stack structure (left) and
+water-drop shape (right) used in this work.
+
+To investigate the influence of load history on fold stress, three
+sets of folding programs were considered. In case A, the folding
+process takes 1 s and then immediately unfolded within 1 second.
+In case B, the folding process takes 1 s, and the display remains
+in the folded state for a predetermined duration of 600 s, after that,
+the display is opened within 1 second. In case C, the module was
+folded within 1 second and after being folded for 600 s, it is
+opened within 0.1 second. Detailed information is presented in
+table1.
+
+Table 1. Three sets of folding programs                                       Figure 3. (a) The variation of OCA3 pressure stress during
+                                                                              folding process. (b) The variation of OCA3 pressure stress
+           Case A  Case B  Case C                                             during unfolding process. (c) The variation of interface
+                                                                              normal stress during folding process. (d) The variation of
+Folding    1s      1s                    1s                                   interface normal stress during unfolding process.
+
+Keeping|   /       600s                  600s                                 Figure 4. (a) The pressure distribution shows that the
+                                                                              maximum stress occurs in the outward folding area. (b) The
+Unfolding  1s      1s                    0.1s                                 pressure distribution shows that the maximum stress
+                                                                              occurs in the bending center area.
+Unless otherwise specified, we use the 2D plane strain model to
+represent the stack-up due to the thin film nature of the foldable            The black line shown in figure1 usually corresponds to interlayer
+module. In order to study the influence of pattern of supporting              delamination of the panel film which is related to interface stress.
+metal sheet, a detailed 3D structure is also simulated.                       Therefore, we also analyzed the interface normal stress of weak
+                                                                              interfaces in the panel. We focused our attention on the central
+3. Result and discussion                                                      area of the bending zone. Figure 3c and figure 3d show the
+                                                                              variation of interface normal stress with folding angle and
+Load history effect:                                                          unfolding angle respectively. During the entire folding process,
+                                                                              the normal stress at the interface is compressive stress, which
+Figure 3a and figure 3b show the variation of OCA3 pressure                   means that there is no risk of delamination failure of the panel in
+stress with folding angle and unfolding angle respectively. A                 these areas during folding process. For typical dynamic bending
+debonding risk index based on pressure is used to evaluate the                test, the foldable module was opened immediately after been
+debonding risk. During the folding process, as the folding angle              folded as case A. the results indicate that the normal stress at the
+increases, the OCA pressure stress increases. When the module is              interface remains compressive through the unfolding process.
+fully folded, the OCA pressure stress reaches its maximum value.
+The maximum stress of OCA occurs near the outward folding
+area of the water drop structure (figure 4a), the most common
+debonding failure of OCA is found at this area in typical dynamic
+bending tests. Because the pressure stress of OCA is below, based
+on our experience, the risk of OCA failure in this area is low under
+current design. For different folding programs, the pressure stress
+of OCA shows different trends with increasing unfolding angle.
+For case A, the OCA stress remains at very low level throughout
+the entire unfolding process. However, for case B, it is found that
+
+                                                                        1540
+                             2025 International Conference on Display Technology (ICDT 2025)
+
+However, when keeping the folded state for a period of time
+before unfolding as case B and case C, the result shows that the
+interface stress will transition from compressive stress to tensile
+stress during unfolding process. Furthermore, fast unfolding
+speed corresponds to greater interface normal stress.
+
+OCA viscoelasticity effect:                                                 Figure 6. (a) The variation of OCA3 pressure stress during
+                                                                            unfolding process. (b) The variation of interface normal
+As discussed in the previous section, the failure risk during the           stress during unfolding process.
+unfolding process stems from the creep of the adhesive layer,
+which cannot promptly restored during the unfolding process.                4. Conclusion
+Therefore, it can be inferred that a material with low creep or high
+instantaneous creep recovery rate help improve foldability of               In this work, the bending stress of foldable module was analyzed
+foldable module. In order to investigate the influence of the               by nonlinear mechanical simulation. The stress of the module was
+creep&recovery performance of OCA on bending stress, three                  analyzed not only in the folded state but also during the unfolding
+kinds of OCA with different creep&recovery performance but                  process. A visco-hyperelastic OCA constitutive is adopted, which
+similar modulus were compared and analyzed in our simulation.               is crucial for obtaining results.
+The key parameters are presented in table2. OCA-A has the
+maximum creep deformation and the minimum instantaneous                     From these results, we confirm that the load history may have a
+creep recovery rate, OCA-C has the minimum creep deformation                significant impact on the stress of the foldable module. Long term
+and the maximum instantaneous creep recovery rate. The                      retention in a folded state significantly increases the risk of failure
+instantaneous creep recovery rate refers to the proportion of the           during the unfolding process. It is necessary to consider the
+deformation recovery relative to the maximum deformation at the             influence of the folded state maintenance process when designing
+moment when the load is completely unloaded to zero.                        experimental schemes to test the folding ability of foldable
+                                                                            module. Furthermore, we confirm that the main key factor are
+Table 2. Creep&recovery performance of different OCA                        creep&recovery performance of OCA to improve foldability, and
+                     considered in this work                                a material with low creep or high instantaneous creep recovery
+                                                                            rate is required.
+                                    OCA-A OCA-B OCA-C
+                                                                            5. References
+Modulus               40kpa  40kpa  40kpa
+                                                                            1. Abrahamson J T, Beagi H Z, Salmon F, et al. Optical Clear
+Creep strain          620%   290%   130%                                          Adhesive for OLED [M]. 2019
+
+creep recovery rate|  30%    51.7%  76.9%                                   2. Jia YZ, Liu ZZ, Wu D, Chen JF, Meng H. Mechanical
+  (instantaneous)                                                                 simulation of foldable AMOLED panel with a module
+                                                                                  structure. Organic Electronic. 2019;65:185-192.
+Figure 6a shows the variation of OCA pressure stress with
+unfolding angle during unfolding process. Figure 6b shows the               3. Liu ZZ. Stress simulation of foldable OLED screen
+variation of interface normal stress with unfolding angle during                  bending. Chinese Journal of Liquid Crystals and Display.
+unfolding process. As the creep deformation of OCA decreases or                   2018;33(7):550-560.
+the instantaneous creep recovery rate increases, both OCA
+pressure stress and interface normal stress decrease. When OCA-             4. Y. Fu, T. Yin, S. Qu, W. Yang, cavitation/fracture
+B and OCA-C are used to replace OCA-A, the pressure stress of                     transition of soft materials, J. Mech. Phys. Solid
+OCA during unfolding decreases by 25.3% and 71.6%                                 172(2023)105192.
+respectively, interface the normal stress decreases by 27.9% and
+95% respectively. Therefore, our results confirm that controlling           5. J. Cao, A. Es'haghioskui, P. Dong, Z Gong, H. Yuan,
+the creep and recovery performance is crucial for improving the                   Displays 83(2024)102722.
+foldability of foldable module.
+
+                                                                      1541
+

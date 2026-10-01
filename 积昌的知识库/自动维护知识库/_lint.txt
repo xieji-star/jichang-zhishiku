@@ -1,0 +1,4 @@
+  File "<string>", line 9
+    files.add(os.path.relpath(os.path.join(root, f), 'wiki').replace('\','/')[:-3])
+                                                                           ^
+SyntaxError: unterminated string literal (detected at line 9)

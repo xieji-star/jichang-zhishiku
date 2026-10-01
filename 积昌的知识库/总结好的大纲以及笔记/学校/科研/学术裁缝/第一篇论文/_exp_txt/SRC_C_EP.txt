@@ -1,0 +1,486 @@
+                        Pan Ren                    Cohesive Zone Modeling of the                                                                            Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+
+School of Mechanical and Electrical Engineering,   Polyimide/Silicon Interface in
+             University of Electronic Science and
+                             Technology of China,  2.5D Packaging by
+                        No. 2006, Xiyuan Avenue,
+                              West Hi-Tech Zone,   Nanoindentation Testing
+                         Chengdu 611731, China
+                 e-mail: Pan.R@std.uestc.edu.cn    The polyimide (PI)/silicon (Si) is a critical interface in 2.5D packaging and is highly
+                                                   susceptible to failure due to thermal and mechanical loads. The large thermal expansion
+                   Shaohui Liu                     mismatch that exists between these two materials poses a challenge for interfacial modeling
+                                                   and reliability predictions. This study presents a method for extracting and calibrating the
+School of Mechanical and Electrical Engineering,   cohesive zone model (CZM) parameters of the PI/Si interface by nano-indentation testing.
+             University of Electronic Science and  Specimens were designed and fabricated to induce interfacial shear deformation during
+                             Technology of China,  indentation, and the displacement­load (D­L) curves were measured to derive the
+                        No. 2006, Xiyuan Avenue,   preliminary CZM parameters. Under the assumption of a bilinear traction­separation law,
+                              West Hi-Tech Zone,   the key parameters--initial stiffness K0, maximum shear strength smax, and critical
+                         Chengdu 611731, China     separation displacement df--were extracted. The finite element simulations were then
+                     e-mail: 519470983@qq.com      performed using ABAQUS to reproduce the experimental D­L response, df and smax were
+                                                   further calibrated to improve the agreement between simulation and experiment. The final
+                    Yaya Liang                     identified CZM parameters are: K0 ¼ 3.6  1014 Pa/m, smax ¼ 113 MPa, and df ¼ 4.2 lm.
+                                                   The simulation results demonstrate that the proposed method enables an accurate
+School of Mechanical and Electrical Engineering,   characterization of PI/Si interfacial behavior and is able to provide a reliable parameter
+             University of Electronic Science and  set for future interfacial fracture simulations. [DOI: 10.1115/1.4070886]
+                             Technology of China,
+                        No. 2006, Xiyuan Avenue,   Keywords: 2.5D packaging, PI/Si interface, cohesive zone model, nanoindentation, finite
+                              West Hi-Tech Zone,   element simulation
+                         Chengdu 611731, China
+                 e-mail: liangyaya119@163.com
+
+                       Cong Liu
+
+School of Mechanical and Electrical Engineering,
+             University of Electronic Science and
+                             Technology of China,
+                        No. 2006, Xiyuan Avenue,
+                              West Hi-Tech Zone,
+                         Chengdu 611731, China
+                e-mail: liuconglc0030@163.com
+
+                    Pingan Du1
+
+School of Mechanical and Electrical Engineering,
+             University of Electronic Science and
+                             Technology of China,
+                        No. 2006, Xiyuan Avenue,
+                              West Hi-Tech Zone,
+                         Chengdu 611731, China
+                 e-mail: dupingan@uestc.edu.cn
+
+1 Introduction                                                                        critical challenges to the reliability of micro-electronic and power
+                                                                                      electronic packaging [1­5]. Coupled multiphysical effects under
+   The continued miniaturization and integration of electronic                        actual service conditions--such as thermal cycling and power
+packaging have led to increasing complexity in material systems                       loading--further accelerate interfacial degradation [6­8].
+and interfacial structures. Interfaces between dissimilar materials--
+such as polymers, metals, and dielectrics--are particularly prone to                     Conventional linear elastic fracture mechanics approaches face
+delamination and crack propagation under thermomechanical loads                       inherent limitations in capturing crack initiation and discontinuous
+during fabrication, assembly, and operation, posing one of the                        propagation in complex interfaces [9­11]. In recent years, the
+                                                                                      cohesive zone model (CZM) has been widely adopted for interfacial
+   1Corresponding author.                                                             modeling in electronic packaging due to its capability of naturally
+   Contributed by the Electronic and Photonic Packaging Division of ASME for          describing interfacial slip and damage evolution via traction­
+publication in the JOURNAL OF ELECTRONIC PACKAGING. Manuscript received August 23,    separation relationships [12,13]. For example, Fei et al. [14]
+2025; final manuscript received January 7, 2026; published online February 11, 2026.  investigated crack propagation at the Cu/SiO2 interface in TSVs
+Assoc. Editor: Kuo-Ning Chiang.                                                       using CZM; Chen et al. [15] extracted CZM parameters for the Cu/
+
+Journal of Electronic Packaging                    Copyright VC 2026 by ASME          JUNE 2026, Vol. 148 / 031009-1
+polyimide (PI) interface in RDL structures; Wu et al. [16]                     Three interface sizes were designed for the experiments:                 Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+determined CZM parameters for TSV/Si interfaces via nano-                   0.1  0.1 mm2, 0.1  0.15 mm2, and 0.1  0.2 mm2, representing
+indentation-based experiments. These studies demonstrate the                different loading areas for assessing the mechanical response of the PI/
+advantages of CZM in modeling interfacial fractures in heteroge             Si interface. For each size, three specimens were prepared, resulting in a
+neous systems.                                                              total of nine sets of test samples. After cutting, all specimens were
+                                                                            subjected to ultrasonic cleaning to remove residual particles.
+   Reliable acquisition of CZM parameters is critical to ensuring
+predictive accuracy. Prior studies have addressed this by coupling             As shown in Fig. 1, the machined interfaces are flat, with clearly
+experiments with inverse methods: Reuther et al. [17] extracted             defined edges of the retained PI blocks and no obvious burrs,
+CZM parameters for metal/ceramic interfaces via nano-indentation            indicating that the femtosecond laser processing had minimal
+and inverse modeling; Wu et al.[18] established a CZM model for             impact on the structural integrity of the interface. This ensures
+the adhesive layer of ultrathin chips through micropeeling tests;           reliable conditions for subsequent high-precision interfacial
+Mei-Ling Wu et al. [19] proposed a failure prediction framework for         mechanical testing.
+interfacial microcracks in MEMS packaging. However, for critical
+intermediate interfaces such as PI/Si, direct experimental extraction          2.2 Nano-Indentation Test. Nano-indentation experiments
+and calibration of CZM parameters have been limited, and many               were conducted using a Bruker Hysitron TI 950 (Eden Prairie,
+simulations still rely on estimation or simplified hypotheses or even       MN) to investigate the interfacial mechanical behavior of the PI/Si
+ignore this interface [20­24].                                              interface. The specimen was mounted on a glass slide using a
+                                                                            cyanoacrylate adhesive to ensure stable fixation and to prevent the
+   The PI/Si interface is an important structural component in the          specimen from tipping over during the testing process. The choice of
+interposer of 2.5D packaging. Notably, the coefficient of thermal           glass as the mounting substrate was intentional: glass possesses a
+expansion (CTE) mismatch between PI (30.5 ppm/ C) and Si                    relatively high elastic modulus (of the order of several tens of GPa),
+(2.8 ppm/ C) induces significant thermal deformation incompatibil           which effectively minimizes substrate-induced deformation during
+ity [15], making the PI/Si interface particularly susceptible to warpage    indentation and thereby reduces the influence of substrate
+and interfacial sliding failures under thermal loads. However, it has       compliance on the measured response. This consideration is
+received limited experimental attention, and existing studies rarely        consistent with prior studies emphasizing the sensitivity of nano-
+provide quantitative traction­separation parameters based on                indentation results to substrate stiffness, such as the work by Gomez
+mechanical tests specifically designed for this interface.                  and Basaran [25]. As shown in Fig. 1(b), the specimen was
+                                                                            positioned such that the indenter applied load perpendicularly to the
+   To fill this gap, this study conducts nano-indentation experiments       direction shown in the figure, thereby inducing shear loading
+on customized specimens that introduce interfacial shear loading.           parallel to the PI/Si interface.
+Based on the displacement­load responses, key parameters of a
+bilinear cohesive zone model--including initial stiffness, maximum             During testing, D­L curves were recorded for each sample to
+shear strength, and critical separation--are extracted. These               enable the subsequent extraction of cohesive zone model (CZM)
+parameters are further calibrated using finite element simulations,         parameters. All experiments were performed at room temperature in a
+which aim to reproduce the experimental curves. More importantly,           vibration-free environment to ensure stability and accuracy. A constant
+the proposed method addresses a key limitation of conventional              displacement rate of 10 nm/s was applied, which was determined
+nano-indentation-based CZM characterization, where the indenter             through preliminary tests using samples with an interface size of
+displacement is often assumed to be equal to the interfacial sliding.       0.1  0.1 mm2 to ensure suitable loading conditions for the onset of
+In contrast, our approach explicitly accounts for the elastic               interface sliding or peeling. To prevent potential damage to the
+deformation of the PI layer and reconstructs the nano-indentation           equipment caused by specimen collapse after a sudden load drop, the
+process through finite element simulation, enabling a more realistic        load was unloaded at an appropriate time after the sudden drop in load.
+representation of the interfacial shear behavior.
+                                                                               Figure 2 shows the scanning electron microscopy (SEM) image of
+   The final parameter set offers a reliable foundation for modeling        the specimen after testing, where the PI block was completely
+the mechanical behavior of the PI/Si interface. This work presents a        detached from the Si substrate. The clear separation at the PI/Si
+practical, test-informed method for interfacial parameter identification    interface without noticeable residuals or damage indicates that the
+and provides essential data for future studies on interface reliability in  measured D­L curves reliably reflect the delamination behavior of
+heterogeneous electronic packaging systems. By integrating experi           the PI/Si interface.
+mental displacement­load (D­L) data with simulation-based inverse
+parameter extraction, the method yields high-fidelity CZM parameters           2.3 Experimental Data. Under the displacement-controlled
+that can be directly applied to thermo-mechanical simulations of 2.5D       loading protocol at a rate of 10 nm/s, nano-indentation tests were
+packaging and offers enhanced predictive capability for multilayer          performed on the top surface of the PI block. Figure 3 shows the D­L
+heterogeneous interface reliability.                                        responses of three specimens with an interface size of
+                                                                            0.1  0.15 mm2. It is noted that valid data could not be obtained
+2 Nano-Indentation Experiment                                               from the three specimens with an interface size of 0.1  0.2 mm2.
+                                                                            When the applied load was below 0.8 N, the load and displacement
+   2.1 Specimen Preparation. The test specimens in this study               exhibited a linear elastic relationship, indicating that the PI block
+were designed based on the interlayer configuration commonly used           remained elastic without crack initiation or growth. As the load
+in 2.5D packaging, with the primary purpose of characterizing the           exceeded 1 N, a slight nonlinear response appeared, which could be
+mechanical bonding performance of the PI/Si interface. To ensure            attributed to plastic deformation of the compressed PI block, crack
+controllable interfacial stress states during testing and to improve        initiation, or a combination of both. Notably, under displacement-
+the repeatability of the measurements, interface samples of various         controlled loading, the load began to decrease after reaching a peak
+sizes were fabricated for nano-indentation and interfacial shear            value of approximately 1.39 N, which is likely associated with stable
+loading experiments.                                                        crack propagation along the interface. The final stage of the curve
+                                                                            represents the D­L response during unloading.
+   Femtosecond laser cutting technology was employed for sample
+preparation. This method offers excellent machining precision and           3 Extraction and Validation of Cohesive Zone Model
+minimizes the heat-affected zone. During processing, the single-            Parameters
+pulse laser energy was controlled at approximately 5 lJ, and the
+scanning speed was set to 20 mm/s to achieve a balance between                 3.1 Cohesive Zone Model. The CZM model is widely used to
+interface integrity and minimal thermal damage. The final cutting           simulate interface damage mechanisms, such as crack initiation and
+accuracy was maintained within 1 lm, effectively avoiding micro
+cracks and stress concentrations that are commonly introduced by
+conventional mechanical or long-pulse laser cutting methods.
+
+031009-2 / Vol. 148, JUNE 2026                                              Transactions of the ASME
+Fig. 1 Nano-indentation test specimen: (a) surface view of the specimen after femtosecond laser cutting,                                     Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+(b) cross-sectional view of the specimen, and (c) enlarged detail of the interface region in the cross-sectional view
+
+                                 Fig. 2 SEM micrograph of the PI/Si interface after testing
+
+propagation, especially when the material interface is subjected to  referred to as the traction-separation law. Various forms of this
+mechanical and thermal loads [26­29]. These models describe the      law have been proposed in the literature, including perfect plasticity
+mechanical response of the interface through the nonlinear           [26], smooth nonlinear [27], trapezoidal [28], and bilinear or
+relationship between traction and separation forces, which is        triangular models [29]. It is worth noting that the classical CZM
+
+Journal of Electronic Packaging                                                              JUNE 2026, Vol. 148 / 031009-3
+                                                                            s ¼ ð1 - DÞK0d            (3)
+
+                                                                               Combining Eqs. (2) and (3) give that the shear traction decreases
+                                                                            linearly with the displacement d for di < d < df
+
+                                                                            s  ¼   smax  df   -   d   (4)
+                                                                                         df   -   di
+
+Fig. 3 Representative D­L responses of PI/Si specimens                         Mathematically, during the damage phase, the shear stress              Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+                                                                            decreases linearly from smax to zero as the separation displacement
+                                                                            d increases from di to df. During unloading, dmax remains unchanged,
+                                                                            and thus damage variable D also remains constant, reflecting the
+                                                                            irreversibility of interfacial damage. As a result, the unloading path
+                                                                            follows a straight line with a slope of (1-D) K0, as indicated by the
+                                                                            dashed line in Fig. 4.
+
+                                                                               While this classical mechanical description effectively captures
+                                                                            crack initiation and separation processes, it does not account for
+                                                                            additional thermodynamic contributions--such as heat generation
+                                                                            or irreversible entropy production--that may arise at highly stressed
+                                                                            or sliding interfaces. In addition, classical CZM formulations
+                                                                            typically trigger damage only when the relative displacement
+                                                                            reaches a critical initiation value. This displacement-based criterion
+                                                                            does not represent subcritical cyclic sliding or the continuous
+                                                                            entropy generation required by the second law of thermodynamics.
+                                                                            As highlighted in recent advances such as the unified mechanics
+                                                                            theory [32], any deformation--regardless of its magnitude--
+                                                                            produces irreversible entropy and thus contributes to progressive
+                                                                            material degradation. The present work adopts the conventional
+                                                                            displacement-based CZM formulation due to its widespread use and
+                                                                            practicality in micro-electronic interface modeling, while acknowl
+                                                                            edging that thermodynamic-based damage descriptions fall outside
+                                                                            the scope of this study but represents an important direction for
+                                                                            future extension.
+
+Fig. 4 Diagram of bilinear traction-separation                                 3.2 Cohesive Zone Model Parameters of Polyimide/Silicon
+                                                                            Interface. In the analysis of the nano-indentation test data for the PI
+formulations adopted in most micro-electronic packaging studies,            block, the indenter is assumed to be a rigid flat punch that applies a
+including the present work, are primarily mechanical in nature and          uniform normal stress and end displacement (D) on the top surface of
+do not explicitly incorporate interface heat generation or entropy-         the PI block. The PI block is assumed to behave as a linearly elastic
+based damage mechanisms.                                                    material on the surface of a rigid silicon substrate. For each
+                                                                            infinitesimal element of the PI block (Fig. 9(b)), the difference in
+   This study employs the bilinear traction-separation law (Fig. 4) to      axial stress (rx) between the two cross sections is balanced by the
+describe the mode II (shear-dominated) debonding process occur              interfacial shear stress (s) arising from the interaction between the PI
+ring during PI block compression. This law describes interface shear        block and the silicon substrate. The force equilibrium of the
+behavior as a function of tangential displacement [30]. In the initial      infinitesimal element requires that
+stage, the interface exhibits an elastic response, with shear stress
+increasing linearly with displacement, controlled by the initial               s ¼ - Bdrx             (5)
+stiffness K0. Stress reaches a peak smax at the critical displacement                     dx
+di ¼ smax/K0. Thereafter, damage begins and develops, causing
+shear stress to gradually decrease until complete separation occurs at      where B is the thickness of the PI block, and the axial stress in the PI
+displacement df. Subsequently, stress drops to zero and remains
+constant, indicating that the interface has completely debonded [31].       block is related to its axial displacement (ux) through the linear
+                                                                            elastic Hooke's law
+   The area enclosed by the traction-separation curve quantifies the
+energy required for complete fracture of the interface, commonly               rx  ¼  Ex  dux         (6)
+referred to as fractured energy or interface toughness                                    dx
+
+      1                                                 (1)
+C ¼ 2 smaxdf                                                                   Where the effective elastic modulus in the x-direction (Ex) of the
+                                                                            multilayer PI/Cu structure was calculated based on the rule of
+To characterize the progressive degradation of interfacial strength
+                                                                            mixtures (Voigt model) as [33]
+
+over time, a damage variable D is introduced when the separation                     Xn
+                                                                                         Ei  ti
+displacement d exceeds the initiation value di but remains below the
+final value df. This variable ranges from 0 (undamaged) to 1 (fully         Ex    ¼  i¼1              (7)
+damaged) and is defined as a function of the maximum separation
+                                                                                      Xn
+displacement dmax experienced during loading
+                                                                                              ti
+      dÀf ðd  -                     Þ
+D  ¼                            di                      (2)                              i¼1
+
+      d df - di                                                             where Ei and ti are the Young's modulus and thickness of the ith
+                                                                            layer (either PI or copper) in the multilayer structure of the PI block,
+   It effectively scales the stiffness of the interface: the current shear
+traction is given by a modified linear relation with reduced stiffness      as illustrated in Fig. 5(b).
+
+031009-4 / Vol. 148, JUNE 2026                                                            Transactions of the ASME
+   Fig. 5 Schematic of nano-indentation and stress analysis model: (a) nano-indentation test                                                       Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+   setup schematic and (b) PI block element of length dx with stress and shear force definitions
+
+   The relative displacement at the interface is given by d ¼ um-ux,      Table 1 Extracted parameters for the traction­separation
+where um  0, based on the assumption that the silicon substrate           relation
+behaves as a rigid material. A shear stress­separation relationship
+exists between the interfacial shear stress and the relative displace     Specimen     K0(Pa/m)   smax (MPa)  di(um)  df (um)  C(J/m2)
+ment. Inspired by the measured load­displacement response, the PI/
+Si interface is assumed to follow a bilinear shear stress­separation      0.15_1      3.58  1014     89.69     3.01    4.36    195.52
+law (Fig. 4), which consists of an initial linear elastic stage followed  0.15_2      3.60  1014     91.98     3.02    4.41    202.82
+by stable crack propagation, as expressed by                              0.15_3      3.63  1014     96.58     2.91    4.39    211.99
+                                                                          Mean value  3.60  1014     92.75     2.98    4.39    203.44
+
+      8                                d  di
+      <> K0d,
+
+s  ¼  >:  smax  df  -  d         ,     di  d  (8)                            3.3 Validation and Calibration of Cohesive Zone Model
+                df  -  di                                                 Parameters. As shown in Fig. 6, a finite element model consistent
+                                                                          with the geometric dimensions of the experimental specimen was
+   When the end displacement D is less than di, the relative              established in ABAQUS. The bottom of the model (Si substrate) was
+displacement d at any position remains smaller than di, and thus the      fixed, and the PI block was modeled as a single solid structure with
+traction­separation relationship is in the linear elastic stage           its elastic modulus set to the effective modulus of the multilayer
+                                                                          material, as calculated by Eq. (7). The top surface of the PI block was
+(s ¼ K0d). Under this condition, substituting Eqs. (6) and (8) into       coupled to a reference point, to which a vertical downward
+Eq. (5) yields (where d ¼ -ux)                                            displacement load of 5 lm was applied. The interface between the
+                                                                          PI block and the Si substrate was modeled using the mean values of
+          d  ¼     BEx  d2d                   (9)                         the bilinear CZM parameters listed in Table 1.
+                   K0   dx2
+
+   By applying the appropriate boundary conditions, Eq. (8) can be
+solved to yield
+
+                         
+                                    x
+                   cosh
+      d ¼ D k
+                                 H            (10)
+
+                   cosh             k
+
+             pfififififififififififififififfi
+where k ¼ BEx=K0 the characteristic length, and H is the initial
+height of the specimen. Two boundary conditions are applied: the
+prescribed end displacement at the top (d ¼ D at x 5 H) and zero
+axial force at the bottom (rx ¼ 0 at x 5 0). By substituting Eq. (10)
+into Eq. (6), the corresponding axial stress in the PI block can be
+obtained, and the resulting indentation force is given by
+
+                                    
+      P ¼ ExAB tanh x
+                k                      k      (11)
+
+   Furthermore, based on the experimental data, the maximum               Fig. 6 Finite element model of the nano-indentation test
+                                                                          established in ABAQUS
+displacement df is approximately 4.4 lm. Combining the experi
+mental data with Eq. (11), the value of K0 can be determined. Using
+the maximum experimental load and the interface size, the
+
+maximum shear stress smax can also be obtained. Therefore, the
+key parameters of the bilinear shear CZM for the PI/Si interface,
+
+derived from the nano-indentation tests, are summarized in Table 1.
+
+Journal of Electronic Packaging                                                                   JUNE 2026, Vol. 148 / 031009-5
+Fig. 7 Comparison between simulated and experimental D­L Fig. 9 Comparison between simulated and experimental D­L                                    Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+
+curves using initially estimated CZM parameters                           curves after adjustment of interfacial shear strength smax
+
+                                                                          to fully consider the effect of PI block elasticity in the present model.
+
+                                                                          Therefore, during the simulation process, the interface shear
+
+                                                                          strength parameter smax was appropriately increased, and the
+                                                                          maximum displacement df was reduced. When smax was set to
+                                                                          113 MPa and df was set to 4.2 lm, the simulated D­L curve exhibited
+                                                                          good agreement with the experimental results in both overall trend
+
+                                                                          and peak load, as shown in Fig. 9.
+
+Fig. 8 Effect of PI block elastic modulus on simulated D­L                4 Application of Polyimide/Silicon Cohesive Zone
+response
+                                                                          Model
+   As shown in Fig. 7, a discrepancy is observed between the
+simulated and experimental D-L curves at the peak load on the top            As shown in Fig. 10, a typical 2.5D packaging model consists of
+surface of the PI block. Specifically, in the estimation of the CZM       multiple chiplets mounted on the interposer, with interconnections
+parameter smax, the pressure applied to the top surface of the PI block   between dies achieved through RDL, while the interposer is further
+was approximated as the interfacial shear force. However, prior to        mounted on the package substrate and connected to it via TSVs.
+interfacial delamination, the PI block undergoes significant elastic
+deformation, causing the experimentally measured peak load to be             A body heat flux of 1 W was applied to the chiplets as the heat
+lower than the actual critical interfacial load. This introduces a        source, with natural convection set on the outer surfaces for steady-
+deviation in the estimated smax value.                                    state thermal analysis. The temperature distribution results are
+                                                                          presented in Fig. 11.
+   As shown in Fig. 8, a comparative analysis of the D-L curves
+obtained under different elastic moduli of the PI block reveals that         The temperature field from Fig. 11 was applied to the original
+the simulated peak load increases and gradually approaches the            model as a predefined thermal load for thermo-mechanical coupled
+experimental result as the modulus increases. Meanwhile, when the         analysis. All material parameters in this simulation were referenced
+elastic modulus deviates significantly from its actual physical value,    from Refs. [15] and [16]. To capture interfacial behavior, CZMs
+the simulated peak load appears earlier than that in the experiment.      were implemented at key interfaces via surface-based cohesive
+This phenomenon indirectly validates the earlier analysis regarding       interactions. Specifically, the PI/Si interface was assigned the CZM
+the influence of PI block elastic deformation.                            parameters obtained in this study, the TSV/Si interface adopted the
+                                                                          CZM parameters from Ref. [16] (K0 ¼ 4.18  1014Pa/m,
+   Furthermore, in previous studies on TSV/Si interfaces [16], the        smax ¼ 79 Mpa, df ¼ 0.189 lm), and the RDL/PI interface used the
+elastic deformation of the TSV was often neglected due to the             CZM parameters from Ref. [15] (normal: Tmax ¼ 45 Mpa,
+significantly higher Young's modulus of copper compared to that of        df ¼ 3.87 lm, shear: Tmax ¼ 14.2 Mpa, df ¼ 3.17 lm).
+the PI block in this study. Based on the above analysis, it is necessary
+                                                                             As shown in Fig. 12, the displacement contour after thermo-
+                                                                          mechanical coupling analysis indicates a maximum displacement of
+                                                                          11.57 lm, which significantly exceeds the df ¼ 4.2 lm obtained in
+                                                                          this study, demonstrating apparent interfacial sliding failure. In
+                                                                          addition, due to the much lower normal strength compared to shear
+                                                                          strength in the CZM parameters of the RDL/PI interface [15], minor
+                                                                          normal separation occurred between the RDL layer and the PI layer
+                                                                          closest to the Si interposer. This phenomenon results from warpage
+                                                                          induced by the mismatch in coefficients of thermal expansion (CTE)
+                                                                          among heterogeneous materials in 2.5D packaging.
+
+                                                                             Both tangential interfacial sliding failure and normal interfacial
+                                                                          separation can severely undermine the interconnection reliability of
+                                                                          2.5D packaging. The use of accurate CZM parameters enables more
+                                                                          precise simulation of thermal deformation in 2.5D package
+                                                                          structures, offering significant value for package design.
+
+031009-6 / Vol. 148, JUNE 2026                                            Transactions of the ASME
+Fig. 10 Geometry of the 2.5D package used for thermomechanical coupling simulation in                            Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+
+ABAQUS
+
+  Fig. 11 Steady-state temperature distribution of the 2.5D package under chiplet power
+  loading
+
+Fig. 12 Displacement field of the 2.5D package after thermomechanical coupling analysis considering interfacial
+CZM effects
+
+Journal of Electronic Packaging  JUNE 2026, Vol. 148 / 031009-7
+5 Conclusion                                                                               0[6] Tavara, L., Reinoso, J., Blazquez, A., and Mantic, V., 2019, "On the 3D Extension       Downloaded from asmedigitalcollection.asme.org/e lectronicpackaging/article-pdf/1 48/3 /031009/7 585249/ep-25-1092.p df by Fudan University Library, li bai on 24 September 2026
+                                                                                                 of Failure Models for Adhesive Joints Under Mixed-Mode Fracture Conditions:
+   In this study, a nano-indentation-based approach, combined with                               LEBIM and CZM," Theor. Appl. Fract. Mech., 100, pp. 362­376.
+a shear-loading specimen design, is proposed to effectively activate
+interfacial sliding and delamination behavior, addressing the lack of                      0[7] Gao, C., Huang, C., Liang, Y., Wang, G., and Chen, Y., 2025, "Reliability
+experimental data for extracting CZM parameters at the PI/Si                                     Analysis of PoP Stacked Solder Joints Under Thermal Cycling Load Based on the
+interface. Finite element simulations are further employed to                                    Optimal Equivalent Model," Microelectron. J., 158, p. 106596.
+calibrate the parameters, improving their accuracy and applicability
+in subsequent modeling. Compared with traditional approaches that                          0[8] Liu, H. Y., Liu, G. M., Tsai, M. Y., and Huang, C. Y., 2016, "Determination of
+approximate the indenter displacement as the interfacial sliding                                 Strength of Si Interposers Using PoEF Test Associated With Acoustic Emission
+displacement, the present method explicitly accounts for the elastic                             Method," 11th International Microsystems, Packaging, Assembly and Circuits
+deformation of the compressed PI layer, enabling the extraction of                               Technology Conference (IMPACT), Taipei, China, Oct. 26­28, pp. 277­280.
+CZM parameters with higher accuracy and improved suitability for
+thermo-mechanical simulations of 2.5D packaging.                                           0[9] Rice, J. R., 1968, "A Path Independent Integral and the Approximate Analysis of Strain
+                                                                                                 Concentration by Notches and Cracks," ASME J. Appl. Mech., 35(2), pp. 379­386.
+   This study ultimately obtains a set of bilinear CZM parameters for
+the PI/Si interface that are suitable for numerical modeling: initial                      [10] Needleman, A., 1987, "A Continuum Model for Void Nucleation by Inclusion
+stiffness K0 ¼ 3.6  1014 Pa/m, maximum shear strength                                            Debonding," ASME J. Appl. Mech., 54(3), pp. 525­531.
+smax ¼ 113 Mpa, and critical separation df ¼ 4.2 lm. Based on the
+CZM model of the PI/Si interface obtained in this study, together                          [11] Shih, M. K., Lai, W., Liao, T., Chen, K., Chen, D. L., and Hung, C. P., 2022,
+with the CZM models of the TSV/Si and RDL/PI interfaces reported                                 "Thermal and Mechanical Characterization of 2.5-D and Fan-Out Chip on
+in previous studies, a thermomechanical coupled simulation of the                                Substrate Chip-First and Chip-Last Packages," IEEE Trans. Compon. Packag.
+2.5D packaging structure was conducted. These results provide                                    Manuf. Technol., 12(2), pp. 297­305.
+strong support for interfacial modeling and failure prediction in
+2.5D heterogeneous integration packaging structures and lay a solid                        [12] Auersperg, J., Dudek, R., Rzepka, S., and Michel, B., 2013, "Advantage and
+foundation for further investigation into the mechanical behavior of                             Current Limitations of Advanced Fracture Mechanics for 3D-Integration and Beol
+critical interfaces.                                                                             Under CPI Aspects," IEEE 15th Electronics Packaging Technology Conference
+                                                                                                 (EPTC), Singapore, Dec. 11­13, pp. 455­460.
+Acknowledgment
+                                                                                           [13] Zhao, P., Shang, F., Yan, Y., and Kitamura, T., 2010, "Reinvestigation of the
+   The authors gratefully acknowledge the support of the 58th                                    Effect of Plasticity on Delamination Process of Si/Cu Interface in a Ductile Nano-
+Research Institute of China Electronics Technology Group                                         Cantilever," Int. J. Fract., 161(1), pp. 65­78.
+Corporation (CETC) in the preparation of experimental specimens.
+                                                                                           [14] Fei, J. B., Xu, T., Zhou, J. Y., Ke, C. B., and Zhang, X. P., 2020, "Interfacial Crack
+Funding Data                                                                                     Initiation and Delamination Propagation in Cu-Filled TSV Structure by Incorporating
+                                                                                                 Cohesive Zone Model and Finite Element Method," Electronic Components and
+    National Natural Science Foundation of China (NSFC) (Grant                                   Technology Conference (ECTC), Orlando, FL, June 3­30, pp. 1186­1191.
+      Nos. 92373104 and 52175218; Funder ID: 10.13039/
+      501100001809).                                                                       [15] Chen, B., Lyu, G.-C., Wang, H.-G., Zheng, L., Deng, Y.-K., and Zhang, X.-P.,
+                                                                                                 2023, "A Combined Simulation and Experimental Study on Cracking and
+Nomenclature                                                                                     Delamination Behavior at the Cu/Polyimide Interface of RDLs in Chiplet Package
+                                                                                                 Subjected to Thermo-Mechanical Loads," Electronic Components and Technol
+CZM ¼ cohesive zone model                                                                        ogy Conference (ECTC), Orlando, FL, May 30­June 2, pp. 2046­2053.
+    D ¼ damage variable
+                                                                                           [16] Wu, C., Huang, R., and Liechti, K. M., 2017, "Characterizing Interfacial Sliding of
+ D­L ¼ displacement­load                                                                         Through-Silicon-Via by Nano-Indentation," IEEE Trans. Device Mater. Reliab.,
+   Ex ¼ the effective elastic modulus in the x-direction of the                                  17(2), pp. 355­363.
+          multilayer PI/Cu structure
+   K0 ¼ the initial stiffness of the interface                                             [17] Reuther, G. M., Albrecht, J., Dudek, R., and Rzepka, S., 2022, "Determining Adhesion
+   PI ¼ polyimide                                                                                of Critical Interfaces in Microelectronics--A Reverse Finite Element Modelling
+    Si ¼ silicon                                                                                 Approach Based on Nanoindentation," Microelectron. Reliab., 133, p. 114530.
+    df ¼ the displacement value when the damage is completed
+    di ¼ the displacement value at which damage begins                                     [18] Wu, T., Chen, X., Wen, S., Liu, F., and Li, S., 2023, "Coupled Excitation Strategy
+                                                                                                 for Crack Initiation at the Adhesive Interface of Large-Sized Ultra-Thin Chips,"
+ smax ¼ maximum shear stress                                                                     Processes, 11(6), p. 1637.
+
+References                                                                                 [19] Wu, M. L., and Lan, J. S., 2021, "Investigation of Adhesive's Material in Hermetic
+                                                                                                 Mems Package for Interfacial Crack Between the Silver Epoxy and the Metal Lid
+0[1] Huang, S., Long, H., Li, J., and Shen, R., 2023, "Interfacial Reliability Analysis          During the Precondition Test," Materials, 14(19), p. 5626.
+      and Structural Optimization of System-in-Package Modules," 24th International
+      Conference on Electronic Packaging Technology (ICEPT), Shihezi, China, Aug.          [20] Wang, H. G., Lyu, G. C., Deng, Y. K., Hu, W. L., Yang, B. X., Zhou, M. B., and
+      8­11, pp. 1­6.                                                                             Zhang, X. P., 2022, "A Comprehensive Study of Crack Initiation and
+                                                                                                 Delamination Propagation at the Cu/Polyimide Interface in Fan-Out Wafer Level
+0[2] Shao, S., Niu, Y., Wang, J., Liu, R., Park, S., Lee, H., Yip, L., and Refai-Ahmed,          Package During Reflow Process," Electronic Components and Technology
+      G., 2020, "Design Guideline on Board-Level Thermomechanical Reliability of                 Conference (ECTC), San Diego, CA, May 31­June 3, pp. 1459­1464.
+      2.5D Package," Microelectron. Reliab., 111, p. 113701.
+                                                                                           [21] Ho, S. L., Joshi, S. P., and Tay, A. A. O., 2012, "Cohesive Zone Modeling of 3D
+0[3] Liu, T., Liu, S., Hu, X., Dong, F., Chen, Z., Peng, H., and Liu, S., 2024, "Study on        Delamination in Encapsulated Silicon Devices," Electronic Components
+      the Effect of Film Process on Interface and Interconnection Reliability in the TSV         and Technology Conference (ECTC), San Diego, CA, May 29­June 1, pp.
+      Structure," 25th International Conference on Electronic Packaging Technology               1493­1498.
+      (ICEPT), Tianjin, China, Aug. 7­9, pp. 1­5.
+                                                                                           [22] Qin, C., Yang, D., Feng, S., Dong, H., Zhou, W., and Li, Y., 2024, "Fracture
+0[4] Shao, S., Niu, Y., Wang, J., Liu, R., Park, S., Lee, H., Refai-Ahmed, G., and Yip,          Modeling and Characterization of Si/Underfill/Substrate Interface Adhesion in 3D
+      L., 2018, "Comprehensive Study on 2.5D Package Design for Board-Level                      Packaging," International Conference on Electronic Packaging Technology
+      Reliability in Thermal Cycling and Power Cycling," Electronic Components and               (ICEPT), Tianjin, China, Aug. 7­9, pp. 1­5.
+      Technology Conference (ECTC), San Diego, CA, May 29­June 1, pp. 1668­1675.
+                                                                                           [23] Liu, D., Chen, K., Qin, Y., Zhong, Y., Wan, Z., Liu, R., Lu, D., Xue, K., and Wu, J.,
+0[5] Li, W., Wang, X., Zheng, R., Zhao, X., Zheng, H., Zhao, Z., Cheng, M., Jiang, Y.,           2021, "The Influence of Molding Compound Properties on System-in-Package
+      and Jia, Y., 2024, "Finite Element Analysis of 2.5D Packaging Processes Based on           Reliability for 5G Application," 22nd International Conference on Electronic
+      Multi-Physics Field Coupling for Predicting the Reliability of IC Components,"             Packaging Technology (ICEPT), Xiamen, China, Sept. 14­17, pp. 1­6.
+      Microelectron. Reliab., 163, p. 115530.
+                                                                                           [24] Xu, Y., Zhao, S., Jin, G., Wang, X., and Liang, L., 2017, "Ductile Fracture of
+                                                                                                 Solder-Cu Interface and Inverse Identification of Its Interfacial Model Parame
+                                                                                                 ters," Mech. Mater., 114, pp. 279­292.
+
+                                                                                           [25] Gomez, J., and Basaran, C., 2006, "Nanoindentation of Pb/Sn Solder Alloys;
+                                                                                                 Experimental and Finite Element Simulation Results," Int. J. Solids Struct., 43(6),
+                                                                                                 pp. 1505­1527.
+
+                                                                                           [26] Dugdale, D. S., 1960, "Yielding of Steel Sheets Containing Slits," J. Mech. Phys.
+                                                                                                 Solids, 8(2), pp. 100­104.
+
+                                                                                           [27] Cox, B. N., and Marshall, D. B., 1991, "The Determination of Crack Bridging
+                                                                                                 Forces," Int. J. Fract., 49(3), pp. 159­176.
+
+                                                                                           [28] Sørensen, B. F., and Jacobsen, T. K., 2003, "Determination of Cohesive Laws by
+                                                                                                 the J Integral Approach," Eng. Fract. Mech., 70(14), pp. 1841­1858.
+
+                                                                                           [29] Davila, C. G., Camanho, P. P., and de Moura, M. F., 2001, "Mixed-Mode Decohesion
+                                                                                                 Elements for Analyses of Progressive Delamination," AIAA Paper No. 01-1486.
+
+                                                                                           [30] Ryu, S. K., Lu, K. H., Zhang, X., Im, J. H., Ho, P. S., and Huang, R., 2011, "Impact
+                                                                                                 of Near-Surface Thermal Stresses on Interfacial Reliability of Through-Silicon
+                                                                                                 Vias for 3-D Interconnects," IEEE Trans. Device Mater. Reliab., 11(1), pp. 35­43.
+
+                                                                                           [31] Ryu, S. K., Jiang, T., Im, J., Ho, P. S., and Huang, R., 2014, "Thermomechanical
+                                                                                                 Failure Analysis of Through-Silicon Via Interface Using a Shear-Lag Model With
+                                                                                                 Cohesive Zone," IEEE Trans. Device Mater. Reliab., 14(1), pp. 318­326.
+
+                                                                                           [32] Basaran, C., 2022, Introduction to Unified Mechanics Theory With Applications,
+                                                                                                 Springer International Publishing, Cham, Switzerland.
+
+                                                                                           [33] Mori, T., and Tanaka, K., 1973, "Average Stress in Matrix and Average Elastic
+                                                                                                 Energy of Materials With Misfitting Inclusions," Acta Metall., 21(5), pp. 571­574.
+
+031009-8 / Vol. 148, JUNE 2026                                                             Transactions of the ASME
+

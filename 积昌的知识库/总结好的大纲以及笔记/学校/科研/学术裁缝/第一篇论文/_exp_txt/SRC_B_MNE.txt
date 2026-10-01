@@ -1,0 +1,989 @@
+                           Zhou et al. Microsystems & Nanoengineering (2026)12:243                            Microsystems & Nanoengineering
+                           https://doi.org/10.1038/s41378-026-01342-w
+                                                                                                                                             www.nature.com/micronano
+
+                           ARTICLE                                                                            Open Access
+
+                           A unified viscoelastic-viscoplastic constitutive
+                           framework for optically clear adhesives:
+                           Experiments, modeling, and FE validation
+
+                           Zhaoxu Zhou1,2, Qiying Liu1, Yujia Chen1, Suilang Tang1, Siyu He3, Feixiang Tang2,4 and Sheng Liu 1,3
+
+1234567890():,;            Abstract
+  1234567890():,;          Optically clear adhesives (OCAs) are extensively employed as bonding layers in display manufacturing. As compliant
+      1234567890():,;      interlayers in foldable display stacks, they undergo pronounced time and temperature -dependent deformation during
+          1234567890():,;  repeated bending, which makes reliable constitutive characterization essential for accurate stress prediction and
+                           design optimization. Therefore, accurately characterizing their mechanical behavior is fundamental to bending-stress
+                           analysis and design optimization of foldable displays. Existing studies emphasize viscoelastic or hyperelastic behavior
+                           yet overlook the coupled viscoelastic-viscoplastic response. We propose a unified constitutive framework combining a
+                           generalized Maxwell representation with the Qian-Liu viscoplastic formulation to characterize OCA mechanics. The
+                           proposed model is calibrated against stress-relaxation experiments conducted at 30, 60, and 85 ∞C, from which the
+                           corresponding material parameters are identified; the fitting results demonstrate that the model captures the coupled
+                           viscoelastic-viscoplastic behavior under these conditions. The framework is further implemented into an ABAQUS
+                           UMAT and validated via finite-element simulations of a simplified foldable-display structure, which corroborate the
+                           experimental observations. The framework closes a gap in OCA constitutive modeling and delivers a calibrated,
+                           numerically validated tool for structural optimization and long-term reliability assessment of flexible OLED devices.
+
+                           Introduction                                                                       development of personal smart terminals, attracting
+                             With the rapid advancement of display technologies,
+                                                                                                              widespread attention and being regarded as one of the
+                           optically clear adhesives (OCA) have emerged as the
+                           preferred bonding material for transparent optical com-                            most promising directions in future display technolo-
+                           ponents owing to their outstanding mechanical proper-                              gies6≠11. Flexible OLED panels typically adopt a stacked
+                           ties, high optical transparency, strong adhesion capability,
+                           and long-term resistance to aging1≠5. Flexible organic                             architecture, in which the functional layers are bonded by
+                           light-emitting diodes (OLEDs) and active-matrix OLEDs                              a soft and transparent OCA, forming an alternating "hard-
+                           (AMOLEDs), characterized by high resolution, low power                             soft-hard-soft" multilayer structure12,13. Within such
+                           consumption, lightweight design, and wide viewing
+                           angles, play a pivotal role in the display industry. Their                         laminated systems, the soft adhesive layer serves as a
+                           application scenarios continue to expand alongside the                             critical component that often undergoes significant shear
+
+                           Correspondence: Feixiang Tang (thomas0209@whu.edu.cn) or                           deformation during bending. This layer not only provides
+                           Sheng Liu (shengliu@whu.edu.cn)                                                    sufficient interfacial adhesion but also functions as a
+                           1KeyLaboratory of Transients in Hydraulic Machinery, Ministry of Education,
+                           School of Power and Mechanical Engineering, Wuhan University, Wuhan,               stress-buffering medium to accommodate bending-
+                           China                                                                              induced deformation14,15. Therefore, prior to OLED
+                           2Innvoation School of Integrated Circuits, Hefei University of Technology, Hefei,
+                           China                                                                              structural design and rapid reliability assessment, it is
+                           Full list of author information is available at the end of the article
+                                                                                                              essential to comprehensively characterize the mechanical
+
+                                                                                                              behavior of OCA and to establish a physically reasonable
+                                                                                                              constitutive model16≠18.
+
+                                                                                                                OCA is primarily synthesized through free-radical
+                                                                                                              polymerization of acrylate monomers19, and it generally
+                                                                                                              exhibits visco-hyperelastic behavior20. Numerous studies
+
+                           © The Author(s) 2026
+                                               Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial
+
+                                               use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the
+                           Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it.
+                           The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included
+                           in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the
+                           copyright holder. To view a copy of this licence, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+Zhou et al. Microsystems & Nanoengineering (2026)12:243       Page 2 of 15
+
+have investigated the constitutive modeling and finite        of plastic strain directly corresponds to the permanent
+element (FE) analysis of OCA. In 2014, Yeh et al. first       deformation observed in OCA. The plastic strain rate is
+employed FE methods to simulate the stress distribution       typically governed by a Norton-type relation with stress,
+in foldable OLED modules, analyzing the bending stresses      reflecting both time and loading-rate dependencies-fea-
+in laminated foldable touch panels. In their study, OCA       tures that are consistent with the time-dependent per-
+was simplified as a linear elastic material, without          manent deformation of OCA. Despite the existence of
+accounting for its inherent viscoelasticity or hyper-         partial static recovery, the pronounced residual strain in
+elasticity21. Ma et al. determined the hyperelastic and       OCA unequivocally confirms the presence of plastic
+viscoelastic properties of OCA through uniaxial tensile,      deformation, representing a prototypical viscoplastic
+shear, and stress relaxation tests to obtain material para-   response33. Li et al. further proposed that the constitutive
+meters, and subsequently proposed a three-dimensional         relationship of OCA can be categorized into three
+FE bending model for the OLED bending region22. Zhang         regimes: (i) the stress-strain response under rapid loading,
+et al. further explored the hyperelastic and viscoelastic     (ii) the creep constitutive relation under sustained load-
+mechanical behavior of OCA by fitting experimental data       ing, and (iii) the stress-strain response during rapid
+with appropriate models, thereby elucidating the influ-       unloading34. Therefore, investigating the viscoelastic-
+ence of temperature on its mechanical performance23.          viscoplastic constitutive behavior of OCA is of profound
+Salmon et al. conducted FE simulations to examine the         importance for a comprehensive understanding of its
+impact of the viscoelastic constitutive properties of 3 M     mechanical performance.
+OCA on the interlayer mechanical behavior of foldable
+display panel stacks, highlighting its crucial role in          To date, no studies have reported the development of a
+enhancing foldability24. Zhao et al. considered the inter-    viscoelastic-viscoplastic constitutive model specifically for
+play between crosslinked networks, free chains, and           OCA. However, significant progress has been achieved in
+entanglement constraints, successfully capturing the iso-     modeling other classes of adhesives. For example, Chen
+tropic visco-hyperelastic behavior of OCA25. Cheng et al.     et al. proposed a one-dimensional nonlinear viscoelastic-
+employed several phenomenological hyperelastic models         viscoplastic model that couples the Schapery nonlinear
+to characterize OCA mechanics and applied them to             single-integral formulation with the Perzyna viscoplastic
+bending simulations of AMOLED displays26. Similarly, Jia      framework, which successfully captured the mechanical
+et al. adopted a Yeoh hyperelastic framework to analyze       behavior of adhesives35. Groth employed three different
+bending stresses in foldable AMOLED panels incorpor-          viscoelastic-viscoplastic models to analyze stress states in
+ating OCA layers27. Other studies focusing on multilayer      single-lap adhesive joints with and without cracks36. Liang
+structures in foldable displays have utilized FE methods to   et al. combined a multi-relaxation viscoelastic-viscoplastic
+investigate bending stress regulation, neutral-plane opti-    formulation with a three-element viscoelastic model to
+mization, and delamination prevention, aiming to              construct a constitutive framework capable of describing
+improve the structural reliability of OCA-bonded sys-         the mechanical evolution of adhesives37. Qi et al. devel-
+tems28,29. Collectively, these investigations demonstrate a   oped an elastoviscoplastic model based on a rheological
+gradual evolution from simplified linear elastic repre-       system composed of a Voigt element in series with a
+sentations of OCA toward more advanced hyperelastic,          spring and in parallel with multiple Maxwell elements,
+viscoelastic, and visco-hyperelastic constitutive models.     effectively characterizing creep, relaxation, and stress-
+However, the viscoelastic-viscoplastic characteristics of     strain responses38. Collectively, these studies provide a
+OCA have not yet been considered.                             solid theoretical foundation, feasible modeling strategies,
+                                                              and robust validation methods that may guide the future
+  Lee et al. observed that OCA exhibits permanent             development of a viscoelastic-viscoplastic constitutive
+deformation during creep and stress relaxation measure-       model for OCA.
+ments, which cannot be fully recovered upon stress
+removal30. Similarly, Park et al. reported the presence of      In this context, the present work focuses on the coupled
+unrecoverable residual strain in creep-recovery tests of      viscoelastic-viscoplastic mechanical behavior of OCA,
+OCA31, while Kim et al. demonstrated through strain           aiming to establish a unified constitutive framework by
+recovery experiments that pristine adhesive films recover     integrating the generalized Maxwell viscoelastic model
+only 68% of the imposed strain, leaving approximately         with the Qian-Liu viscoplastic formulation. Key para-
+32% as permanent, unrecoverable deformation32. These          meters are extracted from stress relaxation experiments
+phenomena are strongly aligned with the fundamental           conducted under multiple temperature conditions, and
+characteristics of viscoplastic materials. According to       the proposed model is validated through nonlinear
+established theoretical frameworks, the total strain in       regression and finite element simulations. This systematic
+viscoplastic materials can be decomposed into elastic and     approach enables the elucidation of temperature and
+irreversible plastic components, wherein the irreversibility  time-dependent mechanisms governing the mechanical
+                                                              response of OCA. Beyond advancing the theoretical
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                            Page 3 of 15
+
+understanding, the proposed methodology provides                  follows:
+accurate predictive tools for structural optimization and
+long-term reliability evaluation of flexible OLED devices,             º 1 ˛ 2 ˛ º º ˛ n                              2ﬁ
+while simultaneously filling a critical gap in the field of
+viscoelastic-viscoplastic constitutive modeling.                       º 1 º 2 º º º º n
+
+Constitutive model                                                  The governing differential equation for the i-th Maxwell
+                                                                  element can be expressed as:
+Viscoelastic Constitutive Model
+  OCA exhibits typical viscoelastic mechanical behaviors          d   º     1   di   ˛  i                             3ﬁ
+                                                                  dt        Ei  dt      i
+such as stress relaxation and creep, which can be effec-
+tively characterized by establishing an appropriate vis-          The stress relaxation modulus can be expressed as:
+coelastic constitutive model. Commonly used viscoelastic
+models in related studies include the Maxwell model, the          Etﬁ º E1 ˛ X N Ei ¡ e¿ti                           4ﬁ
+generalized Maxwell model, the Kelvin model, and various
+four-parameter models. To accurately describe the vis-                                  iº1
+coelastic response of OCA, this study adopts Hookean
+springs and dashpots as the fundamental rheological               Where Etﬁ denotes the relaxation modulus of the
+elements, representing ideal elastic solids and viscous
+fluids, respectively. The static and dynamic viscoelastic         generalized Maxwell model; E is the long term modulus
+responses of the material were systematically examined,           and Ei represents the i-th Maxwell element. The normal-
+and the generalized Maxwell model was selected to ana-            ized modulus gi is frequently employed as a dimensionless
+lyze the viscoelastic behavior of OCA.                            descriptor of material constants, and together with the
+                                                                  relaxation time i constitutes the Prony series, which is
+  As illustrated in Fig. 1, the generalized Maxwell model         widely used for defining viscoelastic properties and for
+consists of several Maxwell elements arranged in parallel
+with an additional spring to capture relaxation behavior.         numerical implementation. The expression for gi is
+Under constant applied strain, the stress response of a           given by:
+basic Maxwell element can be expressed as39:
+                                                                                                       
+                                                                  gtﬁ      º     ¿  X N  gi 1  ¿  e¿ti               5ﬁ
+
+tﬁ º 0Ee¿t                                                 1ﬁ                1
+
+                                                                                     iº1
+
+Where E is the elastic modulus of the spring, is the
+                            
+applied  strain,  and    º  E  represents  the  relaxation  time    According to the Boltzmann superposition principle,
+                                                                  the stress response of the generalized Maxwell model can
+constant of the element.                                          be expressed as:
+
+Since all units connected in parallel undergo the same
+
+strain while the total stress is the summation of the                                     Z  t
+                                                                               0Etﬁ ˛       0
+stresses carried by each unit, the stress-strain relationship     tﬁ       º                   Et  ¿  ﬁ  dﬁ  d     6ﬁ
+                                                                                                            d
+of the generalized Maxwell model can be expressed as
+
+E0       E1       E2           E3               En                  In the subsequent experiments, OCA will be subjected
+                                                                  to stress-relaxation and dynamic viscoelastic tests, and the
+         1        2            3                n                 resulting data will be interpreted using the generalized
+                                                                  Maxwell framework to identify the parameters pertinent
+                                       V(t) (t)                   to the viscoelastic constitutive model.
+
+Fig. 1 Schematic representation of the generalized                Viscoplastic Constitutive Model
+Maxwell model. The model consists of a spring element connected     In this study, we adopt the Qian-Liu model to char-
+in parallel with multiple Maxwell elements
+                                                                  acterize the viscoplastic behavior of OCA. As a damage-
+                                                                  coupled unified viscoplastic constitutive framework
+                                                                  grounded in irreversible thermodynamics, it enables the
+                                                                  coupling of elastic and viscoplastic damage and effectively
+                                                                  captures time- and rate-dependent viscoplastic deforma-
+                                                                  tion, complex loading histories, and creep-fatigue inter-
+                                                                  actions; it is therefore well suited for describing the
+                                                                  viscoplastic response of OCA17,40,41.
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                                                Page 4 of 15
+
+  The general form of the Qian-Liu viscoplastic model is           and obtain the time-dependent relation for its tangent
+given by17:                                                        modulus.
+
+                                                                     Starting from:
+
+_sIs º T ﬁΩsinhAssﬁn                                   7ﬁ
+
+                                                                    º EI                                                                      14ﬁ
+
+_ I  º              ¿      X1  ¿  X   n                  8ﬁ         Differentiating both sides of Eq.n (13) with respect to
+        T ﬁ sinh                                                  time yields:
+                                     2
+
+                           D
+
+        A ss                  A1H 1     
+         A1                   A ss
+X1   º        1 ¿ exp    ¿           I                   9ﬁ       d º dE I ˛ Etﬁ dI                                                         15ﬁ
+
+                                                                   dt dt                dt
+
+        Ass                   A2H2      
+         A2                   A ss
+X2   º          1 ¿ exp    ¿         I                   10ﬁ      Here, we simplify the model by assuming that:
+
+                                                                   I º kt                                                                     16ﬁ
+
+Where T ﬁ denotes the thermal activation term, whose              Where kdenotes the strain rate. This assumption is
+explicit expression is:                                            based on the steady-state creep behavior, where the
+                                                                   plastic strain rate becomes constant after the initial
+                                                                   transient phase.
+                ¿Q
+T ﬁ º _0 exp     kT                                     11ﬁ        By substituting Eqs. (12) and (15) into Eq. (14) and
+                                                                   integrating both sides, the time-dependent relation for the
+  In the formulation, the back stresses X1 and X2 are              tangent modulus of the Qian-Liu model is obtained as:
+introduced to capture the short and long-range components
+of dislocation-mediated internal stress;_I and I denote the                             1 ¿ e ˛ 1 ¿ e ! ¿AA1Hs1s kt
+inelastic strain rate and inelastic strain, respectively;Q is the  Etﬁ º Ass                                      ¿AA2Hs2s kt                17ﬁ
+apparent activation energy;T the absolute temperature;G                      kt
+the shear modulus; D the drag stress; ss the saturation                                 A1                      A2
+stress; H1 and H2 are the strain-hardening coefficients, and
+these parameters will change with temperature, affecting the       Viscoelastic-Viscoplastic Constitutive Model
+strain; and A, A1, A2 are the back-stress coefficients. The
+Qian-Liu model conforms to the canonical Garofalo-                   In this study, the total strain is decomposed into vis-
+Arrhenius form and employs two back-stress components              coelastic and viscoplastic components, which are assumed
+to represent short and long-range internal stress effects,         to be uncoupled35,42:
+thereby providing a micromechanically grounded (disloca-
+tion-based) explanation of how temperature and strain rate         total º ve ˛ vp                                                            18ﬁ
+govern the material's mechanical response.
+                                                                   where the superscripts total, ve, and vp denote the total
+  Given the rapid stress saturation under tensile loading,         strain and the viscoelastic and viscoplastic strain compo-
+the plastic strain rates in Eqs. (7) and (8) can be regarded       nents, respectively. By multiplying Eqs. (4) and (16) by
+as equivalent, yielding the following expression:                  their corresponding strains and then summing, the
+                                                                   viscoelastic-viscoplastic constitutive relation for OCA is
+ º Darcsinh_IsTs ﬁn1 ˛ X1 ˛ X2                          12ﬁ      obtained.
+
+  For comparison, He et al. proposed a modified Qian-Liu                  "         XN           #                 e¿AA1Hs1s kt           e ! ¿AA2Hs2s kt
+formulation by introducing an additional temperature-                        E1 ˛
+dependent hardening stress term, which improves the                tﬁ º                Ei e¿ti  ve ˛ Ass    1  ¿                ˛  1  ¿                 vp
+description of temperature-dependent behavior. The                                                       kt
+modified expression can be written as:                                       iº1                                   A1                     A2
+
+                                                                                                                                              19ﬁ
+
+ º Darcsinh_sITs ﬁn1 ˛ X1 ˛ X2 ˛ HTﬁ                   13ﬁ      Materials and Methods
+
+  To facilitate subsequent parameter identification,               Specimen Selection
+we derive the differential form of the Qian-Liu model                At present, there is no unified standard for the pre-
+
+                                                                   paration of OCA specimens. Zhang et al. conducted
+                                                                   uniaxial tensile tests at a constant tensile rate using
+                                                                   specimens with different aspect ratios and found that, at
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                                                                                                                        Page 5 of 15
+
+a 0.45         Engineering stress (MPa)           The ratio of length to width:4:1                                                b                                                       30  experiment data
+                                                  The ratio of length to width:8:1                                                                                                        60  experiment data
+       0.30                                       The ratio of length to width:10:1                                                    0.030                                              85  experiment data
+       0.15                                                                                                                            0.025
+       0.00                                                                                                                                                100 200 300 400 500 600
+     ≠0.15                                              Engineering stress (MPa)  0.10     The ratio of length to width:4:1       Stress (MPa)  0.020                         Time(s)
+     ≠0.30                                                                        0.08     The ratio of length to width:8:1
+     ≠0.45                                                                                 The ratio of length to width:10:1                    0.015
+                                                                                                                                                0.010
+              0                                                                   0.06                                                          0.005
+                                                                                                                                                0.000
+c                                                                                               Deviation: 0.012MPa
+                                                                                                                                                        0
+       0.06                                                                       2.0      2.2     2.4
+       0.05
+                                                                                           Engineering strain(100%)
+
+                                                  2  4                                  6       8                             10
+
+                                                     Engineering strain(100%)
+
+               Relaxation modulus (MPa)                                                                         d
+
+                                                                                        30  experiment data
+                                                                                        60  experiment data
+                                                                                        85  experiment data
+
+                                         0.04
+
+                                         0.03
+
+                                         0.02
+
+                                         0.01
+
+                                         0.00     100 200 300 400 500 600
+                                               0                    Time(s)
+
+Fig. 2 Experimental setup and primary mechanical testing data. a Stress-strain data for specimens with different aspect ratios23; b stress and
+c relaxation modulus as a function of time from stress-relaxation experiments; d specimen maintained in tensile mode during testing
+
+a fixed rate of 100 mm/min and a temperature of 30∞C,                                                                             differences in relaxation times and equilibrium moduli--
+both the scatter and the trends of the measured data                                                                              so examining stress-relaxation behavior over a range of
+were essentially identical across aspect ratios; the size-                                                                        temperatures facilitates a micro-to-macro understanding
+induced deviation was within 10%, as shown in Fig. 2(a),                                                                          of its macroscopic mechanical characteristics.
+indicating that the material response is effectively scale-
+independent23. Accordingly, to meet the requirements of                                                                             Uniaxial stress-relaxation tests at 30, 60, and 85 ∞C were
+the testing apparatus, specimens with dimensions                                                                                  conducted on three specimens per group, and dynamic
+40 mm◊10 mm◊1 mm were employed for subsequent                                                                                     viscoelastic tests were performed on the OCA material;
+experiments.                                                                                                                      these temperatures were selected to span near-ambient,
+                                                                                                                                  intermediate, and engineering-relevant high-temperature
+Experimental Procedure                                                                                                            conditions commonly adopted in optoelectronic reliability
+  Tests of static mechanical behavior were conducted                                                                              assessment. For all three temperatures, the same target
+                                                                                                                                  tensile strain of 50% was applied and held constant for
+primarily via stress-relaxation and creep experiments,                                                                            10 min, ensuring consistent strain conditions for cross-
+both of which probe the time-dependent response of the                                                                            temperature comparison. The resulting time evolutions of
+material. In stress-relaxation measurements, polymer                                                                              stress and relaxation modulus are presented in Fig. 2b, c
+specimens are subjected to an instantaneous deformation                                                                           and were subsequently used to identify parameters for the
+at a prescribed temperature, and the decay of the stress                                                                          viscoelastic and viscoelastic-viscoplastic constitutive
+required to maintain the constant strain is recorded; the                                                                         models. Figure 2d shows the specimen, which remained in
+imposed strain is a step input. Stress-relaxation testing is                                                                      tensile mode throughout the experiment.
+particularly advantageous for elucidating polymer
+mechanics from the perspective of molecular mobility.                                                                               The dynamic viscoelastic tests were carried out using
+Moreover, temperature exerts a pronounced influence on                                                                            the DMA Q800, where a 0.01 N preload force and a 125%
+the mechanical response of OCA--manifested in                                                                                     force track were applied. The force track adjusted the total
+                                                                                                                                  force to avoid the sample from automatically buckling
+Zhou et al. Microsystems & Nanoengineering (2026)12:243       Page 6 of 15
+
+during the test. The amplitude of the sinusoidal force        temperature enhances segmental thermal mobility,
+applied to the samples was set to 20. Dynamic                 enlarges the free volume, and reduces intermolecular
+mechanical analysis (DMA) was performed to investigate        friction, thereby accelerating stress relaxation and low-
+the temperature-dependent viscoelastic behavior of the        ering both the equilibrium stress and the equilibrium
+OCA material. Temperature sweeps were conducted over          relaxation modulus. At low temperatures, stress decay is
+a broad range of temperatures, from -40∞C to 125∞C, with      primarily constrained by local segmental motions within
+oscillation frequencies selected at 1 Hz, 2 Hz, 5 Hz, and     the crosslinked network, whereas at elevated tempera-
+10 Hz. The temperature was changed at a rate of 3∞C per       tures cooperative segmental dynamics and network rear-
+minute, and this range was selected to refer to the J-STD-    rangement are significantly intensified, leading to a much
+020D standards. The resulting data were processed to          faster relaxation process.
+establish the viscoelastic model.
+                                                                To establish a constitutive relation suitable for sub-
+Results and discussions                                       sequent finite-element analysis, the relaxation responses
+  This section first performs parameter identification        at each temperature were fitted using a third-order gen-
+                                                              eralized Maxwell model so as to capture viscoelastic fea-
+from the stress-relaxation data using both a viscoelastic     tures across multiple time scales; goodness of fit was
+constitutive description and a viscoelastic-viscoplastic      evaluated by the coefficient of determination. As shown in
+counterpart. The viscoelastic response is represented by      Fig. 3a, with the corresponding Prony coefficients listed in
+a generalized Maxwell model, whereas the viscoplastic         Table 1, the fitted curves exhibit excellent agreement with
+response is formulated within the Qian-Liu framework via      the experimental data, with R2 values exceeding 0.98,
+its evolution equations. During fitting, to ensure cross-     indicating that the model reproduces the stress-relaxation
+temperature comparability and numerical stability, the        behavior of OCA with high fidelity. The parameter trends
+strain-rate parameter was held constant. Material para-       show that the three relaxation time constants 1; 2; 3
+meters for each model were obtained by nonlinear least-       correspond to fast segmental motion, mesoscale coop-
+squares regression, followed by a quantitative comparison     erative segmental dynamics, and long-time structural
+to assess the suitability and accuracy of the two models in   relaxation, respectively. With increasing temperature, all
+capturing the stress-relaxation behavior. The constitutive    three mechanisms accelerate markedly, leading to pro-
+models developed in Section 2 were subsequently imple-        nounced reductions in their characteristic relaxation
+mented in ABAQUS via a UMAT user subroutine to                times i. Meanwhile, the modal relaxation modulus gi
+construct a finite-element model of a flexible display and    decrease, reflecting an overall reduction in stiffness across
+conduct numerical simulations, after which the simula-        relaxation modes. This trend is consistent with prior
+tion results were validated and analyzed.                     findings for acrylate-based structural adhesives and
+                                                              underscores that the temperature sensitivity of OCA's
+Parameter Identification for the Viscoelastic                 viscoelasticity is closely linked to polymer chain flexibility.
+Constitutive Model
+                                                                To assess the model's external validity, a comparison
+  To quantitatively identify the temperature-dependent        was conducted with the generalized Maxwell fit reported
+viscoelastic characteristics of OCA, this section cali-       in Ref. 23, as both studies used the same experimental
+brates the constitutive parameters using the stress-          conditions and sample material. As shown in Fig. 3b and
+relaxation and DMA datasets described in Experi-              detailed in Table 1, both models successfully capture the
+mental Procedure. Specifically, the relaxation response is    temperature-dependent viscoelastic behavior of OCA.
+mapped to the constitutive formulation through least-         However, at 60 ∞C, the second-order model used in Ref. 23
+squares minimization between the measured and pre-            shows notable deviations in the intermediate time range.
+dicted stress histories, from which the viscoelastic and      In contrast, the third-order model employed here--using
+viscoelastic-viscoplastic parameters at 30, 60, and 85 ∞C     the same dataset--achieves significantly improved accu-
+are determined.                                               racy, with the coefficient of determination increasing from
+                                                              R2>0.97 to R2=0.9998. This confirms the superior cap-
+  As shown in Fig. 2b, c, both the stress and the relaxation  ability of the third-order formulation in resolving multi-
+modulus rise sharply within a very short time before the      scale relaxation dynamics, particularly in capturing
+target strain is reached; upon entering the relaxation        mid-term transitions.
+stage, both decrease markedly with time and eventually
+approach steady values. At 85 ∞C, the peak stress is            To further refine the quantitative characterization of
+approximately 12.65 kPa and rapidly decays to an equili-      OCA's viscoelasticity, we complemented the analysis with
+brium value of 1.84 kPa; correspondingly, the relaxation      dynamic mechanical testing. The storage-modulus data
+modulus decreases from 64.80 kPa to 9.51 kPa. These           obtained from the temperature sweeps were processed
+observations underscore the pronounced influence of           using the time-temperature superposition (TTS) princi-
+temperature on viscoelastic behavior: increasing              ple. The modulus curves measured at different
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                                                                                                    Page 7 of 15
+
+a            Relaxation modulus (MPa)                             30  experiment data                          b 0.08       Relaxation modulus(MPa)                30  experiment data
+                                                                  30  fitting curve                                                                                60  experiment data
+     0.06                                                         60  experiment data                               0.07                                           85  experiment data
+     0.05                                                         60  fitting curve                                  0.06                                          30  fitting curve
+     0.04                                                         85  experiment data                                0.05                                          60  fitting curve
+     0.03                                                         85  fitting curve                                  0.04                                          85  fitting curve
+     0.02                                                                                                            0.03
+     0.01                                    100 200 300 400 500 600                                                 0.02                                     200  400       600
+     0.00                                                     Time (s)                                              0.01
+                                                                                                                     0.00                                          Time (s)
+            0
+                                                                       ≠40   ≠35                                           0                                       Experimental data
+c                                                                      ≠30   ≠25                                                                                   Fitting curve
+                                                                       ≠20   ≠15                               d
+      103    Storage modulus (MPs)                                     ≠10   ≠5                                             Storage modulus (GPa)
+                                                                        0    5                                        3.0
+      102                                                              10    15                                       2.5
+                                                                       20    25                                       2.0
+      101                                                              30    35                                       1.5
+                                                                       40    45                                       1.0
+     1010                                                              50    55                                       0.5
+                                                                       60    65 
+                                                                       70    75 
+                                                                       80    85 
+                                                                       90    95 
+                                                                       100   105 
+                                                                       110   115 
+
+                                                                       120 
+
+                                       10≠6 10≠2        102       106  1010 1014                                                                     0.0
+                                                                                                                                                        10≠7 10≠4 10≠1 102 105 108 1011
+
+e                                            Arrhenius data                            Relaxation modulus (MPa)f 0.07                                              30  experiment data
+                                             WLF data                                                                                                              30  fitting curve
+       1.5                                   Arrhenius fit                                                          0.06                                           60  experiment data
+       1.0                                   WLF fit                                                                0.05                                           60  fitting curve
+       0.5                                                                                                          0.04                                           85  experiment data
+       0.0   log10 (T)                                                                                                                                             85  fitting curve
+
+                                       ≠0.5                                                                                                          0.03
+
+                                       ≠1.0                                                                                                          0.02
+
+                                       ≠1.5                                                                                                          0.01
+
+                                             ≠0.2 ≠0.1       0.0       0.1   0.2                                                                     0.00     100 200 300 400 500 600 700
+                                                                                                                                                           0                     Time (s)
+
+                                                        1/(T-Tref)
+
+Fig. 3 Constitutive model fitting and parameter identification. a Generalized Maxwell model fits at different temperatures; b Benchmark:
+generalized Maxwell fitting results from Ref. 23; c Storage-modulus master curve at the reference temperature of 0 ∞C; d Generalized Maxwell model fit
+to the master curve; e Master-curve shift factors and corresponding WLF/Arrhenius fits; f Viscoelastic-viscoplastic constitutive model fits at different
+
+temperatures
+
+temperatures were horizontally shifted along the loga-                                                                      provides a clear depiction of the viscoelastic behavior
+rithmic time axis to construct a storage-modulus master
+curve at a reference temperature of 0 ∞C, as shown in Fig.                                                                  across various temperatures, further supporting the
+3c. The fitting results indicate that the model accurately
+captures the viscoelastic behavior across a wide range of                                                                   validity of the model.The corresponding parameters for
+temperatures, providing a reliable basis for further ana-                                                                   the third-order Prony series are as follows:g1 = 0.845,
+lysis. The master curve was then fitted using a third-order                                                                 1 = 2.18◊10-4;g2 = 0.911,2i = 1.69◊10-3;and
+generalized Maxwell model, enabling faithful representa-                                                                    g3 = 0.354,4 = 3.68◊10-2.Additionally, the analysis of the
+tion of the viscoelastic response over extended time                                                                        shift factors obtained during master-curve construction
+scales. As shown in Fig. 3d, the fitted master curve                                                                        confirms the effectiveness of the time-temperature
+                                                                                                                            superposition principle in capturing the material's beha-
+
+                                                                                                                            vior at different temperatures. Fitting of the shift factors
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                            Page 8 of 15
+
+obtained during master-curve construction revealed that                  In these expressions, C1 and C2 are the universal con-
+the high-temperature regime (T>Tg, where Tg refers to the              stants of the WLF equation; the reference temperature is
+glass transition temperature of the material) follows the              set to Tref=0∞C; andH denotes the activation energy.
+Williams-Landel-Ferry (WLF) equation, whereas the low-                 The fitting results for the two relations are presented in
+temperature regime (T<Tg) conforms to an Arrhenius                     Fig. 3e. The corresponding parameters for the WLF
+relation, as follows:                                                  equation are C1 = -314.2019 and C2 = 43.9834, while the
+                                                                       parameters for the Arrhenius equation are k = 8.9812 and
+        1     º  R  ¡ loge10  ¡        1     ¿        1      ¿1        b = -0.0023064. They correspond, respectively, to relaxa-
+      log10T        H              T  ˛ 273           ˛  273           tion mechanisms dominated by segmental motion and by
+                                                Tref             20ﬁ  small-molecule motion, consistent with the temperature
+                                                                       dependence of chain mobility observed in the stress-
+              º k ¡ 1 ˛ b T < 273K                                     relaxation experiments.
+                    T
+                                                                         The mutual corroboration between dynamic and static
+      log10T  º  ¿   C1T ¿ Tref ﬁ        ﬁ  T > 273K            21ﬁ  viscoelastic tests provides multi-dimensional parameter
+                    C2 ˛ T ¿ Tref                                     support for constructing the OCA viscoelastic con-
+                                                                       stitutive model, ensuring accurate representation of the
+Table 1 Comparison of generalized Maxwell Prony                        material's mechanical response across broad temperature
+coefficients across temperature--this work vs. Ref. 23                 and time scales.
+
+Temperature i gi in this              gi in Ref. i in this  i in Ref.  Parameter Identification for the Viscoelastic-Viscoplastic
+                       work                                            Constitutive Model
+                                      23        work        23
+                                                                         Building on a combined generalized Maxwell viscoe-
+30∞C             1 0.4590             0.4248 15.115         14.368     lastic model and the Qian-Liu viscoplastic framework, we
+                                                                       performed parameter identification from stress-relaxation
+                 2 0.2371             0.2436 66.512         37.209     experiments conducted at 30, 60, and 85 ∞C. The fitted
+                                                                       responses are shown in Fig. 3f, and the identified para-
+                 3 0.1538             0.3315 338.661        161.71     meters are summarized in Table 2. By incorporating
+                                                                       back-stress and strain-hardening terms, the model sys-
+60∞C             1 0.6780             0.8166 4.608          15.034     tematically elucidates the temperature-dependent
+                                                                       mechanisms governing the material response and
+                 2 0.1504             0.1666 24.992         203.425    enables comparison and validation against established
+                                                                       frameworks in the literature.
+                 3 0.0839             -         184.486     -
+                                                                         In the viscoelastic part, the fittings indicate that the
+85∞C             1 0.5282             0.6172 4.761          16.281     instantaneous modulus and the modal relaxation moduli
+
+                 2 0.2293             0.2256 25.734         118.25
+
+                 3 0.1799             0.1563 241.154        236.26
+
+Table 2 Identified parameters for the viscoelastic-viscoplastic constitutive model
+
+Parameter category                           Parameter               30∞C            60∞C          85∞C
+Viscoplastic parameters
+                                             A                       0.000217 MPa¿1  32.357 MPa¿1  55.2781 MPa¿1
+Viscoelastic parameters                      A1                      992.295MPa¿1    815.396MPa¿1  805.166MPa¿1
+                                             A2                      992.282MPa¿1    813.468MPa¿1  804.600MPa¿1
+                                             H1                      23.1466MPa      393.812MPa    139.369MPa
+                                             H2                      79.796MPa       272.154MPa    205.569MPa
+                                             E1                      0.0153MPa       0.0116MPa     0.0068MPa
+                                             E1                      0.0185MPa       0.0459MPa     0.0079MPa
+                                             E2                      0.0449MPa       0.0102MPa     0.0138MPa
+                                             E3                      0.0241MPa       0.0088MPa     0.0192MPa
+                                             1                       0.415S          5.060S        7.859S
+                                             2                       18.451S         34.119S       32.510S
+                                             3                       146.756S        224.995S      276.661S
+Zhou et al. Microsystems & Nanoengineering (2026)12:243     Page 9 of 15
+
+decrease progressively with increasing temperature,         central tenets of the Qian-Liu framework and its sub-
+whereas the relaxation times shift toward longer time       sequent modifications. Parametric analysis confirms that
+scales. This trend suggests that, at low temperatures,      the response is viscoelasticity-dominated at low tem-
+chain segments are relatively constrained--yielding a       peratures, whereas viscoplastic contributions intensify
+higher modulus and rapid initial relaxation--while rising   markedly at elevated temperatures; accordingly, back-
+temperature markedly increases the degrees of freedom of    stress effects and strain-hardening mechanisms exhibit
+segmental thermal motion, leading to an overall reduction   pronounced temperature dependence. These findings
+in stiffness and a delayed relaxation process. This obser-  provide a robust experimental and theoretical basis for
+vation aligns with the conclusions of He et al. for         constructing a unified, temperature-dependent con-
+encapsulation underfills within a modified Qian-Liu fra-    stitutive description.
+mework, namely that mechanical properties deteriorate
+rapidly near the glass-transition region with a pronounced  Finite-Element Simulation Analysis
+drop in modulus, and that temperature-dependent             Simulation Setup
+apparent activation-energy or hardening-stress terms are
+required to adjust the predictive model so as to capture      To investigate the temperature-dependent mechanical
+this sharp decay.                                           response of OCA, a finite-element model of a flexible
+                                                            display was developed in ABAQUS. The overall model
+  In the viscoplastic regime, the temperature dependence    represents the thin-film stack of the display, and two rigid
+of the back-stress coefficients A, A1, A2 and the strain-   bending rollers were introduced at the mid-span to
+hardening coefficients H1, H2 further elucidates differ-    impose a bending configuration, as shown in Fig. 4a. Each
+ences in the inelastic evolution mechanisms. The results    roller has a diameter of 2 mm; one roller is fixed while the
+show that, with increasing temperature, the A parameters    other translates downward at a prescribed velocity,
+exhibit a pronounced upward trend, whereas A1 and A2        thereby inducing bending of the adhesive layer and adja-
+gradually decline,implying that at elevated temperatures    cent regions of the display. The right end of the panel is
+the back-stress term contributes more strongly to the       constrained, whereas the remaining portion is allowed to
+magnitude and accumulation rate of inelastic flow, indi-    deform freely under bending so as to reflect realistic
+cative of enhanced viscous drag and dynamic recovery        loading conditions. Contact between the rollers and the
+effects. This is consistent with the mechanism empha-       display was defined as surface-to-surface hard contact: a
+sized by He et al.18, namely increased chain disen-         "hard" normal constraint was employed, and tangential
+tanglement and greater freedom of molecular motion.         behavior included friction with a coefficient of 0.02 to
+Meanwhile, the hardening coefficients H1 and H2 reach a     better approximate practical conditions. The material
+maximum near 60 ∞C and recede at 85 ∞C. This"mid-           parameters assigned to each film layer in the stack are
+temperature strengthening-high-temperature weak-            summarized in Table 3, and the main contact settings in
+ening"behavior accords with the parameter-identification    ABAQUS are presented in Table 4.
+logic of the Qian-Liu framework: H1 and H2 are governed
+by transient features of deformation, and, in the vicinity    For discretization, the OCA layer was meshed with
+of the glass-transition region at elevated temperatures,    CPE4 four-node plane-stress elements; the rollers were
+matrix softening reduces the strain-hardening rate,         modeled as rigid bodies, and loading was applied via a
+leading to their decline.                                   reference point. To enhance accuracy, local mesh
+                                                            refinement was introduced in the bending region to
+  It is worth emphasizing that the physical meanings of     capture stress concentrations, as illustrated in Fig. 4b. To
+the back-stress parameters (AA1A2) and the hard-            ensure numerical accuracy, bending simulations under
+ening coefficients(H1H2)are explicitly defined in the       identical conditions were performed using meshes with
+original Qian-Liu framework: the former characterize the    27,489, 43,852, and 160,000 elements. The relative error
+accumulation and amplitude modulation of short and          of the maximum stress among these meshes is less than
+long-range back stresses, whereas the latter govern the     5%, confirming that the results are mesh-independent.
+evolution rate of back stress and the extent of hard-       Regarding material behavior, the functional film layers
+ening40. The temperature-dependent trends identified        were treated as linear elastic, whereas the OCA layer was
+here are highly consistent with reports of enhanced vis-    analyzed using two constitutive alternatives: a viscoe-
+coplastic flow and rapid degradation of mechanical          lastic model based on the generalized Maxwell for-
+properties at elevated temperatures, thereby further cor-   mulation and a viscoelastic-viscoplastic model that
+roborating the applicability of the Qian-Liu model to       augments the former with a plastic slip mechanism to
+polymer-based underfill materials.                          more faithfully represent irreversible deformation at
+                                                            elevated temperatures. Model parameters were taken
+  Taken together, the fitted results not only quantify the  from the preceding experimental identification,
+temperature-driven evolution of viscoelastic-viscoplastic   and simulations were carried out at 30, 60, and 85 ∞C.
+behavior, but are also mechanistically consistent with the
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                                                        Page 10 of 15
+
+a                                                                                                                      b
+
+                           V (mm/s)                                                                 Polarizer
+                                                                                                    Metal substrate
+          D=2mm                                                                                                                       V(mm/s)
+                                                                               D=2mm                                          Fixed
+                                            Cover plate                               OCA               Length:10mm 0.080
+                                            AMOLED                                    Backplane
+                                                                                                                               0.050
+            A  Contact point(1.0,0.4)                                                                                          0.047
+                                                                                                                               0.025
+Y                Contact pointB (6.0,0.4)                B                                                                     0.053
+         X                                                                                                                     0.025
+                                                                                                                               0.030
+                                                                                                                               0.050
+                                                                                                                               0.040
+                                                                                                               Thickness(mm)
+
+                                                         c                            U, Magnitude
+
+                                                                                      +3.013e+00
+                                                                                      +2.762e+00
+                                                                                      +2.511e+00
+                                                                                      +2.260e+00
+                                                                                      +2.009e+00
+                                                                                      +1.758e+00
+                                                                                      +1.507e+00
+                                                                                      +1.256e+00
+                                                                                      +1.004e+00
+                                                                                      +7534e-01
+                                                                                      +5.022e-01
+                                                                                      +2.511e-01
+                                                                                      +0.000e+00
+
+Fig. 4 Finite-element simulation setup and bending deformation. a Geometric model of the flexible display; b finite-element mesh; c schematic
+of displacement evolution during bending
+
+Table 3 Material parameters of each layer of film                                                                                     The evolution of the imposed displacement during
+                                                                                                                                      bending is depicted in Fig. 4c.
+Film Material                        Elasticity Modulus(MPa)                                        Poisson's ratio
+                                                                                                                                      Simulation Results and Comparative Analysis
+Cover Plate                          3500                                                           0.29                                Figure 5 summarizes the UMAT workflow implemented
+
+Polarizer                            3769                                                           0.33                              in ABAQUS. Figures 6 and 7 compare the simulated stress
+                                                                                                                                      fields obtained under identical geometry, loading, and
+Backplane                            5030                                                           0.32                              contact conditions using a purely viscoelastic (VE)
+                                                                                                                                      description and a coupled viscoelastic-viscoplastic (VE-
+Metal Substrate                      56590                                                          0.33                              VP) formulation. Both frameworks reproduce the overall
+                                                                                                                                      topology of the macroscopic stress distribution; however,
+Table 4 Main contact settings in ABAQUS                                                                                               they differ in peak magnitudes and in their temperature
+                                                                                                                                      dependence. For the VE model, the peak stress is
+Parameters                           Details                                                     Type                                 58.8 MPa at 30 ∞C, increasing to 61.1 MPa and 69.1 MPa at
+                                                                                                                                      60 ∞C and 85 ∞C, respectively,indicating a temperature-
+Step                                 Geometric Nonlinearity                                      on                                   induced intensification of stress concentration. In con-
+Interaction                          Discretization Method                                       Surface to Surface                   trast, the VE-VP model predicts consistently lower peak
+                                     Normal Behavior                                             "Hard" contact                       stresses--50.6 MPa at 30 ∞C, 53.8 MPa at 60 ∞C, and
+Load                                 Tangential Behavior                                         Penalty                              54.2 MPa at 85 ∞C--corresponding to decreases of 13.9%,
+Geometric Modification               Boundary Condition                                          Fixed/Displacement                   11.9%, and 21.6% relative to the VE results. Overall, the
+                                     Interface Treatment                                         Adjust to Touch                      VE-VP formulation results in lower peak stresses at all
+                                                                                                                                      temperatures and a weaker temperature sensitivity
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                 Page 11 of 15
+
+                   Input ABAQUS stress history and stress increment
+                      ABAQUS historical strain and stress increment
+
+                   Determine whether plastic
+                       deformation is reached
+
+Y                                                                    N
+
+                   Calculate consistent stiffness matrix and stress correction
+
+Calculate viscoelastic deviatoric strain and volumetric strain increment
+
+Calculate viscoplastic strain increment                          Viscoplastic strain
+   and viscoplastic operator increment                            increment is zero
+
+                   Calculate residual stress
+
+Stress correction     Determine whether                              Stress correction
+                   residual stress is less than
+
+                        allowable value
+
+                                                                  Update relevant stress and strain values
+
+Fig. 5 Workflow of the ABAQUS UMAT subroutine. UMAT calculation workflow: input reception, plastic deformation judgment, strain and stiffness
+calculation, iterative residual stress correction, and stress-strain update
+
+compared with the VE model, indicating moderated stress          markedly suppresses the local stress level compared with
+concentrations under identical geometry, loading, and            the purely viscoelastic description, consistent with the
+contact conditions.                                              reduced peak stresses observed in Figs. 6 and 7.
+
+  To further elucidate how the viscoelastic and visco-             From an energy perspective, Table 5 further indicates
+plastic mechanisms give rise to these field-level differ-        that, under the same bending conditions, the accumulated
+ences in stress distribution and deformation evolution, we       strain energy (ALLSE) predicted by the VE-VP model is
+extracted the local stress≠strain response and the strain-       consistently and significantly lower than that of the VE
+energy evolution from ABAQUS. The corresponding                  model at all temperatures. This demonstrates that intro-
+output variables (stress≠strain and strain energy≠time)          ducing viscoplasticity reduces the recoverable energy
+are summarized in Table 5. The extracted data were then          storage capacity of the system and effectively constrains
+used to plot the stress≠strain and strain energy≠time            the overall energy accumulation, thereby providing an
+curves for both the VE and VE-VP models at different             energetic explanation for the moderated stress con-
+temperatures, as shown in Fig. 8. The results show that, at      centration and weakened temperature sensitivity captured
+the initial stage, the local strain levels predicted by the two  by the VE-VP framework.
+models remain low and their responses are relatively
+close. As bending proceeds into the intermediate-to-late         Conclusions
+stage, the discrepancy between the two frameworks                  This study investigates the mechanical response of OCA
+rapidly amplifies: the coupled VE-VP formulation
+                                                                 across multiple temperatures and systematically develops
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                    Page 12 of 15
+
+a                                                            b
+
+         S, Mises                                                      S, Mises
+
+         (Avg: 75%)                                                    (Avg: 75%)
+
+                 +5.884e+01                                                   +6.105e+01
+                 +5.394e+01                                                   +5.596e+01
+                 +4.904e+01                                                   +5.088e+01
+                 +4.413e+01                                                   +4.579e+01
+                 +3.923e+01                                                   +4.070e+01
+                 +3.433e+01                                                   +3.561e+01
+                 +2.942e+01                                                   +3.053e+01
+                 +2.452e+01                                                   +2.544e+01
+                 +1.961e+01                                                   +2.035e+01
+                 +1.471e+01                                                   +1.526e+01
+                 +9.807e+00                                                   +1.018e+01
+                 +4.904e+00                                                   +5.088e+00
+                 +1.962e-04                                                   +1.944e-04
+
+                               c
+
+                                         S, Mises
+
+                                         (Avg: 75%)
+
+                                                 +6.909e+01
+                                                 +6.333e+01
+                                                 +5.757e+01
+                                                 +5.182e+01
+                                                 +4.606e+01
+                                                 +4.030e+01
+                                                 +3.454e+01
+                                                 +2.879e+01
+                                                 +2.303e+01
+                                                 +1.727e+01
+                                                 +1.151e+01
+                                                 +5.758e+00
+                                                 +2.100e-04
+
+Fig. 6 Representative simulation results of the viscoelastic constitutive model. von Mises stress distribution at a 30 ∞C, b 60 ∞C, c 85 ∞C
+
+a                                                            b
+           S, Mises
+                                                                       S, Mises
+           (Avg: 75%)
+                                                                       (Avg: 75%)
+                   +5.057e+01
+                   +4.636e+01                                                  +5.377e+01
+                   +4.214e+01                                                  +4.929e+01
+                   +3.793e+01                                                  +4.481e+01
+                   +3.372e+01                                                  +4.033e+01
+                   +2.950e+01                                                  +3.585e+01
+                   +2.529e+01                                                  +3.137e+01
+                   +2.107e+01                                                  +2.689e+01
+                   +1.686e+01                                                  +2.241e+01
+                   +1.264e+01                                                  +1.792e+01
+                   +8.429e+00                                                  +1.344e+01
+                   +4.215e+00                                                  +8.962e+00
+                   +1.437e-04                                                  +4.481e+00
+                                                                               +3.382e-04
+
+                               c
+                                         S, Mises
+
+                                         (Avg: 75%)
+
+                                                 +5.418e+01
+                                                 +4.967e+01
+                                                 +4.515e+01
+                                                 +4.064e+01
+                                                 +3.612e+01
+                                                 +3.161e+01
+                                                 +2.709e+01
+                                                 +2.258e+01
+                                                 +1.806e+01
+                                                 +1.355e+01
+                                                 +9.031e+00
+                                                 +4.516e+00
+                                                 +4.166e-04
+
+Fig. 7 Representative simulation results of the viscoelastic≠viscoplastic constitutive model. von Mises stress distribution at a 30 ∞C, b 60 ∞C,
+c 85 ∞C
+
+and compares two constitutive descriptions--viscoelastic                                   revealing a pronounced temperature dependence:
+and viscoelastic-viscoplastic. Key parameters were iden-                                   increasing temperature enhances segmental
+tified from stress-relaxation and creep-recovery experi-                                   mobility and reduces internal dissipation, thereby
+ments and validated via finite-element simulations. The                                    decreasing both the equilibrium stress and the
+principal conclusions are as follows:                                                      equilibrium relaxation modulus. At 85 ∞C the
+                                                                                           initial stress is approximately 12.6 kPa and the
+  (1) The viscoelastic mechanical response was                                             equilibrium relaxation modulus is about 9.51 kPa,
+         characterized using a generalized Maxwell model,
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                                                                                                             Page 13 of 15
+
+Table 5 Key response indicators from FE simulations for VE and VE-VP models
+
+Temperature  viscoelastic constitutive model                                                                       viscoelastic≠viscoplastic constitutive model
+
+             Stress (MPa)  Strain                   Time (s)     Strain Energy                                     Stress(MPa)              Strain       Time(s)                    Strain Energy
+
+30∞C         0.0058        0.069                    0.758        0.00030                                           0.0026                   0.064        0.758                      9.19e-5
+
+             0.102         0.912                    6.28         0.0359                                            0.0234                   0.562        6.28                       0.0066
+
+             0.105         0.941                    10           0.0382                                            0.0355                   0.814        10                         2.0149
+
+60∞C         0.0091        0.071                    0.758        0.00041                                           0.0134                   0.058        0.758                      0.00023
+
+             0.118         0.946                    6.28         0.0334                                            0.0487                   0.800        6.28                       0.0142
+
+             0.123         0.994                    10           0.0353                                            0.0505                   0.840        10                         0.0155
+
+85∞C         0.0125        0.069                    0.758        0.00051                                           0.0153                   0.057        0.758                      0.00026
+
+             0.195         0.991                    6.28         0.0463                                            0.0531                   0.807        6.28                       0.0145
+
+             0.197         0.995                    10           0.0491                                            0.0544                   0.835        10                         0.0158
+
+             a             30 ∞C VE-VP model                      (1.026, 0.1972)       b                          30 ∞C VE-VP model                      (0.840, 0.0505)
+                           60 ∞C VE-VP model                 (1.991, 0.1951)                                       60 ∞C VE-VP model                 (0.835, 0.0544)
+                  0.200    85 ∞C VE-VP model                                                 0.05                  85 ∞C VE-VP model
+                                                                                                                                                                   (0.801, 0.0487)
+                  0.175                                                                      0.04                                                         (0.814, 0.0355)
+
+             0.150                                                                                                                                  (0.562, 0.0234)
+             0.125
+             Stress(MPa)
+                                                                                            Stress(MPa)
+                                                                    (0.994, 0.1231)                      0.03
+                                                             (0.946, 0.1181)
+
+             0.100                                                  (0.941, 0.1049)                      0.02
+             0.075                                           (0.912, 0.1016)                             0.01
+
+             0.050                                                                                                     (0.057, 0.0153)
+                              (0.071, 0.0091)                                                                      (0.058, 0.0134)
+
+             0.025                                                                                       0.00      (0.064, 0.0026)          0.4     0.6      0.8
+                                                                                                              0.0                           Strain
+                                               (0.070, 0.0059)                                                         0.2
+
+             0.000
+                   0.0 0.2 0.4 0.6 0.8 1.0
+                                                Strain
+
+                                   c 0.05Strain enery(J)      30 ∞C (VE)
+                                                              30 ∞C (VE-VP)
+                                        0.04                  60 ∞C (VE)
+                                        0.03                  60 ∞C (VE-VP)
+                                                              85 ∞C (VE)
+                                                              85 ∞C (VE-VP)
+
+                                                    0.02
+
+                                                    0.01
+
+                                                    0.00  0   2                      4                   6         8                    10
+
+                                                                                     Time(s)
+
+Fig. 8 Local stress-strain response and total strain energy evolution during bending. Stress≠strain curves predicted by a the viscoelastic
+constitutive model and b the viscoelastic≠viscoplastic constitutive model. c Total strain energy (ALLSE) evolution under bending comparing the VE
+and VE≠VP models at 30, 60, and 85 ∞C
+
+      representing reductions of 37.72% and 23.61%                                                             0.6628 MPa--with the steepest decline occurring
+      relative to those at 30 ∞C and 60 ∞C, respectively. In                                                   near the glass-transition temperature(Tg = 0 ∞C). A
+      dynamic mechanical tests, the storage modulus                                                            generalized Maxwell model with a three-term
+      decreases monotonically with increasing scan                                                             Prony series accurately reproduces the master-
+      temperature--from 1666.3 MPa down to                                                                     curve data, and temperature shift factors in both
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                        Page 14 of 15
+
+         the high and low-temperature regimes are well                         Received: 8 September 2025 Revised: 3 April 2026 Accepted: 20 April 2026
+         captured by the corresponding fits.
+  (2) In parallel, a viscoelastic-viscoplastic model,                          References
+         constructed by coupling the generalized Maxwell                        1. Priyadarshi, A. et al. Characterization of optical properties of acrylate based
+         model with the Qian-Liu framework, was                                      adhesives exposed to different temperature conditions. J. Appl. Polym. Sci. 98,
+         compared with the proposed viscoelastic model.                              950≠956 (2005).
+         Both models faithfully capture the salient features                    2. Campbell, C. J. Optically clear adhesives. in Handbook of Visual Display Tech-
+         of the OCA stress-relaxation data and accurately                            nology (eds. Chen, J., Cranton, W. & Fihn, M.), 1501≠1514 (Springer Interna-
+         reflect the temperature dependence of its                                   tional Publishing, 2016).
+         mechanical behavior.During the parameter fitting                       3. Min, J. & Qu, J. Optically clear pressure-sensitive adhesive with flexible cross-
+         process using the viscoelastic-viscoplastic model,                          linking agent for high recovery efficiency, low energy storage modulus, and
+         the viscoplastic-related parameters at 60 ∞C and                            excellent folding resistance. Polym. Adv. Technol. 35, e6574 (2024).
+         85 ∞C significantly exceed those at 30 ∞C. This                        4. Cao, J. et al. Large strain mechanical behaviors of optically clear adhesives for
+         phenomenon indicates that the viscoelastic                                  flexible electronic devices under different temperature, humidity, and strain
+         characteristics of the OCA adhesive diminish                                rates. J. Appl. Polym. Sci. 141, e55868 (2024).
+         with increasing temperature.                                           5. Du, Y., Bai, Y., Cao, W., Meng, L. & Bai, Y. Research progress on displays and
+  (3) ABAQUS-based simulations furnish robust                                        optical adhesives for flexible 3C products. Eur. Polym. J. 212, 113053 (2024).
+         theoretical and numerical support for the                              6. Leo, K. Organic light-emitting diodes: Efficient and flexible solution. Nat.
+         structural optimization and reliability assessment                          Photonics 5, 716≠718 (2011).
+         of flexible OLED devices.                                              7. Lee, S.-M., Kwon, J. H., Kwon, S. & Choi, K. C. A review of flexible OLEDs toward
+  The present results demonstrate that the proposed                                  highly durable unusual displays. IEEE Trans. Electron Devices 64, 1922≠1931
+constitutive≠FE framework can effectively capture the                                (2017).
+temperature-dependent mechanical response of the OCA                            8. Cho, D.-H. et al. Flexible integrated OLED substrates prepared by printing and
+and provides a feasible basis for device-level stress                                plating process. Org. Electron. 50, 170≠176 (2017).
+assessment. However, the current implementation                                 9. Lee, S.-W. et al. Optical properties and UV-curing behaviors of optically clear
+remains subject to limitations: the material parameters                              semi-interpenetrated structured acrylic pressure sensitive adhesives. Int. J.
+were calibrated for a specific OCA under a restricted set                            Adhes. Adhes. 38, 5≠10 (2012).
+of experimental conditions, and the finite-element ana-
+lysis was conducted using a simplified two-dimensional                         10. Sadeghzade, S. et al. Soft acrylate monomer-based optically clear adhesive for
+configuration. Therefore, further work is warranted to                               foldable electronics: Mechanical characterization and fractography analysis
+validate and extend the framework under more complex                                 under large strain. Eur. Polym. J. 197, 112337 (2023).
+loading paths and within more realistic three-dimensional
+structural models.                                                             11. Ma, R. et al. Flexible active-matrix OLED displays: Challenges and progress. J.
+                                                                                     Soc. Inf. Disp. 16, 169≠175 (2008).
+Acknowledgements
+This work was supported by the National Key R&D Program of China (No.          12. Wang, W., Jia, Y., Li, H., Jiang, M. & Zhang, Z. Mechanical simulation of foldable
+2022YFB3207100), the Hubei Provincial Strategic Scientist Training Plan (No.         organic light-emitting diode display supporting layer. J. Soc. Inf. Disp. 29,
+2022EJD009), and the Fundamental Research Funds for the Central Universities         723≠730 (2021).
+(No. 2042023kf1041).
+                                                                               13. Baek, S.-S. & Hwang, S.-H. Preparation of biomass-based transparent pressure-
+Author details                                                                       sensitive adhesives for optically clear adhesive and their adhesion perfor-
+1KeyLaboratory of Transients in Hydraulic Machinery, Ministry of Education,          mance. Eur. Polym. J. 92, 97≠104 (2017).
+School of Power and Mechanical Engineering, Wuhan University, Wuhan,
+China. 2Innvoation School of Integrated Circuits, Hefei University of          14. Li, S., Liu, X., Li, R. & Su, Y. Shear deformation dominates in the soft adhesive
+Technology, Hefei, China. 3School of Integrated Circuits, Wuhan University,          layers of the laminated structure of flexible electronics. Int. J. Solids Struct.
+Wuhan, China. 4School of Microelectronics, Hefei University of Technology,           110≠111, 305≠314 (2017).
+Hefei, China
+                                                                               15. Jin, D. et al. Highly robust flexible AMOLED display on plastic substrate with
+Data availability                                                                    new structure. SID Symp. Dig. Tech. Pap. 41, 703≠705 (2010).
+Data sharing is not applicable to this article as no new date were created or
+analyzed in this study.                                                        16. Wang, H. et al. Investigating the dynamic mechanical behaviors of polyurea
+                                                                                     through experimentation and modeling. Def. Technol. 15, 875≠884 (2019).
+Competing interests
+Sheng Liu is an Editor for the journal, the remaining authors have no          17. Qian, Z., Wang, J., Yang, J. & Liu, S. Visco-elastic-plastic properties and con-
+competing interest.                                                                  stitutive modeling of underfills. IEEE Trans. Compon. Packag. Technol. 22,
+                                                                                     152≠157 (1999).
+
+                                                                               18. He, T., Zhang, Z., Wang, S., Dong, F. & Liu, S. A modified Qian-Liu constitutive
+                                                                                     model based on advanced packaging underfill materials. Mater. Sci. Semicond.
+                                                                                     Process. 176, 108340 (2024).
+
+                                                                               19. Wang, M., Chen, D., Feng, W. & Zhong, A. Synthesis and characterization of
+                                                                                     optically clear pressure-sensitive adhesive. Mater. Trans. 56, 895≠898 (2015).
+
+                                                                               20. Fan, Z., Li, D., Lei, X. & Wei, Y. A network-based transversely isotropic visco-
+                                                                                     hyperelastic constitutive model accounting for pendant chains. Mech. Mater.
+                                                                                     203, 105261 (2025).
+
+                                                                               21. Yeh, M.-K., Chang, L.-Y., Cheng, H.-C. & Wang, P.-H. Bending stress analysis of
+                                                                                     laminated foldable touch panel. Procedia Eng. 79, 189≠193 (2014).
+
+                                                                               22. Ma, L. & Gu, J. 3D bending simulation and mechanical properties of the OLED
+                                                                                     bending area. Open Phys. 18, 397≠407 (2020).
+
+                                                                               23. Zhang, Y. et al. Mechanical behavior and constitutive model characteriza-
+                                                                                     tion of optically clear adhesive in flexible devices. Micromachines 13, 301
+                                                                                     (2022).
+
+                                                                               24. Salmon, F. et al. 64-1: Modeling the mechanical performance of a foldable
+                                                                                     display panel bonded by 3M optically clear adhesives. SID Symp. Dig. Tech.
+                                                                                     Pap. 48, 938≠941 (2017).
+
+                                                                               25. Zhao, T. et al. A network-based visco-hyperelastic constitutive model for
+                                                                                     optically clear adhesives. Extrem. Mech. Lett. 51, 101594 (2022).
+Zhou et al. Microsystems & Nanoengineering (2026)12:243                                     Page 15 of 15
+
+26. Cheng, A., Wei, Q., Jin, J., Su, T. & Peng, D. 84-2: Study on reliability for impact    35. Chen, Y. & Smith, L. V. A nonlinear viscoelastic≠viscoplastic model for adhe-
+      and rolling of film stacks in rollable AMOLED display by finite element analysis.           sives. Mech. Time Depend. Mater. 25, 565≠579 (2021).
+      SID Symp. Dig. Tech. Pap. 51, 1265≠1268 (2020).
+                                                                                            36. Groth, H. L. Viscoelastic and viscoplastic stress analysis of adhesive joints. Int. J.
+27. Jia, Y., Liu, Z., Wu, D., Chen, J. & Meng, H. Mechanical simulation of foldable               Adhes. Adhes. 10, 207≠213 (1990).
+      AMOLED panel with a module structure. Org. Electron. 65, 185≠192 (2019).
+                                                                                            37. Liang, Z., Li, J., Zhang, X. & Kan, Q. A viscoelastic-viscoplastic constitutive model
+28. Chae, Y. et al. Optimal design of thickness and Young's modulus of multi-                     and its finite element implementation of amorphous polymers. Polym. Test.
+      layered foldable structure considering bending stress, neutral plane and                    117, 107831 (2023).
+      delamination under 2.5 mm radius of curvature. Int. J. Precis. Eng. Manuf. 19,
+      1143≠1154 (2018).                                                                     38. Qi, Z., Hu, N., Li, G., Zeng, D. & Su, X. Constitutive modeling for the elastic-
+                                                                                                  viscoplastic behavior of high density polyethylene under cyclic loading. Int. J.
+29. Ha, M.-H., Choi, J.-K., Park, B.-M. & Han, K.-Y. Highly flexible cover window using           Plast. 113, 125≠144 (2019).
+      ultra-thin glass for foldable displays. J. Mech. Sci. Technol. 35, 661≠668 (2021).
+                                                                                            39. Zhao, B., Hu, J., Chen, W., Chen, J. & Jing, Z. A nonlinear uniaxial stress-strain
+30. Lee, T.-H., Kim, J.-S., Lee, J.-H. & Kim, H.-J. Pressure-sensitive adhesives for              constitutive model for viscoelastic membrane materials. Polym. Test. 90,
+      flexible display applications. in Hybrid Nanomaterials - Flexible Electronics               106633 (2020).
+      Materials (eds. Vargas-Bernal, R., He, P. & Zhang, S.), (IntechOpen, 2020).
+                                                                                            40. Qian, Z., Ren, W. & Liu, S. A damage coupling framework of unified visco-
+31. Park, Y. et al. Biomass-derived optically clear adhesives for foldable displays.              plasticity for the fatigue of solder alloys. J. Electron. Packag. 121, 162≠168
+      ChemSusChem. 17, e202301795 (2024).                                                         (1999).
+
+32. Kim, S. et al. Fabrication of highly elastic and optically transparent adhesive         41. Zhang, Z. et al. The comparison of Qian-Liu model and Anand model for
+      films for flexible displays using multifunctional photocrosslinker. Mol. Cryst. Liq.        uniaxial tensile test of SAC305. in Proceedings of the 20th International Con-
+      Cryst. 740, 28≠34 (2022).                                                                   ference on Electronic Packaging Technology 1≠5 (IEEE, 2019).
+
+33. Chaboche, J. L. A review of some plasticity and viscoplasticity constitutive            42. Dufour, L., Bourel, B., Lauro, F., Haugou, G. & Leconte, N. A viscoelastic-
+      theories. Int. J. Plast. 24, 1642≠1693 (2008).                                              viscoplastic model with non associative plasticity for the modelling of
+                                                                                                  bonded joints at high strain rates. Int. J. Adhes. Adhes. 70, 304≠314
+34. Li, X., Li, W., Huo, M. & Xu, J. Experimental study on the constitutive model of              (2016).
+      optically clear adhesive films under rapid loading. J. Appl. Polym. Sci. 140,
+      e53376 (2023).
+
