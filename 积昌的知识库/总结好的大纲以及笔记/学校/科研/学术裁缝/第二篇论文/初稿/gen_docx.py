@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
-"""SCI-manuscript md -> docx converter (Paper #2 · Materials and Methods).
+"""SCI-manuscript md -> docx converter (Paper #2).
+
+Supports ONE OR MORE chapter .md files, rendered in order into a single Word
+document (chapters separated by a page break), so that the manuscript grows
+continuously as new chapters are written.
 
 Formulae are typeset with matplotlib mathtext and embedded as transparent PNGs,
-so that they appear as proper typeset equations in Word (Journal-grade layout):
+so that they appear as proper typeset equations in Word (journal-grade layout):
     body            Times New Roman 10.5 pt, justified
     headings        bold, 12 / 11 / 10.5 pt
     page            US Letter 8.5 x 11 in, 1 in margins
     equation        centred, with the equation number flush right
 
 Usage:
-    python gen_docx.py --md <chapter.md> --out <chapter.docx> --label "Materials and Methods"
+    python gen_docx.py --md <ch1.md> [<ch2.md> ...] --out <manuscript.docx> \
+        --label "Materials and Methods  ·  Results and Discussion"
 """
 import re, argparse, os, hashlib, shutil
 import matplotlib
@@ -138,25 +143,9 @@ def new_doc():
     return doc
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--md', required=True)
-    ap.add_argument('--out', required=True)
-    ap.add_argument('--label', default='Materials and Methods')
-    a = ap.parse_args()
-
-    tmpdir = '_eqimg'
-    shutil.rmtree(tmpdir, ignore_errors=True)
-    os.makedirs(tmpdir, exist_ok=True)
-
-    doc = new_doc()
-    add_rich(doc, TITLE, size=16, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=10)
-    add_rich(doc, AUTHORS, size=11, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=2)
-    add_rich(doc, AFFIL + "  ·  Draft — " + a.label,
-             size=9, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=14)
-    doc.paragraphs[-1].runs[0].italic = True
-
-    lines = open(a.md, encoding='utf-8').read().splitlines()
+def render_chapter(doc, md_path, tmpdir):
+    """Render one chapter .md file into `doc`."""
+    lines = open(md_path, encoding='utf-8').read().splitlines()
     i, n = 0, len(lines)
     infence = False
     while i < n:
@@ -223,9 +212,35 @@ def main():
         add_rich(doc, s, size=10.5, align=WD_ALIGN_PARAGRAPH.JUSTIFY)
         i += 1
 
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--md', nargs='+', required=True,
+                    help='one or more chapter .md files, rendered in the given order')
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--label',
+                    default='Materials and Methods  ·  Results and Discussion')
+    a = ap.parse_args()
+
+    tmpdir = '_eqimg'
+    shutil.rmtree(tmpdir, ignore_errors=True)
+    os.makedirs(tmpdir, exist_ok=True)
+
+    doc = new_doc()
+    add_rich(doc, TITLE, size=16, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=10)
+    add_rich(doc, AUTHORS, size=11, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=2)
+    add_rich(doc, AFFIL + "  ·  Draft — " + a.label,
+             size=9, align=WD_ALIGN_PARAGRAPH.CENTER, sb=0, sa=14)
+    doc.paragraphs[-1].runs[0].italic = True
+
+    for k, md_path in enumerate(a.md):
+        if k:                       # start each new chapter on a fresh page
+            doc.add_page_break()
+        render_chapter(doc, md_path, tmpdir)
+
     doc.save(a.out)
     shutil.rmtree(tmpdir, ignore_errors=True)
-    print('saved:', a.out)
+    print('saved:', a.out, '| chapters:', len(a.md))
 
 
 if __name__ == '__main__':
